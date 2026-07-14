@@ -8,8 +8,11 @@
   <link rel="stylesheet" href="css/style.css" />
   <link rel="stylesheet" href="css/animations.css" />
   <link rel="stylesheet" href="css/theme.css" />
+  <link rel="stylesheet" href="css/rtl.css" />
   <!-- Theme JS (apply saved preference immediately before first paint) -->
   <script src="js/theme.js"></script>
+  <!-- RTL JS (apply saved direction immediately before first paint) -->
+  <script src="js/rtl.js"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
   <style>
     .gallery-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(300px,1fr)); gap:1rem; }
@@ -89,6 +92,10 @@
         <svg class="icon-moon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
           <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
         </svg>
+      </button>
+      <!-- RTL / LTR Toggle -->
+      <button class="rtl-toggle" aria-label="Toggle RTL / LTR text direction" title="Toggle text direction">
+        <span class="rtl-toggle__label">RTL</span>
       </button>
 <a href="contact.html#booking" class="btn btn-primary btn-sm">Book Now</a>
       <button class="navbar__toggle"><span></span><span></span><span></span></button>

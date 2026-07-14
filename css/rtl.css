@@ -1,0 +1,367 @@
+/* ============================================================
+   RTL.CSS — Right-to-Left Language Support
+   Applied via [dir="rtl"] selector — zero LTR styles modified.
+
+   KEY PRINCIPLE: setting dir="rtl" on <html> already reverses
+   flex-direction row, text alignment to "start" (right), and
+   inline direction for ALL elements automatically.
+   This file ONLY needs to handle:
+     1. Physical position overrides (left/right/top/bottom)
+     2. Content changes (e.g. '→' to '←')
+     3. Explicit centering preservation
+     4. RTL toggle button styling
+   ============================================================ */
+
+/* ─── RTL TOGGLE BUTTON ─── */
+.rtl-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 38px;
+  padding: 0 0.75rem;
+  border-radius: var(--r-md);
+  border: 1px solid var(--th-border);
+  background: var(--th-card);
+  color: var(--th-text);
+  cursor: pointer;
+  flex-shrink: 0;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  font-family: var(--font-primary);
+  transition: var(--t-fast);
+}
+.rtl-toggle:hover {
+  border-color: var(--blue);
+  background: rgba(37, 99, 235, 0.08);
+  color: var(--blue);
+}
+.rtl-toggle__label { pointer-events: none; }
+
+/* Light Mode */
+[data-theme="light"] .rtl-toggle {
+  background: #F1F5F9;
+  border-color: #CBD5E1;
+  color: #0F172A;
+}
+[data-theme="light"] .rtl-toggle:hover {
+  background: rgba(37, 99, 235, 0.1);
+  border-color: var(--blue);
+  color: var(--blue);
+}
+
+/* ─────────────────────────────────────────────────────────────
+   NAVBAR
+   dir="rtl" already reverses flex row order naturally, so:
+   - Logo goes to the right side (last flex item visually → right)
+   - Actions go to the left side (first flex item visually → left)
+   - Nav links stay in the middle
+   No flex-direction overrides needed here.
+   ───────────────────────────────────────────────────────────── */
+
+/* Profile dropdown: in RTL it is on the left side of the navbar.
+   Anchor it to the left edge of the trigger so it opens rightward. */
+[dir="rtl"] .profile-dropdown-menu {
+  right: auto;
+  left: 0;
+}
+[dir="rtl"] .navbar__mobile .profile-dropdown-menu {
+  left: 50%;
+  right: auto;
+}
+
+/* Navbar item dropdown: center it on its parent */
+[dir="rtl"] .navbar__dropdown {
+  left: auto;
+  right: 50%;
+  transform: translateX(50%);
+}
+
+/* Mobile close button: moves to the left side in RTL */
+[dir="rtl"] .navbar__mobile-close {
+  right: auto !important;
+  left: 1.5rem !important;
+}
+
+/* ─────────────────────────────────────────────────────────────
+   HERO (home page — content is NOT centered, so dir=rtl moves
+   text to the right. hero__cta flex adjusts naturally.)
+   ───────────────────────────────────────────────────────────── */
+
+/* Scroll indicator — physical position, must be overridden */
+[dir="rtl"] .hero__scroll {
+  right: auto;
+  left: 3rem;
+}
+
+/* ─────────────────────────────────────────────────────────────
+   PAGE HERO (inner pages — these are CENTER-aligned).
+   dir="rtl" does NOT affect text-align:center.
+   Keep breadcrumb's directional chevrons flipped only.
+   ───────────────────────────────────────────────────────────── */
+
+/* Flip breadcrumb separator chevrons only */
+[dir="rtl"] .page-hero__breadcrumb .fa-chevron-right,
+[dir="rtl"] .page-hero__breadcrumb i.fa-angle-right {
+  transform: scaleX(-1);
+}
+
+/* ─────────────────────────────────────────────────────────────
+   SECTION HEADERS
+   Sections that were center-aligned in LTR remain center-aligned.
+   Sections with text-align:start (left in LTR) will naturally
+   become right-aligned under dir="rtl".
+   No explicit overrides needed — do not add text-align:right here.
+   ───────────────────────────────────────────────────────────── */
+
+/* ─────────────────────────────────────────────────────────────
+   TIMELINE — physical left/right positions must be overridden
+   ───────────────────────────────────────────────────────────── */
+
+[dir="rtl"] .timeline {
+  padding-left: 0;
+  padding-right: 2.5rem;
+}
+[dir="rtl"] .timeline::before {
+  left: auto;
+  right: 0;
+}
+[dir="rtl"] .timeline-item::before {
+  left: auto;
+  right: -2.7rem;
+}
+
+/* ─────────────────────────────────────────────────────────────
+   PROCESS STEPS — flip the → arrow to ← and move to left side
+   ───────────────────────────────────────────────────────────── */
+
+[dir="rtl"] .process-step::after {
+  content: '←';
+  right: auto;
+  left: -1rem;
+}
+
+/* ─────────────────────────────────────────────────────────────
+   FEATURE ITEMS hover — mirror the translateX hover animation
+   (The icon/text order reversal is handled automatically by dir=rtl)
+   ───────────────────────────────────────────────────────────── */
+
+[dir="rtl"] .feature-item:hover {
+  transform: translateX(-4px);
+}
+
+/* ─────────────────────────────────────────────────────────────
+   SPLIT LAYOUT — image badge uses physical right: position
+   ───────────────────────────────────────────────────────────── */
+
+[dir="rtl"] .split__img-badge {
+  right: auto;
+  left: 1.5rem;
+}
+
+/* ─────────────────────────────────────────────────────────────
+   FORMS — inputs need explicit right-alignment since they use
+   physical padding; also icon position is physical
+   ───────────────────────────────────────────────────────────── */
+
+[dir="rtl"] .form-group input,
+[dir="rtl"] .form-group select,
+[dir="rtl"] .form-group textarea {
+  text-align: right;
+  direction: rtl;
+}
+
+/* Input icons: move from left to right (physical override) */
+[dir="rtl"] .input-icon {
+  left: auto;
+  right: 1rem;
+}
+[dir="rtl"] .form-group input[type="text"],
+[dir="rtl"] .form-group input[type="email"],
+[dir="rtl"] .form-group input[type="tel"],
+[dir="rtl"] .form-group input[type="date"],
+[dir="rtl"] .form-group input[type="time"],
+[dir="rtl"] .form-group select {
+  padding-left: 1rem;
+  padding-right: 2.75rem;
+}
+
+/* Select dropdown arrow */
+[dir="rtl"] select {
+  text-align-last: right;
+}
+
+/* ─────────────────────────────────────────────────────────────
+   FOOTER LINKS — directional icon flip + hover animation mirror
+   (flex item order reversal is automatic via dir=rtl)
+   ───────────────────────────────────────────────────────────── */
+
+[dir="rtl"] .footer__link i {
+  transform: scaleX(-1);
+}
+[dir="rtl"] .footer__link:hover i {
+  transform: scaleX(-1) translateX(4px);
+}
+[dir="rtl"] .footer__newsletter input {
+  text-align: right;
+}
+
+/* ─────────────────────────────────────────────────────────────
+   BACK TO TOP — physical right position must be overridden
+   ───────────────────────────────────────────────────────────── */
+
+[dir="rtl"] .back-to-top {
+  right: auto;
+  left: 2rem;
+}
+
+/* ─────────────────────────────────────────────────────────────
+   TOAST — physical right position + slide direction
+   ───────────────────────────────────────────────────────────── */
+
+[dir="rtl"] .toast {
+  right: auto;
+  left: 2rem;
+  transform: translateX(-120%);
+}
+[dir="rtl"] .toast.show {
+  transform: translateX(0);
+}
+[dir="rtl"] .toast.success { border-left: none; border-right: 4px solid #10B981; }
+[dir="rtl"] .toast.error   { border-left: none; border-right: 4px solid #EF4444; }
+
+/* ─────────────────────────────────────────────────────────────
+   LIGHTBOX — close button uses physical right position
+   ───────────────────────────────────────────────────────────── */
+
+[dir="rtl"] .lightbox__close {
+  right: auto;
+  left: 1.5rem;
+}
+
+/* ─────────────────────────────────────────────────────────────
+   BEFORE / AFTER LABELS — physical positions
+   ───────────────────────────────────────────────────────────── */
+
+[dir="rtl"] .ba-label-before {
+  left: auto;
+  right: 1rem;
+}
+[dir="rtl"] .ba-label-after {
+  right: auto;
+  left: 1rem;
+}
+
+/* ─────────────────────────────────────────────────────────────
+   HOURS TABLE — flip the time column alignment
+   ───────────────────────────────────────────────────────────── */
+
+[dir="rtl"] .hours-table td:last-child {
+  text-align: left;
+}
+
+/* ─────────────────────────────────────────────────────────────
+   SCROLL REVEAL — swap initial translate direction
+   ───────────────────────────────────────────────────────────── */
+
+[dir="rtl"] .reveal-left {
+  transform: translateX(30px);
+}
+[dir="rtl"] .reveal-right {
+  transform: translateX(-30px);
+}
+[dir="rtl"] .reveal-left.visible,
+[dir="rtl"] .reveal-right.visible {
+  transform: translateX(0);
+}
+
+/* ─────────────────────────────────────────────────────────────
+   AWARDS STRIP — reverse scroll direction
+   ───────────────────────────────────────────────────────────── */
+
+[dir="rtl"] .awards-track {
+  animation-direction: reverse;
+}
+
+/* ─────────────────────────────────────────────────────────────
+   RESPONSIVE RTL
+   ───────────────────────────────────────────────────────────── */
+
+@media (max-width: 768px) {
+  [dir="rtl"] .back-to-top {
+    left: 1.25rem;
+    right: auto;
+  }
+  [dir="rtl"] .toast {
+    left: 1rem;
+    right: auto;
+  }
+}
+
+/* ─────────────────────────────────────────────────────────────
+   SPLIT-SECTION CONTENT ALIGNMENT
+   Some split-section text blocks use inline style="text-align:left"
+   and style="justify-content:flex-start" which cannot be overridden
+   without !important. These rules restore proper RTL start-alignment
+   (right-side) for all such content columns.
+
+   ONLY affects elements inside [dir="rtl"] — zero LTR impact.
+   ───────────────────────────────────────────────────────────── */
+
+/* Section eyebrow: override inline justify-content:flex-start.
+   In RTL, flex-start is on the RIGHT, so we use flex-end to keep
+   the eyebrow visually on the right (= reading-start) side. */
+[dir="rtl"] .section-eyebrow {
+  justify-content: flex-end !important;
+}
+
+/* Section title: override inline text-align:left */
+[dir="rtl"] .section-title {
+  text-align: right !important;
+}
+
+/* Section subtitle: no inline style but also needs to align start */
+[dir="rtl"] .section-subtitle {
+  text-align: right;
+  margin-left: auto;
+  margin-right: 0;
+}
+
+/* Paragraph tags in split content columns (not inside .section-header
+   which is already centered, but free-standing <p> inside split cols) */
+[dir="rtl"] .split p,
+[dir="rtl"] .split h2,
+[dir="rtl"] .split h3 {
+  text-align: right;
+}
+
+/* Exception: keep already-centered section-headers centered */
+[dir="rtl"] .section-header .section-title,
+[dir="rtl"] .section-header .section-subtitle,
+[dir="rtl"] .section-header .section-eyebrow {
+  text-align: center !important;
+  justify-content: center !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+/* Feature items text block — no flex-direction needed (dir handles it),
+   just align the inner text to start */
+[dir="rtl"] .feature-title,
+[dir="rtl"] .feature-text {
+  text-align: right;
+}
+
+/* Booking / form section headings */
+[dir="rtl"] .booking-form__header h2,
+[dir="rtl"] .booking-form__header p {
+  text-align: right;
+}
+
+/* Contact info text */
+[dir="rtl"] .contact-info-title,
+[dir="rtl"] .contact-info-value,
+[dir="rtl"] .contact-info-sub {
+  text-align: right;
+}
+
