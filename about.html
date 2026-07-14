@@ -7,11 +7,14 @@
   <title>About Us | GlossForge Detail</title>
   <link rel="stylesheet" href="css/style.css" />
   <link rel="stylesheet" href="css/animations.css" />
+  <link rel="stylesheet" href="css/theme.css" />
+  <!-- Theme JS (apply saved preference immediately before first paint) -->
+  <script src="js/theme.js"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
   <style>
     .mv-grid { display:grid; grid-template-columns:1fr 1fr; gap:1.5rem; }
     @media(max-width:600px){ .mv-grid { grid-template-columns:1fr; } }
-    .cert-badge { display:inline-flex; align-items:center; gap:0.75rem; background:var(--black-card); border:1px solid var(--black-border); border-radius:var(--r-md); padding:1rem 1.5rem; transition:var(--t-fast); }
+    .cert-badge { display:inline-flex; align-items:center; gap:0.75rem; background:var(--th-card); border:1px solid var(--th-border); border-radius:var(--r-md); padding:1rem 1.5rem; transition:var(--t-fast); }
     .cert-badge:hover { border-color:var(--cyan); }
     .cert-logo { width:48px; height:48px; background:var(--grad-primary); border-radius:var(--r-sm); display:flex; align-items:center; justify-content:center; font-size:1.5rem; flex-shrink:0; }
   </style>
@@ -58,7 +61,24 @@
             </a>
           </div>
         </div>
-      <a href="contact.html#booking" class="btn btn-primary btn-sm">Book Now</a>
+            <!-- Theme Toggle -->
+      <button class="theme-toggle" aria-label="Toggle Light / Dark Theme" title="Toggle theme">
+        <svg class="icon-sun" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="12" r="5"></circle>
+          <line x1="12" y1="1" x2="12" y2="3"></line>
+          <line x1="12" y1="21" x2="12" y2="23"></line>
+          <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+          <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+          <line x1="1" y1="12" x2="3" y2="12"></line>
+          <line x1="21" y1="12" x2="23" y2="12"></line>
+          <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+          <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+        </svg>
+        <svg class="icon-moon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+        </svg>
+      </button>
+<a href="contact.html#booking" class="btn btn-primary btn-sm">Book Now</a>
       <button class="navbar__toggle"><span></span><span></span><span></span></button>
     </div>
   </div>
@@ -131,9 +151,9 @@
         <p style="margin-bottom:1.25rem;">Word spread quickly. By 2013, GlossForge moved to its first dedicated facility. By 2018, we expanded to our current 8,000 sq ft state-of-the-art studio with 8 full-service bays and a team of 25 certified technicians.</p>
         <p style="margin-bottom:2rem;">Today, we're Detroit's most trusted name in premium auto detailing — but our obsession with quality has never changed. Every car that leaves our studio is a reflection of our commitment to excellence.</p>
         <div style="display:flex;gap:2rem;flex-wrap:wrap;">
-          <div style="text-align:center;"><div style="font-size:2rem;font-weight:900;background:var(--grad-primary);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">15+</div><div style="font-size:0.875rem;color:var(--gray-400);">Years in Business</div></div>
-          <div style="text-align:center;"><div style="font-size:2rem;font-weight:900;background:var(--grad-primary);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">25+</div><div style="font-size:0.875rem;color:var(--gray-400);">Expert Technicians</div></div>
-          <div style="text-align:center;"><div style="font-size:2rem;font-weight:900;background:var(--grad-primary);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">12K+</div><div style="font-size:0.875rem;color:var(--gray-400);">Cars Detailed</div></div>
+          <div style="text-align:center;"><div style="font-size:2rem;font-weight:900;background:var(--grad-primary);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">15+</div><div style="font-size:0.875rem;color:var(--th-text-muted);">Years in Business</div></div>
+          <div style="text-align:center;"><div style="font-size:2rem;font-weight:900;background:var(--grad-primary);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">25+</div><div style="font-size:0.875rem;color:var(--th-text-muted);">Expert Technicians</div></div>
+          <div style="text-align:center;"><div style="font-size:2rem;font-weight:900;background:var(--grad-primary);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">12K+</div><div style="font-size:0.875rem;color:var(--th-text-muted);">Cars Detailed</div></div>
         </div>
       </div>
     </div>
@@ -153,13 +173,13 @@
       <div class="card" style="border-color:rgba(37,99,235,0.3);background:linear-gradient(145deg,#1a2740,#0d1826);">
         <div style="font-size:3rem;margin-bottom:1rem;color:var(--cyan);"><i class="fas fa-bullseye"></i></div>
         <h3 style="color:var(--white);margin-bottom:1rem;">Our Mission</h3>
-        <p style="color:var(--gray-400);line-height:1.8;">To deliver the highest quality automotive detailing services using premium products and expert techniques, ensuring every client drives away with complete confidence in the appearance and protection of their vehicle.</p>
+        <p style="color:var(--th-text-muted);line-height:1.8;">To deliver the highest quality automotive detailing services using premium products and expert techniques, ensuring every client drives away with complete confidence in the appearance and protection of their vehicle.</p>
         <div class="divider" style="margin:1.5rem 0 0;"></div>
       </div>
       <div class="card" style="border-color:rgba(6,182,212,0.3);background:linear-gradient(145deg,#0a2040,#062030);">
         <div style="font-size:3rem;margin-bottom:1rem;color:var(--cyan);"><i class="fas fa-compass"></i></div>
         <h3 style="color:var(--white);margin-bottom:1rem;">Our Vision</h3>
-        <p style="color:var(--gray-400);line-height:1.8;">To become America's most trusted premium auto detailing brand by 2030 — expanding nationwide while maintaining the boutique, personalized service that earned us our reputation in Detroit.</p>
+        <p style="color:var(--th-text-muted);line-height:1.8;">To become America's most trusted premium auto detailing brand by 2030 — expanding nationwide while maintaining the boutique, personalized service that earned us our reputation in Detroit.</p>
         <div class="divider" style="margin:1.5rem 0 0;background:linear-gradient(135deg,var(--cyan),var(--blue));"></div>
       </div>
     </div>
@@ -183,10 +203,10 @@
       <div class="divider"></div>
     </div>
     <div class="team-grid stagger-group">
-      <div class="team-card"><img src="assets/images/team-marcus.png" alt="Marcus Tyler" class="team-card__img" loading="lazy" /><div class="team-card__body"><div class="team-card__name">Marcus Tyler</div><div class="team-card__role">Founder & Head Detailer</div><p style="font-size:0.8rem;color:var(--gray-400);margin-top:0.5rem;">IDA Certified · 12 Years</p><div class="team-card__social"><div class="team-social-btn"><i class="fab fa-instagram"></i></div><div class="team-social-btn"><i class="fab fa-linkedin-in"></i></div></div></div></div>
-      <div class="team-card"><img src="assets/images/team-priya.png" alt="Priya Sharma" class="team-card__img" loading="lazy" /><div class="team-card__body"><div class="team-card__name">Priya Sharma</div><div class="team-card__role">Paint Correction Specialist</div><p style="font-size:0.8rem;color:var(--gray-400);margin-top:0.5rem;">Award-winning · 8 Years</p><div class="team-card__social"><div class="team-social-btn"><i class="fab fa-instagram"></i></div><div class="team-social-btn"><i class="fab fa-youtube"></i></div></div></div></div>
-      <div class="team-card"><img src="assets/images/team-jason.png" alt="Jason Park" class="team-card__img" loading="lazy" /><div class="team-card__body"><div class="team-card__name">Jason Park</div><div class="team-card__role">Interior Restoration Expert</div><p style="font-size:0.8rem;color:var(--gray-400);margin-top:0.5rem;">Leather Specialist · 8 Years</p><div class="team-card__social"><div class="team-social-btn"><i class="fab fa-instagram"></i></div><div class="team-social-btn"><i class="fab fa-twitter"></i></div></div></div></div>
-      <div class="team-card"><img src="assets/images/team-nina.png" alt="Nina Kowalski" class="team-card__img" loading="lazy" /><div class="team-card__body"><div class="team-card__name">Nina Kowalski</div><div class="team-card__role">PPF & Ceramic Expert</div><p style="font-size:0.8rem;color:var(--gray-400);margin-top:0.5rem;">3M Certified · 6 Years</p><div class="team-card__social"><div class="team-social-btn"><i class="fab fa-instagram"></i></div><div class="team-social-btn"><i class="fab fa-linkedin-in"></i></div></div></div></div>
+      <div class="team-card"><img src="assets/images/team-marcus.png" alt="Marcus Tyler" class="team-card__img" loading="lazy" /><div class="team-card__body"><div class="team-card__name">Marcus Tyler</div><div class="team-card__role">Founder & Head Detailer</div><p style="font-size:0.8rem;color:var(--th-text-muted);margin-top:0.5rem;">IDA Certified · 12 Years</p><div class="team-card__social"><div class="team-social-btn"><i class="fab fa-instagram"></i></div><div class="team-social-btn"><i class="fab fa-linkedin-in"></i></div></div></div></div>
+      <div class="team-card"><img src="assets/images/team-priya.png" alt="Priya Sharma" class="team-card__img" loading="lazy" /><div class="team-card__body"><div class="team-card__name">Priya Sharma</div><div class="team-card__role">Paint Correction Specialist</div><p style="font-size:0.8rem;color:var(--th-text-muted);margin-top:0.5rem;">Award-winning · 8 Years</p><div class="team-card__social"><div class="team-social-btn"><i class="fab fa-instagram"></i></div><div class="team-social-btn"><i class="fab fa-youtube"></i></div></div></div></div>
+      <div class="team-card"><img src="assets/images/team-jason.png" alt="Jason Park" class="team-card__img" loading="lazy" /><div class="team-card__body"><div class="team-card__name">Jason Park</div><div class="team-card__role">Interior Restoration Expert</div><p style="font-size:0.8rem;color:var(--th-text-muted);margin-top:0.5rem;">Leather Specialist · 8 Years</p><div class="team-card__social"><div class="team-social-btn"><i class="fab fa-instagram"></i></div><div class="team-social-btn"><i class="fab fa-twitter"></i></div></div></div></div>
+      <div class="team-card"><img src="assets/images/team-nina.png" alt="Nina Kowalski" class="team-card__img" loading="lazy" /><div class="team-card__body"><div class="team-card__name">Nina Kowalski</div><div class="team-card__role">PPF & Ceramic Expert</div><p style="font-size:0.8rem;color:var(--th-text-muted);margin-top:0.5rem;">3M Certified · 6 Years</p><div class="team-card__social"><div class="team-social-btn"><i class="fab fa-instagram"></i></div><div class="team-social-btn"><i class="fab fa-linkedin-in"></i></div></div></div></div>
     </div>
   </div>
 </section>
@@ -244,12 +264,12 @@
       <div class="divider"></div>
     </div>
     <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.25rem;" class="stagger-group">
-      <div class="cert-badge"><div class="cert-logo"><i class="fas fa-medal"></i></div><div><div style="font-weight:700;color:var(--white);font-size:0.95rem;">IDA Certified Firm</div><div style="font-size:0.8rem;color:var(--gray-400);">International Detailing Association · 2015</div></div></div>
-      <div class="cert-badge"><div class="cert-logo"><i class="fas fa-microscope"></i></div><div><div style="font-weight:700;color:var(--white);font-size:0.95rem;">Gtechniq Authorized</div><div style="font-size:0.8rem;color:var(--gray-400);">Certified Ceramic Coating Installer · 2017</div></div></div>
-      <div class="cert-badge"><div class="cert-logo"><i class="fas fa-shield-halved"></i></div><div><div style="font-weight:700;color:var(--white);font-size:0.95rem;">3M PPF Certified</div><div style="font-size:0.8rem;color:var(--gray-400);">Paint Protection Film Installation · 2018</div></div></div>
-      <div class="cert-badge"><div class="cert-logo"><i class="fas fa-trophy"></i></div><div><div style="font-weight:700;color:var(--white);font-size:0.95rem;">Best Studio — Midwest</div><div style="font-size:0.8rem;color:var(--gray-400);">Auto Detailing World · 2022, 2023, 2024</div></div></div>
-      <div class="cert-badge"><div class="cert-logo"><i class="fas fa-star"></i></div><div><div style="font-weight:700;color:var(--white);font-size:0.95rem;">Google 4.9★ Rating</div><div style="font-size:0.8rem;color:var(--gray-400);">1,200+ verified reviews · 2026</div></div></div>
-      <div class="cert-badge"><div class="cert-logo"><i class="fas fa-leaf"></i></div><div><div style="font-weight:700;color:var(--white);font-size:0.95rem;">Eco-Friendly Certified</div><div style="font-size:0.8rem;color:var(--gray-400);">Green Business Certification · 2020</div></div></div>
+      <div class="cert-badge"><div class="cert-logo"><i class="fas fa-medal"></i></div><div><div style="font-weight:700;color:var(--th-heading);font-size:0.95rem;">IDA Certified Firm</div><div style="font-size:0.8rem;color:var(--th-text-muted);">International Detailing Association · 2015</div></div></div>
+      <div class="cert-badge"><div class="cert-logo"><i class="fas fa-microscope"></i></div><div><div style="font-weight:700;color:var(--th-heading);font-size:0.95rem;">Gtechniq Authorized</div><div style="font-size:0.8rem;color:var(--th-text-muted);">Certified Ceramic Coating Installer · 2017</div></div></div>
+      <div class="cert-badge"><div class="cert-logo"><i class="fas fa-shield-halved"></i></div><div><div style="font-weight:700;color:var(--th-heading);font-size:0.95rem;">3M PPF Certified</div><div style="font-size:0.8rem;color:var(--th-text-muted);">Paint Protection Film Installation · 2018</div></div></div>
+      <div class="cert-badge"><div class="cert-logo"><i class="fas fa-trophy"></i></div><div><div style="font-weight:700;color:var(--th-heading);font-size:0.95rem;">Best Studio — Midwest</div><div style="font-size:0.8rem;color:var(--th-text-muted);">Auto Detailing World · 2022, 2023, 2024</div></div></div>
+      <div class="cert-badge"><div class="cert-logo"><i class="fas fa-star"></i></div><div><div style="font-weight:700;color:var(--th-heading);font-size:0.95rem;">Google 4.9★ Rating</div><div style="font-size:0.8rem;color:var(--th-text-muted);">1,200+ verified reviews · 2026</div></div></div>
+      <div class="cert-badge"><div class="cert-logo"><i class="fas fa-leaf"></i></div><div><div style="font-weight:700;color:var(--th-heading);font-size:0.95rem;">Eco-Friendly Certified</div><div style="font-size:0.8rem;color:var(--th-text-muted);">Green Business Certification · 2020</div></div></div>
     </div>
   </div>
 </section>

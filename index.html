@@ -7,6 +7,9 @@
   <title>GlossForge Detail | Premium Car Wash & Auto Detailing</title>
   <link rel="stylesheet" href="css/style.css" />
   <link rel="stylesheet" href="css/animations.css" />
+  <link rel="stylesheet" href="css/theme.css" />
+  <!-- Theme JS (apply saved preference immediately before first paint) -->
+  <script src="js/theme.js"></script>
   <!-- Icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
   <style>
@@ -108,16 +111,13 @@
       z-index: 1;
       width: 100%;
       max-width: 380px;
-      background: rgba(18, 18, 18, 0.65);
+      background: var(--th-showcase-bg);
       backdrop-filter: blur(20px);
       -webkit-backdrop-filter: blur(20px);
-      border: 1px solid rgba(255, 255, 255, 0.08);
+      border: 1px solid var(--th-showcase-border);
       border-radius: var(--r-lg);
       padding: 2rem;
-      box-shadow: 
-        0 20px 50px rgba(0, 0, 0, 0.5),
-        0 0 40px rgba(37, 99, 235, 0.1),
-        inset 0 0 20px rgba(255, 255, 255, 0.02);
+      box-shadow: var(--th-showcase-shadow);
       animation: floatShowcase 6s ease-in-out infinite;
     }
     
@@ -157,8 +157,8 @@
       align-items: center;
       gap: 0.9rem;
       padding: 0.75rem 1rem;
-      background: rgba(255, 255, 255, 0.02);
-      border: 1px solid rgba(255, 255, 255, 0.04);
+      background: var(--th-showcase-item-bg);
+      border: 1px solid var(--th-showcase-item-border);
       border-radius: var(--r-sm);
       transition: var(--t-fast);
     }
@@ -175,14 +175,14 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      background: rgba(255, 255, 255, 0.03);
+      background: var(--th-showcase-icon-bg);
       border-radius: 6px;
     }
     
     .showcase-label {
       font-size: 0.9rem;
       font-weight: 600;
-      color: var(--white);
+      color: var(--th-heading);
     }
     
     .showcase-check {
@@ -195,8 +195,8 @@
     .showcase-trust {
       text-align: center;
       padding: 1rem 0;
-      border-top: 1px solid var(--black-border);
-      border-bottom: 1px solid var(--black-border);
+      border-top: 1px solid var(--th-showcase-trust-border);
+      border-bottom: 1px solid var(--th-showcase-trust-border);
       margin-bottom: 1.5rem;
     }
     
@@ -210,13 +210,13 @@
     .trust-sub {
       font-size: 0.95rem;
       font-weight: 700;
-      color: var(--white);
+      color: var(--th-heading);
       margin-bottom: 0.1rem;
     }
     
     .trust-desc {
       font-size: 0.775rem;
-      color: var(--gray-400);
+      color: var(--th-text-muted);
       font-weight: 500;
     }
     
@@ -251,9 +251,9 @@
     }
     
     /* ─── Original sections ─── */
-    .awards-strip { background: var(--black-soft); border-top: 1px solid var(--black-border); border-bottom: 1px solid var(--black-border); padding: 1.5rem 0; overflow: hidden; }
+    .awards-strip { background: var(--th-awards-bg); border-top: 1px solid var(--th-awards-border); border-bottom: 1px solid var(--th-awards-border); padding: 1.5rem 0; overflow: hidden; }
     .awards-track { display: flex; gap: 3rem; align-items: center; animation: waveMove 20s linear infinite; white-space: nowrap; }
-    .award-item { display: flex; align-items: center; gap: 0.6rem; font-size: 0.875rem; font-weight: 600; color: var(--gray-400); flex-shrink: 0; }
+    .award-item { display: flex; align-items: center; gap: 0.6rem; font-size: 0.875rem; font-weight: 600; color: var(--th-text-muted); flex-shrink: 0; }
     .award-item i { color: var(--cyan); }
     .split-section .split__img { position: relative; }
     .split-section .split__img::before { content: ''; position: absolute; inset: -15px; border-radius: var(--r-xl); border: 1px solid rgba(37,99,235,0.2); z-index: -1; }
@@ -333,6 +333,25 @@
             </a>
           </div>
         </div>
+      <!-- Theme Toggle -->
+      <button class="theme-toggle" id="themeToggle" aria-label="Toggle Light / Dark Theme" title="Toggle theme">
+        <!-- Sun icon: shown in dark mode -->
+        <svg class="icon-sun" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="12" r="5"></circle>
+          <line x1="12" y1="1" x2="12" y2="3"></line>
+          <line x1="12" y1="21" x2="12" y2="23"></line>
+          <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+          <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+          <line x1="1" y1="12" x2="3" y2="12"></line>
+          <line x1="21" y1="12" x2="23" y2="12"></line>
+          <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+          <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+        </svg>
+        <!-- Moon icon: shown in light mode -->
+        <svg class="icon-moon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+        </svg>
+      </button>
       <a href="contact.html#booking" class="btn btn-primary btn-sm">Book Now</a>
       <button class="navbar__toggle" aria-label="Toggle Menu" aria-expanded="false">
         <span></span><span></span><span></span>
@@ -683,7 +702,7 @@
           <span class="ba-label ba-label-before">Before</span>
           <span class="ba-label ba-label-after">After</span>
         </div>
-        <p style="text-align:center;margin-top:1rem;font-size:0.875rem;color:var(--gray-600);">← Drag to compare →</p>
+        <p style="text-align:center;margin-top:1rem;font-size:0.875rem;color:var(--th-text-muted2);">← Drag to compare →</p>
       </div>
     </div>
   </div>
@@ -778,9 +797,9 @@
     <div style="text-align:center;margin-top:2.5rem;">
       <div style="display:flex;align-items:center;justify-content:center;gap:0.5rem;margin-bottom:0.5rem;">
         <span style="color:#FBBF24;font-size:1.2rem;">★★★★★</span>
-        <strong style="color:var(--white);font-size:1.1rem;">4.9 / 5.0</strong>
+        <strong style="color:var(--th-heading);font-size:1.1rem;">4.9 / 5.0</strong>
       </div>
-      <p style="font-size:0.875rem;color:var(--gray-400);">Based on 1,200+ verified reviews on Google & Yelp</p>
+      <p style="font-size:0.875rem;color:var(--th-text-muted);">Based on 1,200+ verified reviews on Google & Yelp</p>
     </div>
   </div>
 </section>
@@ -826,8 +845,8 @@
       <div class="reveal-right">
         <div class="booking-form">
           <div class="booking-form__header">
-            <h3 style="color:var(--white);">Schedule Appointment</h3>
-            <p style="color:var(--gray-400);font-size:0.9rem;margin-top:0.35rem;">Fill out the form and we'll confirm within 1 hour.</p>
+            <h3 style="color:var(--th-heading);">Schedule Appointment</h3>
+            <p style="color:var(--th-text-muted);font-size:0.9rem;margin-top:0.35rem;">Fill out the form and we'll confirm within 1 hour.</p>
           </div>
           <form id="booking-form" novalidate>
             <div class="booking-form__grid">
@@ -881,7 +900,7 @@
             <button type="submit" class="btn btn-primary w-full" style="margin-top:0.75rem;justify-content:center;">
               <i class="fas fa-calendar-check"></i> Confirm Appointment
             </button>
-            <p style="text-align:center;font-size:0.8rem;color:var(--gray-600);margin-top:0.75rem;">
+            <p style="text-align:center;font-size:0.8rem;color:var(--th-text-muted2);margin-top:0.75rem;">
               By booking, you agree to our <a href="#" style="color:var(--cyan);">Terms of Service</a> and <a href="#" style="color:var(--cyan);">Privacy Policy</a>.
             </p>
           </form>

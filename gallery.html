@@ -7,6 +7,9 @@
   <title>Gallery | GlossForge Detail</title>
   <link rel="stylesheet" href="css/style.css" />
   <link rel="stylesheet" href="css/animations.css" />
+  <link rel="stylesheet" href="css/theme.css" />
+  <!-- Theme JS (apply saved preference immediately before first paint) -->
+  <script src="js/theme.js"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
   <style>
     .gallery-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(300px,1fr)); gap:1rem; }
@@ -15,17 +18,17 @@
     .gallery-item.tall { grid-row:span 2; aspect-ratio:auto; min-height:400px; }
     .gallery-item.wide { grid-column:span 2; aspect-ratio:16/9; }
     @media(max-width:768px){ .gallery-item.tall,.gallery-item.wide { grid-column:1; grid-row:1; } }
-    .video-card { background:var(--black-card); border:1px solid var(--black-border); border-radius:var(--r-lg); overflow:hidden; cursor:pointer; transition:var(--t-base); position:relative; }
+    .video-card { background:var(--th-card); border:1px solid var(--th-border); border-radius:var(--r-lg); overflow:hidden; cursor:pointer; transition:var(--t-base); position:relative; }
     .video-card:hover { border-color:var(--blue); transform:translateY(-4px); box-shadow:var(--shadow-blue); }
     .video-thumb { width:100%; height:220px; background:var(--grad-primary); display:flex; align-items:center; justify-content:center; font-size:4rem; position:relative; }
     .video-play-btn { position:absolute; width:60px; height:60px; border-radius:50%; background:rgba(255,255,255,0.15); backdrop-filter:blur(8px); border:2px solid rgba(255,255,255,0.4); display:flex; align-items:center; justify-content:center; font-size:1.5rem; transition:var(--t-fast); cursor:pointer; }
     .video-play-btn:hover { background:var(--blue); border-color:var(--blue); transform:scale(1.1); }
     .video-card__body { padding:1.25rem; }
-    .video-card__title { font-weight:700; color:var(--white); margin-bottom:0.25rem; }
+    .video-card__title { font-weight:700; color:var(--th-heading); margin-bottom:0.25rem; }
     .video-card__sub { font-size:0.825rem; color:var(--cyan); }
     .stats-strip { display:grid; grid-template-columns:repeat(4,1fr); gap:1.5rem; }
     @media(max-width:600px){ .stats-strip { grid-template-columns:1fr 1fr; } }
-    .stat-strip-item { text-align:center; padding:1.75rem; background:var(--black-card); border:1px solid var(--black-border); border-radius:var(--r-lg); }
+    .stat-strip-item { text-align:center; padding:1.75rem; background:var(--th-card); border:1px solid var(--th-border); border-radius:var(--r-lg); }
   </style>
 </head>
 <body>
@@ -70,7 +73,24 @@
             </a>
           </div>
         </div>
-      <a href="contact.html#booking" class="btn btn-primary btn-sm">Book Now</a>
+            <!-- Theme Toggle -->
+      <button class="theme-toggle" aria-label="Toggle Light / Dark Theme" title="Toggle theme">
+        <svg class="icon-sun" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="12" r="5"></circle>
+          <line x1="12" y1="1" x2="12" y2="3"></line>
+          <line x1="12" y1="21" x2="12" y2="23"></line>
+          <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+          <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+          <line x1="1" y1="12" x2="3" y2="12"></line>
+          <line x1="21" y1="12" x2="23" y2="12"></line>
+          <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+          <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+        </svg>
+        <svg class="icon-moon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+        </svg>
+      </button>
+<a href="contact.html#booking" class="btn btn-primary btn-sm">Book Now</a>
       <button class="navbar__toggle"><span></span><span></span><span></span></button>
     </div>
   </div>
@@ -218,7 +238,7 @@
         <span class="ba-label ba-label-before">BEFORE</span>
         <span class="ba-label ba-label-after">AFTER</span>
       </div>
-      <p style="text-align:center;color:var(--gray-600);font-size:0.875rem;margin-top:1rem;">← Drag the slider to compare →</p>
+      <p style="text-align:center;color:var(--th-text-muted2);font-size:0.875rem;margin-top:1rem;">← Drag the slider to compare →</p>
     </div>
   </div>
 </section>

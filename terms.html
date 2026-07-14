@@ -7,6 +7,9 @@
   <title>Terms of Service | GlossForge Detail</title>
   <link rel="stylesheet" href="css/style.css" />
   <link rel="stylesheet" href="css/animations.css" />
+  <link rel="stylesheet" href="css/theme.css" />
+  <!-- Theme JS (apply saved preference immediately before first paint) -->
+  <script src="js/theme.js"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
   <style>
     /* ── Reuse Legal Page Styles ── */
@@ -21,32 +24,32 @@
     .toc-sidebar {
       position: sticky;
       top: calc(var(--navbar-h) + 1.5rem);
-      background: var(--black-card);
-      border: 1px solid var(--black-border);
+      background: var(--th-card);
+      border: 1px solid var(--th-border);
       border-radius: var(--r-lg);
       padding: 1.5rem;
     }
     .toc-title { font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.12em; color: var(--cyan); margin-bottom: 1rem; }
     .toc-list { display: flex; flex-direction: column; gap: 0.25rem; }
-    .toc-link { display: flex; align-items: center; gap: 0.5rem; padding: 0.45rem 0.75rem; border-radius: var(--r-sm); font-size: 0.855rem; color: var(--gray-400); font-weight: 500; transition: var(--t-fast); border-left: 2px solid transparent; }
-    .toc-link:hover, .toc-link.active { color: var(--white); background: rgba(37,99,235,0.1); border-left-color: var(--blue); }
+    .toc-link { display: flex; align-items: center; gap: 0.5rem; padding: 0.45rem 0.75rem; border-radius: var(--r-sm); font-size: 0.855rem; color: var(--th-text-muted); font-weight: 500; transition: var(--t-fast); border-left: 2px solid transparent; }
+    .toc-link:hover, .toc-link.active { color: var(--th-heading); background: rgba(37,99,235,0.1); border-left-color: var(--blue); }
     .toc-link i { font-size: 0.7rem; color: var(--blue); flex-shrink: 0; }
 
     .policy-content { max-width: 860px; }
-    .policy-section { background: var(--black-card); border: 1px solid var(--black-border); border-radius: var(--r-lg); padding: clamp(1.75rem, 3vw, 2.5rem); margin-bottom: 1.5rem; scroll-margin-top: calc(var(--navbar-h) + 1.5rem); transition: border-color 0.3s; }
+    .policy-section { background: var(--th-card); border: 1px solid var(--th-border); border-radius: var(--r-lg); padding: clamp(1.75rem, 3vw, 2.5rem); margin-bottom: 1.5rem; scroll-margin-top: calc(var(--navbar-h) + 1.5rem); transition: border-color 0.3s; }
     .policy-section:hover { border-color: rgba(37,99,235,0.3); }
     .policy-section:target { border-color: var(--blue); box-shadow: var(--shadow-blue); }
 
-    .policy-section-header { display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem; padding-bottom: 1rem; border-bottom: 1px solid var(--black-border); }
+    .policy-section-header { display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem; padding-bottom: 1rem; border-bottom: 1px solid var(--th-border); }
     .policy-section-icon { width: 44px; height: 44px; border-radius: var(--r-md); background: var(--grad-primary); display: flex; align-items: center; justify-content: center; font-size: 1.2rem; flex-shrink: 0; box-shadow: var(--shadow-blue); }
     .policy-section-num { font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: var(--cyan); margin-bottom: 0.2rem; }
-    .policy-section-title { font-size: 1.25rem; font-weight: 700; color: var(--white); }
+    .policy-section-title { font-size: 1.25rem; font-weight: 700; color: var(--th-heading); }
 
-    .policy-content h4 { font-size: 1rem; font-weight: 700; color: var(--white); margin: 1.5rem 0 0.6rem; display: flex; align-items: center; gap: 0.5rem; }
+    .policy-content h4 { font-size: 1rem; font-weight: 700; color: var(--th-heading); margin: 1.5rem 0 0.6rem; display: flex; align-items: center; gap: 0.5rem; }
     .policy-content h4::before { content: ''; display: inline-block; width: 3px; height: 1rem; background: var(--grad-primary); border-radius: 2px; }
-    .policy-content p { font-size: 0.95rem; color: var(--gray-400); line-height: 1.85; margin-bottom: 1rem; }
+    .policy-content p { font-size: 0.95rem; color: var(--th-text-muted); line-height: 1.85; margin-bottom: 1rem; }
     .policy-content ul, .policy-content ol { padding-left: 1.5rem; margin-bottom: 1rem; display: flex; flex-direction: column; gap: 0.5rem; }
-    .policy-content li { font-size: 0.925rem; color: var(--gray-400); line-height: 1.7; }
+    .policy-content li { font-size: 0.925rem; color: var(--th-text-muted); line-height: 1.7; }
     .policy-content ul li { list-style: none; padding-left: 0.5rem; position: relative; }
     .policy-content ul li::before { content: '▸'; color: var(--cyan); position: absolute; left: -1.25rem; font-size: 0.8rem; top: 0.15rem; }
     .policy-content ol li { list-style: decimal; }
@@ -59,15 +62,15 @@
     .highlight-box.success { background: rgba(16,185,129,0.07); border-color: rgba(16,185,129,0.25); }
     .highlight-box p { margin: 0; }
 
-    .policy-meta { display: flex; flex-wrap: wrap; gap: 1.5rem; background: var(--black-card); border: 1px solid var(--black-border); border-radius: var(--r-lg); padding: 1.25rem 1.75rem; margin-bottom: 2rem; }
-    .policy-meta-item { display: flex; align-items: center; gap: 0.6rem; font-size: 0.85rem; color: var(--gray-400); }
+    .policy-meta { display: flex; flex-wrap: wrap; gap: 1.5rem; background: var(--th-card); border: 1px solid var(--th-border); border-radius: var(--r-lg); padding: 1.25rem 1.75rem; margin-bottom: 2rem; }
+    .policy-meta-item { display: flex; align-items: center; gap: 0.6rem; font-size: 0.85rem; color: var(--th-text-muted); }
     .policy-meta-item i { color: var(--cyan); }
-    .policy-meta-item strong { color: var(--white); }
+    .policy-meta-item strong { color: var(--th-heading); }
 
-    .price-row { display: flex; justify-content: space-between; align-items: center; padding: 0.75rem 0; border-bottom: 1px solid var(--black-border); }
+    .price-row { display: flex; justify-content: space-between; align-items: center; padding: 0.75rem 0; border-bottom: 1px solid var(--th-border); }
     .price-row:last-child { border-bottom: none; }
-    .price-row-label { font-size: 0.9rem; color: var(--gray-400); }
-    .price-row-value { font-size: 0.95rem; font-weight: 700; color: var(--white); }
+    .price-row-label { font-size: 0.9rem; color: var(--th-text-muted); }
+    .price-row-value { font-size: 0.95rem; font-weight: 700; color: var(--th-heading); }
 
     @media print {
       .navbar, .footer, .toc-sidebar, .back-to-top { display: none !important; }
@@ -121,7 +124,24 @@
             </a>
           </div>
         </div>
-      <a href="contact.html#booking" class="btn btn-primary btn-sm">Book Now</a>
+            <!-- Theme Toggle -->
+      <button class="theme-toggle" aria-label="Toggle Light / Dark Theme" title="Toggle theme">
+        <svg class="icon-sun" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="12" r="5"></circle>
+          <line x1="12" y1="1" x2="12" y2="3"></line>
+          <line x1="12" y1="21" x2="12" y2="23"></line>
+          <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+          <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+          <line x1="1" y1="12" x2="3" y2="12"></line>
+          <line x1="21" y1="12" x2="23" y2="12"></line>
+          <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+          <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+        </svg>
+        <svg class="icon-moon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+        </svg>
+      </button>
+<a href="contact.html#booking" class="btn btn-primary btn-sm">Book Now</a>
       <button class="navbar__toggle" aria-label="Toggle Menu"><span></span><span></span><span></span></button>
     </div>
   </div>
@@ -227,7 +247,7 @@
             <a href="#governing-law"  class="toc-link"><i class="fas fa-circle"></i> Governing Law</a>
             <a href="#contact-terms"  class="toc-link"><i class="fas fa-circle"></i> Contact Us</a>
           </div>
-          <div style="margin-top:1.5rem;padding-top:1.25rem;border-top:1px solid var(--black-border);">
+          <div style="margin-top:1.5rem;padding-top:1.25rem;border-top:1px solid var(--th-border);">
             <a href="privacy.html" class="btn btn-outline btn-sm w-full" style="justify-content:center;">
               <i class="fas fa-shield-alt"></i> Privacy Policy
             </a>
@@ -247,7 +267,7 @@
               <div class="policy-section-title">Acceptance of Terms</div>
             </div>
           </div>
-          <p>These Terms of Service ("Terms") constitute a legally binding agreement between you ("Customer," "you," or "your") and <strong style="color:var(--white);">GlossForge Detail, LLC</strong> ("GlossForge," "Company," "we," "us," or "our"), a Michigan limited liability company, governing your use of our website at <a href="index.html">www.GlossForge.com</a> (the "Site") and all car wash, auto detailing, and related services we offer (collectively, the "Services").</p>
+          <p>These Terms of Service ("Terms") constitute a legally binding agreement between you ("Customer," "you," or "your") and <strong style="color:var(--th-heading);">GlossForge Detail, LLC</strong> ("GlossForge," "Company," "we," "us," or "our"), a Michigan limited liability company, governing your use of our website at <a href="index.html">www.GlossForge.com</a> (the "Site") and all car wash, auto detailing, and related services we offer (collectively, the "Services").</p>
           <p>By using our Site or Services in any manner, you agree to be bound by these Terms, our <a href="privacy.html">Privacy Policy</a>, and any other policies or guidelines incorporated herein by reference. These Terms supersede all prior agreements between you and GlossForge regarding the Services.</p>
           <p>We reserve the right to amend these Terms at any time. Material changes will be communicated via email to registered users and/or prominent notice on the Site. Your continued use after any update constitutes acceptance of the revised Terms.</p>
         </div>
@@ -263,13 +283,13 @@
           </div>
           <p>GlossForge Detail provides premium automotive care services, including but not limited to:</p>
           <ul>
-            <li><strong style="color:var(--white);">Exterior Wash Services:</strong> Hand wash, foam rinse, tire shine, window cleaning, and related treatments.</li>
-            <li><strong style="color:var(--white);">Interior Detailing:</strong> Vacuuming, steam cleaning, leather conditioning, dashboard care, and odor elimination.</li>
-            <li><strong style="color:var(--white);">Paint Correction:</strong> Machine polishing, swirl mark removal, scratch correction, and gloss enhancement.</li>
-            <li><strong style="color:var(--white);">Ceramic Coating:</strong> Professional application of nano-ceramic protective coatings with up to 9H hardness rating.</li>
-            <li><strong style="color:var(--white);">Paint Protection Film (PPF):</strong> Self-healing paint protection film installation for full or partial vehicle coverage.</li>
-            <li><strong style="color:var(--white);">Mobile Detailing:</strong> On-site service at your home or office (subject to availability and geographic restrictions).</li>
-            <li><strong style="color:var(--white);">Add-On Services:</strong> Engine bay cleaning, headlight restoration, window tinting, trim restoration, and more.</li>
+            <li><strong style="color:var(--th-heading);">Exterior Wash Services:</strong> Hand wash, foam rinse, tire shine, window cleaning, and related treatments.</li>
+            <li><strong style="color:var(--th-heading);">Interior Detailing:</strong> Vacuuming, steam cleaning, leather conditioning, dashboard care, and odor elimination.</li>
+            <li><strong style="color:var(--th-heading);">Paint Correction:</strong> Machine polishing, swirl mark removal, scratch correction, and gloss enhancement.</li>
+            <li><strong style="color:var(--th-heading);">Ceramic Coating:</strong> Professional application of nano-ceramic protective coatings with up to 9H hardness rating.</li>
+            <li><strong style="color:var(--th-heading);">Paint Protection Film (PPF):</strong> Self-healing paint protection film installation for full or partial vehicle coverage.</li>
+            <li><strong style="color:var(--th-heading);">Mobile Detailing:</strong> On-site service at your home or office (subject to availability and geographic restrictions).</li>
+            <li><strong style="color:var(--th-heading);">Add-On Services:</strong> Engine bay cleaning, headlight restoration, window tinting, trim restoration, and more.</li>
           </ul>
           <p>Services are subject to availability, vehicle condition, and our capacity at the time of booking. We reserve the right to modify or discontinue any service with reasonable notice.</p>
         </div>
@@ -285,7 +305,7 @@
           </div>
           <p>To use our Services and/or create an account, you must meet the following requirements:</p>
           <ul>
-            <li>Be at least <strong style="color:var(--white);">18 years of age</strong> or the legal age of majority in your jurisdiction.</li>
+            <li>Be at least <strong style="color:var(--th-heading);">18 years of age</strong> or the legal age of majority in your jurisdiction.</li>
             <li>Have the legal authority to enter into a binding contract.</li>
             <li>Be the registered owner of, or have express authorization from the owner of, the vehicle being serviced.</li>
             <li>Provide accurate, complete, and current registration and contact information.</li>
@@ -314,7 +334,7 @@
           <h4>Account Suspension & Termination</h4>
           <p>We reserve the right to suspend or permanently terminate your account without prior notice if we reasonably believe you have violated these Terms, engaged in fraudulent activity, or pose a risk to our systems, employees, or other customers.</p>
           <div class="highlight-box cyan">
-            <p><strong style="color:var(--white);"><i class="fas fa-info-circle" style="color:var(--cyan);margin-right:0.4rem;"></i> One Account Per Person:</strong> Each individual may maintain only one active account. Creating multiple accounts to circumvent suspensions or exploit promotional offers is strictly prohibited.</p>
+            <p><strong style="color:var(--th-heading);"><i class="fas fa-info-circle" style="color:var(--cyan);margin-right:0.4rem;"></i> One Account Per Person:</strong> Each individual may maintain only one active account. Creating multiple accounts to circumvent suspensions or exploit promotional offers is strictly prohibited.</p>
           </div>
         </div>
 
@@ -342,7 +362,7 @@
           <p>All time estimates provided are approximate and may vary based on vehicle condition, size, and the specific services requested. We will notify you if your service is expected to take significantly longer than estimated.</p>
 
           <div class="highlight-box">
-            <p><strong style="color:var(--white);"><i class="fas fa-camera" style="color:var(--white);margin-right:0.4rem;"></i> Documentation:</strong> We may photograph your vehicle before, during, and after service for quality control, marketing (with your consent), and dispute resolution purposes. Pre-existing damage will be documented at drop-off.</p>
+            <p><strong style="color:var(--th-heading);"><i class="fas fa-camera" style="color:var(--white);margin-right:0.4rem;"></i> Documentation:</strong> We may photograph your vehicle before, during, and after service for quality control, marketing (with your consent), and dispute resolution purposes. Pre-existing damage will be documented at drop-off.</p>
           </div>
         </div>
 
@@ -355,10 +375,10 @@
               <div class="policy-section-title">Pricing & Payment</div>
             </div>
           </div>
-          <p>All prices listed on our website are in <strong style="color:var(--white);">US Dollars (USD)</strong> and are subject to change without notice. The price quoted at the time of booking will be honored for that appointment.</p>
+          <p>All prices listed on our website are in <strong style="color:var(--th-heading);">US Dollars (USD)</strong> and are subject to change without notice. The price quoted at the time of booking will be honored for that appointment.</p>
 
           <h4>Service Pricing</h4>
-          <div style="background:rgba(255,255,255,0.02);border:1px solid var(--black-border);border-radius:var(--r-md);padding:1.25rem;">
+          <div style="background:rgba(255,255,255,0.02);border:1px solid var(--th-border);border-radius:var(--r-md);padding:1.25rem;">
             <div class="price-row"><span class="price-row-label">Express Wash</span><span class="price-row-value">$29</span></div>
             <div class="price-row"><span class="price-row-label">Premium Detail</span><span class="price-row-value">$89</span></div>
             <div class="price-row"><span class="price-row-label">Full Detail</span><span class="price-row-value">$149</span></div>
@@ -367,7 +387,7 @@
             <div class="price-row"><span class="price-row-label">Ceramic Coating</span><span class="price-row-value">From $299</span></div>
             <div class="price-row"><span class="price-row-label">Paint Protection Film (PPF)</span><span class="price-row-value">From $799</span></div>
           </div>
-          <p style="margin-top:0.75rem;font-size:0.825rem;color:var(--gray-600);">* Prices starting from. Final pricing depends on vehicle size, condition, and specific options selected. A firm quote will be provided before service begins.</p>
+          <p style="margin-top:0.75rem;font-size:0.825rem;color:var(--th-text-muted2);">* Prices starting from. Final pricing depends on vehicle size, condition, and specific options selected. A firm quote will be provided before service begins.</p>
 
           <h4>Accepted Payment Methods</h4>
           <ul>
@@ -377,7 +397,7 @@
             <li>Cash (in-studio only)</li>
             <li>Bank transfer (for orders over $500)</li>
           </ul>
-          <p>Full payment is due upon completion of service unless otherwise agreed in writing. For ceramic coating and PPF services, a <strong style="color:var(--white);">50% non-refundable deposit</strong> is required at the time of booking.</p>
+          <p>Full payment is due upon completion of service unless otherwise agreed in writing. For ceramic coating and PPF services, a <strong style="color:var(--th-heading);">50% non-refundable deposit</strong> is required at the time of booking.</p>
 
           <h4>Taxes</h4>
           <p>All applicable state and local sales taxes will be added to your invoice at the prevailing rate. Tax rates are based on the service location (Detroit, MI 48201). Tax-exempt organizations must provide valid exemption documentation prior to service.</p>
@@ -401,10 +421,10 @@
           </ul>
 
           <h4>Rescheduling</h4>
-          <p>You may reschedule an appointment free of charge with at least <strong style="color:var(--white);">24 hours advance notice</strong>. Rescheduling is subject to availability and must be completed within 90 days of the original appointment.</p>
+          <p>You may reschedule an appointment free of charge with at least <strong style="color:var(--th-heading);">24 hours advance notice</strong>. Rescheduling is subject to availability and must be completed within 90 days of the original appointment.</p>
 
           <h4>Satisfaction Guarantee & Refunds</h4>
-          <p>We stand behind the quality of every service we perform. If you are dissatisfied with the result, please notify us within <strong style="color:var(--white);">24 hours</strong> of vehicle pick-up. We will:</p>
+          <p>We stand behind the quality of every service we perform. If you are dissatisfied with the result, please notify us within <strong style="color:var(--th-heading);">24 hours</strong> of vehicle pick-up. We will:</p>
           <ul>
             <li>Schedule a complimentary re-service to address specific concerns at no additional charge.</li>
             <li>Provide a partial or full refund if the issue cannot be satisfactorily resolved, at our sole discretion.</li>
@@ -438,7 +458,7 @@
           </ul>
 
           <h4>Ceramic Coating & PPF Warranty</h4>
-          <p>Our ceramic coating services come with a <strong style="color:var(--white);">5-year manufacturer warranty</strong> against delamination and defective product, subject to proper maintenance. The warranty does not cover: scratches, swirl marks, physical damage, or improper aftercare. Annual maintenance inspections are recommended to maintain warranty validity.</p>
+          <p>Our ceramic coating services come with a <strong style="color:var(--th-heading);">5-year manufacturer warranty</strong> against delamination and defective product, subject to proper maintenance. The warranty does not cover: scratches, swirl marks, physical damage, or improper aftercare. Annual maintenance inspections are recommended to maintain warranty validity.</p>
 
           <div class="highlight-box success">
             <p><strong style="color:#10B981;"><i class="fas fa-shield-halved" style="color:#10B981;margin-right:0.4rem;"></i> Insurance Coverage:</strong> All vehicles on our premises are covered under our commercial garage-keeper's liability insurance for any damage caused directly by our staff during service operations.</p>
@@ -500,7 +520,7 @@
               <div class="policy-section-title">Disclaimers & Warranties</div>
             </div>
           </div>
-          <p>OUR SITE AND SERVICES ARE PROVIDED ON AN <strong style="color:var(--white);">"AS IS" AND "AS AVAILABLE"</strong> BASIS WITHOUT WARRANTIES OF ANY KIND, WHETHER EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO:</p>
+          <p>OUR SITE AND SERVICES ARE PROVIDED ON AN <strong style="color:var(--th-heading);">"AS IS" AND "AS AVAILABLE"</strong> BASIS WITHOUT WARRANTIES OF ANY KIND, WHETHER EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO:</p>
           <ul>
             <li>Implied warranties of merchantability or fitness for a particular purpose.</li>
             <li>Any warranty that the Site will be uninterrupted, timely, secure, or error-free.</li>
@@ -528,7 +548,7 @@
             <li>Damages resulting from unauthorized access to or alteration of your data.</li>
             <li>Damages resulting from events beyond our reasonable control (force majeure).</li>
           </ul>
-          <p>IN NO EVENT SHALL OUR TOTAL LIABILITY TO YOU FOR ALL CLAIMS EXCEED THE GREATER OF: <strong style="color:var(--white);">(A) THE AMOUNT YOU PAID FOR SERVICES IN THE 12 MONTHS PRECEDING THE CLAIM, OR (B) $500 USD.</strong></p>
+          <p>IN NO EVENT SHALL OUR TOTAL LIABILITY TO YOU FOR ALL CLAIMS EXCEED THE GREATER OF: <strong style="color:var(--th-heading);">(A) THE AMOUNT YOU PAID FOR SERVICES IN THE 12 MONTHS PRECEDING THE CLAIM, OR (B) $500 USD.</strong></p>
           <p>Some jurisdictions do not allow the exclusion of certain warranties or limitation of liability, so some of the above limitations may not apply to you.</p>
         </div>
 
@@ -582,13 +602,13 @@
             </div>
           </div>
           <h4>Governing Law</h4>
-          <p>These Terms shall be governed by and construed in accordance with the laws of the <strong style="color:var(--white);">State of Michigan</strong>, United States, without regard to its conflict of law principles.</p>
+          <p>These Terms shall be governed by and construed in accordance with the laws of the <strong style="color:var(--th-heading);">State of Michigan</strong>, United States, without regard to its conflict of law principles.</p>
 
           <h4>Dispute Resolution</h4>
           <p>Before filing any formal legal claim, you agree to contact us at <a href="mailto:legal@GlossForge.com">legal@GlossForge.com</a> to attempt to resolve the dispute informally. We will make good-faith efforts to resolve the matter within 30 days.</p>
 
           <h4>Arbitration</h4>
-          <p>If informal resolution fails, any dispute, claim, or controversy arising out of or relating to these Terms or our Services shall be resolved through <strong style="color:var(--white);">binding arbitration</strong> administered by the American Arbitration Association (AAA) under its Consumer Arbitration Rules. The arbitration shall take place in Detroit, Michigan or remotely by mutual agreement.</p>
+          <p>If informal resolution fails, any dispute, claim, or controversy arising out of or relating to these Terms or our Services shall be resolved through <strong style="color:var(--th-heading);">binding arbitration</strong> administered by the American Arbitration Association (AAA) under its Consumer Arbitration Rules. The arbitration shall take place in Detroit, Michigan or remotely by mutual agreement.</p>
 
           <h4>Class Action Waiver</h4>
           <p>YOU AGREE THAT ANY DISPUTE RESOLUTION PROCEEDINGS WILL BE CONDUCTED ONLY ON AN INDIVIDUAL BASIS AND NOT IN A CLASS, CONSOLIDATED, OR REPRESENTATIVE ACTION. You waive any right to participate in a class action lawsuit or class-wide arbitration.</p>
@@ -612,7 +632,7 @@
               <div class="contact-info-icon"><i class="fas fa-envelope"></i></div>
               <div>
                 <div class="contact-info-title">Legal Inquiries</div>
-                <div class="contact-info-value"><a href="mailto:legal@GlossForge.com" style="color:var(--white);">legal@GlossForge.com</a></div>
+                <div class="contact-info-value"><a href="mailto:legal@GlossForge.com" style="color:var(--th-heading);">legal@GlossForge.com</a></div>
                 <div class="contact-info-sub">Response within 5 business days</div>
               </div>
             </div>
@@ -633,7 +653,7 @@
           <h4>Entire Agreement</h4>
           <p>These Terms, together with our <a href="privacy.html">Privacy Policy</a> and any other legal notices or agreements published by us, constitute the entire agreement between you and GlossForge with respect to the use of our Services, superseding all prior agreements.</p>
 
-          <div style="margin-top:1.5rem;padding-top:1.5rem;border-top:1px solid var(--black-border);display:flex;gap:1rem;flex-wrap:wrap;">
+          <div style="margin-top:1.5rem;padding-top:1.5rem;border-top:1px solid var(--th-border);display:flex;gap:1rem;flex-wrap:wrap;">
             <a href="privacy.html" class="btn btn-outline"><i class="fas fa-shield-alt"></i> Privacy Policy</a>
             <a href="contact.html" class="btn btn-dark"><i class="fas fa-phone"></i> Contact Us</a>
             <a href="index.html" class="btn btn-primary"><i class="fas fa-home"></i> Back to Home</a>

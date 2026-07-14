@@ -7,6 +7,9 @@
   <title>The Experience | GlossForge Detail</title>
   <link rel="stylesheet" href="css/style.css" />
   <link rel="stylesheet" href="css/animations.css" />
+  <link rel="stylesheet" href="css/theme.css" />
+  <!-- Theme JS (apply saved preference immediately before first paint) -->
+  <script src="js/theme.js"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
   <style>
     /* ─── Hero Layout ─── */
@@ -76,7 +79,7 @@
     .mini-badge .badge-text {
       font-size: 0.85rem;
       font-weight: 600;
-      color: var(--white);
+      color: #FFFFFF;
     }
 
     /* ─── Floating Info Cards ─── */
@@ -140,13 +143,13 @@
     .floating-card__value {
       font-size: 1.1rem;
       font-weight: 800;
-      color: var(--white);
+      color: #FFFFFF;
       line-height: 1.2;
     }
 
     .floating-card__desc {
       font-size: 0.75rem;
-      color: var(--gray-400);
+      color: var(--th-text-muted);
       line-height: 1.2;
     }
 
@@ -248,25 +251,25 @@
     }
 
     .package-tabs { display:flex; gap:0.5rem; justify-content:center; margin-bottom:2.5rem; flex-wrap:wrap; }
-    .pkg-tab { padding:0.6rem 1.5rem; border-radius:var(--r-full); font-size:0.875rem; font-weight:600; cursor:pointer; background:var(--black-card); color:var(--gray-400); border:1px solid var(--black-border); transition:var(--t-fast); }
+    .pkg-tab { padding:0.6rem 1.5rem; border-radius:var(--r-full); font-size:0.875rem; font-weight:600; cursor:pointer; background:var(--th-card); color:var(--th-text-muted); border:1px solid var(--th-border); transition:var(--t-fast); }
     .pkg-tab.active, .pkg-tab:hover { background:var(--grad-primary); color:var(--white); border-color:transparent; }
     .pkg-panel { display:none; }
     .pkg-panel.active { display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:1.5rem; }
-    .pkg-card { background:var(--black-card); border:1px solid var(--black-border); border-radius:var(--r-lg); padding:2rem; text-align:center; transition:var(--t-base); }
+    .pkg-card { background:var(--th-card); border:1px solid var(--th-border); border-radius:var(--r-lg); padding:2rem; text-align:center; transition:var(--t-base); }
     .pkg-card:hover { border-color:var(--blue); transform:translateY(-6px); box-shadow:var(--shadow-blue); }
     .pkg-card__icon { font-size:3rem; margin-bottom:1rem; }
-    .pkg-card__name { font-size:1.1rem; font-weight:700; color:var(--white); margin-bottom:0.5rem; }
+    .pkg-card__name { font-size:1.1rem; font-weight:700; color:var(--th-heading); margin-bottom:0.5rem; }
     .pkg-card__duration { font-size:0.825rem; color:var(--cyan); margin-bottom:1rem; }
     .pkg-card__price { font-size:2.5rem; font-weight:900; background:var(--grad-primary); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; margin-bottom:1rem; }
-    .pkg-card__features { text-align:left; font-size:0.875rem; color:var(--gray-400); display:flex; flex-direction:column; gap:0.4rem; margin-bottom:1.5rem; }
+    .pkg-card__features { text-align:left; font-size:0.875rem; color:var(--th-text-muted); display:flex; flex-direction:column; gap:0.4rem; margin-bottom:1.5rem; }
     .pkg-card__features li::before { content:'✓ '; color:#10B981; font-weight:700; }
     .step-flow { display:flex; gap:0; overflow-x:auto; padding-bottom:1rem; }
     .step-item { flex-shrink:0; width:180px; text-align:center; position:relative; padding:0 1rem; }
     .step-item::after { content:''; position:absolute; top:35px; right:-20px; width:40px; height:2px; background:linear-gradient(90deg,var(--blue),var(--cyan)); }
     .step-item:last-child::after { display:none; }
     .step-circle { width:70px; height:70px; border-radius:50%; background:var(--grad-primary); margin:0 auto 1rem; display:flex; align-items:center; justify-content:center; font-size:1.5rem; box-shadow:var(--shadow-blue); }
-    .step-label { font-size:0.9rem; font-weight:700; color:var(--white); margin-bottom:0.3rem; }
-    .step-desc  { font-size:0.8rem; color:var(--gray-400); }
+    .step-label { font-size:0.9rem; font-weight:700; color:#FFFFFF; margin-bottom:0.3rem; }
+    .step-desc  { font-size:0.8rem; color:var(--th-text-muted); }
     .team-grid-h2 { display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:1.5rem; }
   </style>
 </head>
@@ -312,7 +315,24 @@
             </a>
           </div>
         </div>
-      <a href="contact.html#booking" class="btn btn-primary btn-sm">Book Now</a>
+            <!-- Theme Toggle -->
+      <button class="theme-toggle" aria-label="Toggle Light / Dark Theme" title="Toggle theme">
+        <svg class="icon-sun" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="12" r="5"></circle>
+          <line x1="12" y1="1" x2="12" y2="3"></line>
+          <line x1="12" y1="21" x2="12" y2="23"></line>
+          <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+          <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+          <line x1="1" y1="12" x2="3" y2="12"></line>
+          <line x1="21" y1="12" x2="23" y2="12"></line>
+          <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+          <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+        </svg>
+        <svg class="icon-moon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+        </svg>
+      </button>
+<a href="contact.html#booking" class="btn btn-primary btn-sm">Book Now</a>
       <button class="navbar__toggle"><span></span><span></span><span></span></button>
     </div>
   </div>
@@ -521,10 +541,10 @@
         <h2 class="section-title" style="text-align:left;">Why <span>Ceramic Coating</span> Is Worth It</h2>
         <p style="margin-bottom:1.5rem;">Standard wax lasts 3–6 months. Our professional ceramic coating lasts up to 5 years and provides superior protection at every level.</p>
         <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:2rem;">
-          <div class="card-glass"><div style="font-size:1.5rem;margin-bottom:0.5rem;color:var(--cyan);"><i class="fas fa-droplet"></i></div><div style="font-size:0.9rem;font-weight:700;color:var(--white);">Self-Cleaning</div><div style="font-size:0.8rem;color:var(--gray-400);">Dirt slides off effortlessly</div></div>
-          <div class="card-glass"><div style="font-size:1.5rem;margin-bottom:0.5rem;color:var(--cyan);"><i class="fas fa-sun"></i></div><div style="font-size:0.9rem;font-weight:700;color:var(--white);">UV Shield</div><div style="font-size:0.8rem;color:var(--gray-400);">Prevents paint oxidation</div></div>
-          <div class="card-glass"><div style="font-size:1.5rem;margin-bottom:0.5rem;color:var(--cyan);"><i class="fas fa-microscope"></i></div><div style="font-size:0.9rem;font-weight:700;color:var(--white);">9H Hardness</div><div style="font-size:0.8rem;color:var(--gray-400);">Protects against light scratches</div></div>
-          <div class="card-glass"><div style="font-size:1.5rem;margin-bottom:0.5rem;color:var(--cyan);"><i class="fas fa-palette"></i></div><div style="font-size:0.9rem;font-weight:700;color:var(--white);">Gloss Boost</div><div style="font-size:0.8rem;color:var(--gray-400);">Mirror-like finish</div></div>
+          <div class="card-glass"><div style="font-size:1.5rem;margin-bottom:0.5rem;color:var(--cyan);"><i class="fas fa-droplet"></i></div><div style="font-size:0.9rem;font-weight:700;color:var(--th-heading);">Self-Cleaning</div><div style="font-size:0.8rem;color:var(--th-text-muted);">Dirt slides off effortlessly</div></div>
+          <div class="card-glass"><div style="font-size:1.5rem;margin-bottom:0.5rem;color:var(--cyan);"><i class="fas fa-sun"></i></div><div style="font-size:0.9rem;font-weight:700;color:var(--th-heading);">UV Shield</div><div style="font-size:0.8rem;color:var(--th-text-muted);">Prevents paint oxidation</div></div>
+          <div class="card-glass"><div style="font-size:1.5rem;margin-bottom:0.5rem;color:var(--cyan);"><i class="fas fa-microscope"></i></div><div style="font-size:0.9rem;font-weight:700;color:var(--th-heading);">9H Hardness</div><div style="font-size:0.8rem;color:var(--th-text-muted);">Protects against light scratches</div></div>
+          <div class="card-glass"><div style="font-size:1.5rem;margin-bottom:0.5rem;color:var(--cyan);"><i class="fas fa-palette"></i></div><div style="font-size:0.9rem;font-weight:700;color:var(--th-heading);">Gloss Boost</div><div style="font-size:0.8rem;color:var(--th-text-muted);">Mirror-like finish</div></div>
         </div>
         <a href="services.html#ceramic" class="btn btn-primary">Get Ceramic Coating <i class="fas fa-arrow-right"></i></a>
       </div>
@@ -553,7 +573,7 @@
         <div class="team-card__body">
           <div class="team-card__name">Marcus Tyler</div>
           <div class="team-card__role">Head Detailer · IDA Certified</div>
-          <p style="font-size:0.825rem;color:var(--gray-400);margin-top:0.5rem;">12 years experience. Ceramic coating specialist with 3,000+ successful applications.</p>
+          <p style="font-size:0.825rem;color:var(--th-text-muted);margin-top:0.5rem;">12 years experience. Ceramic coating specialist with 3,000+ successful applications.</p>
           <div class="team-card__social">
             <div class="team-social-btn"><i class="fab fa-instagram"></i></div>
             <div class="team-social-btn"><i class="fab fa-linkedin-in"></i></div>
@@ -565,7 +585,7 @@
         <div class="team-card__body">
           <div class="team-card__name">Priya Sharma</div>
           <div class="team-card__role">Paint Correction Expert</div>
-          <p style="font-size:0.825rem;color:var(--gray-400);margin-top:0.5rem;">Award-winning polishing technique. Specializes in exotic and vintage car restoration.</p>
+          <p style="font-size:0.825rem;color:var(--th-text-muted);margin-top:0.5rem;">Award-winning polishing technique. Specializes in exotic and vintage car restoration.</p>
           <div class="team-card__social">
             <div class="team-social-btn"><i class="fab fa-instagram"></i></div>
             <div class="team-social-btn"><i class="fab fa-youtube"></i></div>
@@ -577,7 +597,7 @@
         <div class="team-card__body">
           <div class="team-card__name">Jason Park</div>
           <div class="team-card__role">Interior Specialist</div>
-          <p style="font-size:0.825rem;color:var(--gray-400);margin-top:0.5rem;">8 years transforming car interiors. Expert in leather restoration and odor elimination.</p>
+          <p style="font-size:0.825rem;color:var(--th-text-muted);margin-top:0.5rem;">8 years transforming car interiors. Expert in leather restoration and odor elimination.</p>
           <div class="team-card__social">
             <div class="team-social-btn"><i class="fab fa-instagram"></i></div>
             <div class="team-social-btn"><i class="fab fa-twitter"></i></div>
@@ -589,7 +609,7 @@
         <div class="team-card__body">
           <div class="team-card__name">Nina Kowalski</div>
           <div class="team-card__role">PPF & Wrap Technician</div>
-          <p style="font-size:0.825rem;color:var(--gray-400);margin-top:0.5rem;">Certified 3M installer. Flawless paint protection film applications since 2018.</p>
+          <p style="font-size:0.825rem;color:var(--th-text-muted);margin-top:0.5rem;">Certified 3M installer. Flawless paint protection film applications since 2018.</p>
           <div class="team-card__social">
             <div class="team-social-btn"><i class="fab fa-instagram"></i></div>
             <div class="team-social-btn"><i class="fab fa-linkedin-in"></i></div>
@@ -673,10 +693,10 @@
       <div class="divider"></div>
     </div>
     <div style="display:grid;grid-template-columns:2fr 1fr;gap:1rem;border-radius:var(--r-xl);overflow:hidden;" class="reveal">
-      <div style="background:var(--black-card);border:1px solid var(--black-border);border-radius:var(--r-lg);overflow:hidden;min-height:400px;position:relative;display:flex;align-items:center;justify-content:center;">
+      <div style="background:var(--th-card);border:1px solid var(--th-border);border-radius:var(--r-lg);overflow:hidden;min-height:400px;position:relative;display:flex;align-items:center;justify-content:center;">
         <img src="assets/images/facility.png" alt="GlossForge Facility" style="width:100%;height:100%;object-fit:cover;" loading="lazy" />
-        <div style="position:absolute;bottom:1.5rem;left:1.5rem;background:rgba(18,18,18,0.85);backdrop-filter:blur(10px);padding:1rem 1.5rem;border-radius:var(--r-md);border:1px solid var(--black-border);">
-          <div style="font-size:1.2rem;font-weight:800;color:var(--white);">Main Detailing Bay</div>
+        <div style="position:absolute;bottom:1.5rem;left:1.5rem;background:var(--th-showcase-bg);backdrop-filter:blur(10px);padding:1rem 1.5rem;border-radius:var(--r-md);border:1px solid var(--th-border);">
+          <div style="font-size:1.2rem;font-weight:800;color:var(--th-heading);">Main Detailing Bay</div>
           <div style="font-size:0.875rem;color:var(--cyan);">3 simultaneous service bays</div>
         </div>
       </div>
@@ -684,20 +704,20 @@
         <div class="card" style="flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;min-height:190px;background:linear-gradient(135deg,#1a2740,#0d1826);">
           <div style="font-size:2.5rem;margin-bottom:0.5rem;color:var(--cyan);"><i class="fas fa-flask"></i></div>
           <div style="font-weight:700;color:var(--white);">Pro-Grade Products</div>
-          <div style="font-size:0.825rem;color:var(--gray-400);">Meguiar's, Gtechniq, Carpro</div>
+          <div style="font-size:0.825rem;color:var(--th-text-muted);">Meguiar's, Gtechniq, Carpro</div>
         </div>
         <div class="card" style="flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;min-height:190px;background:linear-gradient(135deg,#0a2040,#062030);">
           <div style="font-size:2.5rem;margin-bottom:0.5rem;color:var(--cyan);"><i class="fas fa-temperature-three-quarters"></i></div>
           <div style="font-weight:700;color:var(--white);">Climate Controlled</div>
-          <div style="font-size:0.825rem;color:var(--gray-400);">Perfect conditions year-round</div>
+          <div style="font-size:0.825rem;color:var(--th-text-muted);">Perfect conditions year-round</div>
         </div>
       </div>
     </div>
     <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;margin-top:1rem;" class="stagger-group">
-      <div class="addon-item"><div class="addon-item__icon"><i class="fas fa-mug-hot"></i></div><div class="addon-item__name">Lounge Area</div><div style="font-size:0.8rem;color:var(--gray-400);">Relax while we work</div></div>
-      <div class="addon-item"><div class="addon-item__icon"><i class="fas fa-tv"></i></div><div class="addon-item__name">Live Cameras</div><div style="font-size:0.8rem;color:var(--gray-400);">Watch your car's progress</div></div>
-      <div class="addon-item"><div class="addon-item__icon"><i class="fas fa-square-parking"></i></div><div class="addon-item__name">Free Parking</div><div style="font-size:0.8rem;color:var(--gray-400);">200 spots available</div></div>
-      <div class="addon-item"><div class="addon-item__icon"><i class="fas fa-wheelchair"></i></div><div class="addon-item__name">ADA Accessible</div><div style="font-size:0.8rem;color:var(--gray-400);">Full accessibility</div></div>
+      <div class="addon-item"><div class="addon-item__icon"><i class="fas fa-mug-hot"></i></div><div class="addon-item__name">Lounge Area</div><div style="font-size:0.8rem;color:var(--th-text-muted);">Relax while we work</div></div>
+      <div class="addon-item"><div class="addon-item__icon"><i class="fas fa-tv"></i></div><div class="addon-item__name">Live Cameras</div><div style="font-size:0.8rem;color:var(--th-text-muted);">Watch your car's progress</div></div>
+      <div class="addon-item"><div class="addon-item__icon"><i class="fas fa-square-parking"></i></div><div class="addon-item__name">Free Parking</div><div style="font-size:0.8rem;color:var(--th-text-muted);">200 spots available</div></div>
+      <div class="addon-item"><div class="addon-item__icon"><i class="fas fa-wheelchair"></i></div><div class="addon-item__name">ADA Accessible</div><div style="font-size:0.8rem;color:var(--th-text-muted);">Full accessibility</div></div>
     </div>
   </div>
 </section>

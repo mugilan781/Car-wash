@@ -9,6 +9,9 @@
   <title>Services | GlossForge Detail</title>
   <link rel="stylesheet" href="css/style.css" />
   <link rel="stylesheet" href="css/animations.css" />
+  <link rel="stylesheet" href="css/theme.css" />
+  <!-- Theme JS (apply saved preference immediately before first paint) -->
+  <script src="js/theme.js"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
   <style>
     .service-tab-nav {
@@ -25,9 +28,9 @@
       font-size: 0.875rem;
       font-weight: 600;
       cursor: pointer;
-      background: var(--black-card);
-      color: var(--gray-400);
-      border: 1px solid var(--black-border);
+      background: var(--th-card);
+      color: var(--th-text-muted);
+      border: 1px solid var(--th-border);
       transition: var(--t-fast);
       display: flex;
       align-items: center;
@@ -42,8 +45,8 @@
     }
 
     .service-detail-card {
-      background: var(--black-card);
-      border: 1px solid var(--black-border);
+      background: var(--th-card);
+      border: 1px solid var(--th-border);
       border-radius: var(--r-xl);
       padding: 2.5rem;
       display: grid;
@@ -72,19 +75,19 @@
     .package-compare td {
       padding: 1rem;
       font-size: 0.9rem;
-      border-bottom: 1px solid var(--black-border);
+      border-bottom: 1px solid var(--th-border);
       text-align: center;
     }
 
     .package-compare th {
       font-weight: 700;
-      color: var(--white);
-      background: var(--black-soft);
+      color: var(--th-heading);
+      background: var(--th-bg-soft);
     }
 
     .package-compare td:first-child {
       text-align: left;
-      color: var(--gray-400);
+      color: var(--th-text-muted);
     }
 
     .package-compare tr:hover td {
@@ -97,7 +100,7 @@
     }
 
     .cross {
-      color: var(--gray-600);
+      color: var(--th-text-muted2);
     }
   </style>
 </head>
@@ -145,7 +148,24 @@
             </a>
           </div>
         </div>
-        <a href="contact.html#booking" class="btn btn-primary btn-sm">Book Now</a>
+              <!-- Theme Toggle -->
+      <button class="theme-toggle" aria-label="Toggle Light / Dark Theme" title="Toggle theme">
+        <svg class="icon-sun" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="12" r="5"></circle>
+          <line x1="12" y1="1" x2="12" y2="3"></line>
+          <line x1="12" y1="21" x2="12" y2="23"></line>
+          <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+          <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+          <line x1="1" y1="12" x2="3" y2="12"></line>
+          <line x1="21" y1="12" x2="23" y2="12"></line>
+          <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+          <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+        </svg>
+        <svg class="icon-moon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+        </svg>
+      </button>
+<a href="contact.html#booking" class="btn btn-primary btn-sm">Book Now</a>
         <button class="navbar__toggle"><span></span><span></span><span></span></button>
       </div>
     </div>
@@ -225,7 +245,7 @@
             <p class="service-card__text">Quick exterior wash perfect for maintaining your car between detailed
               sessions. Includes hand wash, rinse, wheel clean, and tire shine.</p>
             <ul
-              style="font-size:0.875rem;color:var(--gray-400);margin:1rem 0;display:flex;flex-direction:column;gap:0.3rem;">
+              style="font-size:0.875rem;color:var(--th-text-muted);margin:1rem 0;display:flex;flex-direction:column;gap:0.3rem;">
               <li style="display:flex;gap:0.5rem;"><span style="color:#10B981;">✓</span>Hand wash & foam rinse</li>
               <li style="display:flex;gap:0.5rem;"><span style="color:#10B981;">✓</span>Wheel & rim cleaning</li>
               <li style="display:flex;gap:0.5rem;"><span style="color:#10B981;">✓</span>Tire shine application</li>
@@ -248,7 +268,7 @@
             <p class="service-card__text">Our best-selling package. Full exterior + interior detail bringing your car to
               showroom condition.</p>
             <ul
-              style="font-size:0.875rem;color:var(--gray-400);margin:1rem 0;display:flex;flex-direction:column;gap:0.3rem;">
+              style="font-size:0.875rem;color:var(--th-text-muted);margin:1rem 0;display:flex;flex-direction:column;gap:0.3rem;">
               <li style="display:flex;gap:0.5rem;"><span style="color:#10B981;">✓</span>Everything in Express</li>
               <li style="display:flex;gap:0.5rem;"><span style="color:#10B981;">✓</span>Interior vacuum & wipe</li>
               <li style="display:flex;gap:0.5rem;"><span style="color:#10B981;">✓</span>Dashboard & console</li>
@@ -271,7 +291,7 @@
             <p class="service-card__text">The ultimate treatment. Complete inside-out detail with paint correction and
               long-term protection for the true enthusiast.</p>
             <ul
-              style="font-size:0.875rem;color:var(--gray-400);margin:1rem 0;display:flex;flex-direction:column;gap:0.3rem;">
+              style="font-size:0.875rem;color:var(--th-text-muted);margin:1rem 0;display:flex;flex-direction:column;gap:0.3rem;">
               <li style="display:flex;gap:0.5rem;"><span style="color:#10B981;">✓</span>Everything in Premium</li>
               <li style="display:flex;gap:0.5rem;"><span style="color:#10B981;">✓</span>Deep interior extraction</li>
               <li style="display:flex;gap:0.5rem;"><span style="color:#10B981;">✓</span>Paint decontamination</li>
@@ -300,19 +320,19 @@
           <span class="badge badge-cyan"
             style="margin-bottom:1.5rem;display:inline-flex;align-items:center;gap:0.4rem;"><i
               class="fas fa-microscope"></i> 9H Hardness · 5-Year Protection</span>
-          <h3 style="font-size:1.8rem;margin-bottom:1rem;color:var(--white);">The Ultimate Paint Protection</h3>
+          <h3 style="font-size:1.8rem;margin-bottom:1rem;color:var(--th-heading);">The Ultimate Paint Protection</h3>
           <p style="margin-bottom:1.25rem;">Our professional nano-ceramic coating creates a chemically bonded,
             semi-permanent layer over your paint. Unlike wax, it doesn't wash away — it bonds at a molecular level.</p>
           <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:1.5rem;">
             <div
               style="background:rgba(37,99,235,0.08);border:1px solid rgba(37,99,235,0.2);border-radius:var(--r-md);padding:1rem;">
-              <div style="font-size:1.1rem;font-weight:700;color:var(--white);margin-bottom:0.25rem;">$299+</div>
-              <div style="font-size:0.8rem;color:var(--gray-400);">Starter package</div>
+              <div style="font-size:1.1rem;font-weight:700;color:var(--th-heading);margin-bottom:0.25rem;">$299+</div>
+              <div style="font-size:0.8rem;color:var(--th-text-muted);">Starter package</div>
             </div>
             <div
               style="background:rgba(6,182,212,0.08);border:1px solid rgba(6,182,212,0.2);border-radius:var(--r-md);padding:1rem;">
-              <div style="font-size:1.1rem;font-weight:700;color:var(--white);margin-bottom:0.25rem;">1–2 Days</div>
-              <div style="font-size:0.8rem;color:var(--gray-400);">Application time</div>
+              <div style="font-size:1.1rem;font-weight:700;color:var(--th-heading);margin-bottom:0.25rem;">1–2 Days</div>
+              <div style="font-size:0.8rem;color:var(--th-text-muted);">Application time</div>
             </div>
           </div>
           <div style="display:flex;flex-direction:column;gap:0.5rem;margin-bottom:2rem;">
@@ -357,7 +377,7 @@
           <span class="badge badge-blue"
             style="margin-bottom:1.5rem;display:inline-flex;align-items:center;gap:0.4rem;"><i class="fas fa-couch"></i>
             Deep Interior Restoration</span>
-          <h3 style="font-size:1.8rem;margin-bottom:1rem;color:var(--white);">Refresh Your Cabin</h3>
+          <h3 style="font-size:1.8rem;margin-bottom:1rem;color:var(--th-heading);">Refresh Your Cabin</h3>
           <p style="margin-bottom:1.25rem;">Years of daily use take a toll on your car's interior. Our deep interior
             cleaning service uses professional-grade steam cleaners, extractors, and conditioning treatments to restore
             your cabin to showroom condition.</p>
@@ -377,7 +397,7 @@
           </div>
           <div style="display:flex;gap:1rem;align-items:center;">
             <div class="service-card__price" style="font-size:2rem;">$99 <span
-                style="font-size:0.9rem;font-weight:400;-webkit-text-fill-color:var(--gray-400);">starting</span></div>
+                style="font-size:0.9rem;font-weight:400;-webkit-text-fill-color:var(--th-text-muted);">starting</span></div>
             <a href="contact.html#booking" class="btn btn-primary">Book Interior Clean</a>
           </div>
         </div>
@@ -448,7 +468,7 @@
         <p class="section-subtitle">See exactly what's included in each package to find your perfect match.</p>
         <div class="divider"></div>
       </div>
-      <div style="overflow-x:auto;border-radius:var(--r-lg);border:1px solid var(--black-border);" class="reveal">
+      <div style="overflow-x:auto;border-radius:var(--r-lg);border:1px solid var(--th-border);" class="reveal">
         <table class="package-compare">
           <thead>
             <tr>

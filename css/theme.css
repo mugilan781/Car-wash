@@ -1,0 +1,1032 @@
+/* ============================================================
+   THEME SYSTEM — Dark (Default) & Light
+   Only color variables are defined here.
+   Layout, spacing, typography untouched.
+   ============================================================ */
+
+/* ─── DARK THEME (Default) ─── */
+:root {
+  /* Background */
+  --th-bg:           #121212;
+  --th-bg-soft:      #1A1A1A;
+  --th-card:         #1C1C1E;
+  --th-card-2:       #222226;
+
+  /* Navbar */
+  --th-navbar-scrolled-bg: rgba(18,18,18,0.95);
+  --th-navbar-scrolled-border: #2A2A2A;
+
+  /* Text */
+  --th-text:         #E5E7EB;
+  --th-text-muted:   #9CA3AF;
+  --th-text-muted2:  #4B5563;
+  --th-heading:      #FFFFFF;
+
+  /* Borders */
+  --th-border:       #2A2A2A;
+
+  /* Shadows */
+  --th-shadow-sm:    0 1px 4px rgba(0,0,0,0.5);
+  --th-shadow-md:    0 4px 24px rgba(0,0,0,0.6);
+  --th-shadow-lg:    0 10px 50px rgba(0,0,0,0.7);
+  --th-shadow-card:  0 8px 32px rgba(0,0,0,0.5);
+
+  /* Form inputs */
+  --th-input-bg:     rgba(255,255,255,0.04);
+  --th-input-border: #2A2A2A;
+
+  /* Glassmorphism */
+  --th-glass-bg:     rgba(255,255,255,0.04);
+  --th-glass-border: rgba(255,255,255,0.08);
+  --th-glass-hover:  rgba(255,255,255,0.07);
+
+  /* Mobile menu */
+  --th-mobile-bg:    rgba(18,18,18,0.98);
+
+  /* Profile dropdown */
+  --th-dropdown-bg:  rgba(20,20,22,0.95);
+  --th-dropdown-border: rgba(255,255,255,0.08);
+  --th-dropdown-shadow: 0 10px 30px rgba(0,0,0,0.5);
+
+  /* Scrollbar */
+  --th-scrollbar-track: #121212;
+
+  /* Sections */
+  --th-section-dark: #121212;
+  --th-section-card: #1A1A1A;
+
+  /* Timeline dot border */
+  --th-timeline-dot-border: #121212;
+
+  /* Map */
+  --th-map-filter: grayscale(0.6) invert(0.9) hue-rotate(180deg);
+
+  /* Social / team btn */
+  --th-team-social-bg: rgba(255,255,255,0.06);
+
+  /* Select */
+  --th-select-bg: #1b1b1f;
+
+  /* Newsletter input */
+  --th-newsletter-input-bg: rgba(255,255,255,0.03);
+
+  /* Pricing featured */
+  --th-pricing-featured-bg: linear-gradient(145deg, #1A2742, #1C2D50);
+
+  /* Footer */
+  --th-footer-bg: #1A1A1A;
+  --th-legal-divider: #2A2A2A;
+
+  /* Hours today row */
+  --th-hours-today-bg: rgba(37,99,235,0.06);
+
+  /* Countdown */
+  --th-countdown-bg: #1C1C1E;
+
+  /* Auth card */
+  --th-auth-card-bg: rgba(28,28,30,0.85);
+  --th-auth-card-border: rgba(255,255,255,0.08);
+
+  /* Badge dark BG */
+  --th-badge-bg: rgba(18,18,18,0.75);
+
+  /* Awards strip */
+  --th-awards-bg: #1A1A1A;
+  --th-awards-border: #2A2A2A;
+
+  /* Progress bar track */
+  --th-progress-track: #2A2A2A;
+
+  /* Showcase panel */
+  --th-showcase-bg: rgba(18,18,18,0.65);
+  --th-showcase-border: rgba(255,255,255,0.08);
+  --th-showcase-shadow: 0 20px 50px rgba(0,0,0,0.5), 0 0 40px rgba(37,99,235,0.1), inset 0 0 20px rgba(255,255,255,0.02);
+  --th-showcase-item-bg: rgba(255,255,255,0.02);
+  --th-showcase-item-border: rgba(255,255,255,0.04);
+  --th-showcase-icon-bg: rgba(255,255,255,0.03);
+  --th-showcase-trust-border: #2A2A2A;
+
+  /* Effect grid */
+  --th-effect-grid-color1: rgba(255,255,255,0.02);
+
+  /* Toast */
+  --th-toast-bg: #1C1C1E;
+  --th-toast-border: #2A2A2A;
+
+  /* Divider-text line */
+  --th-divider-line: #2A2A2A;
+
+  /* Page hero */
+  --th-page-hero-bg: #1A1A1A;
+
+  /* Notify form input */
+  --th-notify-input-bg: #1C1C1E;
+  --th-notify-input-border: #2A2A2A;
+
+  /* Hero overlay */
+  --th-hero-overlay: linear-gradient(135deg, rgba(18,18,18,0.9) 0%, rgba(18,18,18,0.6) 50%, rgba(37,99,235,0.15) 100%);
+
+  /* Hero dot */
+  --th-hero-dot-bg: rgba(255,255,255,0.35);
+  --th-hero-arrow-bg: rgba(255,255,255,0.08);
+  --th-hero-arrow-border: rgba(255,255,255,0.15);
+
+  /* Scroll indicator */
+  --th-scroll-color: rgba(255,255,255,0.4);
+
+  /* Lightbox */
+  --th-lightbox-bg: rgba(0,0,0,0.96);
+  --th-lightbox-close-bg: rgba(255,255,255,0.1);
+
+  /* Gallery overlay */
+  --th-gallery-overlay: linear-gradient(to top, rgba(18,18,18,0.9) 0%, transparent 60%);
+
+  /* Color scheme for browser UI */
+  color-scheme: dark;
+}
+
+/* ─── LIGHT THEME ─── */
+/*
+  Design Philosophy: Apple / Stripe / Linear / Vercel
+  3-level background hierarchy: #F5F7FA -> #FFFFFF -> #EEF3F8
+  Footer stays dark. Video-hero stays dark. Hero overlays stay dark.
+  This is NOT white mode. It is intentional light design.
+*/
+[data-theme="light"] {
+  --th-bg:           #F5F7FA;
+  --th-bg-soft:      #EEF3F8;
+  --th-card:         #FFFFFF;
+  --th-card-2:       #F8FAFD;
+
+  --th-navbar-scrolled-bg: rgba(255,255,255,0.92);
+  --th-navbar-scrolled-border: #D8E1EA;
+
+  --th-heading:      #0F172A;
+  --th-text:         #111827;
+  --th-text-muted:   #4B5563;
+  --th-text-muted2:  #6B7280;
+
+  --th-border:       #D8E1EA;
+
+  --th-shadow-sm:    0 1px 3px rgba(15,23,42,0.06), 0 1px 2px rgba(15,23,42,0.04);
+  --th-shadow-md:    0 4px 16px rgba(15,23,42,0.08), 0 2px 6px rgba(15,23,42,0.04);
+  --th-shadow-lg:    0 10px 40px rgba(15,23,42,0.10), 0 4px 12px rgba(15,23,42,0.05);
+  --th-shadow-card:  0 2px 8px rgba(15,23,42,0.07), 0 1px 3px rgba(15,23,42,0.04);
+
+  --th-input-bg:     #FFFFFF;
+  --th-input-border: #CBD5E1;
+
+  --th-glass-bg:     rgba(255,255,255,0.80);
+  --th-glass-border: rgba(203,213,225,0.6);
+  --th-glass-hover:  rgba(255,255,255,0.95);
+
+  --th-mobile-bg:    rgba(245,247,250,0.98);
+
+  --th-dropdown-bg:  #FFFFFF;
+  --th-dropdown-border: #D8E1EA;
+  --th-dropdown-shadow: 0 8px 24px rgba(15,23,42,0.10), 0 2px 6px rgba(15,23,42,0.06);
+
+  --th-scrollbar-track: #EEF3F8;
+
+  --th-section-dark: #F5F7FA;
+  --th-section-card: #FFFFFF;
+
+  --th-timeline-dot-border: #F5F7FA;
+
+  --th-map-filter: none;
+
+  --th-team-social-bg: rgba(15,23,42,0.05);
+
+  --th-select-bg: #FFFFFF;
+
+  /* Footer newsletter input stays dark (footer is dark) */
+  --th-newsletter-input-bg: rgba(255,255,255,0.07);
+
+  /* Featured pricing stays dark (premium accent card) */
+  --th-pricing-featured-bg: linear-gradient(145deg, #13233B, #1A3055);
+
+  /* Footer stays dark */
+  --th-footer-bg:    #0F172A;
+  --th-legal-divider: rgba(255,255,255,0.12);
+
+  --th-hours-today-bg: rgba(37,99,235,0.06);
+
+  --th-countdown-bg: #FFFFFF;
+
+  --th-auth-card-bg:     #FFFFFF;
+  --th-auth-card-border: #D8E1EA;
+
+  --th-badge-bg: rgba(37,99,235,0.08);
+
+  --th-awards-bg:     #EEF3F8;
+  --th-awards-border: #D8E1EA;
+
+  --th-progress-track: #E2E8F0;
+
+  /* Showcase floats on hero — keep dark glass */
+  --th-showcase-bg:           rgba(15,23,42,0.72);
+  --th-showcase-border:       rgba(255,255,255,0.12);
+  --th-showcase-shadow:       0 20px 50px rgba(0,0,0,0.3), 0 0 40px rgba(37,99,235,0.12), inset 0 0 20px rgba(255,255,255,0.03);
+  --th-showcase-item-bg:      rgba(255,255,255,0.06);
+  --th-showcase-item-border:  rgba(255,255,255,0.10);
+  --th-showcase-icon-bg:      rgba(255,255,255,0.08);
+  --th-showcase-trust-border: rgba(255,255,255,0.12);
+
+  --th-effect-grid-color1: rgba(15,23,42,0.04);
+
+  --th-toast-bg:     #FFFFFF;
+  --th-toast-border: #D8E1EA;
+
+  --th-divider-line: #CBD5E1;
+
+  /* Page hero stays dark like Dark Mode */
+  --th-page-hero-bg: #1A1A1A;
+
+  --th-notify-input-bg:     #FFFFFF;
+  --th-notify-input-border: #CBD5E1;
+
+  /* Hero overlay stays dark (over photo) */
+  --th-hero-overlay: linear-gradient(135deg, rgba(10,15,30,0.88) 0%, rgba(10,15,30,0.55) 50%, rgba(37,99,235,0.14) 100%);
+
+  --th-hero-dot-bg:    rgba(255,255,255,0.45);
+  --th-hero-arrow-bg:  rgba(255,255,255,0.25);
+  --th-hero-arrow-border: rgba(255,255,255,0.55);
+
+  --th-scroll-color: rgba(255,255,255,0.65);
+
+  --th-lightbox-bg:       rgba(10,15,30,0.96);
+  --th-lightbox-close-bg: rgba(255,255,255,0.15);
+
+  --th-gallery-overlay: linear-gradient(to top, rgba(10,15,30,0.88) 0%, transparent 60%);
+
+  color-scheme: light;
+}
+
+/* ─── THEME TRANSITION ─── */
+body,
+body * {
+  transition:
+    background-color 250ms ease,
+    color 250ms ease,
+    border-color 250ms ease,
+    box-shadow 250ms ease,
+    fill 250ms ease,
+    stroke 250ms ease !important;
+}
+
+.reveal,
+.reveal-left,
+.reveal-right,
+.reveal-scale {
+  transition:
+    background-color 250ms ease,
+    color 250ms ease,
+    border-color 250ms ease,
+    box-shadow 250ms ease,
+    fill 250ms ease,
+    stroke 250ms ease,
+    opacity 0.6s ease,
+    transform 0.6s ease !important;
+}
+
+.hero__slide {
+  transition: opacity 1.2s ease !important;
+}
+
+.gallery-item img,
+.service-card__img {
+  transition:
+    background-color 250ms ease,
+    color 250ms ease,
+    border-color 250ms ease,
+    box-shadow 250ms ease,
+    fill 250ms ease,
+    stroke 250ms ease,
+    transform 0.5s ease !important;
+}
+
+.progress-fill {
+  transition:
+    background-color 250ms ease,
+    border-color 250ms ease,
+    box-shadow 250ms ease,
+    width 1.2s ease !important;
+}
+
+.navbar__toggle span {
+  transition:
+    background-color 250ms ease,
+    border-color 250ms ease,
+    opacity 0.35s cubic-bezier(0.4,0,0.2,1),
+    transform 0.35s cubic-bezier(0.4,0,0.2,1) !important;
+}
+
+.toast {
+  transition:
+    background-color 250ms ease,
+    color 250ms ease,
+    border-color 250ms ease,
+    box-shadow 250ms ease,
+    fill 250ms ease,
+    stroke 250ms ease,
+    transform 0.4s cubic-bezier(0.34,1.56,0.64,1) !important;
+}
+
+/* ─── THEME TOGGLE BUTTON ─── */
+.theme-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  border-radius: var(--r-md);
+  border: 1px solid var(--th-border);
+  background: var(--th-card);
+  color: var(--th-text);
+  cursor: pointer;
+  flex-shrink: 0;
+}
+.theme-toggle:hover {
+  border-color: var(--blue);
+  background: rgba(37,99,235,0.08);
+  color: var(--blue);
+}
+.theme-toggle svg { width: 18px; height: 18px; display: block; }
+
+.theme-toggle .icon-sun  { display: block; }
+.theme-toggle .icon-moon { display: none; }
+[data-theme="light"] .theme-toggle .icon-sun  { display: none; }
+[data-theme="light"] .theme-toggle .icon-moon { display: block; }
+
+
+/* ===========================================================
+   LIGHT THEME — COMPONENT OVERRIDES
+   All rules below are [data-theme="light"] scoped.
+   Dark theme is 100% unchanged.
+   =========================================================== */
+
+/* ─── SELECT DROPDOWN ARROW — see comprehensive fix in bug-fix section below ─── */
+/* The full background shorthand fix is at the end of this file (Fix 7).          */
+/* This ensures only ONE arrow appears and the background is properly replaced.    */
+
+/* ─── DATE PICKER ─── */
+[data-theme="light"] input[type="date"]::-webkit-calendar-picker-indicator {
+  filter: invert(0.4) sepia(1) saturate(0.5) hue-rotate(180deg);
+  cursor: pointer;
+}
+
+/* ─── SECTION BLUE (always dark gradient) ─── */
+.section--blue {
+  background: linear-gradient(135deg, #0F172A 0%, #1E3A5F 100%);
+}
+[data-theme="light"] .section--blue .section-title,
+[data-theme="light"] .section--blue h2.section-title {
+  color: #FFFFFF !important;
+}
+[data-theme="light"] .section--blue .section-eyebrow {
+  color: #22D3EE !important;
+}
+[data-theme="light"] .section--blue .section-subtitle,
+[data-theme="light"] .section--blue > .container > .split > .reveal-left > p {
+  color: #E2E8F0 !important;
+}
+[data-theme="light"] .section--blue .stat-card {
+  background: #FFFFFF !important;
+  border-color: #D8E1EA !important;
+}
+[data-theme="light"] .section--blue .stat-card .stat-label {
+  color: #4B5563 !important;
+}
+[data-theme="light"] .section--blue .stat-card .stat-icon {
+  color: var(--blue) !important;
+}
+
+/* ─── PAGE HERO BANNERS ─── */
+[data-theme="light"] .page-hero {
+  background: #1A1A1A !important;
+  border-bottom: none !important;
+}
+[data-theme="light"] .page-hero::before {
+  background: radial-gradient(ellipse at 50% 0%, rgba(37,99,235,0.15) 0%, transparent 70%) !important;
+}
+[data-theme="light"] .page-hero__title {
+  color: #FFFFFF !important;
+}
+[data-theme="light"] .page-hero__subtitle {
+  color: #9CA3AF !important;
+}
+[data-theme="light"] .page-hero__breadcrumb {
+  color: #9CA3AF !important;
+}
+[data-theme="light"] .page-hero__breadcrumb a {
+  color: var(--cyan) !important;
+}
+[data-theme="light"] .page-hero__breadcrumb a:hover {
+  color: #FFFFFF !important;
+}
+[data-theme="light"] .page-hero__eyebrow {
+  color: var(--cyan) !important;
+}
+
+/* ─── NAVBAR ─── */
+/* Default (inner pages, no scroll) */
+[data-theme="light"] .navbar__link { color: #4B5563; }
+[data-theme="light"] .navbar__link:hover,
+[data-theme="light"] .navbar__link.active { color: #0F172A; }
+[data-theme="light"] .navbar__logo-text { color: #0F172A !important; }
+[data-theme="light"] .navbar__logo-text span { color: var(--cyan) !important; }
+[data-theme="light"] .navbar__toggle span { background: #0F172A; }
+
+/* Transparent state (over hero photo — must stay white) */
+[data-theme="light"] .navbar--transparent .navbar__link { color: rgba(255,255,255,0.90); }
+[data-theme="light"] .navbar--transparent .navbar__link:hover,
+[data-theme="light"] .navbar--transparent .navbar__link.active { color: #FFFFFF; }
+[data-theme="light"] .navbar--transparent .navbar__logo-text { color: #FFFFFF !important; }
+[data-theme="light"] .navbar--transparent .navbar__logo-text span { color: var(--cyan) !important; }
+[data-theme="light"] .navbar--transparent .navbar__toggle span { background: #FFFFFF; }
+[data-theme="light"] .navbar--transparent .profile-trigger { background: rgba(255,255,255,0.12); border-color: rgba(255,255,255,0.20); color: #FFFFFF; }
+[data-theme="light"] .navbar--transparent .theme-toggle { background: rgba(255,255,255,0.12); border-color: rgba(255,255,255,0.20); color: #FFFFFF; }
+
+/* Scrolled state */
+[data-theme="light"] .navbar--scrolled .navbar__link { color: #4B5563; }
+[data-theme="light"] .navbar--scrolled .navbar__link:hover,
+[data-theme="light"] .navbar--scrolled .navbar__link.active { color: #0F172A; }
+[data-theme="light"] .navbar--scrolled .navbar__logo-text { color: #0F172A !important; }
+[data-theme="light"] .navbar--scrolled { box-shadow: 0 1px 0 #D8E1EA, 0 2px 16px rgba(15,23,42,0.07); }
+
+/* ─── MOBILE MENU ─── */
+[data-theme="light"] .navbar__mobile { background: rgba(245,247,250,0.98); }
+[data-theme="light"] .navbar__mobile .navbar__link { color: #0F172A; }
+[data-theme="light"] .navbar__mobile .navbar__link:hover { color: var(--blue); }
+
+/* ─── DROPDOWNS ─── */
+[data-theme="light"] .navbar__dropdown { background: #FFFFFF; border-color: #D8E1EA; box-shadow: 0 8px 24px rgba(15,23,42,0.10); }
+[data-theme="light"] .navbar__dropdown a { color: #4B5563; }
+[data-theme="light"] .navbar__dropdown a:hover { background: rgba(37,99,235,0.07); color: #0F172A; }
+[data-theme="light"] .profile-dropdown-menu { background: #FFFFFF; border-color: #D8E1EA; box-shadow: 0 8px 24px rgba(15,23,42,0.10); }
+[data-theme="light"] .profile-dropdown-item { color: #4B5563 !important; }
+[data-theme="light"] .profile-dropdown-item:hover { background: rgba(37,99,235,0.07) !important; color: #0F172A !important; }
+
+/* ─── HERO (full-bleed photo hero — dark overlay, always white text) ─── */
+[data-theme="light"] .hero__title    { color: #FFFFFF; }
+[data-theme="light"] .hero__subtitle { color: rgba(255,255,255,0.88); }
+[data-theme="light"] .hero__eyebrow  { color: var(--cyan); }
+[data-theme="light"] .hero__scroll   { color: rgba(255,255,255,0.65); }
+
+/* ─── VIDEO HERO (dark canvas, always dark) ─── */
+[data-theme="light"] .video-hero { background: #060914; }
+[data-theme="light"] .video-hero__bg { background: linear-gradient(135deg, #0a0f1e 0%, #0f1a35 50%, #060c1a 100%); }
+[data-theme="light"] .video-hero .section-title { color: #FFFFFF; }
+[data-theme="light"] .video-hero .section-subtitle { color: rgba(255,255,255,0.75); }
+
+/* ─── TYPOGRAPHY ─── */
+[data-theme="light"] h1,
+[data-theme="light"] h2,
+[data-theme="light"] h3,
+[data-theme="light"] h4,
+[data-theme="light"] h5,
+[data-theme="light"] h6 { color: #0F172A; }
+[data-theme="light"] p { color: #4B5563; }
+[data-theme="light"] .section-title    { color: #0F172A; }
+[data-theme="light"] .section-subtitle { color: #4B5563; }
+[data-theme="light"] .section-eyebrow  { color: var(--cyan); }
+[data-theme="light"] .section-eyebrow::before,
+[data-theme="light"] .section-eyebrow::after { background: var(--cyan); }
+
+/* ─── CARDS ─── */
+[data-theme="light"] .card { background: #FFFFFF; border-color: #D8E1EA; box-shadow: 0 1px 3px rgba(15,23,42,0.06), 0 1px 2px rgba(15,23,42,0.04); }
+[data-theme="light"] .card:hover { box-shadow: 0 8px 28px rgba(37,99,235,0.12), 0 2px 6px rgba(15,23,42,0.06); }
+[data-theme="light"] .card-title { color: #0F172A; }
+[data-theme="light"] .card-text  { color: #4B5563; }
+[data-theme="light"] .card-glass { background: rgba(255,255,255,0.80); border-color: rgba(203,213,225,0.6); box-shadow: 0 2px 10px rgba(15,23,42,0.07); }
+[data-theme="light"] .card-glass:hover { background: rgba(255,255,255,0.96); }
+
+/* ─── STAT CARDS ─── */
+[data-theme="light"] .stat-card { background: #FFFFFF; border-color: #D8E1EA; box-shadow: 0 1px 4px rgba(15,23,42,0.06); }
+[data-theme="light"] .stat-card:hover { box-shadow: 0 6px 24px rgba(37,99,235,0.12); }
+[data-theme="light"] .stat-label { color: #6B7280; }
+
+/* ─── SERVICE CARDS ─── */
+[data-theme="light"] .service-card { background: #FFFFFF; border-color: #D8E1EA; box-shadow: 0 1px 4px rgba(15,23,42,0.06); }
+[data-theme="light"] .service-card:hover { box-shadow: 0 8px 28px rgba(37,99,235,0.12); }
+[data-theme="light"] .service-card__title { color: #0F172A; }
+[data-theme="light"] .service-card__text  { color: #4B5563; }
+[data-theme="light"] .service-card__price span { color: #6B7280; }
+
+/* ─── PRICING CARDS ─── */
+[data-theme="light"] .pricing-card { background: #FFFFFF; border-color: #D8E1EA; box-shadow: 0 1px 4px rgba(15,23,42,0.06); }
+[data-theme="light"] .pricing-card:hover { box-shadow: 0 8px 28px rgba(37,99,235,0.12); }
+[data-theme="light"] .pricing-card__price  { color: #0F172A; }
+[data-theme="light"] .pricing-card__period { color: #6B7280; }
+[data-theme="light"] .pricing-card__features li { color: #4B5563; border-color: #E8EDF2; }
+[data-theme="light"] .pricing-card__features li .icon.cross { color: #9CA3AF; }
+/* Featured stays dark */
+[data-theme="light"] .pricing-card.featured { background: linear-gradient(145deg, #13233B, #1A3055); border-color: var(--blue); box-shadow: 0 8px 32px rgba(37,99,235,0.25); }
+[data-theme="light"] .pricing-card.featured .pricing-card__price  { color: #FFFFFF; }
+[data-theme="light"] .pricing-card.featured .pricing-card__period { color: rgba(255,255,255,0.65); }
+[data-theme="light"] .pricing-card.featured .pricing-card__features li { color: rgba(255,255,255,0.85); border-color: rgba(255,255,255,0.10); }
+
+/* ─── TESTIMONIALS ─── */
+[data-theme="light"] .testimonial-card { background: #FFFFFF; border-color: #D8E1EA; box-shadow: 0 1px 4px rgba(15,23,42,0.06); }
+[data-theme="light"] .testimonial-card__text { color: #111827; }
+[data-theme="light"] .testimonial-card__name { color: #0F172A; }
+[data-theme="light"] .testimonial-card__role { color: var(--cyan); }
+[data-theme="light"] .testimonial-dot { background: rgba(15,23,42,0.18); }
+
+/* ─── GALLERY ─── */
+[data-theme="light"] .filter-btn { background: #FFFFFF; color: #4B5563; border-color: #D8E1EA; }
+[data-theme="light"] .filter-btn:hover,
+[data-theme="light"] .filter-btn.active { background: var(--grad-primary); color: #FFFFFF; border-color: transparent; }
+[data-theme="light"] .gallery-item__title { color: #FFFFFF; }  /* on dark overlay */
+
+/* ─── BADGES ─── */
+[data-theme="light"] .badge-blue   { background: rgba(37,99,235,0.10); color: #1D4ED8; border-color: rgba(37,99,235,0.28); box-shadow: none; }
+[data-theme="light"] .badge-cyan   { background: rgba(6,182,212,0.10); color: #0891B2; border-color: rgba(6,182,212,0.28); box-shadow: none; }
+[data-theme="light"] .badge-silver { background: rgba(15,23,42,0.06); color: #374151; border-color: rgba(15,23,42,0.14); box-shadow: none; }
+
+/* ─── BUTTONS ─── */
+[data-theme="light"] .btn-outline { border-color: rgba(15,23,42,0.22); color: #0F172A; background: transparent; }
+[data-theme="light"] .btn-outline:hover { border-color: var(--cyan); color: var(--cyan); background: rgba(6,182,212,0.06); }
+[data-theme="light"] .btn-dark { background: #FFFFFF; color: #0F172A; border-color: #D8E1EA; }
+[data-theme="light"] .btn-dark:hover { border-color: var(--blue); color: var(--blue); }
+/* CTA banner outline: always white text on gradient */
+[data-theme="light"] .cta-banner .btn-outline { border-color: rgba(255,255,255,0.55); color: #FFFFFF; background: transparent; }
+[data-theme="light"] .cta-banner .btn-outline:hover { border-color: #FFFFFF; background: rgba(255,255,255,0.15); }
+
+/* ─── CTA BANNER ─── */
+[data-theme="light"] .cta-banner__title { color: #FFFFFF; }
+[data-theme="light"] .cta-banner__text  { color: rgba(255,255,255,0.85); }
+
+/* ─── FORMS ─── */
+[data-theme="light"] .form-label { color: #111827; }
+[data-theme="light"] .form-control { background: #FFFFFF; border-color: #CBD5E1; color: #0F172A; }
+[data-theme="light"] .form-control::placeholder { color: #9CA3AF; }
+[data-theme="light"] .form-control:focus { border-color: var(--blue); background: #FFFFFF; box-shadow: 0 0 0 3px rgba(37,99,235,0.12); }
+[data-theme="light"] textarea.form-control { background: #FFFFFF; }
+[data-theme="light"] .booking-form { background: #FFFFFF; border-color: #D8E1EA; box-shadow: 0 2px 12px rgba(15,23,42,0.07); }
+
+/* ─── FAQ ─── */
+[data-theme="light"] .faq-item { background: #FFFFFF; border-color: #D8E1EA; box-shadow: 0 1px 3px rgba(15,23,42,0.05); }
+[data-theme="light"] .faq-question   { color: #0F172A; }
+[data-theme="light"] .faq-answer__inner { color: #4B5563; }
+
+/* ─── FEATURES ─── */
+[data-theme="light"] .feature-item { background: #FFFFFF; border-color: #D8E1EA; box-shadow: 0 1px 3px rgba(15,23,42,0.05); }
+[data-theme="light"] .feature-title { color: #0F172A; }
+[data-theme="light"] .feature-text  { color: #4B5563; }
+
+/* ─── CONTACT ─── */
+[data-theme="light"] .contact-info-card { background: #FFFFFF; border-color: #D8E1EA; box-shadow: 0 1px 3px rgba(15,23,42,0.05); }
+[data-theme="light"] .contact-info-value { color: #0F172A; }
+[data-theme="light"] .contact-info-sub   { color: #6B7280; }
+[data-theme="light"] .contact-info-title { color: var(--cyan); }
+
+/* ─── HOURS TABLE ─── */
+[data-theme="light"] .hours-table tr { border-color: #E8EDF2; }
+[data-theme="light"] .hours-table td { color: #4B5563; }
+[data-theme="light"] .hours-table td:last-child { color: var(--cyan); }
+[data-theme="light"] .hours-table .today { background: rgba(37,99,235,0.05); }
+[data-theme="light"] .hours-table .today td { color: #0F172A; font-weight: 600; }
+
+/* ─── MAP ─── */
+[data-theme="light"] .map-wrap { border-color: #D8E1EA; }
+[data-theme="light"] .map-wrap iframe { filter: none; }
+
+/* ─── SOCIAL LINKS ─── */
+[data-theme="light"] .social-link { background: #FFFFFF; border-color: #D8E1EA; color: #6B7280; }
+[data-theme="light"] .social-link:hover { background: var(--blue); color: #FFFFFF; border-color: var(--blue); }
+[data-theme="light"] .team-social-btn { background: rgba(15,23,42,0.05); border-color: #D8E1EA; color: #6B7280; }
+
+/* ─── FOOTER — STAYS DARK ─── */
+[data-theme="light"] .footer { background: #0F172A; border-top-color: rgba(255,255,255,0.06); }
+[data-theme="light"] .footer__heading { color: var(--cyan); }
+[data-theme="light"] .footer__brand p { color: rgba(255,255,255,0.50); }
+[data-theme="light"] .footer__link    { color: rgba(255,255,255,0.55); }
+[data-theme="light"] .footer__link:hover { color: #FFFFFF; }
+[data-theme="light"] .footer__link i  { color: var(--cyan); }
+[data-theme="light"] .footer__contact-item { color: rgba(255,255,255,0.55); }
+[data-theme="light"] .footer__contact-item i { color: var(--cyan); }
+[data-theme="light"] .footer__contact-item a:hover { color: #FFFFFF; }
+[data-theme="light"] .footer__newsletter-desc { color: rgba(255,255,255,0.50); }
+[data-theme="light"] .footer__newsletter input { background: rgba(255,255,255,0.06); border-color: rgba(255,255,255,0.12); color: #FFFFFF; }
+[data-theme="light"] .footer__newsletter input::placeholder { color: rgba(255,255,255,0.35); }
+[data-theme="light"] .footer__newsletter input:focus { border-color: var(--blue); background: rgba(37,99,235,0.10); }
+[data-theme="light"] .footer__bottom { border-top-color: rgba(255,255,255,0.08); color: rgba(255,255,255,0.35); }
+[data-theme="light"] .footer__bottom p { color: rgba(255,255,255,0.35); margin: 0; }
+[data-theme="light"] .footer__legal-link { color: rgba(255,255,255,0.45); }
+[data-theme="light"] .footer__legal-link:hover { color: var(--cyan); }
+[data-theme="light"] .footer__legal-divider { color: rgba(255,255,255,0.15); }
+[data-theme="light"] .footer .social-link { background: rgba(255,255,255,0.06); border-color: rgba(255,255,255,0.10); color: rgba(255,255,255,0.55); }
+[data-theme="light"] .footer .social-link:hover { background: var(--blue); border-color: var(--blue); color: #FFFFFF; }
+
+/* ─── PROCESS STEPS ─── */
+[data-theme="light"] .process-step__title { color: #0F172A; }
+[data-theme="light"] .process-step__text  { color: #4B5563; }
+
+/* ─── TEAM CARDS ─── */
+[data-theme="light"] .team-card { background: #FFFFFF; border-color: #D8E1EA; box-shadow: 0 1px 3px rgba(15,23,42,0.06); }
+[data-theme="light"] .team-card:hover { box-shadow: 0 8px 28px rgba(37,99,235,0.12); }
+[data-theme="light"] .team-card__name { color: #0F172A; }
+[data-theme="light"] .team-card__role { color: var(--cyan); }
+
+/* ─── TIMELINE ─── */
+[data-theme="light"] .timeline-title { color: #0F172A; }
+[data-theme="light"] .timeline-text  { color: #4B5563; }
+[data-theme="light"] .timeline-year  { color: var(--cyan); }
+
+/* ─── ADDON ITEMS ─── */
+[data-theme="light"] .addon-item { background: #FFFFFF; border-color: #D8E1EA; box-shadow: 0 1px 3px rgba(15,23,42,0.05); }
+[data-theme="light"] .addon-item__name  { color: #0F172A; }
+[data-theme="light"] .addon-item__price { color: var(--cyan); }
+
+/* ─── TOAST ─── */
+[data-theme="light"] .toast { background: #FFFFFF; border-color: #D8E1EA; color: #0F172A; box-shadow: 0 8px 24px rgba(15,23,42,0.10); }
+
+/* ─── TAG/PILL ─── */
+[data-theme="light"] .tag { background: rgba(37,99,235,0.08); color: #1D4ED8; border-color: rgba(37,99,235,0.18); }
+
+/* ─── PROGRESS ─── */
+[data-theme="light"] .progress-label { color: #111827; }
+
+/* ─── AWARDS STRIP ─── */
+[data-theme="light"] .awards-strip { background: #EEF3F8; border-top-color: #D8E1EA; border-bottom-color: #D8E1EA; }
+[data-theme="light"] .award-item   { color: #4B5563; }
+[data-theme="light"] .award-item i { color: var(--cyan); }
+
+/* ─── BG GLOWS ─── */
+[data-theme="light"] .bg-glow--blue { background: rgba(37,99,235,0.06); }
+[data-theme="light"] .bg-glow--cyan { background: rgba(6,182,212,0.05); }
+
+/* ─── GLOW LINE ─── */
+[data-theme="light"] .glow-line { opacity: 0.18; }
+
+/* ─── DIVIDER ─── */
+[data-theme="light"] .divider { opacity: 0.7; }
+
+/* ─── SCROLLBAR ─── */
+[data-theme="light"] ::-webkit-scrollbar-track { background: #EEF3F8; }
+
+/* ─── BEFORE/AFTER HANDLE ─── */
+[data-theme="light"] .before-after-handle,
+[data-theme="light"] .before-after-handle::before,
+[data-theme="light"] .before-after-handle::after { background: #FFFFFF; }
+
+/* ─── AUTH PAGES ─── */
+[data-theme="light"] .auth-page { background: linear-gradient(135deg, #EFF5FB 0%, #E7F0FA 55%, #F5F7FA 100%); }
+[data-theme="light"] .auth-page::before { background: radial-gradient(circle, rgba(37,99,235,0.10) 0%, transparent 70%); }
+[data-theme="light"] .auth-page::after  { background: radial-gradient(circle, rgba(6,182,212,0.07) 0%, transparent 70%); }
+[data-theme="light"] .auth-card { background: #FFFFFF; border-color: #D8E1EA; box-shadow: 0 4px 24px rgba(15,23,42,0.09), 0 1px 4px rgba(15,23,42,0.05); }
+[data-theme="light"] .auth-title    { color: #0F172A; }
+[data-theme="light"] .auth-subtitle { color: #6B7280; }
+[data-theme="light"] .auth-footer   { color: #6B7280; }
+[data-theme="light"] .divider-text  { color: #9CA3AF; }
+
+/* ─── COUNTDOWN ─── */
+[data-theme="light"] .countdown-unit  { background: #FFFFFF; border-color: #D8E1EA; box-shadow: 0 1px 4px rgba(15,23,42,0.06); }
+[data-theme="light"] .countdown-num   { color: #0F172A; }
+[data-theme="light"] .countdown-label { color: #6B7280; }
+
+/* ─── ERROR / 404 ─── */
+[data-theme="light"] .error-page { background: #F5F7FA; }
+[data-theme="light"] .error-content h1 { color: #0F172A; }
+[data-theme="light"] .error-content p  { color: #4B5563; }
+
+/* ─── MAINTENANCE ─── */
+[data-theme="light"] .maintenance-page { background: linear-gradient(180deg, #EFF5FB 0%, #E7F0FA 100%); }
+
+/* ─── SPLIT BADGE ─── */
+[data-theme="light"] .split__img-badge-num  { color: #FFFFFF; }
+[data-theme="light"] .split__img-badge-text { color: rgba(255,255,255,0.80); }
+
+/* ─── SHOWCASE PANEL (floats on hero — stays dark glass) ─── */
+[data-theme="light"] .showcase-label { color: #FFFFFF; }
+[data-theme="light"] .trust-sub  { color: #FFFFFF; }
+[data-theme="light"] .trust-desc { color: rgba(255,255,255,0.65); }
+
+/* ─── HOME2 PAGE-SPECIFIC INLINE COMPONENTS ─── */
+[data-theme="light"] .pkg-tab { background: #FFFFFF; color: #6B7280; border-color: #D8E1EA; }
+[data-theme="light"] .pkg-tab.active,
+[data-theme="light"] .pkg-tab:hover { background: var(--grad-primary); color: #FFFFFF; border-color: transparent; }
+[data-theme="light"] .pkg-card { background: #FFFFFF; border-color: #D8E1EA; box-shadow: 0 1px 4px rgba(15,23,42,0.06); }
+
+/* ─── GALLERY PAGE-SPECIFIC ─── */
+[data-theme="light"] .video-card    { background: #FFFFFF; border-color: #D8E1EA; box-shadow: 0 1px 4px rgba(15,23,42,0.06); }
+[data-theme="light"] .stat-strip-item { background: #FFFFFF; border-color: #D8E1EA; box-shadow: 0 1px 4px rgba(15,23,42,0.06); }
+
+/* ─── CONTACT PAGE-SPECIFIC ─── */
+[data-theme="light"] .hours-card    { background: #FFFFFF; border-color: #D8E1EA; box-shadow: 0 1px 4px rgba(15,23,42,0.06); }
+[data-theme="light"] .social-big-card { background: #FFFFFF; border-color: #D8E1EA; box-shadow: 0 1px 4px rgba(15,23,42,0.06); }
+
+/* ─── ABOUT PAGE-SPECIFIC ─── */
+[data-theme="light"] .cert-badge { background: #FFFFFF; border-color: #D8E1EA; box-shadow: 0 1px 3px rgba(15,23,42,0.05); }
+
+/* ─── PRIVACY / TERMS PAGE-SPECIFIC ─── */
+[data-theme="light"] .policy-section { background: #FFFFFF; border-color: #D8E1EA; box-shadow: 0 1px 4px rgba(15,23,42,0.05); }
+[data-theme="light"] .policy-meta    { background: #EEF3F8; border-color: #D8E1EA; }
+
+/* ─── BACK TO TOP ─── */
+[data-theme="light"] .back-to-top { background: var(--grad-primary); color: #FFFFFF; }
+
+/* ─── NAVBAR TOGGLE HOVER ─── */
+[data-theme="light"] .navbar__toggle:hover { background: rgba(15,23,42,0.06); }
+
+
+/* ===========================================================
+   LIGHT MODE BUG FIX PASS — CONTRAST & VISIBILITY
+   All rules below are [data-theme="light"] scoped ONLY.
+   Dark mode is 100% unchanged.
+   =========================================================== */
+
+/* ─────────────────────────────────────────────────────────────
+   FIX 1: NAVBAR TEXT VISIBILITY
+   Transparent navbar over hero photo needs solid white text.
+   Scrolled navbar uses dark text on white bg.
+   ───────────────────────────────────────────────────────────── */
+
+/* Transparent state — sits over dark hero overlay — always white */
+[data-theme="light"] .navbar--transparent .navbar__link {
+  color: rgba(255, 255, 255, 0.92);
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
+}
+[data-theme="light"] .navbar--transparent .navbar__link:hover,
+[data-theme="light"] .navbar--transparent .navbar__link.active {
+  color: #FFFFFF;
+}
+[data-theme="light"] .navbar--transparent .navbar__logo-text {
+  color: #FFFFFF;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.35);
+}
+[data-theme="light"] .navbar--transparent .navbar__logo-text span { color: var(--cyan); }
+[data-theme="light"] .navbar--transparent .navbar__toggle span { background: #FFFFFF; }
+
+/* Profile + theme toggle buttons on transparent navbar */
+[data-theme="light"] .navbar--transparent .profile-trigger,
+[data-theme="light"] .navbar--transparent .theme-toggle {
+  background: rgba(255, 255, 255, 0.14);
+  border-color: rgba(255, 255, 255, 0.28);
+  color: #FFFFFF;
+}
+
+/* ─────────────────────────────────────────────────────────────
+   FIX 2: FOOTER BRANDING
+   Footer stays dark. The "Gloss" text uses .navbar__logo-text
+   which gets color: #0F172A in light mode — invisible on dark bg.
+   Override to white inside the footer.
+   ───────────────────────────────────────────────────────────── */
+[data-theme="light"] .footer .navbar__logo-text {
+  color: #FFFFFF;
+}
+[data-theme="light"] .footer .navbar__logo-text span {
+  color: var(--cyan);
+}
+
+/* ─────────────────────────────────────────────────────────────
+   FIX 3: HOME HERO "OUR SERVICES" BUTTON
+   .btn-outline on the dark hero overlay needs white text + border.
+   General .btn-outline override already sets dark colors for
+   non-hero contexts; scope this to the hero only.
+   ───────────────────────────────────────────────────────────── */
+[data-theme="light"] .hero .btn-outline {
+  color: #FFFFFF;
+  border-color: rgba(255, 255, 255, 0.60);
+  background: transparent;
+}
+[data-theme="light"] .hero .btn-outline:hover {
+  color: var(--cyan);
+  border-color: var(--cyan);
+  background: rgba(6, 182, 212, 0.12);
+}
+
+/* Home2 video-hero also has btn-outline — keep white */
+[data-theme="light"] .video-hero .btn-outline {
+  color: #FFFFFF;
+  border-color: rgba(255, 255, 255, 0.55);
+  background: transparent;
+}
+[data-theme="light"] .video-hero .btn-outline:hover {
+  color: var(--cyan);
+  border-color: var(--cyan);
+  background: rgba(6, 182, 212, 0.12);
+}
+
+/* ─────────────────────────────────────────────────────────────
+   FIX 4: HOME2 MINI-BADGES (5-Year Guarantee, etc.)
+   .card-glass inside video-hero gets white bg in light mode —
+   but video-hero is always dark. Keep badges dark glass.
+   ───────────────────────────────────────────────────────────── */
+[data-theme="light"] .video-hero .card-glass,
+[data-theme="light"] .video-hero .mini-badge {
+  background: rgba(20, 25, 45, 0.72);
+  border-color: rgba(255, 255, 255, 0.15);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.35);
+}
+[data-theme="light"] .video-hero .card-glass:hover,
+[data-theme="light"] .video-hero .mini-badge:hover {
+  background: rgba(25, 32, 58, 0.82);
+}
+/* Icon and text inside dark mini-badges — keep white */
+[data-theme="light"] .video-hero .mini-badge i,
+[data-theme="light"] .video-hero .mini-badge .badge-text {
+  color: #FFFFFF;
+}
+/* Floating info cards on home2 hero — also always dark */
+[data-theme="light"] .floating-card {
+  background: rgba(20, 25, 45, 0.72);
+  border-color: rgba(255, 255, 255, 0.12);
+}
+
+/* ─── ABOUT PAGE — MISSION & VISION CARD TEXT CONTRAST ─── */
+[data-theme="light"] #mission .mv-grid .card h3 {
+  color: #FFFFFF !important;
+}
+[data-theme="light"] #mission .mv-grid .card p {
+  color: #E2E8F0 !important;
+}
+[data-theme="light"] #mission .mv-grid .card .divider {
+  opacity: 1 !important;
+  background: var(--grad-primary) !important;
+}
+
+/* ─────────────────────────────────────────────────────────────
+   FIX 6: DARK BACKGROUND SECTIONS — LOW CONTRAST TEXT
+   Sections using .section--dark, .section--card, and others
+   that had white text in dark mode but switch to light bg.
+   Ensure all text meets contrast requirements.
+   ───────────────────────────────────────────────────────────── */
+
+/* stat-card num */
+[data-theme="light"] .stat-num { color: #0F172A; }
+
+/* Why GlossForge / Feature sections */
+[data-theme="light"] .feature-icon { color: var(--blue); }
+[data-theme="light"] .feature-item:hover .feature-icon { color: #FFFFFF; }
+
+/* Highlight boxes (used in Privacy / Terms) */
+[data-theme="light"] .highlight-box {
+  background: rgba(37, 99, 235, 0.07);
+  border-color: rgba(37, 99, 235, 0.20);
+  color: #0F172A;
+}
+[data-theme="light"] .highlight-box.cyan {
+  background: rgba(6, 182, 212, 0.07);
+  border-color: rgba(6, 182, 212, 0.20);
+}
+[data-theme="light"] .highlight-box strong { color: #0F172A; }
+
+/* Service detail cards (services.html split detail) */
+[data-theme="light"] .service-detail-card { background: #FFFFFF; border-color: #D8E1EA; }
+
+/* Hours card heading */
+[data-theme="light"] .hours-title { color: #0F172A; }
+
+/* Showcase — stays dark glass, text stays white */
+[data-theme="light"] .showcase-panel { color: #FFFFFF; }
+[data-theme="light"] .showcase-badge  { color: var(--cyan); }
+[data-theme="light"] .showcase-item__name  { color: #FFFFFF; }
+[data-theme="light"] .showcase-item__price { color: rgba(255,255,255,0.65); }
+
+/* Trust section badges below hero */
+[data-theme="light"] .trust-item   { color: rgba(255,255,255,0.85); }
+[data-theme="light"] .trust-num    { color: #FFFFFF; }
+
+/* Policy sections (terms/privacy) headings */
+[data-theme="light"] .policy-section-title { color: #0F172A; }
+[data-theme="light"] .policy-content h3,
+[data-theme="light"] .policy-content h4 { color: #0F172A; }
+[data-theme="light"] .policy-content p,
+[data-theme="light"] .policy-content li { color: #4B5563; }
+[data-theme="light"] .toc-link { color: #4B5563; }
+[data-theme="light"] .toc-link:hover,
+[data-theme="light"] .toc-link.active { color: #0F172A; background: rgba(37,99,235,0.08); border-left-color: var(--blue); }
+[data-theme="light"] .policy-meta-item strong { color: #0F172A; }
+[data-theme="light"] .price-row-value { color: #0F172A; }
+[data-theme="light"] .data-table td:first-child { color: #0F172A; }
+
+/* ─────────────────────────────────────────────────────────────
+   FIX 7: DROPDOWN CSS BUG — DOUBLE/MULTIPLE ARROWS
+   The base select.form-control uses background shorthand with
+   a white SVG arrow. The light override added background-image
+   on top — causing two arrows. Fix by replacing the full
+   background shorthand so only one arrow appears.
+   ───────────────────────────────────────────────────────────── */
+[data-theme="light"] select.form-control {
+  /* Full shorthand replaces the base — single arrow, correct color */
+  background: #FFFFFF
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%234B5563' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E")
+    no-repeat right 1.25rem center;
+  background-size: 1rem;
+  color: #0F172A;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  border-color: #CBD5E1;
+}
+[data-theme="light"] select.form-control:focus {
+  border-color: var(--blue);
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.12);
+  outline: none;
+}
+[data-theme="light"] select.form-control option {
+  background: #FFFFFF;
+  color: #0F172A;
+}
+
+/* ─────────────────────────────────────────────────────────────
+   FIX 8: BLUE ROUNDED ICON BOXES — ICONS MUST STAY WHITE
+   .contact-info-icon uses gradient bg — no explicit icon color.
+   Light mode global color overrides turn icons dark.
+   Force white icons on any gradient/blue icon container.
+   ───────────────────────────────────────────────────────────── */
+
+/* Contact info icons (phone, location, clock — gradient bg) */
+[data-theme="light"] .contact-info-icon,
+[data-theme="light"] .contact-info-icon i,
+[data-theme="light"] .contact-info-icon svg { color: #FFFFFF; }
+
+/* Feature icons that become solid blue on hover */
+[data-theme="light"] .feature-item:hover .feature-icon i,
+[data-theme="light"] .feature-item:hover .feature-icon svg { color: #FFFFFF; }
+
+/* Step circle icons (process steps) */
+[data-theme="light"] .step-circle,
+[data-theme="light"] .step-circle i { color: #FFFFFF; }
+
+/* Cert logo icons (about page) */
+[data-theme="light"] .cert-logo,
+[data-theme="light"] .cert-logo i { color: #FFFFFF; }
+
+/* Any icon inside a grad-primary background */
+[data-theme="light"] [style*="background:var(--grad-primary)"] i,
+[data-theme="light"] [style*="background: var(--grad-primary)"] i { color: #FFFFFF; }
+
+/* ─────────────────────────────────────────────────────────────
+   FIX 9: LOGIN & SIGNUP PAGE BACKGROUNDS
+   .bg-login has hardcoded dark gradient in inline <style>.
+   Override it in light mode to use the site's light gradient.
+   Also fix the logo text color on the login/signup pages
+   since .navbar__logo-text gets light-mode dark color but
+   .bg-login originally was dark.
+   ───────────────────────────────────────────────────────────── */
+[data-theme="light"] .bg-login,
+[data-theme="light"] .bg-signup {
+  background: linear-gradient(
+    135deg,
+    #EFF5FB 0%,
+    #E4EFF9 40%,
+    #EEF3F8 100%
+  ) !important;
+}
+[data-theme="light"] .bg-login::before,
+[data-theme="light"] .bg-login::after,
+[data-theme="light"] .bg-signup::before,
+[data-theme="light"] .bg-signup::after {
+  /* Keep subtle brand color glows, just softer */
+  background: radial-gradient(circle, rgba(37, 99, 235, 0.08), transparent 70%) !important;
+}
+
+/* Auth page logo text: on light bg, show dark branding */
+[data-theme="light"] .auth-page .navbar__logo-text,
+[data-theme="light"] body > .navbar__logo-text {
+  color: #0F172A;
+}
+
+/* ─────────────────────────────────────────────────────────────
+   FIX 10: THEME ISOLATION — ADDITIONAL SCOPING
+   Prevent any light-mode overrides from leaking to dark mode.
+   Extra guards for edge cases.
+   ───────────────────────────────────────────────────────────── */
+
+/* Ensure section--blue always stays dark regardless of theme */
+[data-theme="light"] .section--blue { background: linear-gradient(135deg, #0F172A 0%, #1E3A5F 100%) !important; }
+
+/* Social big cards (contact page) name text */
+[data-theme="light"] .social-big-card .name { color: #0F172A; }
+
+/* Profile dropdown stays white bg in light mode */
+[data-theme="light"] .profile-dropdown-menu { background: #FFFFFF; }
+
+/* Video card title on dark overlay — stays white */
+[data-theme="light"] .video-card__title { color: #FFFFFF; }
+
+/* Navbar dropdown: scrolled/default state stays legible */
+[data-theme="light"] .navbar--scrolled .profile-trigger {
+  background: var(--th-card);
+  border-color: var(--th-border);
+  color: var(--th-text);
+}
+
+[data-theme="light"] .navbar--scrolled .theme-toggle,
+[data-theme="light"] .theme-toggle:not(.navbar--transparent .theme-toggle) {
+  background: #F1F5F9 !important;
+  border-color: #CBD5E1 !important;
+  color: #0F172A !important;
+  box-shadow: 0 2px 6px rgba(15, 23, 42, 0.06) !important;
+}
+
+[data-theme="light"] .navbar--scrolled .theme-toggle:hover,
+[data-theme="light"] .theme-toggle:not(.navbar--transparent .theme-toggle):hover {
+  background: rgba(37, 99, 235, 0.1) !important;
+  border-color: var(--blue) !important;
+  color: var(--blue) !important;
+  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.15) !important;
+}

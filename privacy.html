@@ -7,6 +7,9 @@
   <title>Privacy Policy | GlossForge Detail</title>
   <link rel="stylesheet" href="css/style.css" />
   <link rel="stylesheet" href="css/animations.css" />
+  <link rel="stylesheet" href="css/theme.css" />
+  <!-- Theme JS (apply saved preference immediately before first paint) -->
+  <script src="js/theme.js"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
   <style>
     /* ── Legal Page Specific ── */
@@ -22,8 +25,8 @@
     .toc-sidebar {
       position: sticky;
       top: calc(var(--navbar-h) + 1.5rem);
-      background: var(--black-card);
-      border: 1px solid var(--black-border);
+      background: var(--th-card);
+      border: 1px solid var(--th-border);
       border-radius: var(--r-lg);
       padding: 1.5rem;
     }
@@ -35,11 +38,11 @@
     .toc-link {
       display: flex; align-items: center; gap: 0.5rem;
       padding: 0.45rem 0.75rem; border-radius: var(--r-sm);
-      font-size: 0.855rem; color: var(--gray-400); font-weight: 500;
+      font-size: 0.855rem; color: var(--th-text-muted); font-weight: 500;
       transition: var(--t-fast); border-left: 2px solid transparent;
     }
     .toc-link:hover, .toc-link.active {
-      color: var(--white); background: rgba(37,99,235,0.1);
+      color: var(--th-heading); background: rgba(37,99,235,0.1);
       border-left-color: var(--blue);
     }
     .toc-link i { font-size: 0.7rem; color: var(--blue); flex-shrink: 0; }
@@ -47,8 +50,8 @@
     /* Policy content */
     .policy-content { max-width: 860px; }
     .policy-section {
-      background: var(--black-card);
-      border: 1px solid var(--black-border);
+      background: var(--th-card);
+      border: 1px solid var(--th-border);
       border-radius: var(--r-lg);
       padding: clamp(1.75rem, 3vw, 2.5rem);
       margin-bottom: 1.5rem;
@@ -61,7 +64,7 @@
     .policy-section-header {
       display: flex; align-items: center; gap: 1rem;
       margin-bottom: 1.5rem; padding-bottom: 1rem;
-      border-bottom: 1px solid var(--black-border);
+      border-bottom: 1px solid var(--th-border);
     }
     .policy-section-icon {
       width: 44px; height: 44px; border-radius: var(--r-md);
@@ -74,10 +77,10 @@
       font-size: 0.7rem; font-weight: 700; text-transform: uppercase;
       letter-spacing: 0.1em; color: var(--cyan); margin-bottom: 0.2rem;
     }
-    .policy-section-title { font-size: 1.25rem; font-weight: 700; color: var(--white); }
+    .policy-section-title { font-size: 1.25rem; font-weight: 700; color: var(--th-heading); }
 
     .policy-content h4 {
-      font-size: 1rem; font-weight: 700; color: var(--white);
+      font-size: 1rem; font-weight: 700; color: var(--th-heading);
       margin: 1.5rem 0 0.6rem; display: flex; align-items: center; gap: 0.5rem;
     }
     .policy-content h4::before {
@@ -85,7 +88,7 @@
       background: var(--grad-primary); border-radius: 2px;
     }
     .policy-content p {
-      font-size: 0.95rem; color: var(--gray-400);
+      font-size: 0.95rem; color: var(--th-text-muted);
       line-height: 1.85; margin-bottom: 1rem;
     }
     .policy-content ul, .policy-content ol {
@@ -93,7 +96,7 @@
       display: flex; flex-direction: column; gap: 0.5rem;
     }
     .policy-content li {
-      font-size: 0.925rem; color: var(--gray-400); line-height: 1.7;
+      font-size: 0.925rem; color: var(--th-text-muted); line-height: 1.7;
     }
     .policy-content ul li { list-style: none; padding-left: 0.5rem; position: relative; }
     .policy-content ul li::before {
@@ -125,30 +128,30 @@
       font-size: 0.875rem; margin: 1rem 0;
     }
     .data-table th {
-      background: rgba(37,99,235,0.1); color: var(--white);
+      background: rgba(37,99,235,0.1); color: var(--th-heading);
       font-weight: 700; padding: 0.75rem 1rem; text-align: left;
       border-bottom: 2px solid rgba(37,99,235,0.25);
     }
     .data-table td {
-      padding: 0.75rem 1rem; border-bottom: 1px solid var(--black-border);
-      color: var(--gray-400); vertical-align: top;
+      padding: 0.75rem 1rem; border-bottom: 1px solid var(--th-border);
+      color: var(--th-text-muted); vertical-align: top;
     }
     .data-table tr:hover td { background: rgba(255,255,255,0.02); }
-    .data-table td:first-child { color: var(--white); font-weight: 600; }
+    .data-table td:first-child { color: var(--th-heading); font-weight: 600; }
 
     /* Meta info bar */
     .policy-meta {
       display: flex; flex-wrap: wrap; gap: 1.5rem;
-      background: var(--black-card); border: 1px solid var(--black-border);
+      background: var(--th-card); border: 1px solid var(--th-border);
       border-radius: var(--r-lg); padding: 1.25rem 1.75rem;
       margin-bottom: 2rem;
     }
     .policy-meta-item {
       display: flex; align-items: center; gap: 0.6rem;
-      font-size: 0.85rem; color: var(--gray-400);
+      font-size: 0.85rem; color: var(--th-text-muted);
     }
     .policy-meta-item i { color: var(--cyan); }
-    .policy-meta-item strong { color: var(--white); }
+    .policy-meta-item strong { color: var(--th-heading); }
 
     /* Print button */
     @media print {
@@ -203,7 +206,24 @@
             </a>
           </div>
         </div>
-      <a href="contact.html#booking" class="btn btn-primary btn-sm">Book Now</a>
+            <!-- Theme Toggle -->
+      <button class="theme-toggle" aria-label="Toggle Light / Dark Theme" title="Toggle theme">
+        <svg class="icon-sun" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="12" r="5"></circle>
+          <line x1="12" y1="1" x2="12" y2="3"></line>
+          <line x1="12" y1="21" x2="12" y2="23"></line>
+          <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+          <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+          <line x1="1" y1="12" x2="3" y2="12"></line>
+          <line x1="21" y1="12" x2="23" y2="12"></line>
+          <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+          <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+        </svg>
+        <svg class="icon-moon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+        </svg>
+      </button>
+<a href="contact.html#booking" class="btn btn-primary btn-sm">Book Now</a>
       <button class="navbar__toggle" aria-label="Toggle Menu"><span></span><span></span><span></span></button>
     </div>
   </div>
@@ -302,7 +322,7 @@
             <a href="#policy-changes"   class="toc-link"><i class="fas fa-circle"></i> Policy Changes</a>
             <a href="#contact-privacy"  class="toc-link"><i class="fas fa-circle"></i> Contact Us</a>
           </div>
-          <div style="margin-top:1.5rem;padding-top:1.25rem;border-top:1px solid var(--black-border);">
+          <div style="margin-top:1.5rem;padding-top:1.25rem;border-top:1px solid var(--th-border);">
             <a href="terms.html" class="btn btn-outline btn-sm w-full" style="justify-content:center;">
               <i class="fas fa-file-contract"></i> Terms of Service
             </a>
@@ -324,7 +344,7 @@
           </div>
           <p>GlossForge Detail, LLC ("GlossForge," "we," "us," or "our") operates the website <a href="index.html">www.GlossForge.com</a> and provides premium car wash and auto detailing services. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our website or use our services.</p>
           <div class="highlight-box">
-            <p><strong style="color:var(--white);"><i class="fas fa-lock" style="color:var(--cyan);margin-right:0.4rem;"></i> Our Commitment:</strong> We take your privacy seriously. We do not sell, rent, or trade your personal information to any third party for marketing purposes — ever.</p>
+            <p><strong style="color:var(--th-heading);"><i class="fas fa-lock" style="color:var(--cyan);margin-right:0.4rem;"></i> Our Commitment:</strong> We take your privacy seriously. We do not sell, rent, or trade your personal information to any third party for marketing purposes — ever.</p>
           </div>
           <p>Please read this policy carefully. If you disagree with its terms, please discontinue use of our website. This policy applies to all information collected through our website, mobile application (when available), online booking forms, and any related services.</p>
         </div>
@@ -342,12 +362,12 @@
 
           <h4>Personal Information You Provide</h4>
           <ul>
-            <li><strong style="color:var(--white);">Identity Data:</strong> First name, last name, username or similar identifier.</li>
-            <li><strong style="color:var(--white);">Contact Data:</strong> Email address, telephone number, and billing/service address.</li>
-            <li><strong style="color:var(--white);">Transaction Data:</strong> Details about payments and services you've purchased from us.</li>
-            <li><strong style="color:var(--white);">Booking Data:</strong> Appointment dates, vehicle details (year, make, model, color), and service preferences.</li>
-            <li><strong style="color:var(--white);">Account Data:</strong> Username and password when you create an account on our platform.</li>
-            <li><strong style="color:var(--white);">Communication Data:</strong> Messages, feedback, or survey responses you send us.</li>
+            <li><strong style="color:var(--th-heading);">Identity Data:</strong> First name, last name, username or similar identifier.</li>
+            <li><strong style="color:var(--th-heading);">Contact Data:</strong> Email address, telephone number, and billing/service address.</li>
+            <li><strong style="color:var(--th-heading);">Transaction Data:</strong> Details about payments and services you've purchased from us.</li>
+            <li><strong style="color:var(--th-heading);">Booking Data:</strong> Appointment dates, vehicle details (year, make, model, color), and service preferences.</li>
+            <li><strong style="color:var(--th-heading);">Account Data:</strong> Username and password when you create an account on our platform.</li>
+            <li><strong style="color:var(--th-heading);">Communication Data:</strong> Messages, feedback, or survey responses you send us.</li>
           </ul>
 
           <h4>Data Collected Automatically</h4>
@@ -379,17 +399,17 @@
           </div>
           <p>We use your data only for legitimate business purposes. Below are the specific ways we use the information we collect:</p>
           <ol>
-            <li><strong style="color:var(--white);">Service Delivery:</strong> Processing and confirming your appointments, delivering the requested detailing services, and communicating about your bookings.</li>
-            <li><strong style="color:var(--white);">Account Management:</strong> Creating and maintaining your customer account, including managing your login credentials and service history.</li>
-            <li><strong style="color:var(--white);">Payment Processing:</strong> Processing payments securely via our PCI-compliant third-party payment partners.</li>
-            <li><strong style="color:var(--white);">Customer Support:</strong> Responding to your inquiries, complaints, and requests for assistance.</li>
-            <li><strong style="color:var(--white);">Service Improvements:</strong> Analyzing usage patterns to improve our website, services, and overall customer experience.</li>
-            <li><strong style="color:var(--white);">Marketing Communications:</strong> Sending promotional emails, offers, and newsletters — only if you have opted in. You may opt out at any time.</li>
-            <li><strong style="color:var(--white);">Legal Compliance:</strong> Complying with applicable laws, regulations, court orders, and lawful requests from authorities.</li>
-            <li><strong style="color:var(--white);">Fraud Prevention:</strong> Monitoring for suspicious activity to protect you and our business from fraud.</li>
+            <li><strong style="color:var(--th-heading);">Service Delivery:</strong> Processing and confirming your appointments, delivering the requested detailing services, and communicating about your bookings.</li>
+            <li><strong style="color:var(--th-heading);">Account Management:</strong> Creating and maintaining your customer account, including managing your login credentials and service history.</li>
+            <li><strong style="color:var(--th-heading);">Payment Processing:</strong> Processing payments securely via our PCI-compliant third-party payment partners.</li>
+            <li><strong style="color:var(--th-heading);">Customer Support:</strong> Responding to your inquiries, complaints, and requests for assistance.</li>
+            <li><strong style="color:var(--th-heading);">Service Improvements:</strong> Analyzing usage patterns to improve our website, services, and overall customer experience.</li>
+            <li><strong style="color:var(--th-heading);">Marketing Communications:</strong> Sending promotional emails, offers, and newsletters — only if you have opted in. You may opt out at any time.</li>
+            <li><strong style="color:var(--th-heading);">Legal Compliance:</strong> Complying with applicable laws, regulations, court orders, and lawful requests from authorities.</li>
+            <li><strong style="color:var(--th-heading);">Fraud Prevention:</strong> Monitoring for suspicious activity to protect you and our business from fraud.</li>
           </ol>
           <div class="highlight-box cyan">
-            <p><strong style="color:var(--white);"><i class="fas fa-envelope-open-text" style="color:var(--cyan);margin-right:0.4rem;"></i> Marketing Opt-Out:</strong> You can unsubscribe from marketing emails at any time by clicking "Unsubscribe" in any email or by emailing <a href="mailto:privacy@GlossForge.com">privacy@GlossForge.com</a>. Transactional emails (booking confirmations, receipts) will still be sent as they are necessary for service delivery.</p>
+            <p><strong style="color:var(--th-heading);"><i class="fas fa-envelope-open-text" style="color:var(--cyan);margin-right:0.4rem;"></i> Marketing Opt-Out:</strong> You can unsubscribe from marketing emails at any time by clicking "Unsubscribe" in any email or by emailing <a href="mailto:privacy@GlossForge.com">privacy@GlossForge.com</a>. Transactional emails (booking confirmations, receipts) will still be sent as they are necessary for service delivery.</p>
           </div>
         </div>
 
@@ -407,11 +427,11 @@
           <h4>Service Providers</h4>
           <p>We engage trusted third-party companies to assist in delivering our services. These include:</p>
           <ul>
-            <li><strong style="color:var(--white);">Payment Processors:</strong> Stripe and PayPal (PCI-DSS compliant) for secure payment handling.</li>
-            <li><strong style="color:var(--white);">Email Services:</strong> SendGrid for transactional and marketing email delivery.</li>
-            <li><strong style="color:var(--white);">Analytics:</strong> Google Analytics (anonymized) for understanding site usage patterns.</li>
-            <li><strong style="color:var(--white);">Booking Software:</strong> Our appointment management platform stores booking data securely.</li>
-            <li><strong style="color:var(--white);">Cloud Hosting:</strong> Our servers are hosted on AWS with encryption at rest and in transit.</li>
+            <li><strong style="color:var(--th-heading);">Payment Processors:</strong> Stripe and PayPal (PCI-DSS compliant) for secure payment handling.</li>
+            <li><strong style="color:var(--th-heading);">Email Services:</strong> SendGrid for transactional and marketing email delivery.</li>
+            <li><strong style="color:var(--th-heading);">Analytics:</strong> Google Analytics (anonymized) for understanding site usage patterns.</li>
+            <li><strong style="color:var(--th-heading);">Booking Software:</strong> Our appointment management platform stores booking data securely.</li>
+            <li><strong style="color:var(--th-heading);">Cloud Hosting:</strong> Our servers are hosted on AWS with encryption at rest and in transit.</li>
           </ul>
           <p>All service providers are contractually bound to protect your data and may not use it for purposes beyond providing services to us.</p>
 
@@ -467,11 +487,11 @@
           </div>
           <p>We implement industry-standard technical and organizational measures to protect your personal data from unauthorized access, loss, destruction, or alteration.</p>
           <ul>
-            <li><strong style="color:var(--white);">TLS/SSL Encryption:</strong> All data transmitted between your browser and our servers is encrypted using 256-bit TLS.</li>
-            <li><strong style="color:var(--white);">Password Hashing:</strong> Passwords are hashed using bcrypt and are never stored in plain text.</li>
-            <li><strong style="color:var(--white);">Access Controls:</strong> Employee access to customer data is role-based and strictly limited to need-to-know.</li>
-            <li><strong style="color:var(--white);">Regular Audits:</strong> We conduct regular security audits and vulnerability assessments of our systems.</li>
-            <li><strong style="color:var(--white);">PCI Compliance:</strong> Payment card data is never stored on our servers. All payments are processed by PCI-DSS Level 1 certified providers.</li>
+            <li><strong style="color:var(--th-heading);">TLS/SSL Encryption:</strong> All data transmitted between your browser and our servers is encrypted using 256-bit TLS.</li>
+            <li><strong style="color:var(--th-heading);">Password Hashing:</strong> Passwords are hashed using bcrypt and are never stored in plain text.</li>
+            <li><strong style="color:var(--th-heading);">Access Controls:</strong> Employee access to customer data is role-based and strictly limited to need-to-know.</li>
+            <li><strong style="color:var(--th-heading);">Regular Audits:</strong> We conduct regular security audits and vulnerability assessments of our systems.</li>
+            <li><strong style="color:var(--th-heading);">PCI Compliance:</strong> Payment card data is never stored on our servers. All payments are processed by PCI-DSS Level 1 certified providers.</li>
           </ul>
           <div class="highlight-box warning">
             <p><strong style="color:#FBBF24;"><i class="fas fa-exclamation-triangle"></i> Important:</strong> While we implement strong security measures, no method of electronic transmission or storage is 100% secure. If you believe your account has been compromised, please contact us immediately at <a href="mailto:security@GlossForge.com">security@GlossForge.com</a>.</p>
@@ -516,16 +536,16 @@
           <p>Depending on your location, you may have the following rights regarding your personal data. We honor all applicable rights under CCPA, GDPR, and other applicable privacy laws:</p>
 
           <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin:1.25rem 0;">
-            <div class="highlight-box" style="margin:0;"><p><strong style="color:var(--white);"><i class="fas fa-eye" style="color:var(--cyan);margin-right:0.4rem;"></i> Right to Access</strong><br/>Request a copy of the personal data we hold about you.</p></div>
-            <div class="highlight-box cyan" style="margin:0;"><p><strong style="color:var(--white);"><i class="fas fa-pen-to-square" style="color:var(--cyan);margin-right:0.4rem;"></i> Right to Rectify</strong><br/>Correct inaccurate or incomplete personal data.</p></div>
-            <div class="highlight-box" style="margin:0;"><p><strong style="color:var(--white);"><i class="fas fa-trash-can" style="color:var(--cyan);margin-right:0.4rem;"></i> Right to Erasure</strong><br/>Request deletion of your personal data ("right to be forgotten").</p></div>
-            <div class="highlight-box cyan" style="margin:0;"><p><strong style="color:var(--white);"><i class="fas fa-ban" style="color:var(--cyan);margin-right:0.4rem;"></i> Right to Object</strong><br/>Object to processing of your data for direct marketing.</p></div>
-            <div class="highlight-box" style="margin:0;"><p><strong style="color:var(--white);"><i class="fas fa-file-export" style="color:var(--cyan);margin-right:0.4rem;"></i> Right to Portability</strong><br/>Receive your data in a structured, machine-readable format.</p></div>
-            <div class="highlight-box cyan" style="margin:0;"><p><strong style="color:var(--white);"><i class="fas fa-ban" style="color:var(--cyan);margin-right:0.4rem;"></i> Right to Restrict</strong><br/>Request that we limit how we process your data.</p></div>
+            <div class="highlight-box" style="margin:0;"><p><strong style="color:var(--th-heading);"><i class="fas fa-eye" style="color:var(--cyan);margin-right:0.4rem;"></i> Right to Access</strong><br/>Request a copy of the personal data we hold about you.</p></div>
+            <div class="highlight-box cyan" style="margin:0;"><p><strong style="color:var(--th-heading);"><i class="fas fa-pen-to-square" style="color:var(--cyan);margin-right:0.4rem;"></i> Right to Rectify</strong><br/>Correct inaccurate or incomplete personal data.</p></div>
+            <div class="highlight-box" style="margin:0;"><p><strong style="color:var(--th-heading);"><i class="fas fa-trash-can" style="color:var(--cyan);margin-right:0.4rem;"></i> Right to Erasure</strong><br/>Request deletion of your personal data ("right to be forgotten").</p></div>
+            <div class="highlight-box cyan" style="margin:0;"><p><strong style="color:var(--th-heading);"><i class="fas fa-ban" style="color:var(--cyan);margin-right:0.4rem;"></i> Right to Object</strong><br/>Object to processing of your data for direct marketing.</p></div>
+            <div class="highlight-box" style="margin:0;"><p><strong style="color:var(--th-heading);"><i class="fas fa-file-export" style="color:var(--cyan);margin-right:0.4rem;"></i> Right to Portability</strong><br/>Receive your data in a structured, machine-readable format.</p></div>
+            <div class="highlight-box cyan" style="margin:0;"><p><strong style="color:var(--th-heading);"><i class="fas fa-ban" style="color:var(--cyan);margin-right:0.4rem;"></i> Right to Restrict</strong><br/>Request that we limit how we process your data.</p></div>
           </div>
 
           <h4>How to Exercise Your Rights</h4>
-          <p>To submit a privacy rights request, contact us at <a href="mailto:privacy@GlossForge.com">privacy@GlossForge.com</a> or write to us at our physical address. We will respond within <strong style="color:var(--white);">30 days</strong> (or 45 days with notice if your request is complex). We may need to verify your identity before processing your request.</p>
+          <p>To submit a privacy rights request, contact us at <a href="mailto:privacy@GlossForge.com">privacy@GlossForge.com</a> or write to us at our physical address. We will respond within <strong style="color:var(--th-heading);">30 days</strong> (or 45 days with notice if your request is complex). We may need to verify your identity before processing your request.</p>
           <p>You also have the right to lodge a complaint with your local data protection supervisory authority if you believe we have violated your privacy rights.</p>
         </div>
 
@@ -538,7 +558,7 @@
               <div class="policy-section-title">Children's Privacy</div>
             </div>
           </div>
-          <p>Our services are not directed to individuals under the age of <strong style="color:var(--white);">16 years</strong>. We do not knowingly collect personal information from children under 16. If we learn that we have collected personal data from a child under 16 without verified parental consent, we will delete that information as quickly as possible.</p>
+          <p>Our services are not directed to individuals under the age of <strong style="color:var(--th-heading);">16 years</strong>. We do not knowingly collect personal information from children under 16. If we learn that we have collected personal data from a child under 16 without verified parental consent, we will delete that information as quickly as possible.</p>
           <p>If you are a parent or guardian and believe your child has provided us with personal information, please contact us immediately at <a href="mailto:privacy@GlossForge.com">privacy@GlossForge.com</a>.</p>
         </div>
 
@@ -594,7 +614,7 @@
               <div class="contact-info-icon"><i class="fas fa-envelope"></i></div>
               <div>
                 <div class="contact-info-title">Email</div>
-                <div class="contact-info-value"><a href="mailto:privacy@GlossForge.com" style="color:var(--white);">privacy@GlossForge.com</a></div>
+                <div class="contact-info-value"><a href="mailto:privacy@GlossForge.com" style="color:var(--th-heading);">privacy@GlossForge.com</a></div>
                 <div class="contact-info-sub">Response within 48 hours</div>
               </div>
             </div>
@@ -607,7 +627,7 @@
               </div>
             </div>
           </div>
-          <div style="margin-top:1.5rem;padding-top:1.5rem;border-top:1px solid var(--black-border);display:flex;gap:1rem;flex-wrap:wrap;">
+          <div style="margin-top:1.5rem;padding-top:1.5rem;border-top:1px solid var(--th-border);display:flex;gap:1rem;flex-wrap:wrap;">
             <a href="terms.html" class="btn btn-outline"><i class="fas fa-file-contract"></i> View Terms of Service</a>
             <a href="contact.html" class="btn btn-dark"><i class="fas fa-phone"></i> Contact Us</a>
           </div>
