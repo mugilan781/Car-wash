@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Page Not Found — GlossForge Detail. The page you're looking for doesn't exist." />
+  <meta name="robots" content="noindex" />
+  <title>404 — Page Not Found | GlossForge Detail</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/animations.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <style>
+    body { min-height:100vh; display:flex; flex-direction:column; background:var(--black); }
+    .error-page { flex:1; }
+    .error-404 { pointer-events:none; user-select:none; top:50%; transform:translate(-50%,-50%); }
+    .road-anim {
+      width:100%; height:120px; position:relative; margin:2rem 0;
+      background:linear-gradient(to bottom,rgba(37,99,235,0.05),transparent);
+    }
+    .road-line { position:absolute; bottom:0; left:0; right:0; height:3px; background:linear-gradient(90deg,transparent,var(--blue),var(--cyan),transparent); }
+    .car-404 { font-size:3rem; position:absolute; bottom:15px; animation:drive404 4s linear infinite; }
+    @keyframes drive404 { from { left:-100px; } to { left:calc(100% + 100px); } }
+    .quick-links { display:flex; gap:1rem; justify-content:center; flex-wrap:wrap; margin-top:1.5rem; }
+    .quick-link { display:flex; align-items:center; gap:0.5rem; padding:0.6rem 1.25rem; border-radius:var(--r-full); background:var(--black-card); border:1px solid var(--black-border); color:var(--gray-400); font-size:0.875rem; font-weight:600; transition:var(--t-fast); }
+    .quick-link:hover { border-color:var(--blue); color:var(--white); }
+  </style>
+</head>
+<body>
+
+<!-- Mini Navbar -->
+<nav class="navbar navbar--scrolled" style="position:relative;height:70px;">
+  <div class="navbar__inner">
+    <a href="index.html" class="navbar__logo"><img src="assets/images/logo.png" alt="GlossForge Logo" class="navbar__logo-img"><span class="navbar__logo-text">Gloss<span>Forge</span></span></a>
+    <a href="index.html" class="btn btn-primary btn-sm"><i class="fas fa-home"></i> Go Home</a>
+  </div>
+</nav>
+
+<!-- 404 Content -->
+<div class="error-page" style="display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;padding:4rem 2rem;">
+  <!-- Giant 404 bg -->
+  <div class="error-404" style="font-size:clamp(8rem,25vw,22rem);font-weight:900;background:var(--grad-primary);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;opacity:0.08;position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);white-space:nowrap;">404</div>
+
+  <!-- Decorative glows -->
+  <div class="bg-glow bg-glow--blue" style="width:500px;height:500px;right:-150px;top:-100px;"></div>
+  <div class="bg-glow bg-glow--cyan" style="width:400px;height:400px;left:-100px;bottom:-100px;"></div>
+
+  <div class="error-content" style="text-align:center;max-width:580px;">
+    <!-- Animated car -->
+    <div class="road-anim">
+      <div class="car-404"><i class="fas fa-car" style="font-size:2.5rem;color:var(--white);"></i></div>
+      <div class="road-line"></div>
+    </div>
+
+    <div style="display:inline-flex;align-items:center;gap:0.5rem;background:rgba(37,99,235,0.15);border:1px solid rgba(37,99,235,0.3);border-radius:var(--r-full);padding:0.4rem 1rem;font-size:0.75rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--blue-light);margin-bottom:1.5rem;">
+      <i class="fas fa-search"></i> Error 404 — Page Not Found
+    </div>
+
+    <h1 style="font-size:clamp(2rem,5vw,3.5rem);font-weight:900;color:var(--white);margin-bottom:1rem;line-height:1.2;">
+      Looks Like You've<br>
+      <span style="background:var(--grad-primary);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">Taken a Wrong Turn</span>
+    </h1>
+
+    <p style="color:var(--gray-400);font-size:1.05rem;margin-bottom:2rem;line-height:1.8;">
+      The page you're looking for seems to have driven off. Let us get you back on track.
+    </p>
+
+    <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;margin-bottom:2.5rem;">
+      <a href="index.html" class="btn btn-primary btn-lg ripple-effect">
+        <i class="fas fa-home"></i> Back to Home
+      </a>
+      <a href="contact.html" class="btn btn-outline btn-lg">
+        <i class="fas fa-phone"></i> Contact Support
+      </a>
+    </div>
+
+    <!-- Quick links -->
+    <div>
+      <p style="font-size:0.825rem;color:var(--gray-600);margin-bottom:1rem;">Or visit one of these pages:</p>
+      <div class="quick-links">
+        <a href="services.html" class="quick-link"><i class="fas fa-car-wash"></i> Services</a>
+        <a href="gallery.html" class="quick-link"><i class="fas fa-images"></i> Gallery</a>
+        <a href="about.html" class="quick-link"><i class="fas fa-info-circle"></i> About</a>
+        <a href="contact.html#booking" class="quick-link"><i class="fas fa-calendar"></i> Book Now</a>
+        <a href="login.html" class="quick-link"><i class="fas fa-sign-in-alt"></i> Sign In</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Footer mini -->
+<div style="text-align:center;padding:1.5rem;border-top:1px solid var(--black-border);font-size:0.825rem;color:var(--gray-600);">
+  © 2026 GlossForge Detail. <a href="index.html" style="color:var(--cyan);">Return to home page</a>
+</div>
+
+<script src="js/main.js"></script>
+</body>
+</html>
+
+
+

@@ -1,0 +1,242 @@
+﻿/* ============================================================
+   LUXE AUTO DETAIL — ANIMATIONS & KEYFRAMES
+   ============================================================ */
+
+/* ─── KEYFRAMES ─── */
+@keyframes pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50%       { opacity: 0.5; transform: scale(0.85); }
+}
+
+@keyframes scrollLine {
+  0%   { transform: scaleY(0) translateY(0); transform-origin: top; }
+  50%  { transform: scaleY(1) translateY(0); transform-origin: top; }
+  100% { transform: scaleY(0) translateY(100%); transform-origin: bottom; }
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50%       { transform: translateY(-12px); }
+}
+
+@keyframes floatX {
+  0%, 100% { transform: translateX(0px); }
+  50%       { transform: translateX(-10px); }
+}
+
+@keyframes shimmer {
+  0%   { background-position: -200% 0; }
+  100% { background-position:  200% 0; }
+}
+
+@keyframes gradientShift {
+  0%   { background-position: 0% 50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeInLeft {
+  from { opacity: 0; transform: translateX(-30px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes fadeInRight {
+  from { opacity: 0; transform: translateX(30px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes scaleIn {
+  from { opacity: 0; transform: scale(0.9); }
+  to   { opacity: 1; transform: scale(1); }
+}
+
+@keyframes blinkCaret {
+  0%, 100% { border-right-color: transparent; }
+  50%       { border-right-color: var(--cyan); }
+}
+
+@keyframes neonPulse {
+  0%, 100% { box-shadow: 0 0 10px rgba(37,99,235,0.4), 0 0 30px rgba(37,99,235,0.2); }
+  50%       { box-shadow: 0 0 20px rgba(37,99,235,0.7), 0 0 60px rgba(37,99,235,0.4); }
+}
+
+@keyframes neonPulseCyan {
+  0%, 100% { box-shadow: 0 0 10px rgba(6,182,212,0.4), 0 0 30px rgba(6,182,212,0.2); }
+  50%       { box-shadow: 0 0 20px rgba(6,182,212,0.7), 0 0 60px rgba(6,182,212,0.4); }
+}
+
+@keyframes particle {
+  0%   { transform: translateY(0) translateX(0) scale(1); opacity: 0.8; }
+  100% { transform: translateY(-200px) translateX(var(--tx, 0)) scale(0); opacity: 0; }
+}
+
+@keyframes slideInRight {
+  from { transform: translateX(100%); opacity: 0; }
+  to   { transform: translateX(0);    opacity: 1; }
+}
+
+@keyframes slideInLeft {
+  from { transform: translateX(-100%); opacity: 0; }
+  to   { transform: translateX(0);     opacity: 1; }
+}
+
+@keyframes countUp {
+  from { opacity: 0; transform: scale(0.7); }
+  to   { opacity: 1; transform: scale(1); }
+}
+
+@keyframes rotateBorder {
+  to { transform: rotate(360deg); }
+}
+
+@keyframes waveMove {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+/* ─── ANIMATED ELEMENTS ─── */
+
+/* Floating cards */
+.float { animation: float 4s ease-in-out infinite; }
+.float-delay-1 { animation-delay: 0.5s; }
+.float-delay-2 { animation-delay: 1s; }
+.float-delay-3 { animation-delay: 1.5s; }
+
+/* Shimmer skeleton */
+.shimmer {
+  background: linear-gradient(90deg, var(--black-card) 25%, rgba(255,255,255,0.06) 50%, var(--black-card) 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+}
+
+/* Neon glow buttons */
+.neon-blue  { animation: neonPulse     2s ease-in-out infinite; }
+.neon-cyan  { animation: neonPulseCyan 2s ease-in-out infinite; }
+
+/* Gradient text animation */
+.grad-animate {
+  background: linear-gradient(270deg, #2563EB, #06B6D4, #2563EB, #3B82F6);
+  background-size: 400% 400%;
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+  animation: gradientShift 5s ease infinite;
+}
+
+/* Rotating border (for premium badge) */
+.rotate-border {
+  position: relative;
+}
+.rotate-border::before {
+  content: ''; position: absolute; inset: -2px; border-radius: inherit;
+  background: conic-gradient(from 0deg, var(--blue), var(--cyan), var(--blue));
+  animation: rotateBorder 3s linear infinite;
+  z-index: -1;
+}
+
+/* Car animation (CSS-only decorative) */
+.car-icon {
+  display: inline-block; font-size: 3rem;
+  animation: floatX 3s ease-in-out infinite;
+}
+
+/* Typing cursor */
+.typing-cursor {
+  display: inline-block; border-right: 3px solid var(--cyan);
+  animation: blinkCaret 0.75s step-end infinite;
+}
+
+/* Page entrance */
+.page-enter { animation: fadeInUp 0.7s ease both; }
+.page-enter-fast { animation: fadeInUp 0.4s ease both; }
+
+/* Water drop ripple */
+@keyframes ripple {
+  0%   { transform: scale(0.5); opacity: 1; }
+  100% { transform: scale(3);   opacity: 0; }
+}
+.ripple-effect {
+  position: relative; overflow: hidden;
+}
+.ripple-effect::after {
+  content: ''; position: absolute;
+  width: 20px; height: 20px; border-radius: 50%;
+  background: rgba(37,99,235,0.4);
+  top: 50%; left: 50%; transform: translate(-50%,-50%) scale(0);
+}
+.ripple-effect:active::after { animation: ripple 0.6s ease-out; }
+
+/* Progress fill animation on scroll into view */
+.progress-fill.animated { transition: width 1.4s cubic-bezier(0.34,1.56,0.64,1); }
+
+/* Stagger group */
+.stagger-group > * {
+  opacity: 0; transform: translateY(20px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+.stagger-group.visible > *:nth-child(1) { opacity: 1; transform: none; transition-delay: 0.05s; }
+.stagger-group.visible > *:nth-child(2) { opacity: 1; transform: none; transition-delay: 0.15s; }
+.stagger-group.visible > *:nth-child(3) { opacity: 1; transform: none; transition-delay: 0.25s; }
+.stagger-group.visible > *:nth-child(4) { opacity: 1; transform: none; transition-delay: 0.35s; }
+.stagger-group.visible > *:nth-child(5) { opacity: 1; transform: none; transition-delay: 0.45s; }
+.stagger-group.visible > *:nth-child(6) { opacity: 1; transform: none; transition-delay: 0.55s; }
+.stagger-group.visible > *:nth-child(7) { opacity: 1; transform: none; transition-delay: 0.65s; }
+.stagger-group.visible > *:nth-child(8) { opacity: 1; transform: none; transition-delay: 0.75s; }
+
+/* ─── HERO PARTICLE CANVAS ─── */
+.particle-canvas {
+  position: absolute; inset: 0; pointer-events: none; z-index: 1;
+}
+
+/* ─── WAVE DECORATION ─── */
+.wave-container {
+  position: absolute; bottom: 0; left: 0; width: 200%; overflow: hidden;
+  line-height: 0; transform: rotate(180deg);
+}
+.wave-container svg { width: 50%; height: 80px; display: inline-block; }
+
+/* ─── HOVER EFFECTS LIBRARY ─── */
+.hover-lift  { transition: transform 0.3s ease; }
+.hover-lift:hover  { transform: translateY(-6px); }
+.hover-glow  { transition: box-shadow 0.3s ease; }
+.hover-glow:hover  { box-shadow: 0 0 30px rgba(37,99,235,0.4); }
+.hover-scale { transition: transform 0.3s ease; }
+.hover-scale:hover { transform: scale(1.05); }
+
+/* ─── LOADING SPINNER ─── */
+.spinner {
+  width: 22px; height: 22px; border-radius: 50%;
+  border: 2.5px solid rgba(255,255,255,0.3);
+  border-top-color: var(--white);
+  animation: spin 0.8s linear infinite;
+}
+
+/* ─── COUNTER GLOW ─── */
+.stat-number.counting { animation: countUp 0.4s ease both; }
+
+/* ─── HERO TEXT ENTRANCE ─── */
+.hero__eyebrow  { animation: fadeInUp 0.7s 0.2s ease both; }
+.hero__title    { animation: fadeInUp 0.7s 0.4s ease both; }
+.hero__subtitle { animation: fadeInUp 0.7s 0.6s ease both; }
+.hero__cta      { animation: fadeInUp 0.7s 0.8s ease both; }
+
+/* ─── MOBILE MENU ANIMATION ─── */
+.navbar__mobile .navbar__link {
+  opacity: 0; transform: translateY(20px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+.navbar__mobile.open .navbar__link:nth-child(1) { opacity: 1; transform: none; transition-delay: 0.1s; }
+.navbar__mobile.open .navbar__link:nth-child(2) { opacity: 1; transform: none; transition-delay: 0.15s; }
+.navbar__mobile.open .navbar__link:nth-child(3) { opacity: 1; transform: none; transition-delay: 0.2s; }
+.navbar__mobile.open .navbar__link:nth-child(4) { opacity: 1; transform: none; transition-delay: 0.25s; }
+.navbar__mobile.open .navbar__link:nth-child(5) { opacity: 1; transform: none; transition-delay: 0.3s; }
+.navbar__mobile.open .navbar__link:nth-child(6) { opacity: 1; transform: none; transition-delay: 0.35s; }
+.navbar__mobile.open .navbar__link:nth-child(7) { opacity: 1; transform: none; transition-delay: 0.4s; }
+

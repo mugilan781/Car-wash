@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Contact GlossForge Detail — Book your appointment, find our location, working hours, and get in touch with our team." />
+  <title>Contact Us | GlossForge Detail</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/animations.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <style>
+    .contact-grid { display:grid; grid-template-columns:1fr 1.5fr; gap:3rem; }
+    @media(max-width:900px){ .contact-grid { grid-template-columns:1fr; } }
+    .info-cards { display:flex; flex-direction:column; gap:1rem; }
+    .hours-card { background:var(--black-card); border:1px solid var(--black-border); border-radius:var(--r-lg); padding:1.75rem; }
+    .hours-title { font-size:0.8rem; font-weight:700; text-transform:uppercase; letter-spacing:0.1em; color:var(--cyan); margin-bottom:1.25rem; display:flex; align-items:center; gap:0.5rem; }
+    .social-section { display:grid; grid-template-columns:repeat(4,1fr); gap:1rem; }
+    @media(max-width:600px){ .social-section { grid-template-columns:1fr 1fr; } }
+    .social-big-card { background:var(--black-card); border:1px solid var(--black-border); border-radius:var(--r-lg); padding:1.75rem; text-align:center; transition:var(--t-base); cursor:pointer; }
+    .social-big-card:hover { transform:translateY(-4px); }
+    .social-big-card.fb:hover { border-color:#1877F2; box-shadow:0 0 30px rgba(24,119,242,0.25); }
+    .social-big-card.ig:hover { border-color:#E1306C; box-shadow:0 0 30px rgba(225,48,108,0.25); }
+    .social-big-card.tw:hover { border-color:#1DA1F2; box-shadow:0 0 30px rgba(29,161,242,0.25); }
+    .social-big-card.yt:hover { border-color:#FF0000; box-shadow:0 0 30px rgba(255,0,0,0.25); }
+    .social-big-card .icon { font-size:2rem; margin-bottom:0.75rem; }
+    .social-big-card .name { font-weight:700; color:var(--white); margin-bottom:0.25rem; }
+    .social-big-card .handle { font-size:0.825rem; color:var(--gray-400); }
+  </style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar navbar--transparent">
+  <div class="navbar__inner">
+    <a href="index.html" class="navbar__logo"><img src="assets/images/logo.png" alt="GlossForge Logo" class="navbar__logo-img"><span class="navbar__logo-text">Gloss<span>Forge</span></span></a>
+        <ul class="navbar__menu" role="list">
+      <li class="navbar__item"><a href="index.html" class="navbar__link">Home</a></li>
+      <li class="navbar__item"><a href="home2.html" class="navbar__link">Home 2</a></li>
+      <li class="navbar__item"><a href="about.html" class="navbar__link">About</a></li>
+      <li class="navbar__item"><a href="services.html" class="navbar__link">Services</a></li>
+      <li class="navbar__item"><a href="gallery.html" class="navbar__link">Gallery</a></li>
+      <li class="navbar__item"><a href="contact.html" class="navbar__link">Contact</a></li>
+    </ul>
+    <div class="navbar__actions">
+      <div class="profile-dropdown-wrapper">
+          <button class="btn btn-outline btn-sm profile-trigger" aria-label="User Profile" aria-haspopup="true" aria-expanded="false">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+              <circle cx="12" cy="7" r="4"></circle>
+            </svg>
+          </button>
+          <div class="profile-dropdown-menu">
+            <a href="login.html" class="profile-dropdown-item">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M15 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h8"></path>
+                <polyline points="10 17 15 12 10 7"></polyline>
+                <line x1="15" y1="12" x2="3" y2="12"></line>
+              </svg>
+              Login
+            </a>
+            <a href="signup.html" class="profile-dropdown-item">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                <circle cx="8.5" cy="7" r="4"></circle>
+                <line x1="20" y1="8" x2="20" y2="14"></line>
+                <line x1="23" y1="11" x2="17" y2="11"></line>
+              </svg>
+              Signup
+            </a>
+          </div>
+        </div>
+      <a href="#booking" class="btn btn-primary btn-sm">Book Now</a>
+      <button class="navbar__toggle"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</nav>
+<div class="navbar__mobile" role="dialog" aria-label="Mobile Navigation">
+  <button class="navbar__mobile-close" aria-label="Close menu" style="position:absolute;top:1.5rem;right:1.5rem;font-size:1.5rem;color:var(--white);background:none;border:none;cursor:pointer;">✕</button>
+  <a href="index.html" class="navbar__link">Home</a>
+  <a href="home2.html" class="navbar__link">Home 2</a>
+  <a href="about.html" class="navbar__link">About</a>
+  <a href="services.html" class="navbar__link">Services</a>
+  <a href="gallery.html" class="navbar__link">Gallery</a>
+  <a href="contact.html" class="navbar__link">Contact</a>
+  <div style="display:flex;gap:1rem;margin-top:1.5rem;align-items:center;">
+    <div class="profile-dropdown-wrapper">
+      <button class="btn btn-outline profile-trigger" aria-label="User Profile" aria-haspopup="true" aria-expanded="false" style="width:44px;height:44px;">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+          <circle cx="12" cy="7" r="4"></circle>
+        </svg>
+      </button>
+      <div class="profile-dropdown-menu">
+        <a href="login.html" class="profile-dropdown-item">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M15 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h8"></path>
+            <polyline points="10 17 15 12 10 7"></polyline>
+            <line x1="15" y1="12" x2="3" y2="12"></line>
+          </svg>
+          Login
+        </a>
+        <a href="signup.html" class="profile-dropdown-item">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+            <circle cx="8.5" cy="7" r="4"></circle>
+            <line x1="20" y1="8" x2="20" y2="14"></line>
+            <line x1="23" y1="11" x2="17" y2="11"></line>
+          </svg>
+          Signup
+        </a>
+      </div>
+    </div>
+    <a href="contact.html#booking" class="btn btn-primary">Book Now</a>
+  </div>
+</div>
+
+<!-- SECTION 1: PAGE HERO -->
+<section class="page-hero">
+  <div class="bg-glow bg-glow--cyan" style="width:600px;height:600px;left:50%;transform:translateX(-50%);top:-200px;"></div>
+  <div class="container" style="position:relative;z-index:1;">
+    <div class="page-hero__eyebrow"><i class="fas fa-phone"></i> Get In Touch</div>
+    <h1 class="page-hero__title"><span class="text-gradient">Contact</span> Us</h1>
+    <p class="page-hero__subtitle">Ready to transform your vehicle? Reach out to schedule an appointment or ask any questions. We respond within 1 hour.</p>
+    <div class="page-hero__breadcrumb"><a href="index.html">Home</a><span>›</span><span>Contact</span></div>
+  </div>
+</section>
+
+<!-- SECTION 2: CONTACT INFO CARDS -->
+<section class="section section--dark" id="contact-info">
+  <div class="container">
+    <div class="section-header reveal">
+      <div class="section-eyebrow">Reach Us</div>
+      <h2 class="section-title">Get In <span>Touch</span></h2>
+      <div class="divider"></div>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1.25rem;" class="stagger-group">
+      <div class="contact-info-card">
+        <div class="contact-info-icon"><i class="fas fa-phone"></i></div>
+        <div>
+          <div class="contact-info-title">Phone</div>
+          <div class="contact-info-value"><a href="tel:+15551234567" style="color:var(--white);">+1 (555) 123-4567</a></div>
+          <div class="contact-info-sub">Mon–Sat 8am–7pm</div>
+        </div>
+      </div>
+      <div class="contact-info-card">
+        <div class="contact-info-icon"><i class="fas fa-envelope"></i></div>
+        <div>
+          <div class="contact-info-title">Email</div>
+          <div class="contact-info-value"><a href="mailto:info@GlossForge.com" style="color:var(--white);">info@GlossForge.com</a></div>
+          <div class="contact-info-sub">Response within 1 hour</div>
+        </div>
+      </div>
+      <div class="contact-info-card">
+        <div class="contact-info-icon"><i class="fas fa-map-marker-alt"></i></div>
+        <div>
+          <div class="contact-info-title">Location</div>
+          <div class="contact-info-value">4520 Auto Blvd, Suite 100</div>
+          <div class="contact-info-sub">Detroit, MI 48201, USA</div>
+        </div>
+      </div>
+      <div class="contact-info-card">
+        <div class="contact-info-icon"><i class="fas fa-comments"></i></div>
+        <div>
+          <div class="contact-info-title">Live Chat</div>
+          <div class="contact-info-value">Available Online</div>
+          <div class="contact-info-sub">Chat with us in real-time</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 3: CONTACT FORM -->
+<section class="section section--card" id="contact-form-section">
+  <div class="container">
+    <div class="contact-grid">
+      <!-- Info Side -->
+      <div class="reveal-left">
+        <div class="section-eyebrow" style="justify-content:flex-start;">Send A Message</div>
+        <h2 class="section-title" style="text-align:left;">We'd Love to <span>Hear From You</span></h2>
+        <p style="margin-bottom:2rem;">Have a question about our services? Want a custom quote for your vehicle? Fill out the form and our team will respond within the hour.</p>
+        <div class="info-cards">
+          <div class="contact-info-card">
+            <div class="contact-info-icon" style="background:rgba(37,99,235,0.15);"><i class="fas fa-clock" style="color:var(--blue);"></i></div>
+            <div>
+              <div class="contact-info-title">Response Time</div>
+              <div class="contact-info-value">Under 1 Hour</div>
+              <div class="contact-info-sub">During business hours</div>
+            </div>
+          </div>
+          <div class="contact-info-card">
+            <div class="contact-info-icon" style="background:rgba(6,182,212,0.15);"><i class="fas fa-shield-alt" style="color:var(--cyan);"></i></div>
+            <div>
+              <div class="contact-info-title">Privacy</div>
+              <div class="contact-info-value">100% Confidential</div>
+              <div class="contact-info-sub">Your data is safe with us</div>
+            </div>
+          </div>
+        </div>
+        <div style="margin-top:1.5rem;">
+          <div style="font-size:0.8rem;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:var(--cyan);margin-bottom:1rem;">Follow Us</div>
+          <div class="social-links">
+            <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" class="social-link"><i class="fab fa-facebook-f"></i></a>
+            <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="social-link"><i class="fab fa-instagram"></i></a>
+            <a href="https://x.com" target="_blank" rel="noopener noreferrer" class="social-link"><i class="fab fa-twitter"></i></a>
+            <a href="https://youtube.com" target="_blank" rel="noopener noreferrer" class="social-link"><i class="fab fa-youtube"></i></a>
+            <a href="https://tiktok.com" target="_blank" rel="noopener noreferrer" class="social-link"><i class="fab fa-tiktok"></i></a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Form Side -->
+      <div class="reveal-right">
+        <div class="booking-form">
+          <div class="booking-form__header">
+            <h3 style="color:var(--white);">Send Us A Message</h3>
+            <p style="color:var(--gray-400);font-size:0.9rem;margin-top:0.25rem;">All fields marked * are required.</p>
+          </div>
+          <form id="contact-form" novalidate>
+            <div class="booking-form__grid">
+              <div class="form-group">
+                <label class="form-label" for="c-name">Full Name *</label>
+                <input class="form-control" type="text" id="c-name" name="name" placeholder="John Doe" required />
+                <span class="form-error">Name is required.</span>
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="c-phone">Phone Number</label>
+                <input class="form-control" type="tel" id="c-phone" name="phone" placeholder="+1 555 000 0000" />
+              </div>
+              <div class="form-group full">
+                <label class="form-label" for="c-email">Email Address *</label>
+                <input class="form-control" type="email" id="c-email" name="email" placeholder="john@example.com" required />
+                <span class="form-error">Enter a valid email address.</span>
+              </div>
+              <div class="form-group full">
+                <label class="form-label" for="c-subject">Subject *</label>
+                <select class="form-control" id="c-subject" name="subject" required>
+                  <option value="">Select a topic...</option>
+                  <option>Service Inquiry</option>
+                  <option>Booking Question</option>
+                  <option>Custom Quote Request</option>
+                  <option>Feedback / Complaint</option>
+                  <option>Partnership / Business</option>
+                  <option>Other</option>
+                </select>
+                <span class="form-error">Please select a subject.</span>
+              </div>
+              <div class="form-group full">
+                <label class="form-label" for="c-message">Message *</label>
+                <textarea class="form-control" id="c-message" name="message" placeholder="Tell us how we can help you..." rows="5" required></textarea>
+                <span class="form-error">Message is required.</span>
+              </div>
+            </div>
+            <button type="submit" class="btn btn-primary w-full" style="margin-top:0.5rem;justify-content:center;">
+              <i class="fas fa-paper-plane"></i> Send Message
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 4: GOOGLE MAP -->
+<section class="section section--dark" id="map">
+  <div class="container">
+    <div class="section-header reveal">
+      <div class="section-eyebrow">Find Us</div>
+      <h2 class="section-title">Our <span>Location</span></h2>
+      <div class="divider"></div>
+    </div>
+    <div class="map-wrap reveal">
+      <iframe
+        src="https://maps.google.com/maps?q=4520%20Auto%20Blvd,%20Detroit,%20MI%2048201&t=m&z=15&output=embed&iwloc=near"
+        title="GlossForge Detail Location Map"
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"
+        style="width:100%;height:100%;border:none;filter:grayscale(0.6) invert(0.9) hue-rotate(180deg);"></iframe>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin-top:1.5rem;" class="stagger-group">
+      <div class="card" style="text-align:center;padding:1.25rem;"><div style="font-size:1.5rem;margin-bottom:0.5rem;color:var(--cyan);"><i class="fas fa-square-parking"></i></div><div style="font-weight:700;color:var(--white);font-size:0.95rem;">Free Parking</div><div style="font-size:0.8rem;color:var(--gray-400);">200+ spaces available</div></div>
+      <div class="card" style="text-align:center;padding:1.25rem;"><div style="font-size:1.5rem;margin-bottom:0.5rem;color:var(--cyan);"><i class="fas fa-train-subway"></i></div><div style="font-weight:700;color:var(--white);font-size:0.95rem;">Metro Access</div><div style="font-size:0.8rem;color:var(--gray-400);">Gratiot Ave Station (0.3 mi)</div></div>
+      <div class="card" style="text-align:center;padding:1.25rem;"><div style="font-size:1.5rem;margin-bottom:0.5rem;color:var(--cyan);"><i class="fas fa-car"></i></div><div style="font-weight:700;color:var(--white);font-size:0.95rem;">Easy Access</div><div style="font-size:0.8rem;color:var(--gray-400);">Off I-94, Exit 218B</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 5: WORKING HOURS -->
+<section class="section section--card" id="hours">
+  <div class="container">
+    <div style="max-width:700px;margin:0 auto;">
+      <div class="section-header reveal">
+        <div class="section-eyebrow">When We're Open</div>
+        <h2 class="section-title">Working <span>Hours</span></h2>
+        <div class="divider"></div>
+      </div>
+      <div class="hours-card reveal">
+        <div class="hours-title"><i class="fas fa-clock"></i> Business Hours — GlossForge Detroit</div>
+        <table class="hours-table">
+          <tr><td>Monday</td><td>8:00 AM — 7:00 PM</td></tr>
+          <tr><td>Tuesday</td><td>8:00 AM — 7:00 PM</td></tr>
+          <tr><td>Wednesday</td><td>8:00 AM — 7:00 PM</td></tr>
+          <tr class="today"><td>Thursday</td><td>8:00 AM — 7:00 PM</td></tr>
+          <tr><td>Friday</td><td>8:00 AM — 7:00 PM</td></tr>
+          <tr><td>Saturday</td><td>8:00 AM — 7:00 PM</td></tr>
+          <tr><td>Sunday</td><td>10:00 AM — 4:00 PM</td></tr>
+        </table>
+        <div style="margin-top:1.5rem;padding:1rem;background:rgba(6,182,212,0.08);border:1px solid rgba(6,182,212,0.2);border-radius:var(--r-md);display:flex;align-items:center;gap:0.75rem;">
+          <i class="fas fa-circle-info" style="font-size:1.25rem;color:var(--cyan);"></i>
+          <div>
+            <div style="font-weight:700;color:var(--white);font-size:0.9rem;">Holiday Hours</div>
+            <div style="font-size:0.825rem;color:var(--gray-400);">We remain open on most public holidays. Call ahead to confirm availability on specific holiday dates.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 6: BOOKING FORM -->
+<section class="section section--dark" id="booking">
+  <div class="container">
+    <div class="section-header reveal">
+      <div class="section-eyebrow">Appointment</div>
+      <h2 class="section-title">Book Your <span>Appointment</span></h2>
+      <p class="section-subtitle">Schedule online in under 2 minutes. We'll confirm via email and SMS.</p>
+      <div class="divider"></div>
+    </div>
+    <div class="booking-form reveal" style="max-width:800px;margin:0 auto;">
+      <form id="booking-form-contact" novalidate>
+        <div class="booking-form__grid">
+          <div class="form-group"><label class="form-label" for="b-fname">First Name *</label><input class="form-control" type="text" id="b-fname" name="first_name" placeholder="John" required /><span class="form-error">Required.</span></div>
+          <div class="form-group"><label class="form-label" for="b-lname">Last Name *</label><input class="form-control" type="text" id="b-lname" name="last_name" placeholder="Doe" required /><span class="form-error">Required.</span></div>
+          <div class="form-group"><label class="form-label" for="b-email">Email *</label><input class="form-control" type="email" id="b-email" name="email" placeholder="john@example.com" required /><span class="form-error">Valid email required.</span></div>
+          <div class="form-group"><label class="form-label" for="b-phone">Phone *</label><input class="form-control" type="tel" id="b-phone" name="phone" placeholder="+1 555 000 0000" required /><span class="form-error">Valid phone required.</span></div>
+          <div class="form-group"><label class="form-label" for="b-service">Service *</label><select class="form-control" id="b-service" name="service" required><option value="">Select service...</option><option>Express Wash — $29</option><option>Premium Detail — $89</option><option>Full Detail — $149</option><option>Ceramic Coating — $299+</option><option>Interior Clean — $99</option></select><span class="form-error">Please select a service.</span></div>
+          <div class="form-group"><label class="form-label" for="b-date">Date *</label><input class="form-control" type="date" id="b-date" name="date" required /><span class="form-error">Select a future date.</span></div>
+          <div class="form-group full"><label class="form-label" for="b-vehicle">Vehicle (Year / Make / Model)</label><input class="form-control" type="text" id="b-vehicle" name="vehicle" placeholder="e.g. 2022 BMW M3 Competition" /></div>
+          <div class="form-group full"><label class="form-label" for="b-notes">Notes</label><textarea class="form-control" id="b-notes" name="notes" rows="3" placeholder="Any special requests or areas to focus on?"></textarea></div>
+        </div>
+        <button type="submit" class="btn btn-primary w-full" style="margin-top:0.75rem;justify-content:center;"><i class="fas fa-calendar-check"></i> Confirm Appointment</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 7: FAQ -->
+<section class="section section--card" id="faq">
+  <div class="container">
+    <div class="section-header reveal">
+      <div class="section-eyebrow">Quick Answers</div>
+      <h2 class="section-title">Frequently Asked <span>Questions</span></h2>
+      <div class="divider"></div>
+    </div>
+    <div style="max-width:800px;margin:0 auto;">
+      <!-- FAQ search -->
+      <div style="margin-bottom:1.5rem;" class="reveal">
+        <input type="text" class="form-control faq-search" placeholder="Search FAQs..." style="max-width:400px;margin:0 auto;display:block;" />
+      </div>
+      <div class="faq-list reveal">
+        <div class="faq-item"><div class="faq-question">How do I book an appointment?<span class="faq-icon">+</span></div><div class="faq-answer"><div class="faq-answer__inner">You can book via the form on this page, call us at +1 (555) 123-4567, or email info@GlossForge.com. We'll confirm within 1 hour during business hours.</div></div></div>
+        <div class="faq-item"><div class="faq-question">Do I need to drop my car off or do you come to me?<span class="faq-icon">+</span></div><div class="faq-answer"><div class="faq-answer__inner">Both! You can drop off at our studio in Detroit, or book our mobile detailing service. Mobile is available within 30 miles of our studio. Ceramic coating requires studio visit only.</div></div></div>
+        <div class="faq-item"><div class="faq-question">What payment methods do you accept?<span class="faq-icon">+</span></div><div class="faq-answer"><div class="faq-answer__inner">We accept all major credit/debit cards (Visa, Mastercard, Amex), cash, bank transfer, Apple Pay, Google Pay, and PayPal. Financing is available for services over $200.</div></div></div>
+        <div class="faq-item"><div class="faq-question">How do I prepare my car for detailing?<span class="faq-icon">+</span></div><div class="faq-answer"><div class="faq-answer__inner">Remove personal belongings and valuables. You don't need to pre-clean your car — that's our job! Just drop it off or let us come to you.</div></div></div>
+        <div class="faq-item"><div class="faq-question">Can I reschedule or cancel my appointment?<span class="faq-icon">+</span></div><div class="faq-answer"><div class="faq-answer__inner">Yes. Please give us at least 24 hours notice to reschedule or cancel. Same-day cancellations may incur a $25 administrative fee for large-scale services.</div></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 8: SOCIAL LINKS -->
+<section class="section section--dark" id="social">
+  <div class="container">
+    <div class="section-header reveal">
+      <div class="section-eyebrow">Stay Connected</div>
+      <h2 class="section-title">Follow <span>GlossForge</span></h2>
+      <p class="section-subtitle">Get daily detailing inspiration, tips, exclusive offers, and behind-the-scenes content.</p>
+      <div class="divider"></div>
+    </div>
+    <div class="social-section stagger-group">
+      <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" class="social-big-card fb" style="display:block;text-decoration:none;"><div class="icon"><i class="fab fa-facebook-f"></i></div><div class="name">Facebook</div><div class="handle">@GlossForgeDetail</div><div style="font-size:0.8rem;color:var(--gray-600);margin-top:0.5rem;">2.3k Followers</div></a>
+      <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="social-big-card ig" style="display:block;text-decoration:none;"><div class="icon"><i class="fab fa-instagram"></i></div><div class="name">Instagram</div><div class="handle">@GlossForge</div><div style="font-size:0.8rem;color:var(--gray-600);margin-top:0.5rem;">8.7k Followers</div></a>
+      <a href="https://x.com" target="_blank" rel="noopener noreferrer" class="social-big-card tw" style="display:block;text-decoration:none;"><div class="icon"><i class="fab fa-twitter"></i></div><div class="name">Twitter</div><div class="handle">@GlossForge</div><div style="font-size:0.8rem;color:var(--gray-600);margin-top:0.5rem;">1.4k Followers</div></a>
+      <a href="https://youtube.com" target="_blank" rel="noopener noreferrer" class="social-big-card yt" style="display:block;text-decoration:none;"><div class="icon"><i class="fab fa-youtube"></i></div><div class="name">YouTube</div><div class="handle">GlossForge Detail</div><div style="font-size:0.8rem;color:var(--gray-600);margin-top:0.5rem;">12k Subscribers</div></a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<!-- ══════════════════════════════════════ FOOTER ══════════════════════════════════════ -->
+<footer class="footer" role="contentinfo">
+  <div class="container">
+    <div class="footer__grid">
+      <!-- Column 1: Brand -->
+      <div class="footer__brand">
+        <a href="index.html" class="navbar__logo" style="margin-bottom:1rem;display:inline-flex;">
+          <img src="assets/images/logo.png" alt="GlossForge Logo" class="navbar__logo-img" style="height: 40px;">
+          <span class="navbar__logo-text">Gloss<span>Forge</span></span>
+        </a>
+        <p>Detroit's premier auto detailing studio. We deliver showroom-quality results with cutting-edge technology and unmatched attention to detail.</p>
+        <div class="social-links">
+          <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+          <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+          <a href="https://x.com" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+          <a href="https://youtube.com" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+        </div>
+      </div>
+      <!-- Column 2: Company -->
+      <div class="footer__col-company">
+        <div class="footer__heading">COMPANY</div>
+        <nav class="footer__links" aria-label="Footer Navigation">
+          <a href="index.html" class="footer__link"><i class="fas fa-chevron-right"></i> Home</a>
+          <a href="about.html" class="footer__link"><i class="fas fa-chevron-right"></i> About Us</a>
+          <a href="services.html" class="footer__link"><i class="fas fa-chevron-right"></i> Services</a>
+          <a href="gallery.html" class="footer__link"><i class="fas fa-chevron-right"></i> Gallery</a>
+          <a href="contact.html" class="footer__link"><i class="fas fa-chevron-right"></i> Contact</a>
+        </nav>
+      </div>
+      <!-- Column 3: Contact -->
+      <div>
+        <div class="footer__heading">CONTACT</div>
+        <div class="footer__contact-list">
+          <div class="footer__contact-item">
+            <i class="fas fa-map-marker-alt" aria-hidden="true"></i>
+            <span>4520 Auto Blvd, Detroit, MI 48201</span>
+          </div>
+          <div class="footer__contact-item">
+            <i class="fas fa-phone" aria-hidden="true"></i>
+            <a href="tel:+15551234567">+1 (555) 123-4567</a>
+          </div>
+          <div class="footer__contact-item">
+            <i class="fas fa-envelope" aria-hidden="true"></i>
+            <a href="mailto:info@GlossForge.com">info@GlossForge.com</a>
+          </div>
+        </div>
+      </div>
+      <!-- Column 4: Newsletter -->
+      <div>
+        <div class="footer__heading">NEWSLETTER</div>
+        <p class="footer__newsletter-desc">Get exclusive offers and detailing tips in your inbox.</p>
+        <div class="footer__newsletter">
+          <input type="email" placeholder="Your email..." aria-label="Email for newsletter" />
+          <button type="button">→</button>
+        </div>
+      </div>
+    </div>
+    <!-- Bottom Footer -->
+    <div class="footer__bottom">
+      <p>© 2026 GlossForge Detail. All rights reserved.</p>
+      <div class="footer__legal">
+        <a href="privacy.html" class="footer__legal-link">Privacy Policy</a>
+        <span class="footer__legal-divider">|</span>
+        <a href="terms.html" class="footer__legal-link">Terms & Conditions</a>
+      </div>
+    </div>
+  </div>
+</footer>
+<button class="back-to-top"><i class="fas fa-chevron-up"></i></button>
+<script src="js/main.js"></script>
+<script src="js/booking.js"></script>
+<script src="js/faq.js"></script>
+</body>
+</html>
+
+
+

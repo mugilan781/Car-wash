@@ -1,0 +1,721 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description"
+    content="GlossForge Detail Services — Explore our complete range of premium car wash, detailing, ceramic coating, interior cleaning, and paint correction services." />
+  <title>Services | GlossForge Detail</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/animations.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <style>
+    .service-tab-nav {
+      display: flex;
+      gap: 0.5rem;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-bottom: 3rem;
+    }
+
+    .service-tab-btn {
+      padding: 0.65rem 1.5rem;
+      border-radius: var(--r-full);
+      font-size: 0.875rem;
+      font-weight: 600;
+      cursor: pointer;
+      background: var(--black-card);
+      color: var(--gray-400);
+      border: 1px solid var(--black-border);
+      transition: var(--t-fast);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .service-tab-btn.active,
+    .service-tab-btn:hover {
+      background: var(--grad-primary);
+      color: var(--white);
+      border-color: transparent;
+    }
+
+    .service-detail-card {
+      background: var(--black-card);
+      border: 1px solid var(--black-border);
+      border-radius: var(--r-xl);
+      padding: 2.5rem;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      align-items: center;
+      transition: var(--t-base);
+    }
+
+    .service-detail-card:hover {
+      border-color: var(--blue);
+    }
+
+    @media(max-width:768px) {
+      .service-detail-card {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .package-compare {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    .package-compare th,
+    .package-compare td {
+      padding: 1rem;
+      font-size: 0.9rem;
+      border-bottom: 1px solid var(--black-border);
+      text-align: center;
+    }
+
+    .package-compare th {
+      font-weight: 700;
+      color: var(--white);
+      background: var(--black-soft);
+    }
+
+    .package-compare td:first-child {
+      text-align: left;
+      color: var(--gray-400);
+    }
+
+    .package-compare tr:hover td {
+      background: rgba(37, 99, 235, 0.04);
+    }
+
+    .check {
+      color: #10B981;
+      font-size: 1.1rem;
+    }
+
+    .cross {
+      color: var(--gray-600);
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar navbar--transparent">
+    <div class="navbar__inner">
+      <a href="index.html" class="navbar__logo"><img src="assets/images/logo.png" alt="GlossForge Logo"
+          class="navbar__logo-img"><span class="navbar__logo-text">Gloss<span>Forge</span></span></a>
+          <ul class="navbar__menu" role="list">
+      <li class="navbar__item"><a href="index.html" class="navbar__link">Home</a></li>
+      <li class="navbar__item"><a href="home2.html" class="navbar__link">Home 2</a></li>
+      <li class="navbar__item"><a href="about.html" class="navbar__link">About</a></li>
+      <li class="navbar__item"><a href="services.html" class="navbar__link">Services</a></li>
+      <li class="navbar__item"><a href="gallery.html" class="navbar__link">Gallery</a></li>
+      <li class="navbar__item"><a href="contact.html" class="navbar__link">Contact</a></li>
+    </ul>
+      <div class="navbar__actions">
+        <div class="profile-dropdown-wrapper">
+          <button class="btn btn-outline btn-sm profile-trigger" aria-label="User Profile" aria-haspopup="true" aria-expanded="false">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+              <circle cx="12" cy="7" r="4"></circle>
+            </svg>
+          </button>
+          <div class="profile-dropdown-menu">
+            <a href="login.html" class="profile-dropdown-item">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M15 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h8"></path>
+                <polyline points="10 17 15 12 10 7"></polyline>
+                <line x1="15" y1="12" x2="3" y2="12"></line>
+              </svg>
+              Login
+            </a>
+            <a href="signup.html" class="profile-dropdown-item">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                <circle cx="8.5" cy="7" r="4"></circle>
+                <line x1="20" y1="8" x2="20" y2="14"></line>
+                <line x1="23" y1="11" x2="17" y2="11"></line>
+              </svg>
+              Signup
+            </a>
+          </div>
+        </div>
+        <a href="contact.html#booking" class="btn btn-primary btn-sm">Book Now</a>
+        <button class="navbar__toggle"><span></span><span></span><span></span></button>
+      </div>
+    </div>
+  </nav>
+  <div class="navbar__mobile" role="dialog" aria-label="Mobile Navigation">
+  <button class="navbar__mobile-close" aria-label="Close menu" style="position:absolute;top:1.5rem;right:1.5rem;font-size:1.5rem;color:var(--white);background:none;border:none;cursor:pointer;">✕</button>
+  <a href="index.html" class="navbar__link">Home</a>
+  <a href="home2.html" class="navbar__link">Home 2</a>
+  <a href="about.html" class="navbar__link">About</a>
+  <a href="services.html" class="navbar__link">Services</a>
+  <a href="gallery.html" class="navbar__link">Gallery</a>
+  <a href="contact.html" class="navbar__link">Contact</a>
+  <div style="display:flex;gap:1rem;margin-top:1.5rem;align-items:center;">
+    <div class="profile-dropdown-wrapper">
+      <button class="btn btn-outline profile-trigger" aria-label="User Profile" aria-haspopup="true" aria-expanded="false" style="width:44px;height:44px;">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+          <circle cx="12" cy="7" r="4"></circle>
+        </svg>
+      </button>
+      <div class="profile-dropdown-menu">
+        <a href="login.html" class="profile-dropdown-item">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M15 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h8"></path>
+            <polyline points="10 17 15 12 10 7"></polyline>
+            <line x1="15" y1="12" x2="3" y2="12"></line>
+          </svg>
+          Login
+        </a>
+        <a href="signup.html" class="profile-dropdown-item">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+            <circle cx="8.5" cy="7" r="4"></circle>
+            <line x1="20" y1="8" x2="20" y2="14"></line>
+            <line x1="23" y1="11" x2="17" y2="11"></line>
+          </svg>
+          Signup
+        </a>
+      </div>
+    </div>
+    <a href="contact.html#booking" class="btn btn-primary">Book Now</a>
+  </div>
+</div>
+
+  <!-- SECTION 1: PAGE HERO -->
+  <section class="page-hero">
+    <div class="bg-glow bg-glow--blue" style="width:600px;height:600px;left:50%;transform:translateX(-50%);top:-200px;">
+    </div>
+    <div class="container" style="position:relative;z-index:1;">
+      <div class="page-hero__eyebrow"><i class="fas fa-car-wash"></i> Our Services</div>
+      <h1 class="page-hero__title">Premium <span class="text-gradient">Services</span></h1>
+      <p class="page-hero__subtitle">From quick express washes to full ceramic coating packages — we have a service for
+        every need and budget.</p>
+      <div class="page-hero__breadcrumb"><a href="index.html">Home</a><span>›</span><span>Services</span></div>
+    </div>
+  </section>
+
+  <!-- SECTION 2: WASH PACKAGES -->
+  <section class="section section--dark" id="packages">
+    <div class="container">
+      <div class="section-header reveal">
+        <div class="section-eyebrow">Wash Packages</div>
+        <h2 class="section-title">Choose Your <span>Package</span></h2>
+        <p class="section-subtitle">All packages include our quality guarantee. Not satisfied? We'll redo it for free.
+        </p>
+        <div class="divider"></div>
+      </div>
+      <div class="services-grid stagger-group">
+        <article class="service-card">
+          <div class="service-card__img-wrap">
+            <img src="assets/images/express-wash.png" alt="Express Wash" class="service-card__img" loading="lazy"
+              style="height:220px;" />
+            <span class="service-card__badge badge badge-silver">Basic</span>
+          </div>
+          <div class="service-card__body">
+            <h3 class="service-card__title">Express Wash</h3>
+            <p class="service-card__text">Quick exterior wash perfect for maintaining your car between detailed
+              sessions. Includes hand wash, rinse, wheel clean, and tire shine.</p>
+            <ul
+              style="font-size:0.875rem;color:var(--gray-400);margin:1rem 0;display:flex;flex-direction:column;gap:0.3rem;">
+              <li style="display:flex;gap:0.5rem;"><span style="color:#10B981;">✓</span>Hand wash & foam rinse</li>
+              <li style="display:flex;gap:0.5rem;"><span style="color:#10B981;">✓</span>Wheel & rim cleaning</li>
+              <li style="display:flex;gap:0.5rem;"><span style="color:#10B981;">✓</span>Tire shine application</li>
+              <li style="display:flex;gap:0.5rem;"><span style="color:#10B981;">✓</span>Exterior windows</li>
+            </ul>
+            <div style="display:flex;align-items:center;justify-content:space-between;">
+              <div class="service-card__price">$29 <span>/ session</span></div><a href="contact.html#booking"
+                class="btn btn-outline btn-sm">Book</a>
+            </div>
+          </div>
+        </article>
+        <article class="service-card" style="border-color:rgba(37,99,235,0.4);">
+          <div class="service-card__img-wrap">
+            <img src="assets/images/premium-detail.png" alt="Premium Detail" class="service-card__img" loading="lazy"
+              style="height:220px;" />
+            <span class="service-card__badge badge badge-blue">Most Popular</span>
+          </div>
+          <div class="service-card__body">
+            <h3 class="service-card__title">Premium Detail</h3>
+            <p class="service-card__text">Our best-selling package. Full exterior + interior detail bringing your car to
+              showroom condition.</p>
+            <ul
+              style="font-size:0.875rem;color:var(--gray-400);margin:1rem 0;display:flex;flex-direction:column;gap:0.3rem;">
+              <li style="display:flex;gap:0.5rem;"><span style="color:#10B981;">✓</span>Everything in Express</li>
+              <li style="display:flex;gap:0.5rem;"><span style="color:#10B981;">✓</span>Interior vacuum & wipe</li>
+              <li style="display:flex;gap:0.5rem;"><span style="color:#10B981;">✓</span>Dashboard & console</li>
+              <li style="display:flex;gap:0.5rem;"><span style="color:#10B981;">✓</span>Hand wax & UV spray</li>
+            </ul>
+            <div style="display:flex;align-items:center;justify-content:space-between;">
+              <div class="service-card__price">$89 <span>/ session</span></div><a href="contact.html#booking"
+                class="btn btn-primary btn-sm">Book Now</a>
+            </div>
+          </div>
+        </article>
+        <article class="service-card">
+          <div class="service-card__img-wrap">
+            <img src="assets/images/hero3.png" alt="Full Detail Service" class="service-card__img" loading="lazy"
+              style="height:220px;" />
+            <span class="service-card__badge badge badge-cyan">Elite</span>
+          </div>
+          <div class="service-card__body">
+            <h3 class="service-card__title">Full Detail</h3>
+            <p class="service-card__text">The ultimate treatment. Complete inside-out detail with paint correction and
+              long-term protection for the true enthusiast.</p>
+            <ul
+              style="font-size:0.875rem;color:var(--gray-400);margin:1rem 0;display:flex;flex-direction:column;gap:0.3rem;">
+              <li style="display:flex;gap:0.5rem;"><span style="color:#10B981;">✓</span>Everything in Premium</li>
+              <li style="display:flex;gap:0.5rem;"><span style="color:#10B981;">✓</span>Deep interior extraction</li>
+              <li style="display:flex;gap:0.5rem;"><span style="color:#10B981;">✓</span>Paint decontamination</li>
+              <li style="display:flex;gap:0.5rem;"><span style="color:#10B981;">✓</span>Machine polish</li>
+            </ul>
+            <div style="display:flex;align-items:center;justify-content:space-between;">
+              <div class="service-card__price">$149 <span>/ session</span></div><a href="contact.html#booking"
+                class="btn btn-cyan btn-sm">Book</a>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 3: CERAMIC COATING -->
+  <section class="section section--card" id="ceramic">
+    <div class="container">
+      <div class="section-header reveal">
+        <div class="section-eyebrow">Advanced Protection</div>
+        <h2 class="section-title">Ceramic <span>Coating</span></h2>
+        <div class="divider"></div>
+      </div>
+      <div class="service-detail-card reveal">
+        <div>
+          <span class="badge badge-cyan"
+            style="margin-bottom:1.5rem;display:inline-flex;align-items:center;gap:0.4rem;"><i
+              class="fas fa-microscope"></i> 9H Hardness · 5-Year Protection</span>
+          <h3 style="font-size:1.8rem;margin-bottom:1rem;color:var(--white);">The Ultimate Paint Protection</h3>
+          <p style="margin-bottom:1.25rem;">Our professional nano-ceramic coating creates a chemically bonded,
+            semi-permanent layer over your paint. Unlike wax, it doesn't wash away — it bonds at a molecular level.</p>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:1.5rem;">
+            <div
+              style="background:rgba(37,99,235,0.08);border:1px solid rgba(37,99,235,0.2);border-radius:var(--r-md);padding:1rem;">
+              <div style="font-size:1.1rem;font-weight:700;color:var(--white);margin-bottom:0.25rem;">$299+</div>
+              <div style="font-size:0.8rem;color:var(--gray-400);">Starter package</div>
+            </div>
+            <div
+              style="background:rgba(6,182,212,0.08);border:1px solid rgba(6,182,212,0.2);border-radius:var(--r-md);padding:1rem;">
+              <div style="font-size:1.1rem;font-weight:700;color:var(--white);margin-bottom:0.25rem;">1–2 Days</div>
+              <div style="font-size:0.8rem;color:var(--gray-400);">Application time</div>
+            </div>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:0.5rem;margin-bottom:2rem;">
+            <div style="display:flex;gap:0.6rem;align-items:center;font-size:0.9rem;"><span
+                style="color:#10B981;font-size:1rem;">✓</span> 9H hardness — scratch resistant</div>
+            <div style="display:flex;gap:0.6rem;align-items:center;font-size:0.9rem;"><span
+                style="color:#10B981;font-size:1rem;">✓</span> Hydrophobic — self-cleaning effect</div>
+            <div style="display:flex;gap:0.6rem;align-items:center;font-size:0.9rem;"><span
+                style="color:#10B981;font-size:1rem;">✓</span> UV protection — no paint fade</div>
+            <div style="display:flex;gap:0.6rem;align-items:center;font-size:0.9rem;"><span
+                style="color:#10B981;font-size:1rem;">✓</span> Chemical resistance — bird drops, tree sap</div>
+            <div style="display:flex;gap:0.6rem;align-items:center;font-size:0.9rem;"><span
+                style="color:#10B981;font-size:1rem;">✓</span> Gloss amplification — mirror finish</div>
+            <div style="display:flex;gap:0.6rem;align-items:center;font-size:0.9rem;"><span
+                style="color:#10B981;font-size:1rem;">✓</span> 5-year product warranty included</div>
+          </div>
+          <a href="contact.html#booking" class="btn btn-primary">Book Ceramic Coating <i
+              class="fas fa-arrow-right"></i></a>
+        </div>
+        <div>
+          <img src="assets/images/ceramic.png" alt="Ceramic coating being applied"
+            style="border-radius:var(--r-lg);width:100%;" loading="lazy" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 4: INTERIOR CLEANING -->
+  <section class="section section--dark" id="interior">
+    <div class="container">
+      <div class="section-header reveal">
+        <div class="section-eyebrow">Interior Services</div>
+        <h2 class="section-title">Interior <span>Deep Clean</span></h2>
+        <div class="divider"></div>
+      </div>
+      <div class="service-detail-card reveal" style="grid-template-columns:1fr 1fr;">
+        <div>
+          <img src="assets/images/hero3.png" alt="Interior deep cleaning" style="border-radius:var(--r-lg);width:100%;"
+            loading="lazy" />
+        </div>
+        <div>
+          <span class="badge badge-blue"
+            style="margin-bottom:1.5rem;display:inline-flex;align-items:center;gap:0.4rem;"><i class="fas fa-couch"></i>
+            Deep Interior Restoration</span>
+          <h3 style="font-size:1.8rem;margin-bottom:1rem;color:var(--white);">Refresh Your Cabin</h3>
+          <p style="margin-bottom:1.25rem;">Years of daily use take a toll on your car's interior. Our deep interior
+            cleaning service uses professional-grade steam cleaners, extractors, and conditioning treatments to restore
+            your cabin to showroom condition.</p>
+          <div style="display:flex;flex-direction:column;gap:0.5rem;margin-bottom:2rem;">
+            <div style="display:flex;gap:0.6rem;align-items:center;font-size:0.9rem;"><span
+                style="color:#10B981;font-size:1rem;">✓</span>Complete vacuum of all surfaces and crevices</div>
+            <div style="display:flex;gap:0.6rem;align-items:center;font-size:0.9rem;"><span
+                style="color:#10B981;font-size:1rem;">✓</span>Hot steam cleaning for seats and carpets</div>
+            <div style="display:flex;gap:0.6rem;align-items:center;font-size:0.9rem;"><span
+                style="color:#10B981;font-size:1rem;">✓</span>Leather cleaning and conditioning</div>
+            <div style="display:flex;gap:0.6rem;align-items:center;font-size:0.9rem;"><span
+                style="color:#10B981;font-size:1rem;">✓</span>Dashboard, console, and door panels</div>
+            <div style="display:flex;gap:0.6rem;align-items:center;font-size:0.9rem;"><span
+                style="color:#10B981;font-size:1rem;">✓</span>Air vent and seat rail detailing</div>
+            <div style="display:flex;gap:0.6rem;align-items:center;font-size:0.9rem;"><span
+                style="color:#10B981;font-size:1rem;">✓</span>Odor elimination treatment</div>
+          </div>
+          <div style="display:flex;gap:1rem;align-items:center;">
+            <div class="service-card__price" style="font-size:2rem;">$99 <span
+                style="font-size:0.9rem;font-weight:400;-webkit-text-fill-color:var(--gray-400);">starting</span></div>
+            <a href="contact.html#booking" class="btn btn-primary">Book Interior Clean</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 5: ADD-ON SERVICES -->
+  <section class="section section--card" id="addons">
+    <div class="container">
+      <div class="section-header reveal">
+        <div class="section-eyebrow">Extras</div>
+        <h2 class="section-title">Add-On <span>Services</span></h2>
+        <p class="section-subtitle">Customize your detail with any of our specialty add-on services.</p>
+        <div class="divider"></div>
+      </div>
+      <div class="addon-grid stagger-group">
+        <div class="addon-item">
+          <div class="addon-item__icon"><i class="fas fa-border-all"></i></div>
+          <div class="addon-item__name">Window Tinting</div>
+          <div class="addon-item__price">$149+</div>
+        </div>
+        <div class="addon-item">
+          <div class="addon-item__icon"><i class="fas fa-screwdriver-wrench"></i></div>
+          <div class="addon-item__name">Engine Bay Clean</div>
+          <div class="addon-item__price">$79</div>
+        </div>
+        <div class="addon-item">
+          <div class="addon-item__icon"><i class="fas fa-lightbulb"></i></div>
+          <div class="addon-item__name">Headlight Restore</div>
+          <div class="addon-item__price">$59</div>
+        </div>
+        <div class="addon-item">
+          <div class="addon-item__icon"><i class="fas fa-wrench"></i></div>
+          <div class="addon-item__name">Trim Restoration</div>
+          <div class="addon-item__price">$49</div>
+        </div>
+        <div class="addon-item">
+          <div class="addon-item__icon"><i class="fas fa-wind"></i></div>
+          <div class="addon-item__name">Odor Removal</div>
+          <div class="addon-item__price">$69</div>
+        </div>
+        <div class="addon-item">
+          <div class="addon-item__icon"><i class="fas fa-circle-notch"></i></div>
+          <div class="addon-item__name">Rim Polishing</div>
+          <div class="addon-item__price">$89</div>
+        </div>
+        <div class="addon-item">
+          <div class="addon-item__icon"><i class="fas fa-flag-checkered"></i></div>
+          <div class="addon-item__name">Brake Caliper Paint</div>
+          <div class="addon-item__price">$119</div>
+        </div>
+        <div class="addon-item">
+          <div class="addon-item__icon"><i class="fas fa-shield-halved"></i></div>
+          <div class="addon-item__name">PPF Spot Coverage</div>
+          <div class="addon-item__price">$199+</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 6: PRICING TABLE / COMPARISON -->
+  <section class="section section--dark" id="pricing-compare">
+    <div class="container">
+      <div class="section-header reveal">
+        <div class="section-eyebrow">Compare</div>
+        <h2 class="section-title">Package <span>Comparison</span></h2>
+        <p class="section-subtitle">See exactly what's included in each package to find your perfect match.</p>
+        <div class="divider"></div>
+      </div>
+      <div style="overflow-x:auto;border-radius:var(--r-lg);border:1px solid var(--black-border);" class="reveal">
+        <table class="package-compare">
+          <thead>
+            <tr>
+              <th style="text-align:left;">Feature</th>
+              <th>Express $29</th>
+              <th style="background:linear-gradient(135deg,#1a2740,#0d1826);color:var(--cyan);">Premium $89 <i
+                  class="fas fa-star" style="margin-left:0.25rem;"></i></th>
+              <th>Full Detail $149</th>
+              <th>Ceramic $299+</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Hand exterior wash</td>
+              <td><span class="check">✓</span></td>
+              <td><span class="check">✓</span></td>
+              <td><span class="check">✓</span></td>
+              <td><span class="check">✓</span></td>
+            </tr>
+            <tr>
+              <td>Wheel & rim cleaning</td>
+              <td><span class="check">✓</span></td>
+              <td><span class="check">✓</span></td>
+              <td><span class="check">✓</span></td>
+              <td><span class="check">✓</span></td>
+            </tr>
+            <tr>
+              <td>Exterior windows</td>
+              <td><span class="check">✓</span></td>
+              <td><span class="check">✓</span></td>
+              <td><span class="check">✓</span></td>
+              <td><span class="check">✓</span></td>
+            </tr>
+            <tr>
+              <td>Tire shine</td>
+              <td><span class="check">✓</span></td>
+              <td><span class="check">✓</span></td>
+              <td><span class="check">✓</span></td>
+              <td><span class="check">✓</span></td>
+            </tr>
+            <tr>
+              <td>Interior vacuum</td>
+              <td><span class="cross">✕</span></td>
+              <td><span class="check">✓</span></td>
+              <td><span class="check">✓</span></td>
+              <td><span class="check">✓</span></td>
+            </tr>
+            <tr>
+              <td>Dashboard & console</td>
+              <td><span class="cross">✕</span></td>
+              <td><span class="check">✓</span></td>
+              <td><span class="check">✓</span></td>
+              <td><span class="check">✓</span></td>
+            </tr>
+            <tr>
+              <td>Hand wax & polish</td>
+              <td><span class="cross">✕</span></td>
+              <td><span class="check">✓</span></td>
+              <td><span class="check">✓</span></td>
+              <td><span class="check">✓</span></td>
+            </tr>
+            <tr>
+              <td>Paint decontamination</td>
+              <td><span class="cross">✕</span></td>
+              <td><span class="cross">✕</span></td>
+              <td><span class="check">✓</span></td>
+              <td><span class="check">✓</span></td>
+            </tr>
+            <tr>
+              <td>Machine polishing</td>
+              <td><span class="cross">✕</span></td>
+              <td><span class="cross">✕</span></td>
+              <td><span class="check">✓</span></td>
+              <td><span class="check">✓</span></td>
+            </tr>
+            <tr>
+              <td>Deep interior extraction</td>
+              <td><span class="cross">✕</span></td>
+              <td><span class="cross">✕</span></td>
+              <td><span class="check">✓</span></td>
+              <td><span class="check">✓</span></td>
+            </tr>
+            <tr>
+              <td>Ceramic coating (9H)</td>
+              <td><span class="cross">✕</span></td>
+              <td><span class="cross">✕</span></td>
+              <td><span class="cross">✕</span></td>
+              <td><span class="check">✓</span></td>
+            </tr>
+            <tr>
+              <td>5-year protection warranty</td>
+              <td><span class="cross">✕</span></td>
+              <td><span class="cross">✕</span></td>
+              <td><span class="cross">✕</span></td>
+              <td><span class="check">✓</span></td>
+            </tr>
+            <tr>
+              <td>Before/after photos</td>
+              <td><span class="cross">✕</span></td>
+              <td><span class="check">✓</span></td>
+              <td><span class="check">✓</span></td>
+              <td><span class="check">✓</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 7: FAQ -->
+  <section class="section section--card" id="faq">
+    <div class="container">
+      <div class="section-header reveal">
+        <div class="section-eyebrow">FAQs</div>
+        <h2 class="section-title">Frequently Asked <span>Questions</span></h2>
+        <div class="divider"></div>
+      </div>
+      <div style="max-width:800px;margin:0 auto;">
+        <div class="faq-list reveal">
+          <div class="faq-item">
+            <div class="faq-question">How long does a full detail take?<span class="faq-icon">+</span></div>
+            <div class="faq-answer">
+              <div class="faq-answer__inner">A full detail typically takes 4–8 hours depending on the vehicle size and
+                condition. For ceramic coating, plan for 1–2 days as the coating needs cure time. We'll give you a
+                precise estimate when you drop off your vehicle.</div>
+            </div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-question">How often should I get my car detailed?<span class="faq-icon">+</span></div>
+            <div class="faq-answer">
+              <div class="faq-answer__inner">For exterior maintenance, we recommend a wash every 2–4 weeks. A full
+                interior/exterior detail every 3–6 months keeps your car in top condition. With ceramic coating, annual
+                maintenance washes are sufficient.</div>
+            </div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-question">Do you offer mobile detailing?<span class="faq-icon">+</span></div>
+            <div class="faq-answer">
+              <div class="faq-answer__inner">Yes! Our mobile detailing fleet comes to your home or office. Mobile
+                service is available for most packages except ceramic coating, which requires our controlled studio
+                environment for proper application.</div>
+            </div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-question">What products do you use?<span class="faq-icon">+</span></div>
+            <div class="faq-answer">
+              <div class="faq-answer__inner">We use only professional-grade, industry-leading products including
+                Gtechniq ceramic coatings, Meguiar's polishes, Carpro decontamination sprays, and Koch Chemie cleaners.
+                All products are safe for your vehicle and the environment.</div>
+            </div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-question">Is ceramic coating worth the investment?<span class="faq-icon">+</span></div>
+            <div class="faq-answer">
+              <div class="faq-answer__inner">Absolutely. While the upfront cost is higher, ceramic coating lasts 5 years
+                compared to wax at 3–6 months. It protects your paint from UV damage, chemical stains, and oxidation —
+                preserving your car's resale value significantly. Many clients see it as a cost-saving investment over
+                time.</div>
+            </div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-question">What is your satisfaction guarantee?<span class="faq-icon">+</span></div>
+            <div class="faq-answer">
+              <div class="faq-answer__inner">If you're not completely satisfied with your service, notify us within 24
+                hours and we'll redo any unsatisfactory work at absolutely no charge. We stand behind every service we
+                perform.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 8: BOOKING CTA -->
+  <section class="section section--dark" id="book-cta">
+    <div class="container">
+      <div class="cta-banner reveal">
+        <h2 class="cta-banner__title"><i class="fas fa-wand-magic-sparkles"
+            style="color:var(--white);margin-right:0.6rem;vertical-align:middle;font-size:1.1em;"></i>Ready to Elevate
+          Your Vehicle?</h2>
+        <p class="cta-banner__text">Book your service online in minutes. Our team will confirm your appointment within 1
+          hour.</p>
+        <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;position:relative;">
+          <a href="contact.html#booking" class="btn"
+            style="background:var(--white);color:var(--black);font-weight:800;"><i class="fas fa-calendar-check"></i>
+            Book Now</a>
+          <a href="tel:+15551234567" class="btn btn-outline"
+            style="border-color:rgba(255,255,255,0.5);color:var(--white);"><i class="fas fa-phone"></i> +1 (555)
+            123-4567</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <!-- ══════════════════════════════════════ FOOTER ══════════════════════════════════════ -->
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      <div class="footer__grid">
+        <!-- Column 1: Brand -->
+        <div class="footer__brand">
+          <a href="index.html" class="navbar__logo" style="margin-bottom:1rem;display:inline-flex;">
+            <img src="assets/images/logo.png" alt="GlossForge Logo" class="navbar__logo-img" style="height: 40px;">
+            <span class="navbar__logo-text">Gloss<span>Forge</span></span>
+          </a>
+          <p>Detroit's premier auto detailing studio. We deliver showroom-quality results with cutting-edge technology
+            and unmatched attention to detail.</p>
+          <div class="social-links">
+            <a href="#" class="social-link" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" class="social-link" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="#" class="social-link" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+            <a href="#" class="social-link" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+          </div>
+        </div>
+        <!-- Column 2: Company -->
+        <div class="footer__col-company">
+          <div class="footer__heading">COMPANY</div>
+          <nav class="footer__links" aria-label="Footer Navigation">
+            <a href="index.html" class="footer__link"><i class="fas fa-chevron-right"></i> Home</a>
+            <a href="about.html" class="footer__link"><i class="fas fa-chevron-right"></i> About Us</a>
+            <a href="services.html" class="footer__link"><i class="fas fa-chevron-right"></i> Services</a>
+            <a href="gallery.html" class="footer__link"><i class="fas fa-chevron-right"></i> Gallery</a>
+            <a href="contact.html" class="footer__link"><i class="fas fa-chevron-right"></i> Contact</a>
+          </nav>
+        </div>
+        <!-- Column 3: Contact -->
+        <div>
+          <div class="footer__heading">CONTACT</div>
+          <div class="footer__contact-list">
+            <div class="footer__contact-item">
+              <i class="fas fa-map-marker-alt" aria-hidden="true"></i>
+              <span>4520 Auto Blvd, Detroit, MI 48201</span>
+            </div>
+            <div class="footer__contact-item">
+              <i class="fas fa-phone" aria-hidden="true"></i>
+              <a href="tel:+15551234567">+1 (555) 123-4567</a>
+            </div>
+            <div class="footer__contact-item">
+              <i class="fas fa-envelope" aria-hidden="true"></i>
+              <a href="mailto:info@GlossForge.com">info@GlossForge.com</a>
+            </div>
+          </div>
+        </div>
+        <!-- Column 4: Newsletter -->
+        <div>
+          <div class="footer__heading">NEWSLETTER</div>
+          <p class="footer__newsletter-desc">Get exclusive offers and detailing tips in your inbox.</p>
+          <div class="footer__newsletter">
+            <input type="email" placeholder="Your email..." aria-label="Email for newsletter" />
+            <button type="button">→</button>
+          </div>
+        </div>
+      </div>
+      <!-- Bottom Footer -->
+      <div class="footer__bottom">
+        <p>© 2026 GlossForge Detail. All rights reserved.</p>
+        <div class="footer__legal">
+          <a href="privacy.html" class="footer__legal-link">Privacy Policy</a>
+          <span class="footer__legal-divider">|</span>
+          <a href="terms.html" class="footer__legal-link">Terms & Conditions</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <button class="back-to-top"><i class="fas fa-chevron-up"></i></button>
+  <script src="js/main.js"></script>
+  <script src="js/faq.js"></script>
+</body>
+
+</html>
