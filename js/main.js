@@ -52,6 +52,35 @@
     document.body.style.overflow = '';
   }
 
+  // Track current breakpoint to reset mobile menu state automatically when it changes
+  let currentBreakpoint = getBreakpoint();
+
+  function getBreakpoint() {
+    const width = window.innerWidth;
+    if (width >= 1024) return 'desktop';
+    if (width >= 768) return 'tablet';
+    return 'mobile';
+  }
+
+  function resetHeaderState() {
+    if (toggle) toggle.classList.remove('open', 'active', 'show', 'is-open', 'menu-open', 'drawer-open', 'nav-open');
+    if (mobileMenu) mobileMenu.classList.remove('open', 'active', 'show', 'is-open', 'menu-open', 'drawer-open', 'nav-open');
+    
+    document.querySelectorAll('.navbar__toggle, .navbar__mobile, .navbar').forEach(el => {
+      el.classList.remove('open', 'active', 'show', 'is-open', 'menu-open', 'drawer-open', 'nav-open');
+    });
+
+    document.body.style.overflow = '';
+  }
+
+  window.addEventListener('resize', () => {
+    const newBreakpoint = getBreakpoint();
+    if (newBreakpoint !== currentBreakpoint) {
+      currentBreakpoint = newBreakpoint;
+      resetHeaderState();
+    }
+  });
+
   // Active nav link
   const currentPage = window.location.pathname.split('/').pop() || 'index.html';
   document.querySelectorAll('.navbar__link').forEach(link => {

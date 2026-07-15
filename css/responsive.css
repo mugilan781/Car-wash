@@ -1,0 +1,1732 @@
+/* ============================================================
+   GLOSSFORGE DETAIL — RESPONSIVE STYLESHEET
+   File  : css/responsive.css
+   Scope : ONLY responsive overrides. No desktop styles changed.
+   Pages : All pages — navbar, index, home2, about, services,
+           gallery, contact, FAQ, pricing, auth, 404,
+           maintenance, privacy, terms, footer
+   ============================================================
+
+   BREAKPOINTS
+   -----------------------------------------
+   Desktop  1440px+    existing CSS — UNCHANGED
+   Laptop   1024-1439  @media (max-width:1439px)
+   Tablet    768-1023  @media (max-width:1023px)
+   Lg-Mobile 480-767   @media (max-width:767px)
+   Sm-Mobile 320-479   @media (max-width:479px)
+   ============================================================ */
+
+
+/* =============================================================
+   GLOBAL OVERFLOW + IMAGE SAFETY
+   Applied globally — does NOT affect desktop layout.
+   ============================================================= */
+html {
+  overflow-x: hidden;
+}
+body {
+  overflow-x: hidden;
+  max-width: 100%;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+img,
+video,
+canvas,
+svg,
+iframe {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Prevent any absolutely-positioned bg glows from causing overflow */
+.bg-glow {
+  max-width: none; /* glows use fixed sizes, don't constrain them */
+  pointer-events: none;
+}
+
+
+/* =============================================================
+   1. LAPTOP  (max-width: 1439px)
+   ============================================================= */
+@media (max-width: 1439px) {
+
+  /* ---- NAVBAR ---- */
+  .navbar__inner {
+    padding-inline: clamp(1rem, 3vw, 2rem);
+  }
+  .navbar__link {
+    padding: 0.5rem 0.75rem;
+  }
+  .navbar__actions {
+    gap: 0.5rem;
+  }
+
+  /* ---- CONTAINER ---- */
+  .container {
+    padding-inline: clamp(1.5rem, 3vw, 2.5rem);
+  }
+
+  /* ---- HERO (index.html) ---- */
+  .hero-grid-wrapper {
+    gap: 3rem;
+  }
+
+  /* ---- HOME2 HERO ---- */
+  .hero-grid-container {
+    gap: 2rem;
+    padding-inline: clamp(1.5rem, 3vw, 2.5rem);
+  }
+
+  /* ---- FOOTER ---- */
+  .footer__grid {
+    gap: 1.75rem;
+  }
+
+  /* ---- STATS / PRICING ---- */
+  .stats-grid {
+    gap: 1.25rem;
+  }
+  .pricing-grid {
+    gap: 1.25rem;
+  }
+
+} /* end 1439px */
+
+
+/* =============================================================
+   2. TABLET  (max-width: 1023px)
+   ============================================================= */
+@media (max-width: 1023px) {
+
+  /* ---- CONTAINER PADDING (24px each side) ---- */
+  .container {
+    padding-inline: 1.5rem;
+  }
+
+  /* ---- NAVBAR ---- */
+  .navbar__menu {
+    display: none !important;
+  }
+  .navbar__toggle {
+    display: flex !important;
+  }
+  /* Hide "Book Now" text button in navbar; keep icon controls */
+  .navbar__actions > a.btn-primary,
+  .navbar__actions > a.btn-outline:not(.profile-trigger) {
+    display: none !important;
+  }
+  /* Ensure theme, RTL, profile, and hamburger stay visible and scaled down on tablet */
+  .navbar__actions .theme-toggle,
+  .navbar__actions .rtl-toggle,
+  .navbar__actions .profile-dropdown-wrapper,
+  .profile-trigger,
+  .navbar__toggle {
+    display: flex !important;
+  }
+  .profile-trigger {
+    border-radius: 50% !important;
+  }
+  .navbar__logo-img {
+    height: 34px !important;
+  }
+  .navbar__logo-text {
+    font-size: 1.1rem !important;
+  }
+  .navbar__logo {
+    display: flex !important;
+    align-items: center !important;
+    gap: 0.5rem !important;
+  }
+  .navbar__actions {
+    display: flex !important;
+    align-items: center !important;
+    flex-wrap: nowrap !important;
+    gap: 10px !important;
+  }
+  .theme-toggle,
+  .profile-trigger,
+  .rtl-toggle,
+  .navbar__toggle {
+    width: 34px !important;
+    height: 34px !important;
+    padding: 0 !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    box-sizing: border-box !important;
+  }
+  .theme-toggle svg,
+  .profile-trigger svg {
+    width: 16px !important;
+    height: 16px !important;
+  }
+  .rtl-toggle {
+    height: 34px !important;
+    padding: 0 0.6rem !important;
+    font-size: 0.7rem !important;
+  }
+
+  /* ---- HERO (index.html) — spacing fix ---- */
+  .hero {
+    min-height: auto;
+    padding-top: var(--navbar-h);
+    padding-bottom: 3rem;
+  }
+  .hero-grid-wrapper {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    padding-top: 2.5rem;
+    padding-bottom: 1rem;
+  }
+  .hero__content {
+    max-width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  .hero__cta {
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  .hero__subtitle {
+    max-width: 100%;
+    text-align: center;
+  }
+  .showcase-panel {
+    max-width: 400px;
+    margin: 0 auto;
+  }
+
+  /* ---- HOME2 HERO — spacing fix ---- */
+  .video-hero {
+    min-height: auto;
+    padding-top: var(--navbar-h);
+    padding-bottom: 3rem;
+  }
+  .hero-grid-container {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+    text-align: center;
+    padding-block: 2.5rem 1rem;
+  }
+  .hero-left-content {
+    align-items: center;
+    text-align: center;
+  }
+  .hero-badges-row {
+    justify-content: center;
+  }
+  .hero-right-cards {
+    height: 360px;
+    max-width: 480px;
+    margin: 0 auto;
+  }
+  .card-1 { left: 5%; top: 0%; }
+  .card-2 { right: 5%; top: 20%; }
+  .card-3 { left: 0%; bottom: 15%; }
+  .card-4 { right: 10%; bottom: 0%; }
+
+  /* ---- CONTENT ALIGNMENT — tablet center headings ---- */
+  .section-header,
+  .section-eyebrow,
+  .section-title,
+  .section-subtitle {
+    text-align: center;
+  }
+  .section-eyebrow {
+    justify-content: center;
+  }
+
+  /* ---- STATS ---- */
+  .stats-grid {
+    justify-content: center;
+  }
+  .stat-card {
+    flex: 1 1 160px;
+    max-width: 200px;
+  }
+
+  /* ---- SERVICES GRID ---- */
+  .services-grid {
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  }
+  .service-card {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  /* ---- SPLIT LAYOUT ---- */
+  .split,
+  .service-detail-card {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 2.5rem !important;
+  }
+  .split > .split__img,
+  .split > :has(.split__img),
+  .split > :has(.before-after-wrap),
+  .service-detail-card > .split__img,
+  .service-detail-card > :has(.split__img) {
+    order: -1 !important;
+  }
+  .split:not(#booking .split) > div:not(.split__img):not(:has(.split__img)):not(:has(.before-after-wrap)):not(:has(form)),
+  .service-detail-card > div:not(.split__img):not(:has(.split__img)) {
+    text-align: center !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+  }
+  .split:not(#booking .split) > div:not(.split__img):not(:has(.split__img)):not(:has(.before-after-wrap)):not(:has(form)) .section-eyebrow,
+  .service-detail-card > div:not(.split__img):not(:has(.split__img)) .section-eyebrow {
+    justify-content: center !important;
+  }
+  .split:not(#booking .split) > div:not(.split__img):not(:has(.split__img)):not(:has(.before-after-wrap)):not(:has(form)) .section-title,
+  .service-detail-card > div:not(.split__img):not(:has(.split__img)) .section-title {
+    text-align: center !important;
+  }
+  .split--reverse {
+    direction: ltr;
+  }
+  .split__img img {
+    width: 100%;
+    max-height: 380px;
+    object-fit: cover;
+  }
+
+  /* ---- FEATURES GRID ---- */
+  .features-grid {
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  }
+
+  /* ---- TESTIMONIALS ---- */
+  .testimonial-wrap {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  /* ---- GALLERY ---- */
+  .gallery-grid {
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)) !important;
+    gap: 1rem !important;
+  }
+  .gallery-item,
+  .gallery-item.tall,
+  .gallery-item.wide {
+    grid-column: span 1 !important;
+    grid-row: auto !important;
+    aspect-ratio: 4/3 !important;
+    min-height: auto !important;
+    width: 100% !important;
+    height: auto !important;
+  }
+  .gallery-item img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+  }
+
+  /* ---- BOOKING FORM ---- */
+  .booking-form__grid {
+    grid-template-columns: 1fr 1fr;
+  }
+  .booking-form {
+    padding: 2rem;
+  }
+
+  /* ---- PROCESS STEPS ---- */
+  .process-steps {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1.25rem;
+  }
+  .process-step {
+    flex: 0 0 auto;
+    min-width: 160px;
+    max-width: 200px;
+  }
+  .process-step::after {
+    display: none;
+  }
+
+  /* ---- PRICING ---- */
+  .pricing-grid {
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  }
+  .pricing-card.featured {
+    transform: scale(1);
+  }
+  .pricing-card {
+    max-width: 100%;
+    width: 100%;
+  }
+
+  /* ---- TEAM ---- */
+  .team-grid,
+  .team-grid-h2 {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  }
+
+  /* ---- FOOTER ---- */
+  .footer__grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+  }
+  .footer__col-company {
+    padding-left: 0;
+  }
+
+  /* ---- CONTACT PAGE ---- */
+  .contact-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  .social-section {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 1rem !important;
+  }
+
+  /* ---- SERVICES PAGE ---- */
+  .service-detail-card {
+    grid-template-columns: 1fr !important;
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 1.5rem !important;
+    padding: 2rem !important;
+  }
+  .service-detail-card > div {
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+  }
+  .service-detail-card img {
+    max-width: 100% !important;
+    width: 100% !important;
+    height: auto !important;
+    object-fit: cover !important;
+  }
+  
+  /* ---- SERVICES: Package Comparison mobile table scroll ---- */
+  div:has(> .package-compare) {
+    display: block !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    overflow-x: auto !important;
+    -webkit-overflow-scrolling: touch !important;
+    box-sizing: border-box !important;
+  }
+  .package-compare {
+    min-width: 600px !important;
+    width: 100% !important;
+  }
+
+  /* ---- ABOUT PAGE ---- */
+  .why-grid {
+    grid-template-columns: 1fr;
+  }
+  .mv-grid {
+    grid-template-columns: 1fr !important;
+    gap: 1.5rem !important;
+  }
+  .cert-badge {
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+  }
+  .timeline {
+    padding-left: 2.25rem !important;
+  }
+  .timeline::before {
+    left: 10px !important;
+  }
+  .timeline-item {
+    padding-left: 0.5rem !important;
+    padding-right: 0.5rem !important;
+  }
+  .timeline-item::before {
+    left: -31px !important;
+  }
+
+  /* ---- PAGE HERO ---- */
+  .page-hero {
+    padding-block: calc(var(--navbar-h) + 2.5rem) 2.5rem;
+  }
+
+  /* ---- CTA BANNER ---- */
+  .cta-banner {
+    padding-block: 2.5rem;
+    padding-inline: 2rem;
+  }
+
+  /* ---- HOME2: STEP FLOW — convert to vertical on tablet ---- */
+  [style*="min-width:900px"] {
+    min-width: 0 !important;
+  }
+  .step-flow {
+    flex-direction: column;
+    align-items: center;
+    gap: 0;
+    overflow-x: visible;
+    min-width: 0 !important;
+  }
+  .step-item {
+    width: 100%;
+    max-width: 320px;
+    text-align: center;
+    padding: 1.5rem 1rem;
+    position: relative;
+  }
+  /* Vertical connector line replaces the horizontal arrow */
+  .step-item::after {
+    content: '';
+    display: block;
+    width: 2px;
+    height: 2rem;
+    background: linear-gradient(to bottom, var(--blue), var(--cyan));
+    margin: 0 auto;
+    position: static;
+    border-radius: 2px;
+  }
+  .step-item:last-child::after {
+    display: none;
+  }
+
+  /* ---- HOME2: FACILITY GRID ---- */
+  [style*="grid-template-columns:2fr 1fr"] {
+    grid-template-columns: 1fr !important;
+  }
+  [style*="grid-template-columns:repeat(4,1fr)"] {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+  [style*="grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:2rem"] {
+    grid-template-columns: 1fr 1fr !important;
+  }
+
+  /* ---- PACKAGE COMPARE TABLE ---- */
+  .package-compare {
+    font-size: 0.85rem;
+  }
+  .package-compare th,
+  .package-compare td {
+    padding: 0.75rem 0.5rem;
+  }
+
+} /* end 1023px */
+
+
+/* =============================================================
+   3. LARGE MOBILE  (max-width: 767px)
+   ============================================================= */
+@media (max-width: 767px) {
+
+  /* ---- ROOT VARS ---- */
+  :root {
+    --navbar-h: 68px;
+  }
+
+  /* ---- CONTAINER PADDING (16px each side) ---- */
+  .container {
+    padding-inline: 1rem;
+  }
+
+  /* ---- GLOBAL OVERFLOW KILL ---- */
+  section,
+  .section,
+  .footer,
+  .navbar {
+    max-width: 100%;
+  }
+  .card,
+  .card-glass,
+  .service-card,
+  .pricing-card,
+  .testimonial-card,
+  .feature-item,
+  .stat-card,
+  .team-card,
+  .addon-item,
+  .contact-info-card,
+  .faq-item,
+  .process-step,
+  .booking-form {
+    max-width: 100%;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  /* ---- NAVBAR ---- */
+  .navbar__menu {
+    display: none !important;
+  }
+  .navbar__actions .btn:not(.profile-trigger) {
+    display: none !important;
+  }
+  .navbar__toggle {
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center !important;
+    align-items: center !important;
+    gap: 4px !important;
+  }
+  .navbar__toggle span {
+    width: 18px !important;
+    height: 2px !important;
+  }
+  /* Keep icon controls visible */
+  .navbar__actions .theme-toggle,
+  .navbar__actions .rtl-toggle,
+  .navbar__actions .profile-dropdown-wrapper,
+  .profile-trigger,
+  .navbar__toggle {
+    display: flex !important;
+  }
+  .profile-trigger {
+    border-radius: 50% !important;
+  }
+  /* Navbar logo: prevent overlap and scale */
+  .navbar__logo-img {
+    height: 30px !important;
+  }
+  .navbar__logo-text {
+    font-size: 1.02rem !important;
+  }
+  .navbar__logo {
+    display: flex !important;
+    align-items: center !important;
+    gap: 0.4rem !important;
+  }
+  .navbar__actions {
+    display: flex !important;
+    align-items: center !important;
+    flex-wrap: nowrap !important;
+    gap: 8px !important;
+  }
+  /* Shrink mobile header icons */
+  .theme-toggle,
+  .profile-trigger,
+  .rtl-toggle,
+  .navbar__toggle {
+    width: 32px !important;
+    height: 32px !important;
+    padding: 0 !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    box-sizing: border-box !important;
+  }
+  .theme-toggle svg,
+  .profile-trigger svg {
+    width: 15px !important;
+    height: 15px !important;
+  }
+  .rtl-toggle {
+    font-size: 0.68rem !important;
+  }
+
+  /* ---- HERO (index.html) ---- */
+  .hero {
+    min-height: auto;
+    padding-top: var(--navbar-h);
+    padding-bottom: 2.5rem;
+  }
+  .hero-grid-wrapper {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    padding-top: 2rem;
+    padding-bottom: 0.5rem;
+  }
+  .hero__content {
+    max-width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  .hero__cta {
+    flex-direction: column;
+    align-items: center;
+    gap: 0.85rem;
+    justify-content: center;
+  }
+  .hero__cta .btn {
+    width: 100%;
+    max-width: 320px;
+    justify-content: center;
+    white-space: nowrap;
+  }
+  .hero__subtitle {
+    max-width: 100%;
+    text-align: center;
+  }
+  .showcase-panel {
+    max-width: 100%;
+    padding: 1.5rem;
+    margin: 0 auto;
+  }
+  .hero__scroll {
+    display: none;
+  }
+
+  /* ---- HOME2 HERO ---- */
+  .video-hero {
+    min-height: auto;
+    padding-top: var(--navbar-h);
+    padding-bottom: 2.5rem;
+  }
+  .hero-grid-container {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    text-align: center;
+    padding-block: 2rem 0.5rem;
+  }
+  .hero-left-content {
+    align-items: center;
+    text-align: center;
+  }
+  .hero-badges-row {
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+  }
+  /* Floating cards: switch to stacked column layout */
+  .hero-right-cards {
+    display: flex;
+    flex-direction: column;
+    gap: 0.85rem;
+    height: auto;
+    max-width: 100%;
+    position: relative;
+  }
+  .floating-card {
+    position: relative !important;
+    width: 100% !important;
+    top: auto !important;
+    left: auto !important;
+    right: auto !important;
+    bottom: auto !important;
+    animation: none !important;
+    transform: none !important;
+  }
+  .card-1,
+  .card-2,
+  .card-3,
+  .card-4 {
+    position: relative !important;
+    width: 100% !important;
+    top: auto !important;
+    left: auto !important;
+    right: auto !important;
+    bottom: auto !important;
+    animation: none !important;
+    transform: none !important;
+  }
+
+  /* ---- HOME2: STEP FLOW — vertical layout ---- */
+  [style*="min-width:900px"] {
+    min-width: 0 !important;
+    width: 100% !important;
+  }
+  /* Override the overflow-x:auto wrapper */
+  [style*="overflow-x:auto"] {
+    overflow-x: visible !important;
+    padding-bottom: 0 !important;
+  }
+  .step-flow {
+    flex-direction: column !important;
+    align-items: center !important;
+    gap: 0 !important;
+    overflow-x: visible !important;
+    min-width: 0 !important;
+    width: 100% !important;
+    justify-content: flex-start !important;
+  }
+  .step-item {
+    width: 100% !important;
+    max-width: 300px;
+    text-align: center;
+    padding: 1.25rem 1rem;
+    flex-shrink: 0;
+    position: relative;
+  }
+  /* Replace horizontal arrow with vertical connector */
+  .step-item::after {
+    content: '' !important;
+    display: block !important;
+    width: 2px !important;
+    height: 1.75rem !important;
+    background: linear-gradient(to bottom, var(--blue), var(--cyan)) !important;
+    margin: 0 auto !important;
+    position: static !important;
+    right: auto !important;
+    top: auto !important;
+    border-radius: 2px !important;
+  }
+  .step-item:last-child::after {
+    display: none !important;
+  }
+
+  /* ---- HOME2: FACILITY GRID — stack ---- */
+  [style*="grid-template-columns:2fr 1fr"] {
+    grid-template-columns: 1fr !important;
+    gap: 1rem !important;
+  }
+  [style*="grid-template-columns:repeat(4,1fr)"] {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+  [style*="grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:2rem"] {
+    grid-template-columns: 1fr 1fr !important;
+  }
+
+  /* ---- HOME2: PKG TABS ---- */
+  .pkg-panel.active {
+    grid-template-columns: 1fr;
+  }
+  .pkg-card {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  /* ---- CONTENT ALIGNMENT — mobile center headings ---- */
+  .section-header,
+  .section-eyebrow,
+  .section-title,
+  .section-subtitle {
+    text-align: center;
+  }
+  .section-eyebrow {
+    justify-content: center;
+  }
+  /* Split-section inline left-aligned text: center on mobile */
+  .reveal-left > .section-eyebrow,
+  .reveal-right > .section-eyebrow {
+    justify-content: center !important;
+  }
+  .reveal-left > h2[style*="text-align:left"],
+  .reveal-right > h2[style*="text-align:left"] {
+    text-align: center !important;
+  }
+
+  /* ---- AWARDS STRIP ---- */
+  .awards-strip {
+    padding-block: 0.85rem;
+  }
+
+  /* ---- STATS ---- */
+  .stats-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.85rem;
+    justify-items: stretch;
+  }
+  .stat-card {
+    flex: unset;
+    max-width: unset;
+    width: 100%;
+    min-height: 155px;
+    padding: 1.25rem 0.75rem;
+  }
+
+  /* ---- SERVICES GRID ---- */
+  .services-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  .service-card {
+    width: 100%;
+    max-width: 100%;
+  }
+  .service-card__img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+  }
+
+  /* ---- SPLIT LAYOUT ---- */
+  .split {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  .split--reverse {
+    direction: ltr;
+  }
+  .split__img {
+    width: 100%;
+  }
+  .split__img img {
+    width: 100%;
+    max-height: 280px;
+    object-fit: cover;
+  }
+
+  /* ---- FEATURES GRID ---- */
+  .features-grid {
+    grid-template-columns: 1fr;
+    gap: 0.9rem;
+  }
+  .feature-item {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  /* ---- TESTIMONIALS ---- */
+  .testimonial-wrap {
+    grid-template-columns: 1fr;
+  }
+  .testimonial-card {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  /* ---- GALLERY ---- */
+  .gallery-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.6rem;
+  }
+  .gallery-filter {
+    gap: 0.4rem;
+  }
+  .filter-btn {
+    padding: 0.45rem 0.85rem;
+    font-size: 0.8rem;
+  }
+  .gallery-item {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  /* ---- BOOKING FORM ---- */
+  .booking-form__grid {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+  .booking-form {
+    padding: 1.5rem;
+    width: 100%;
+    max-width: 100%;
+  }
+
+  /* ---- PRICING ---- */
+  .pricing-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  .pricing-card {
+    width: 100%;
+    max-width: 100%;
+  }
+  .pricing-card.featured {
+    transform: scale(1);
+  }
+
+  /* ---- PROCESS STEPS ---- */
+  .process-step::after {
+    display: none;
+  }
+  .process-steps {
+    flex-direction: column;
+    align-items: center;
+    gap: 1.25rem;
+  }
+  .process-step {
+    max-width: 280px;
+    width: 100%;
+  }
+
+  /* ---- TEAM ---- */
+  .team-grid,
+  .team-grid-h2 {
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+  }
+  .team-card {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  /* ---- ADDON GRID ---- */
+  .addon-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 0.75rem;
+  }
+  .addon-item {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  /* ---- FOOTER ---- */
+  .footer__grid {
+    grid-template-columns: 1fr;
+    gap: 1.75rem;
+  }
+  .footer__col-company {
+    padding-left: 0;
+  }
+  .footer__bottom {
+    flex-direction: column;
+    text-align: center;
+    gap: 0.75rem;
+    align-items: center;
+  }
+  .footer__bottom p {
+    white-space: normal;
+  }
+  .footer__legal {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  /* ---- CONTACT PAGE ---- */
+  .contact-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  .social-section {
+    grid-template-columns: 1fr 1fr;
+    gap: 0.75rem;
+  }
+  .contact-info-card {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  /* ---- SERVICES PAGE ---- */
+  .service-detail-card {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    padding: 1.5rem;
+    width: 100%;
+    max-width: 100%;
+  }
+  .service-tab-nav {
+    gap: 0.4rem;
+  }
+  .service-tab-btn {
+    padding: 0.5rem 0.85rem;
+    font-size: 0.8rem;
+  }
+
+  /* ---- ABOUT PAGE ---- */
+  .why-grid {
+    grid-template-columns: 1fr;
+  }
+  .mv-grid {
+    grid-template-columns: 1fr !important;
+    gap: 1.5rem !important;
+  }
+  .cert-badge {
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+  }
+  .timeline {
+    padding-left: 2.25rem !important;
+  }
+  .timeline::before {
+    left: 10px !important;
+  }
+  .timeline-item {
+    padding-left: 0.5rem !important;
+    padding-right: 0.5rem !important;
+    margin-bottom: 2rem !important;
+  }
+  .timeline-item::before {
+    left: -31px !important;
+  }
+
+  /* ---- BEFORE/AFTER ---- */
+  .before-after-wrap {
+    max-width: 100%;
+    width: 100%;
+  }
+  .before-after-wrap img {
+    width: 100%;
+  }
+
+  /* ---- TABLE SCROLLING ---- */
+  .package-compare-wrap,
+  .hours-table-wrap,
+  div:has(> .package-compare) {
+    overflow-x: auto !important;
+    -webkit-overflow-scrolling: touch !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    display: block !important;
+  }
+  table {
+    min-width: 0;
+  }
+  .package-compare {
+    min-width: 600px !important;
+  }
+
+  /* ---- GALLERY ---- */
+  .gallery-grid {
+    grid-template-columns: 1fr !important;
+    gap: 1rem !important;
+  }
+
+  /* ---- PAGE HERO ---- */
+  .page-hero {
+    padding-block: calc(var(--navbar-h) + 2rem) 2rem;
+  }
+  .page-hero__title {
+    font-size: clamp(1.9rem, 6vw, 2.8rem);
+  }
+
+  /* ---- CTA BANNER ---- */
+  .cta-banner {
+    padding: 2rem 1rem;
+    border-radius: var(--r-lg);
+  }
+  .cta-banner .btn {
+    width: 100%;
+    max-width: 280px;
+    justify-content: center;
+  }
+
+  /* ---- CONTACT ---- */
+  .social-section {
+    grid-template-columns: 1fr !important;
+    gap: 1rem !important;
+  }
+  .social-big-card {
+    width: 100% !important;
+    max-width: 100% !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    text-align: center !important;
+    box-sizing: border-box !important;
+  }
+  .social-big-card .icon {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    margin-inline: auto !important;
+  }
+
+  /* ---- AUTH PAGES ---- */
+  .auth-page {
+    padding: 1.5rem;
+    align-items: flex-start;
+    padding-top: calc(var(--navbar-h) + 1.5rem);
+  }
+  .auth-card {
+    max-width: 100%;
+    width: 100%;
+  }
+
+  /* ---- 404 PAGE ---- */
+  .error-content h1 {
+    font-size: clamp(1.75rem, 6vw, 3rem);
+  }
+
+  /* ---- MAINTENANCE PAGE ---- */
+  .countdown {
+    gap: 0.75rem;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .countdown-unit {
+    padding: 0.85rem 1rem;
+    min-width: 65px;
+  }
+  .notify-form {
+    flex-direction: column;
+    gap: 0.75rem;
+    width: 100%;
+  }
+  .notify-form input {
+    min-width: unset;
+    width: 100%;
+  }
+
+  /* ---- FAQ ---- */
+  .faq-question {
+    font-size: 0.95rem;
+    padding: 1rem 1.25rem;
+  }
+  .faq-list {
+    width: 100%;
+  }
+
+  /* ---- MAP ---- */
+  .map-wrap {
+    aspect-ratio: 4/3;
+    width: 100%;
+  }
+
+  /* ---- PROGRESS BARS ---- */
+  .progress-item {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  /* ---- SECTION HEADER ---- */
+  .section-header {
+    margin-bottom: 2rem;
+  }
+
+  /* ---- TOAST ---- */
+  .toast {
+    right: 1rem;
+    left: 1rem;
+    min-width: unset;
+    width: auto;
+  }
+
+  /* ---- BACK TO TOP ---- */
+  .back-to-top {
+    bottom: 1.25rem;
+    right: 1.25rem;
+    width: 44px;
+    height: 44px;
+    font-size: 1rem;
+  }
+
+  /* ---- BUTTONS: prevent overflow ---- */
+  .btn {
+    white-space: nowrap;
+    max-width: 100%;
+  }
+  .btn-lg {
+    padding: 1rem 2rem;
+    font-size: 1rem;
+  }
+
+  /* ---- PRIVACY & TERMS OF SERVICE PAGES ---- */
+  html,
+  body {
+    overflow-x: hidden !important;
+  }
+  .legal-layout,
+  .policy-content,
+  .policy-section,
+  .toc-sidebar,
+  .policy-meta,
+  .highlight-box,
+  .data-table,
+  aside {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    box-sizing: border-box !important;
+    transform: none !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    left: auto !important;
+    right: auto !important;
+  }
+  .legal-layout {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 1.5rem !important;
+  }
+  .policy-section {
+    padding: 1.25rem !important;
+  }
+  .policy-meta {
+    padding: 1rem !important;
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 0.75rem !important;
+  }
+  .policy-meta > div {
+    margin-left: 0 !important;
+    width: 100% !important;
+  }
+  .policy-meta .btn,
+  .toc-sidebar .btn,
+  .policy-content .btn {
+    width: 100% !important;
+    max-width: 100% !important;
+    justify-content: center !important;
+    display: flex !important;
+  }
+  .data-table {
+    display: block !important;
+    width: 100% !important;
+    overflow-x: auto !important;
+    -webkit-overflow-scrolling: touch !important;
+    border-collapse: collapse !important;
+  }
+  .data-table th,
+  .data-table td {
+    white-space: nowrap !important;
+  }
+  .policy-content *,
+  .policy-section * {
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+    word-wrap: break-word !important;
+    overflow-wrap: break-word !important;
+    white-space: normal !important;
+  }
+  .policy-content i,
+  .policy-content span,
+  .policy-section i,
+  .policy-section span,
+  .data-table *,
+  .btn,
+  .btn * {
+    white-space: inherit !important;
+  }
+  .policy-content > *,
+  .policy-section > * {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    box-sizing: border-box !important;
+  }
+
+} /* end 767px */
+
+
+/* =============================================================
+   4. SMALL MOBILE  (max-width: 479px)
+   ============================================================= */
+@media (max-width: 479px) {
+
+  /* ---- ROOT VARS ---- */
+  :root {
+    --navbar-h: 64px;
+  }
+
+  /* ---- CONTAINER ---- */
+  .container {
+    padding-inline: 1rem;
+  }
+
+  /* ---- NAVBAR ---- */
+  .navbar__logo-text {
+    font-size: 0.92rem !important;
+  }
+  .navbar__logo-img {
+    height: 26px !important;
+  }
+  .navbar__logo {
+    display: flex !important;
+    align-items: center !important;
+    gap: 0.3rem !important;
+  }
+  .navbar__inner {
+    padding-inline: 0.6rem !important;
+  }
+  /* Keep icon controls visible */
+  .navbar__actions .theme-toggle,
+  .navbar__actions .rtl-toggle,
+  .navbar__actions .profile-dropdown-wrapper,
+  .profile-trigger,
+  .navbar__toggle {
+    display: flex !important;
+  }
+  .profile-trigger {
+    border-radius: 50% !important;
+  }
+  .navbar__actions {
+    display: flex !important;
+    align-items: center !important;
+    flex-wrap: nowrap !important;
+    gap: 6px !important;
+  }
+  /* Shrink mobile header icons further for 320px */
+  .theme-toggle,
+  .profile-trigger,
+  .rtl-toggle,
+  .navbar__toggle {
+    width: 28px !important;
+    height: 28px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    box-sizing: border-box !important;
+  }
+  .theme-toggle svg,
+  .profile-trigger svg {
+    width: 14px !important;
+    height: 14px !important;
+  }
+  .rtl-toggle {
+    font-size: 0.62rem !important;
+  }
+  .navbar__toggle {
+    gap: 3px !important;
+  }
+  .navbar__toggle span {
+    width: 16px !important;
+    height: 2px !important;
+  }
+
+  /* ---- HERO (index.html) ---- */
+  .hero {
+    padding-bottom: 2rem;
+  }
+  .hero-grid-wrapper {
+    gap: 1.75rem;
+    padding-top: 1.5rem;
+  }
+  .hero__cta {
+    flex-direction: column;
+    align-items: center;
+    gap: 0.75rem;
+  }
+  .hero__cta .btn {
+    width: 100%;
+    max-width: 280px;
+    justify-content: center;
+    padding: 0.9rem 1.5rem;
+    font-size: 0.95rem;
+  }
+  .showcase-panel {
+    padding: 1.25rem;
+  }
+  .showcase-list {
+    gap: 0.65rem;
+  }
+
+  /* ---- HOME2 HERO ---- */
+  .video-hero {
+    padding-bottom: 2rem;
+  }
+  .hero-grid-container {
+    gap: 1.5rem;
+    padding-top: 1.5rem;
+  }
+
+  /* ---- STATS ---- */
+  .stats-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 0.65rem;
+  }
+  .stat-card {
+    min-height: 140px;
+    padding: 1rem 0.5rem;
+  }
+  .stat-number {
+    font-size: clamp(1.4rem, 6vw, 2rem);
+  }
+  .stat-label {
+    font-size: 0.775rem;
+  }
+
+  /* ---- SERVICES ---- */
+  .services-grid {
+    grid-template-columns: 1fr;
+    gap: 0.85rem;
+  }
+  .service-card__img {
+    height: 180px;
+  }
+
+  /* ---- GALLERY ---- */
+  .gallery-grid {
+    grid-template-columns: 1fr !important;
+    gap: 0.65rem !important;
+  }
+  .gallery-item,
+  .gallery-item.tall,
+  .gallery-item.wide {
+    grid-column: span 1 !important;
+    grid-row: auto !important;
+    aspect-ratio: 4/3 !important;
+    min-height: auto !important;
+    width: 100% !important;
+    height: auto !important;
+  }
+
+  /* ---- PRICING ---- */
+  .pricing-grid {
+    grid-template-columns: 1fr;
+    gap: 0.85rem;
+  }
+  .pricing-card {
+    padding: 1.75rem 1.25rem;
+  }
+  .pricing-card.featured {
+    transform: scale(1);
+  }
+
+  /* ---- TEAM ---- */
+  .team-grid,
+  .team-grid-h2 {
+    grid-template-columns: 1fr;
+    gap: 0.85rem;
+  }
+
+  /* ---- ADDON GRID ---- */
+  .addon-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 0.6rem;
+  }
+
+  /* ---- FOOTER ---- */
+  .footer__grid {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
+  .footer__newsletter {
+    flex-direction: column;
+    gap: 0.6rem;
+  }
+  .footer__newsletter input,
+  .footer__newsletter button {
+    width: 100%;
+  }
+  .footer__newsletter button {
+    padding: 0.75rem;
+    text-align: center;
+  }
+  .footer__legal {
+    flex-direction: column;
+    align-items: center;
+    gap: 0.35rem;
+  }
+  .footer__legal-divider {
+    display: none;
+  }
+
+  /* ---- CTA BANNER ---- */
+  .cta-banner {
+    padding: 1.75rem 1rem;
+  }
+  .cta-banner .btn {
+    width: 100%;
+    max-width: 100%;
+    justify-content: center;
+  }
+
+  /* ---- CONTACT ---- */
+  .social-section {
+    grid-template-columns: 1fr !important;
+    gap: 0.85rem !important;
+  }
+  .social-big-card {
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+  }
+  .contact-info-card {
+    padding: 1.25rem;
+  }
+
+  /* ---- BOOKING FORM ---- */
+  .booking-form {
+    padding: 1.25rem;
+  }
+  .booking-form__grid {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+
+  /* ---- PROCESS STEPS ---- */
+  .process-step {
+    max-width: 240px;
+    padding: 1.25rem 0.75rem;
+  }
+
+  /* ---- FEATURES ---- */
+  .features-grid {
+    grid-template-columns: 1fr;
+    gap: 0.75rem;
+  }
+  .feature-item {
+    padding: 1.25rem;
+  }
+
+  /* ---- FAQ ---- */
+  .faq-question {
+    font-size: 0.875rem;
+    padding: 0.875rem 1rem;
+  }
+  .faq-answer__inner {
+    padding: 0 1rem 1rem;
+    font-size: 0.875rem;
+  }
+
+  /* ---- AUTH PAGES ---- */
+  .auth-card {
+    padding: 1.5rem 1.25rem;
+  }
+  .auth-title {
+    font-size: 1.5rem;
+  }
+
+  /* ---- 404 PAGE ---- */
+  .error-404 {
+    font-size: clamp(6rem, 22vw, 11rem);
+  }
+  .error-content h1 {
+    font-size: clamp(1.5rem, 7vw, 2.5rem);
+  }
+  .error-content p {
+    font-size: 0.9rem;
+    padding-inline: 0.5rem;
+  }
+
+  /* ---- MAINTENANCE PAGE ---- */
+  .countdown {
+    gap: 0.6rem;
+  }
+  .countdown-unit {
+    padding: 0.75rem 0.85rem;
+    min-width: 58px;
+    border-radius: var(--r-md);
+  }
+  .countdown-num {
+    font-size: clamp(1.6rem, 7vw, 2.25rem);
+  }
+  .countdown-label {
+    font-size: 0.65rem;
+  }
+
+  /* ---- HOME2 ---- */
+  .pkg-tab {
+    padding: 0.45rem 0.85rem;
+    font-size: 0.8rem;
+  }
+
+  /* ---- PAGE HERO ---- */
+  .page-hero__title {
+    font-size: clamp(1.6rem, 7vw, 2.4rem);
+  }
+  .page-hero__breadcrumb {
+    font-size: 0.8rem;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  /* ---- SECTION TITLE ---- */
+  .section-title {
+    font-size: clamp(1.4rem, 5.5vw, 2rem);
+  }
+
+  /* ---- SPLIT LAYOUT ---- */
+  .split {
+    gap: 1.5rem;
+  }
+  .split__img img {
+    max-height: 220px;
+  }
+
+  /* ---- SECTION EYEBROW ---- */
+  .section-eyebrow::before,
+  .section-eyebrow::after {
+    width: 1rem;
+  }
+
+  /* ---- TESTIMONIALS ---- */
+  .testimonial-card {
+    padding: 1.5rem 1rem;
+  }
+  .testimonial-card__text {
+    font-size: 0.925rem;
+  }
+
+  /* ---- BACK TO TOP ---- */
+  .back-to-top {
+    bottom: 1rem;
+    right: 1rem;
+    width: 40px;
+    height: 40px;
+    font-size: 0.9rem;
+  }
+
+  /* ---- TOAST ---- */
+  .toast {
+    bottom: 4rem;
+    right: 0.75rem;
+    left: 0.75rem;
+  }
+
+} /* end 479px */
+
+
+/* =============================================================
+   5. MOBILE MENU — Clean hamburger & X animation
+      Applied globally (no desktop impact: toggle is hidden on desktop)
+   ============================================================= */
+
+/* Mobile drawer: z-index override to ensure it is covered by the header overlay */
+.navbar__mobile {
+  z-index: 999 !important; /* lower than header (.navbar z-index: 1000) */
+}
+
+/* Hamburger bar animation into X (Tablet: 4px gap) */
+@media (max-width: 1023px) {
+  .navbar__toggle.open span:nth-child(1) {
+    transform: translateY(6px) rotate(45deg) !important;
+  }
+  .navbar__toggle.open span:nth-child(2) {
+    opacity: 0 !important;
+    transform: scaleX(0) !important;
+  }
+  .navbar__toggle.open span:nth-child(3) {
+    transform: translateY(-6px) rotate(-45deg) !important;
+  }
+}
+
+/* Hamburger bar animation into X (Small Mobile: 3px gap) */
+@media (max-width: 479px) {
+  .navbar__toggle.open span:nth-child(1) {
+    transform: translateY(5px) rotate(45deg) !important;
+  }
+  .navbar__toggle.open span:nth-child(2) {
+    opacity: 0 !important;
+    transform: scaleX(0) !important;
+  }
+  .navbar__toggle.open span:nth-child(3) {
+    transform: translateY(-5px) rotate(-45deg) !important;
+  }
+}
+
+/* Mobile drawer: hide close button since the header hamburger/X toggles it */
+.navbar__mobile-close {
+  display: none !important;
+}
+
+/* Mobile drawer: hide the duplicate profile dropdown wrapper inside drawer */
+.navbar__mobile .profile-dropdown-wrapper {
+  display: none !important;
+}
+
+/* Mobile drawer: keep footer div active for centered Book Now button only */
+.navbar__mobile > div {
+  display: flex !important;
+  margin-top: 1.5rem !important;
+  justify-content: center !important;
+  align-items: center !important;
+  gap: 0 !important;
+}
+
+/* Mobile menu links consistent sizing */
+.navbar__mobile .navbar__link {
+  font-size: 1.4rem;
+  font-weight: 700;
+  padding: 0.65rem 1.25rem;
+  letter-spacing: 0.02em;
+}
+
+/* =============================================================
+   6. DESKTOP HEADER RESET (min-width: 1024px)
+   ============================================================= */
+@media (min-width: 1024px) {
+  .navbar__toggle {
+    display: none !important;
+  }
+  .navbar__mobile {
+    display: none !important;
+  }
+  .navbar__actions .btn {
+    display: inline-flex !important;
+  }
+  .navbar__menu {
+    display: flex !important;
+  }
+}
