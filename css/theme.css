@@ -773,12 +773,13 @@ body * {
    which gets color: #0F172A in light mode — invisible on dark bg.
    Override to white inside the footer.
    ───────────────────────────────────────────────────────────── */
-[data-theme="light"] .footer .navbar__logo-text {
-  color: #FFFFFF;
+[data-theme="light"] .footer .footer__brand .navbar__logo-text {
+  color: #FFFFFF !important;
 }
-[data-theme="light"] .footer .navbar__logo-text span {
-  color: var(--cyan);
+[data-theme="light"] .footer .footer__brand .navbar__logo-text span {
+  color: var(--cyan) !important;
 }
+
 
 /* ─────────────────────────────────────────────────────────────
    FIX 3: HOME HERO "OUR SERVICES" BUTTON
@@ -1030,3 +1031,15 @@ body * {
   color: var(--blue) !important;
   box-shadow: 0 4px 12px rgba(37, 99, 235, 0.15) !important;
 }
+
+/* ─────────────────────────────────────────────────────────────
+   FIX 11: FACILITY OVERLAY HEADING IN LIGHT THEME
+   The overlay card in the World-Class Facility showcase on
+   Home 2 has a dark background in both light and dark modes.
+   In light theme, the heading color defaults to dark charcoal.
+   Override it to pure white for proper legibility.
+   ───────────────────────────────────────────────────────────── */
+[data-theme="light"] #facility div[style*="position:relative"] div[style*="position:absolute"] > div:first-child {
+  color: #FFFFFF !important;
+}
+
