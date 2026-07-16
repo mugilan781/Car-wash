@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Book an appointment with GlossForge Detail. Schedule your detailing packages, express washes, or premium ceramic coating sessions online." />
+  <title>Book Appointment | GlossForge Detail</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/animations.css" />
+  <link rel="stylesheet" href="css/theme.css" />
+  <link rel="stylesheet" href="css/rtl.css" />
+  <link rel="stylesheet" href="css/responsive.css" />
+  <!-- Theme JS (apply saved preference immediately before first paint) -->
+  <script src="js/theme.js"></script>
+  <!-- RTL JS (apply saved direction immediately before first paint) -->
+  <script src="js/rtl.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar navbar--transparent">
+  <div class="navbar__inner">
+    <a href="index.html" class="navbar__logo"><img src="assets/images/logo.png" alt="GlossForge Logo" class="navbar__logo-img"><span class="navbar__logo-text">Gloss<span>Forge</span></span></a>
+    <ul class="navbar__menu" role="list">
+      <li class="navbar__item"><a href="index.html" class="navbar__link">Home</a></li>
+      <li class="navbar__item"><a href="home2.html" class="navbar__link">Home 2</a></li>
+      <li class="navbar__item"><a href="about.html" class="navbar__link">About</a></li>
+      <li class="navbar__item"><a href="services.html" class="navbar__link">Services</a></li>
+      <li class="navbar__item"><a href="gallery.html" class="navbar__link">Gallery</a></li>
+      <li class="navbar__item"><a href="blog.html" class="navbar__link">Blog</a></li>
+      <li class="navbar__item"><a href="contact.html" class="navbar__link">Contact</a></li>
+    </ul>
+    <div class="navbar__actions">
+      <div class="profile-dropdown-wrapper">
+        <button class="btn btn-outline btn-sm profile-trigger" aria-label="User Profile" aria-haspopup="true" aria-expanded="false">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+            <circle cx="12" cy="7" r="4"></circle>
+          </svg>
+        </button>
+        <div class="profile-dropdown-menu">
+          <a href="login.html" class="profile-dropdown-item">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M15 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h8"></path>
+              <polyline points="10 17 15 12 10 7"></polyline>
+              <line x1="15" y1="12" x2="3" y2="12"></line>
+            </svg>
+            Login
+          </a>
+          <a href="signup.html" class="profile-dropdown-item">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+              <circle cx="8.5" cy="7" r="4"></circle>
+              <line x1="20" y1="8" x2="20" y2="14"></line>
+              <line x1="23" y1="11" x2="17" y2="11"></line>
+            </svg>
+            Signup
+          </a>
+        </div>
+      </div>
+      <!-- Theme Toggle -->
+      <button class="theme-toggle" aria-label="Toggle Light / Dark Theme" title="Toggle theme">
+        <svg class="icon-sun" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="12" r="5"></circle>
+          <line x1="12" y1="1" x2="12" y2="3"></line>
+          <line x1="12" y1="21" x2="12" y2="23"></line>
+          <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+          <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+          <line x1="1" y1="12" x2="3" y2="12"></line>
+          <line x1="21" y1="12" x2="23" y2="12"></line>
+          <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+          <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+        </svg>
+        <svg class="icon-moon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+        </svg>
+      </button>
+      <!-- RTL / LTR Toggle -->
+      <button class="rtl-toggle" aria-label="Toggle RTL / LTR text direction" title="Toggle text direction">
+        <span class="rtl-toggle__label">RTL</span>
+      </button>
+      <a href="booking.html" class="btn btn-primary btn-sm">Book Now</a>
+      <button class="navbar__toggle"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</nav>
+
+<div class="navbar__mobile" role="dialog" aria-label="Mobile Navigation">
+  <button class="navbar__mobile-close" aria-label="Close menu" style="position:absolute;top:1.5rem;right:1.5rem;font-size:1.5rem;color:var(--white);background:none;border:none;cursor:pointer;">✕</button>
+  <a href="index.html" class="navbar__link">Home</a>
+  <a href="home2.html" class="navbar__link">Home 2</a>
+  <a href="about.html" class="navbar__link">About</a>
+  <a href="services.html" class="navbar__link">Services</a>
+  <a href="gallery.html" class="navbar__link">Gallery</a>
+  <a href="blog.html" class="navbar__link">Blog</a>
+  <a href="contact.html" class="navbar__link">Contact</a>
+  <div style="display:flex;gap:1rem;margin-top:1.5rem;align-items:center;">
+    <div class="profile-dropdown-wrapper">
+      <button class="btn btn-outline profile-trigger" aria-label="User Profile" aria-haspopup="true" aria-expanded="false" style="width:44px;height:44px;">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+          <circle cx="12" cy="7" r="4"></circle>
+        </svg>
+      </button>
+      <div class="profile-dropdown-menu">
+        <a href="login.html" class="profile-dropdown-item">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M15 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h8"></path>
+            <polyline points="10 17 15 12 10 7"></polyline>
+            <line x1="15" y1="12" x2="3" y2="12"></line>
+          </svg>
+          Login
+        </a>
+        <a href="signup.html" class="profile-dropdown-item">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+            <circle cx="8.5" cy="7" r="4"></circle>
+            <line x1="20" y1="8" x2="20" y2="14"></line>
+            <line x1="23" y1="11" x2="17" y2="11"></line>
+          </svg>
+          Signup
+        </a>
+      </div>
+    </div>
+    <a href="booking.html" class="btn btn-primary">Book Now</a>
+  </div>
+</div>
+
+<!-- SECTION 1: PAGE HERO -->
+<section class="page-hero">
+  <div class="bg-glow bg-glow--cyan" style="width:600px;height:600px;left:50%;transform:translateX(-50%);top:-200px;"></div>
+  <div class="container" style="position:relative;z-index:1;">
+    <div class="page-hero__eyebrow"><i class="fas fa-calendar-alt"></i> BOOK AN APPOINTMENT</div>
+    <h1 class="page-hero__title"><span class="text-gradient">Book</span> Your Appointment</h1>
+    <p class="page-hero__subtitle">Schedule your detailing service in just a few clicks.</p>
+    <div class="page-hero__breadcrumb"><a href="index.html">Home</a><span>›</span><span>Booking</span></div>
+  </div>
+</section>
+
+<!-- SECTION 2: BOOKING FORM -->
+<section class="section section--dark" id="booking">
+  <div class="container">
+    <div class="section-header reveal">
+      <div class="section-eyebrow">Appointment</div>
+      <h2 class="section-title">Book Your <span>Appointment</span></h2>
+      <p class="section-subtitle">Schedule online in under 2 minutes. We'll confirm via email and SMS.</p>
+      <div class="divider"></div>
+    </div>
+    <div class="booking-form reveal" style="max-width:800px;margin:0 auto;">
+      <form id="booking-form-contact" novalidate>
+        <div class="booking-form__grid">
+          <div class="form-group"><label class="form-label" for="b-fname">First Name *</label><input class="form-control" type="text" id="b-fname" name="first_name" placeholder="John" required /><span class="form-error">Required.</span></div>
+          <div class="form-group"><label class="form-label" for="b-lname">Last Name *</label><input class="form-control" type="text" id="b-lname" name="last_name" placeholder="Doe" required /><span class="form-error">Required.</span></div>
+          <div class="form-group"><label class="form-label" for="b-email">Email *</label><input class="form-control" type="email" id="b-email" name="email" placeholder="john@example.com" required /><span class="form-error">Valid email required.</span></div>
+          <div class="form-group"><label class="form-label" for="b-phone">Phone *</label><input class="form-control" type="tel" id="b-phone" name="phone" placeholder="+1 555 000 0000" required /><span class="form-error">Valid phone required.</span></div>
+          <div class="form-group"><label class="form-label" for="b-service">Service *</label><select class="form-control" id="b-service" name="service" required><option value="">Select service...</option><option>Express Wash — $29</option><option>Premium Detail — $89</option><option>Full Detail — $149</option><option>Ceramic Coating — $299+</option><option>Interior Clean — $99</option></select><span class="form-error">Please select a service.</span></div>
+          <div class="form-group"><label class="form-label" for="b-date">Date *</label><input class="form-control" type="date" id="b-date" name="date" required /><span class="form-error">Select a future date.</span></div>
+          <div class="form-group full"><label class="form-label" for="b-vehicle">Vehicle (Year / Make / Model)</label><input class="form-control" type="text" id="b-vehicle" name="vehicle" placeholder="e.g. 2022 BMW M3 Competition" /></div>
+          <div class="form-group full"><label class="form-label" for="b-notes">Notes</label><textarea class="form-control" id="b-notes" name="notes" rows="3" placeholder="Any special requests or areas to focus on?"></textarea></div>
+        </div>
+        <button type="submit" class="btn btn-primary w-full" style="margin-top:0.75rem;justify-content:center;"><i class="fas fa-calendar-check"></i> Confirm Appointment</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 3: APPOINTMENT PROCESS -->
+<section class="section section--card" id="booking-process">
+  <div class="container">
+    <div class="section-header reveal">
+      <div class="section-eyebrow">How It Works</div>
+      <h2 class="section-title">Our Appointment <span>Process</span></h2>
+      <p class="section-subtitle">Simple, transparent steps to get your vehicle serviced.</p>
+      <div class="divider"></div>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:2rem;" class="stagger-group">
+      <div class="card" style="text-align:center;padding:2rem;">
+        <div style="width:60px;height:60px;border-radius:50%;background:rgba(6,182,212,0.1);display:flex;align-items:center;justify-content:center;margin:0 auto 1.5rem;font-size:1.5rem;color:var(--cyan);font-weight:800;">1</div>
+        <h3 style="color:var(--th-heading);margin-bottom:0.75rem;font-size:1.15rem;">Select Service</h3>
+        <p style="font-size:0.9rem;color:var(--th-text-muted);line-height:1.6;font-family:var(--font-secondary);">Choose from our wash, full detail, or premium ceramic coating packages.</p>
+      </div>
+      <div class="card" style="text-align:center;padding:2rem;">
+        <div style="width:60px;height:60px;border-radius:50%;background:rgba(37,99,235,0.1);display:flex;align-items:center;justify-content:center;margin:0 auto 1.5rem;font-size:1.5rem;color:var(--blue);font-weight:800;">2</div>
+        <h3 style="color:var(--th-heading);margin-bottom:0.75rem;font-size:1.15rem;">Pick Date & Time</h3>
+        <p style="font-size:0.9rem;color:var(--th-text-muted);line-height:1.6;font-family:var(--font-secondary);">Select a convenient date from our live scheduling calendar tool.</p>
+      </div>
+      <div class="card" style="text-align:center;padding:2rem;">
+        <div style="width:60px;height:60px;border-radius:50%;background:rgba(6,182,212,0.1);display:flex;align-items:center;justify-content:center;margin:0 auto 1.5rem;font-size:1.5rem;color:var(--cyan);font-weight:800;">3</div>
+        <h3 style="color:var(--th-heading);margin-bottom:0.75rem;font-size:1.15rem;">Confirm Slot</h3>
+        <p style="font-size:0.9rem;color:var(--th-text-muted);line-height:1.6;font-family:var(--font-secondary);">Receive instant SMS and email confirmation once slot is processed.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 4: WHY DETAIL WITH US -->
+<section class="section section--dark" id="why-book">
+  <div class="container">
+    <div class="section-header reveal">
+      <div class="section-eyebrow">Studio Standards</div>
+      <h2 class="section-title">Why Detailing <span>With Us?</span></h2>
+      <p class="section-subtitle">Premium equipment, experienced specialists, and guaranteed protection.</p>
+      <div class="divider"></div>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.5rem;" class="stagger-group">
+      <div class="card" style="padding:2rem;display:flex;gap:1.25rem;">
+        <div style="font-size:2rem;color:var(--cyan);flex-shrink:0;"><i class="fas fa-certificate"></i></div>
+        <div>
+          <h3 style="color:var(--th-heading);margin-bottom:0.5rem;font-size:1.1rem;">Certified Detailers</h3>
+          <p style="font-size:0.875rem;color:var(--th-text-muted);line-height:1.5;font-family:var(--font-secondary);">Our staff hold IDA certifications and follow top safe wash regulations.</p>
+        </div>
+      </div>
+      <div class="card" style="padding:2rem;display:flex;gap:1.25rem;">
+        <div style="font-size:2rem;color:var(--cyan);flex-shrink:0;"><i class="fas fa-shield-halved"></i></div>
+        <div>
+          <h3 style="color:var(--th-heading);margin-bottom:0.5rem;font-size:1.1rem;">100% Satisfaction</h3>
+          <p style="font-size:0.875rem;color:var(--th-text-muted);line-height:1.5;font-family:var(--font-secondary);">We inspect every car with special paint lighting to confirm zero swirls.</p>
+        </div>
+      </div>
+      <div class="card" style="padding:2rem;display:flex;gap:1.25rem;">
+        <div style="font-size:2rem;color:var(--cyan);flex-shrink:0;"><i class="fas fa-leaf"></i></div>
+        <div>
+          <h3 style="color:var(--th-heading);margin-bottom:0.5rem;font-size:1.1rem;">Premium Eco Products</h3>
+          <p style="font-size:0.875rem;color:var(--th-text-muted);line-height:1.5;font-family:var(--font-secondary);">We use pH-neutral shampoos, biodegradable degreasers, and SiO2 coatings.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 5: BOOKING FAQ -->
+<section class="section section--card" id="booking-faq">
+  <div class="container">
+    <div class="section-header reveal">
+      <div class="section-eyebrow">Booking Support</div>
+      <h2 class="section-title">Booking <span>FAQs</span></h2>
+      <p class="section-subtitle">Frequently asked questions about appointment booking, changes, and studios.</p>
+      <div class="divider"></div>
+    </div>
+    <div style="max-width:800px;margin:0 auto;" class="reveal">
+      <div class="faq-list">
+        <div class="faq-item">
+          <div class="faq-question">Can I reschedule or cancel my appointment?<span class="faq-icon">+</span></div>
+          <div class="faq-answer">
+            <div class="faq-answer__inner">Yes, you can cancel or reschedule up to 24 hours before your slot via the email link or by contacting our team.</div>
+          </div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-question">How long does a detailing session take?<span class="faq-icon">+</span></div>
+          <div class="faq-answer">
+            <div class="faq-answer__inner">Express washes take 30-45 minutes. Complete details take 3-5 hours. Ceramic coatings require your vehicle for 24-48 hours to cure.</div>
+          </div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-question">What if there is bad weather on my booking date?<span class="faq-icon">+</span></div>
+          <div class="faq-answer">
+            <div class="faq-answer__inner">If you booked studio detailing, weather doesn't affect us! For mobile detailing, we will contact you to reschedule or shift inside.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer" role="contentinfo">
+  <div class="container">
+    <div class="footer__grid">
+      <!-- Column 1: Brand -->
+      <div class="footer__brand">
+        <a href="index.html" class="navbar__logo" style="margin-bottom:1rem;display:inline-flex;">
+          <img src="assets/images/logo.png" alt="GlossForge Logo" class="navbar__logo-img" style="height: 40px;">
+          <span class="navbar__logo-text">Gloss<span>Forge</span></span>
+        </a>
+        <p>Detroit's premier auto detailing studio. We deliver showroom-quality results with cutting-edge technology and unmatched attention to detail.</p>
+        <div class="social-links">
+          <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+          <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+          <a href="https://x.com" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+          <a href="https://youtube.com" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+        </div>
+      </div>
+      <!-- Column 2: Company -->
+      <div class="footer__col-company">
+        <div class="footer__heading">COMPANY</div>
+        <nav class="footer__links" aria-label="Footer Navigation">
+          <a href="index.html" class="footer__link"><i class="fas fa-chevron-right"></i> Home</a>
+          <a href="about.html" class="footer__link"><i class="fas fa-chevron-right"></i> About Us</a>
+          <a href="services.html" class="footer__link"><i class="fas fa-chevron-right"></i> Services</a>
+          <a href="gallery.html" class="footer__link"><i class="fas fa-chevron-right"></i> Gallery</a>
+          <a href="blog.html" class="footer__link"><i class="fas fa-chevron-right"></i> Blog</a>
+          <a href="contact.html" class="footer__link"><i class="fas fa-chevron-right"></i> Contact</a>
+        </nav>
+      </div>
+      <!-- Column 3: Contact -->
+      <div>
+        <div class="footer__heading">CONTACT</div>
+        <div class="footer__contact-list">
+          <div class="footer__contact-item">
+            <i class="fas fa-map-marker-alt" aria-hidden="true"></i>
+            <span>4520 Auto Blvd, Detroit, MI 48201</span>
+          </div>
+          <div class="footer__contact-item">
+            <i class="fas fa-phone" aria-hidden="true"></i>
+            <a href="tel:+15551234567">+1 (555) 123-4567</a>
+          </div>
+          <div class="footer__contact-item">
+            <i class="fas fa-envelope" aria-hidden="true"></i>
+            <a href="mailto:info@GlossForge.com">info@GlossForge.com</a>
+          </div>
+        </div>
+      </div>
+      <!-- Column 4: Newsletter -->
+      <div>
+        <div class="footer__heading">NEWSLETTER</div>
+        <p class="footer__newsletter-desc">Get exclusive offers and detailing tips in your inbox.</p>
+        <div class="footer__newsletter">
+          <input type="email" placeholder="Your email..." aria-label="Email for newsletter" />
+          <button type="button">→</button>
+        </div>
+      </div>
+    </div>
+    <!-- Bottom Footer -->
+    <div class="footer__bottom">
+      <p>© 2026 GlossForge Detail. All rights reserved.</p>
+      <div class="footer__legal">
+        <a href="privacy.html" class="footer__legal-link">Privacy Policy</a>
+        <span class="footer__legal-divider">|</span>
+        <a href="terms.html" class="footer__legal-link">Terms & Conditions</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<button class="back-to-top"><i class="fas fa-chevron-up"></i></button>
+<script src="js/main.js"></script>
+<script src="js/booking.js"></script>
+<script src="js/faq.js"></script>
+</body>
+</html>
