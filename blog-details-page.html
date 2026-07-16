@@ -1,0 +1,2242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- Dynamic Description placeholder -->
+  <meta id="meta-description" name="description" content="GlossForge Detail Blog — Dynamic Article View." />
+  <title id="page-title">Loading Article... | GlossForge Detail</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/animations.css" />
+  <link rel="stylesheet" href="css/theme.css" />
+  <link rel="stylesheet" href="css/rtl.css" />
+  <link rel="stylesheet" href="css/responsive.css" />
+  <!-- Theme JS (apply saved preference immediately before first paint) -->
+  <script src="js/theme.js"></script>
+  <!-- RTL JS (apply saved direction immediately before first paint) -->
+  <script src="js/rtl.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+  <style>
+    /* ─── Blog Details Specific Styles ─── */
+    .article-layout {
+      display: grid;
+      grid-template-columns: 280px 1fr;
+      gap: 3rem;
+      align-items: start;
+    }
+    
+    @media (max-width: 991px) {
+      .article-layout {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+      }
+    }
+    
+    /* Sidebar Styles */
+    .article-sidebar {
+      position: sticky;
+      top: calc(var(--navbar-h) + 2rem);
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+    }
+    
+    .toc-box {
+      background: var(--th-card);
+      border: 1px solid var(--th-border);
+      border-radius: var(--r-md);
+      padding: 1.5rem;
+    }
+    
+    .toc-title {
+      font-size: 1.05rem;
+      font-weight: 800;
+      color: var(--th-heading);
+      margin-bottom: 1rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      border-bottom: 1.5px solid var(--th-border);
+      padding-bottom: 0.5rem;
+    }
+    
+    .toc-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+    
+    .toc-link {
+      font-size: 0.9rem;
+      color: var(--th-text-muted);
+      transition: var(--t-fast);
+      display: flex;
+      align-items: baseline;
+      gap: 0.5rem;
+    }
+    
+    .toc-link::before {
+      content: '•';
+      color: var(--cyan);
+      font-weight: 700;
+    }
+    
+    .toc-link:hover {
+      color: var(--cyan);
+      transform: translateX(4px);
+    }
+    
+    /* Share Buttons */
+    .share-box {
+      background: var(--th-card);
+      border: 1px solid var(--th-border);
+      border-radius: var(--r-md);
+      padding: 1.25rem 1.5rem;
+    }
+    
+    .share-title {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--th-heading);
+      margin-bottom: 0.75rem;
+    }
+    
+    .share-buttons {
+      display: flex;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+    }
+    
+    .share-btn {
+      width: 36px;
+      height: 36px;
+      border-radius: var(--r-full);
+      background: var(--th-bg-soft);
+      border: 1px solid var(--th-border);
+      color: var(--th-text-muted);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.95rem;
+      transition: var(--t-fast);
+    }
+    
+    .share-btn:hover {
+      background: var(--cyan);
+      color: var(--white);
+      border-color: transparent;
+      transform: translateY(-2px);
+    }
+    
+    /* Article Content styling */
+    .article-body {
+      background: var(--th-card);
+      border: 1px solid var(--th-border);
+      border-radius: var(--r-lg);
+      padding: clamp(1.5rem, 4vw, 3rem);
+    }
+    
+    .article-body h2 {
+      font-size: 1.75rem;
+      font-weight: 800;
+      color: var(--th-heading);
+      margin: 2rem 0 1rem;
+      scroll-margin-top: calc(var(--navbar-h) + 1rem);
+    }
+    
+    .article-body h2:first-of-type {
+      margin-top: 0;
+    }
+    
+    .article-body p {
+      font-size: 1.05rem;
+      line-height: 1.75;
+      color: var(--th-text);
+      margin-bottom: 1.5rem;
+      font-family: var(--font-secondary);
+    }
+    
+    /* Author Info section styling */
+    .author-section {
+      display: flex;
+      align-items: center;
+      gap: 1.25rem;
+      padding: 1.5rem;
+      background: var(--th-bg-soft);
+      border-left: 4px solid var(--cyan);
+      border-radius: var(--r-md);
+      margin-bottom: 2.5rem;
+    }
+    
+    .author-avatar {
+      width: 60px;
+      height: 60px;
+      border-radius: var(--r-full);
+      object-fit: cover;
+      border: 2px solid var(--cyan);
+      flex-shrink: 0;
+    }
+    
+    .author-name {
+      font-size: 1.15rem;
+      font-weight: 800;
+      color: var(--th-heading);
+      margin-bottom: 0.25rem;
+    }
+    
+    .author-role {
+      font-size: 0.85rem;
+      color: var(--cyan);
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    
+    .author-bio {
+      font-size: 0.9rem;
+      color: var(--th-text-muted);
+      margin-top: 0.35rem;
+      font-family: var(--font-secondary);
+    }
+    
+    /* Dynamic Featured Image */
+    .article-featured-img {
+      width: 100%;
+      max-height: 500px;
+      object-fit: cover;
+      border-radius: var(--r-lg);
+      margin-bottom: 3rem;
+      border: 1px solid var(--th-border);
+      box-shadow: var(--th-shadow-md);
+    }
+    
+    /* Quote Block */
+    .article-quote {
+      margin: 2.5rem 0;
+      padding: 2rem;
+      background: linear-gradient(135deg, rgba(6,182,212,0.05) 0%, rgba(37,99,235,0.05) 100%);
+      border-left: 4px solid var(--cyan);
+      border-radius: var(--r-md);
+      position: relative;
+    }
+    
+    .article-quote__text {
+      font-size: 1.25rem;
+      font-style: italic;
+      font-weight: 600;
+      color: var(--th-heading);
+      line-height: 1.6;
+      margin-bottom: 0.75rem;
+      position: relative;
+      z-index: 1;
+    }
+    
+    .article-quote__author {
+      font-size: 0.9rem;
+      font-weight: 700;
+      color: var(--cyan);
+    }
+    
+    /* Tips box */
+    .tips-callout {
+      margin: 2.5rem 0;
+      padding: 2rem;
+      background: var(--th-bg-soft);
+      border: 1px solid var(--th-border);
+      border-radius: var(--r-md);
+    }
+    
+    .tips-callout__title {
+      font-size: 1.15rem;
+      font-weight: 800;
+      color: var(--th-heading);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      margin-bottom: 1.25rem;
+    }
+    
+    .tips-callout__title i {
+      color: var(--cyan);
+    }
+    
+    .tips-callout__list {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+    
+    .tips-callout__item {
+      font-size: 0.95rem;
+      color: var(--th-text);
+      display: flex;
+      gap: 0.75rem;
+      align-items: flex-start;
+      line-height: 1.5;
+      font-family: var(--font-secondary);
+    }
+    
+    .tips-callout__item i {
+      color: var(--cyan);
+      font-size: 0.85rem;
+      margin-top: 0.35rem;
+    }
+    
+    /* Checklist Box */
+    .checklist-box {
+      margin: 2.5rem 0;
+      padding: 2rem;
+      background: var(--th-bg-soft);
+      border: 1px solid var(--th-border);
+      border-radius: var(--r-md);
+    }
+    
+    .checklist-title {
+      font-size: 1.15rem;
+      font-weight: 800;
+      color: var(--th-heading);
+      margin-bottom: 1.25rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    
+    .checklist-title i {
+      color: var(--cyan);
+    }
+    
+    .checklist-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+    
+    .checklist-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.75rem;
+      font-size: 0.975rem;
+      color: var(--th-text);
+      cursor: pointer;
+      user-select: none;
+      font-family: var(--font-secondary);
+    }
+    
+    .checklist-item input {
+      margin-top: 0.35rem;
+      accent-color: var(--cyan);
+    }
+    
+    /* Dynamic Image Gallery */
+    .article-gallery {
+      margin: 3rem 0;
+    }
+    
+    .article-gallery__title {
+      font-size: 1.35rem;
+      font-weight: 800;
+      color: var(--th-heading);
+      margin-bottom: 1.25rem;
+    }
+    
+    .article-gallery__grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1rem;
+    }
+    
+    @media(max-width: 600px) {
+      .article-gallery__grid {
+        grid-template-columns: 1fr;
+      }
+    }
+    
+    .article-gallery__img {
+      width: 100%;
+      aspect-ratio: 4/3;
+      object-fit: cover;
+      border-radius: var(--r-sm);
+      border: 1px solid var(--th-border);
+      transition: var(--t-fast);
+      cursor: pointer;
+    }
+    
+    .article-gallery__img:hover {
+      transform: scale(1.03);
+      border-color: var(--cyan);
+    }
+    
+    /* Before / After section */
+    .ba-section {
+      margin: 3rem 0;
+      background: var(--th-bg-soft);
+      border: 1px solid var(--th-border);
+      border-radius: var(--r-lg);
+      padding: 2rem;
+    }
+    
+    .ba-title {
+      font-size: 1.35rem;
+      font-weight: 800;
+      color: var(--th-heading);
+      margin-bottom: 0.5rem;
+    }
+    
+    .ba-subtitle {
+      font-size: 0.925rem;
+      color: var(--th-text-muted);
+      margin-bottom: 1.5rem;
+      font-family: var(--font-secondary);
+    }
+    
+    .ba-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+    }
+    
+    @media(max-width: 600px) {
+      .ba-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+    
+    .ba-card {
+      position: relative;
+      border-radius: var(--r-md);
+      overflow: hidden;
+      border: 1px solid var(--th-border);
+      aspect-ratio: 16/10;
+    }
+    
+    .ba-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    
+    .ba-card__label {
+      position: absolute;
+      bottom: 1rem;
+      left: 1rem;
+      background: rgba(0,0,0,0.75);
+      backdrop-filter: blur(4px);
+      color: var(--white);
+      padding: 0.35rem 0.85rem;
+      border-radius: var(--r-sm);
+      font-size: 0.8rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    
+    /* Next/Prev Navigation */
+    .article-nav {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+      padding-top: 2rem;
+      border-top: 1px solid var(--th-border);
+      margin-top: 3rem;
+    }
+    
+    @media (max-width: 600px) {
+      .article-nav {
+        grid-template-columns: 1fr;
+      }
+    }
+    
+    .article-nav__card {
+      background: var(--th-bg-soft);
+      border: 1px solid var(--th-border);
+      border-radius: var(--r-md);
+      padding: 1.25rem 1.5rem;
+      display: flex;
+      flex-direction: column;
+      transition: var(--t-fast);
+      cursor: pointer;
+    }
+    
+    .article-nav__card:hover {
+      border-color: var(--cyan);
+      background: var(--th-card);
+    }
+    
+    .article-nav__card.prev {
+      align-items: flex-start;
+      text-align: left;
+    }
+    
+    .article-nav__card.next {
+      align-items: flex-end;
+      text-align: right;
+    }
+    
+    .article-nav__label {
+      font-size: 0.75rem;
+      font-weight: 800;
+      color: var(--cyan);
+      text-transform: uppercase;
+      margin-bottom: 0.35rem;
+      letter-spacing: 0.05em;
+      display: flex;
+      align-items: center;
+      gap: 0.35rem;
+    }
+    
+    .article-nav__title {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--th-heading);
+      line-height: 1.4;
+      transition: var(--t-fast);
+    }
+    
+    .article-nav__card:hover .article-nav__title {
+      color: var(--cyan);
+    }
+    
+    /* Comment Form styles */
+    .comments-section {
+      margin-top: 4rem;
+      background: var(--th-card);
+      border: 1px solid var(--th-border);
+      border-radius: var(--r-lg);
+      padding: clamp(1.5rem, 4vw, 3rem);
+    }
+    
+    .comments-title {
+      font-size: 1.5rem;
+      font-weight: 800;
+      color: var(--th-heading);
+      margin-bottom: 1.5rem;
+    }
+    
+    .comment-list {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+      margin-bottom: 3rem;
+    }
+    
+    .comment-item {
+      display: flex;
+      gap: 1rem;
+      align-items: flex-start;
+      padding-bottom: 1.5rem;
+      border-bottom: 1px solid var(--th-border);
+    }
+    
+    .comment-item__avatar {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: var(--th-bg-soft);
+      border: 1px solid var(--th-border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      color: var(--cyan);
+      flex-shrink: 0;
+    }
+    
+    .comment-item__content {
+      flex-grow: 1;
+    }
+    
+    .comment-item__header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 0.35rem;
+    }
+    
+    .comment-item__author {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--th-heading);
+    }
+    
+    .comment-item__date {
+      font-size: 0.775rem;
+      color: var(--th-text-muted);
+    }
+    
+    .comment-item__text {
+      font-size: 0.925rem;
+      color: var(--th-text);
+      line-height: 1.5;
+      font-family: var(--font-secondary);
+    }
+    
+    /* Error state styles */
+    .error-container {
+      text-align: center;
+      padding: 6rem 1rem;
+      max-width: 500px;
+      margin: 0 auto;
+    }
+    
+    .error-icon {
+      font-size: 4rem;
+      color: var(--cyan);
+      margin-bottom: 1.5rem;
+    }
+    
+    .error-title {
+      font-size: 2rem;
+      font-weight: 800;
+      color: var(--th-heading);
+      margin-bottom: 1rem;
+    }
+    
+    .error-text {
+      font-size: 1.05rem;
+      color: var(--th-text-muted);
+      margin-bottom: 2rem;
+      font-family: var(--font-secondary);
+    }
+
+    /* ─── Rich Text Inner Body Typographical Styling ─── */
+    .article-body a {
+      color: var(--cyan);
+      text-decoration: none;
+      font-weight: 600;
+      transition: var(--t-fast);
+      border-bottom: 1px dashed rgba(6,182,212,0.4);
+    }
+    .article-body a:hover {
+      color: var(--blue-light);
+      border-bottom-color: var(--blue-light);
+    }
+    .article-body ul {
+      list-style: none;
+      margin-bottom: 1.5rem;
+      padding-left: 0;
+    }
+    .article-body ul li {
+      position: relative;
+      padding-left: 1.5rem;
+      margin-bottom: 0.5rem;
+      font-size: 1rem;
+      line-height: 1.6;
+      color: var(--th-text);
+      font-family: var(--font-secondary);
+    }
+    .article-body ul li::before {
+      content: "•";
+      color: var(--cyan);
+      font-size: 1.25rem;
+      position: absolute;
+      left: 0;
+      top: -0.1rem;
+    }
+    .article-body ol {
+      margin-bottom: 1.5rem;
+      padding-left: 1.25rem;
+    }
+    .article-body ol li {
+      margin-bottom: 0.5rem;
+      font-size: 1rem;
+      line-height: 1.6;
+      color: var(--th-text);
+      font-family: var(--font-secondary);
+    }
+    .article-body blockquote {
+      margin: 2rem 0;
+      padding: 1.25rem 1.75rem;
+      background: var(--th-bg-soft);
+      border-left: 4px solid var(--cyan);
+      border-radius: var(--r-md);
+      font-style: italic;
+      color: var(--th-heading);
+      font-size: 1.1rem;
+      line-height: 1.6;
+    }
+    .article-body table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 2rem 0;
+      background: var(--th-card);
+      border: 1px solid var(--th-border);
+      border-radius: var(--r-md);
+      overflow: hidden;
+      font-family: var(--font-secondary);
+    }
+    .article-body th, .article-body td {
+      padding: 0.85rem 1.15rem;
+      text-align: left;
+      border-bottom: 1px solid var(--th-border);
+      font-size: 0.925rem;
+    }
+    .article-body th {
+      background: var(--th-bg-soft);
+      color: var(--th-heading);
+      font-weight: 700;
+    }
+    .article-body td {
+      color: var(--th-text);
+    }
+    .article-body tr:last-child td {
+      border-bottom: none;
+    }
+    .article-body code {
+      font-family: Consolas, Monaco, monospace;
+      background: var(--th-bg-soft);
+      color: var(--cyan);
+      padding: 0.15rem 0.35rem;
+      border-radius: var(--r-sm);
+      font-size: 0.875rem;
+      border: 1px solid var(--th-border);
+    }
+    .article-body pre {
+      background: var(--th-bg-soft);
+      border: 1px solid var(--th-border);
+      border-radius: var(--r-md);
+      padding: 1.25rem;
+      overflow-x: auto;
+      margin: 2rem 0;
+    }
+    .article-body pre code {
+      background: none;
+      border: none;
+      padding: 0;
+      color: var(--th-heading);
+      font-size: 0.85rem;
+    }
+    .article-body h3 {
+      font-size: 1.4rem;
+      font-weight: 800;
+      color: var(--th-heading);
+      margin: 1.75rem 0 0.75rem;
+    }
+    
+    /* Standardize detail page shadows and card hovers */
+    .toc-box, .share-box, .comments-section, .article-body {
+      box-shadow: 0 1px 3px rgba(15,23,42,0.05);
+    }
+    .article-nav__card:hover {
+      box-shadow: var(--shadow-cyan);
+      border-color: var(--cyan) !important;
+      transform: translateY(-2px);
+    }
+    .article-featured-img {
+      border-radius: var(--r-lg) !important;
+      transition: var(--t-base);
+    }
+    .article-featured-img:hover {
+      border-color: var(--cyan);
+      box-shadow: var(--shadow-cyan);
+    }
+    .article-gallery__img {
+      border-radius: var(--r-md) !important;
+      transition: var(--t-base) !important;
+    }
+    .article-gallery__img:hover {
+      border-color: var(--cyan) !important;
+      box-shadow: var(--shadow-cyan) !important;
+      transform: translateY(-4px) !important;
+    }
+    
+    /* ─── Blog Grid & Cards styling for Related Guides ─── */
+    .blog-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+    }
+    
+    @media (max-width: 991px) {
+      .blog-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+    
+    @media (max-width: 768px) {
+      .blog-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+    
+    .blog-card {
+      background: var(--th-card);
+      border: 1px solid var(--th-border);
+      border-radius: var(--r-md);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+      transition: var(--t-base);
+    }
+    
+    .blog-card:hover {
+      transform: translateY(-6px);
+      border-color: var(--cyan);
+      box-shadow: var(--shadow-cyan);
+    }
+    
+    .blog-card__img-wrapper {
+      position: relative;
+      aspect-ratio: 16/10;
+      overflow: hidden;
+    }
+    
+    .blog-card__img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: var(--t-slow);
+    }
+    
+    .blog-card:hover .blog-card__img {
+      transform: scale(1.06);
+    }
+    
+    .blog-card__badge {
+      position: absolute;
+      top: 1rem;
+      left: 1rem;
+      background: var(--grad-primary);
+      color: var(--white);
+      font-size: 0.725rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      padding: 0.35rem 0.85rem;
+      border-radius: var(--r-full);
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    }
+    
+    .blog-card__content {
+      padding: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+    }
+    
+    .blog-card__meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      font-size: 0.8rem;
+      color: var(--th-text-muted);
+      margin-bottom: 0.75rem;
+      font-family: var(--font-secondary);
+    }
+    
+    .blog-card__meta-item {
+      display: flex;
+      align-items: center;
+      gap: 0.35rem;
+    }
+    
+    .blog-card__meta-item i {
+      color: var(--cyan);
+    }
+    
+    .blog-card__title {
+      font-size: 1.25rem;
+      font-weight: 700;
+      line-height: 1.35;
+      margin-bottom: 0.75rem;
+      color: var(--th-heading);
+      transition: var(--t-fast);
+      word-wrap: break-word;
+      overflow-wrap: break-word;
+    }
+    
+    .blog-card:hover .blog-card__title {
+      color: var(--cyan);
+    }
+    
+    .blog-card__excerpt {
+      font-size: 0.925rem;
+      color: var(--th-text-muted);
+      line-height: 1.6;
+      margin-bottom: 1.5rem;
+      flex-grow: 1;
+      font-family: var(--font-secondary);
+      word-wrap: break-word;
+      overflow-wrap: break-word;
+    }
+    
+    .blog-card__footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-top: 1rem;
+      border-top: 1px solid var(--th-border);
+      margin-top: auto;
+    }
+    
+    .blog-card__author {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--th-heading);
+    }
+    
+    .blog-card__author-img {
+      width: 30px;
+      height: 30px;
+      border-radius: var(--r-full);
+      object-fit: cover;
+      border: 1.5px solid var(--cyan);
+    }
+    
+    /* ─── Newsletter Subscribe Card Refactoring ─── */
+    .newsletter-box {
+      max-width: 550px;
+      margin: 0 auto;
+      width: 100%;
+    }
+    
+    .newsletter-form {
+      display: flex;
+      gap: 0.75rem;
+      width: 100%;
+    }
+    
+    .newsletter-form .form-control {
+      flex-grow: 1;
+      height: 50px;
+      background: var(--th-input-bg);
+      border: 1.5px solid var(--th-input-border);
+      border-radius: var(--r-md);
+      color: var(--th-heading);
+      padding: 0.75rem 1.25rem;
+      font-size: 0.95rem;
+      font-family: var(--font-secondary);
+      outline: none;
+      transition: var(--t-fast);
+      width: 100%;
+    }
+    
+    .newsletter-form .form-control::placeholder {
+      color: var(--th-text-muted);
+      opacity: 0.95;
+    }
+    
+    .newsletter-form .form-control:focus {
+      border-color: var(--cyan);
+      background: rgba(6,182,212,0.05);
+      box-shadow: 0 0 0 3px rgba(6,182,212,0.15);
+    }
+    
+    .newsletter-form .btn {
+      height: 50px;
+      padding: 0 1.75rem;
+      font-weight: 700;
+      white-space: nowrap;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      border-radius: var(--r-md);
+    }
+    
+    @media (max-width: 768px) {
+      .newsletter-form {
+        flex-direction: column;
+        gap: 1rem;
+        align-items: center;
+      }
+      .newsletter-form .form-control,
+      .newsletter-form .btn {
+        width: 100% !important;
+        text-align: center;
+      }
+    }
+    
+    /* ─── Responsive Media Queries for Details Page ─── */
+    @media (max-width: 991px) {
+      .article-sidebar {
+        display: none !important;
+      }
+    }
+    @media (max-width: 600px) {
+      .comments-section form div[style*="grid-template-columns"] {
+        grid-template-columns: 1fr !important;
+      }
+    }
+    
+    @media (max-width: 576px) {
+      .author-section {
+        flex-direction: column !important;
+        text-align: center;
+        align-items: center;
+      }
+    }
+    
+    @media (max-width: 480px) {
+      .blog-card__footer {
+        flex-direction: column;
+        align-items: stretch !important;
+        gap: 1rem;
+      }
+      .blog-card__author {
+        justify-content: center;
+      }
+      .blog-card__footer .btn {
+        width: 100% !important;
+        justify-content: center;
+      }
+    }
+    
+    .article-body img {
+      max-width: 100%;
+      height: auto;
+      border-radius: var(--r-md);
+    }
+    
+    .article-body p, .article-body li, .article-body blockquote {
+      word-wrap: break-word;
+      overflow-wrap: break-word;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar navbar--transparent">
+    <div class="navbar__inner">
+      <a href="index.html" class="navbar__logo">
+        <img src="assets/images/logo.png" alt="GlossForge Logo" class="navbar__logo-img">
+        <span class="navbar__logo-text">Gloss<span>Forge</span></span>
+      </a>
+      <ul class="navbar__menu" role="list">
+        <li class="navbar__item"><a href="index.html" class="navbar__link">Home</a></li>
+        <li class="navbar__item"><a href="home2.html" class="navbar__link">Home 2</a></li>
+        <li class="navbar__item"><a href="about.html" class="navbar__link">About</a></li>
+        <li class="navbar__item"><a href="services.html" class="navbar__link">Services</a></li>
+        <li class="navbar__item"><a href="gallery.html" class="navbar__link">Gallery</a></li>
+        <li class="navbar__item"><a href="blog.html" class="navbar__link active">Blog</a></li>
+        <li class="navbar__item"><a href="contact.html" class="navbar__link">Contact</a></li>
+      </ul>
+      <div class="navbar__actions">
+        <div class="profile-dropdown-wrapper">
+          <button class="btn btn-outline btn-sm profile-trigger" aria-label="User Profile" aria-haspopup="true" aria-expanded="false">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+              <circle cx="12" cy="7" r="4"></circle>
+            </svg>
+          </button>
+          <div class="profile-dropdown-menu">
+            <a href="login.html" class="profile-dropdown-item">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M15 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h8"></path>
+                <polyline points="10 17 15 12 10 7"></polyline>
+                <line x1="15" y1="12" x2="3" y2="12"></line>
+              </svg>
+              Login
+            </a>
+            <a href="signup.html" class="profile-dropdown-item">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                <circle cx="8.5" cy="7" r="4"></circle>
+                <line x1="20" y1="8" x2="20" y2="14"></line>
+                <line x1="23" y1="11" x2="17" y2="11"></line>
+              </svg>
+              Signup
+            </a>
+          </div>
+        </div>
+        
+        <!-- Theme Toggle -->
+        <button class="theme-toggle" aria-label="Toggle Light / Dark Theme" title="Toggle theme">
+          <svg class="icon-sun" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="5"></circle>
+            <line x1="12" y1="1" x2="12" y2="3"></line>
+            <line x1="12" y1="21" x2="12" y2="23"></line>
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+            <line x1="1" y1="12" x2="3" y2="12"></line>
+            <line x1="21" y1="12" x2="23" y2="12"></line>
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+          </svg>
+          <svg class="icon-moon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+          </svg>
+        </button>
+        
+        <!-- RTL / LTR Toggle -->
+        <button class="rtl-toggle" aria-label="Toggle RTL / LTR text direction" title="Toggle text direction">
+          <span class="rtl-toggle__label">RTL</span>
+        </button>
+        <a href="contact.html#booking" class="btn btn-primary btn-sm">Book Now</a>
+        <button class="navbar__toggle"><span></span><span></span><span></span></button>
+      </div>
+    </div>
+  </nav>
+
+  <div class="navbar__mobile" role="dialog" aria-label="Mobile Navigation">
+    <button class="navbar__mobile-close" aria-label="Close menu" style="position:absolute;top:1.5rem;right:1.5rem;font-size:1.5rem;color:var(--white);background:none;border:none;cursor:pointer;">✕</button>
+    <a href="index.html" class="navbar__link">Home</a>
+    <a href="home2.html" class="navbar__link">Home 2</a>
+    <a href="about.html" class="navbar__link">About</a>
+    <a href="services.html" class="navbar__link">Services</a>
+    <a href="gallery.html" class="navbar__link">Gallery</a>
+    <a href="blog.html" class="navbar__link active">Blog</a>
+    <a href="contact.html" class="navbar__link">Contact</a>
+    <div style="display:flex;gap:1rem;margin-top:1.5rem;align-items:center;">
+      <div class="profile-dropdown-wrapper">
+        <button class="btn btn-outline profile-trigger" aria-label="User Profile" aria-haspopup="true" aria-expanded="false" style="width:44px;height:44px;">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+            <circle cx="12" cy="7" r="4"></circle>
+          </svg>
+        </button>
+        <div class="profile-dropdown-menu">
+          <a href="login.html" class="profile-dropdown-item">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M15 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h8"></path>
+              <polyline points="10 17 15 12 10 7"></polyline>
+              <line x1="15" y1="12" x2="3" y2="12"></line>
+            </svg>
+            Login
+          </a>
+          <a href="signup.html" class="profile-dropdown-item">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+              <circle cx="8.5" cy="7" r="4"></circle>
+              <line x1="20" y1="8" x2="20" y2="14"></line>
+              <line x1="23" y1="11" x2="17" y2="11"></line>
+            </svg>
+            Signup
+          </a>
+        </div>
+      </div>
+      <a href="contact.html#booking" class="btn btn-primary">Book Now</a>
+    </div>
+  </div>
+
+  <!-- MAIN DYNAMIC CONTENT CONTAINER -->
+  <div id="main-content">
+    <!-- Hero / Breadcrumb placeholder -->
+    <section class="page-hero">
+      <div class="bg-glow bg-glow--blue" style="width:600px;height:600px;left:50%;transform:translateX(-50%);top:-200px;"></div>
+      <div class="container" style="position:relative;z-index:1;" id="dynamic-hero-content">
+        <!-- Rendered by Router -->
+      </div>
+    </section>
+
+    <!-- Content Split Layout -->
+    <section class="section section--dark">
+      <div class="container">
+        <div class="article-layout">
+          <!-- Sidebar -->
+          <aside class="article-sidebar" id="sidebar-container">
+            <div class="toc-box">
+              <h3 class="toc-title">On This Page</h3>
+              <div class="toc-list" id="dynamic-toc">
+                <!-- Rendered by Router -->
+              </div>
+            </div>
+            
+            <div class="share-box">
+              <h4 class="share-title">Share Article</h4>
+              <div class="share-buttons">
+                <a href="#" class="share-btn" aria-label="Facebook" onclick="event.preventDefault(); alert('Link shared to Facebook!');"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" class="share-btn" aria-label="Twitter" onclick="event.preventDefault(); alert('Link shared to Twitter!');"><i class="fab fa-twitter"></i></a>
+                <a href="#" class="share-btn" aria-label="LinkedIn" onclick="event.preventDefault(); alert('Link shared to LinkedIn!');"><i class="fab fa-linkedin-in"></i></a>
+                <a href="#" class="share-btn" aria-label="Copy Link" onclick="event.preventDefault(); navigator.clipboard.writeText(window.location.href); alert('Article URL copied to clipboard!');"><i class="fas fa-link"></i></a>
+              </div>
+            </div>
+          </aside>
+
+          <!-- Article Core -->
+          <div id="article-content-col">
+            <article class="article-body" id="article-body-box">
+              <img id="dynamic-featured-img" src="" alt="Featured Image" class="article-featured-img" />
+              
+              <!-- Author Panel Placeholder -->
+              <div id="desktop-author-placeholder">
+                <div class="author-section" id="dynamic-author-box">
+                  <!-- Rendered by Router -->
+                </div>
+              </div>
+
+              <!-- Content Body -->
+              <div id="dynamic-article-content">
+                <!-- Rendered by Router -->
+              </div>
+
+              <!-- Quote Block -->
+              <div class="article-quote" id="dynamic-quote-box">
+                <!-- Rendered by Router -->
+              </div>
+
+              <!-- Tips callout -->
+              <div class="tips-callout" id="dynamic-tips-box">
+                <!-- Rendered by Router -->
+              </div>
+
+              <!-- Checklist -->
+              <div class="checklist-box" id="dynamic-checklist-box">
+                <!-- Rendered by Router -->
+              </div>
+
+              <!-- Gallery -->
+              <div class="article-gallery" id="dynamic-gallery-box">
+                <!-- Rendered by Router -->
+              </div>
+
+              <!-- Before/After -->
+              <div class="ba-section" id="dynamic-ba-box">
+                <!-- Rendered by Router -->
+              </div>
+
+              <!-- Navigation links -->
+              <nav class="article-nav" id="dynamic-nav-box">
+                <!-- Rendered by Router -->
+              </nav>
+            </article>
+
+            <!-- Dynamic FAQs Accordion -->
+            <div class="comments-section" style="margin-top:2.5rem; margin-bottom: 2.5rem;" id="dynamic-faq-box">
+              <!-- Rendered by Router -->
+            </div>
+
+            <!-- Comment Form (UI only) -->
+            <div class="comments-section" id="dynamic-comment-form">
+              <h3 class="comments-title">Join the Conversation</h3>
+              <div class="comment-list" id="dynamic-comments-list">
+                <div class="comment-item">
+                  <div class="comment-item__avatar">JD</div>
+                  <div class="comment-item__content">
+                    <div class="comment-item__header">
+                      <span class="comment-item__author">John Doe</span>
+                      <span class="comment-item__date">July 16, 2026</span>
+                    </div>
+                    <p class="comment-item__text">This article is incredibly detailed! The tips about avoiding dish soaps completely changed how I think about washing my car at home. Will definitely look into scheduling a ceramic coating session soon.</p>
+                  </div>
+                </div>
+              </div>
+
+              <form style="display:flex; flex-direction:column; gap:1rem;" onsubmit="event.preventDefault(); handleNewComment();">
+                <div style="display:grid; grid-template-columns:1fr 1fr; gap:1rem;">
+                  <div>
+                    <label class="form-label" for="comment-name">Your Name</label>
+                    <input class="form-control" type="text" id="comment-name" required placeholder="John Doe" />
+                  </div>
+                  <div>
+                    <label class="form-label" for="comment-email">Your Email</label>
+                    <input class="form-control" type="email" id="comment-email" required placeholder="john@example.com" />
+                  </div>
+                </div>
+                <div>
+                  <label class="form-label" for="comment-text">Comment</label>
+                  <textarea class="form-control" id="comment-text" required rows="4" placeholder="Write your thoughts here..."></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary" style="align-self:flex-start;">Submit Comment</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- NEWSLETTER CTA -->
+    <section class="section section--blue" id="newsletter-section-wrapper">
+      <div class="container" id="newsletter-container-box">
+        <div class="cta-banner reveal">
+          <h2 class="cta-banner__title"><i class="fas fa-envelope-open-text" style="color:var(--white);margin-right:0.6rem;vertical-align:middle;"></i>Subscribe to Detailing Updates</h2>
+          <p class="cta-banner__text">Stay informed with professional paint care guides, new product insights, and exclusive subscriber wash discounts.</p>
+          <div class="newsletter-box">
+            <form class="newsletter-form" onsubmit="event.preventDefault(); alert('Successfully registered for our care mailing list!'); this.reset();">
+              <input class="form-control" type="email" placeholder="Your email address..." required aria-label="Email Address" />
+              <button type="submit" class="btn btn-primary"><i class="fas fa-paper-plane"></i> Subscribe</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- RELATED ARTICLES SECTION -->
+    <section class="section section--card" id="dynamic-related-section">
+      <!-- Rendered by Router -->
+    </section>
+  </div>
+
+  <!-- FOOTER -->
+  <!-- ══════════════════════════════════════ FOOTER ══════════════════════════════════════ -->
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      <div class="footer__grid">
+        <!-- Column 1: Brand -->
+        <div class="footer__brand">
+          <a href="index.html" class="navbar__logo" style="margin-bottom:1rem;display:inline-flex;">
+            <img src="assets/images/logo.png" alt="GlossForge Logo" class="navbar__logo-img" style="height: 40px;">
+            <span class="navbar__logo-text">Gloss<span>Forge</span></span>
+          </a>
+          <p>Detroit's premier auto detailing studio. We deliver showroom-quality results with cutting-edge technology and unmatched attention to detail.</p>
+          <div class="social-links">
+            <a href="#" class="social-link" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" class="social-link" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="#" class="social-link" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+            <a href="#" class="social-link" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+          </div>
+        </div>
+        <!-- Column 2: Company -->
+        <div class="footer__col-company">
+          <div class="footer__heading">COMPANY</div>
+          <nav class="footer__links" aria-label="Footer Navigation">
+            <a href="index.html" class="footer__link"><i class="fas fa-chevron-right"></i> Home</a>
+            <a href="about.html" class="footer__link"><i class="fas fa-chevron-right"></i> About Us</a>
+            <a href="services.html" class="footer__link"><i class="fas fa-chevron-right"></i> Services</a>
+            <a href="gallery.html" class="footer__link"><i class="fas fa-chevron-right"></i> Gallery</a>
+            <a href="blog.html" class="footer__link"><i class="fas fa-chevron-right"></i> Blog</a>
+            <a href="contact.html" class="footer__link"><i class="fas fa-chevron-right"></i> Contact</a>
+          </nav>
+        </div>
+        <!-- Column 3: Contact -->
+        <div>
+          <div class="footer__heading">CONTACT</div>
+          <div class="footer__contact-list">
+            <div class="footer__contact-item">
+              <i class="fas fa-map-marker-alt" aria-hidden="true"></i>
+              <span>4520 Auto Blvd, Detroit, MI 48201</span>
+            </div>
+            <div class="footer__contact-item">
+              <i class="fas fa-phone" aria-hidden="true"></i>
+              <a href="tel:+15551234567">+1 (555) 123-4567</a>
+            </div>
+            <div class="footer__contact-item">
+              <i class="fas fa-envelope" aria-hidden="true"></i>
+              <a href="mailto:info@GlossForge.com">info@GlossForge.com</a>
+            </div>
+          </div>
+        </div>
+        <!-- Column 4: Newsletter -->
+        <div>
+          <div class="footer__heading">NEWSLETTER</div>
+          <p class="footer__newsletter-desc">Get exclusive offers and detailing tips in your inbox.</p>
+          <div class="footer__newsletter">
+            <input type="email" placeholder="Your email..." aria-label="Email for newsletter" />
+            <button type="button">→</button>
+          </div>
+        </div>
+      </div>
+      <!-- Bottom Footer -->
+      <div class="footer__bottom">
+        <p>© 2026 GlossForge Detail. All rights reserved.</p>
+        <div class="footer__legal">
+          <a href="privacy.html" class="footer__legal-link">Privacy Policy</a>
+          <span class="footer__legal-divider">|</span>
+          <a href="terms.html" class="footer__legal-link">Terms & Conditions</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Back to Top -->
+  <button class="back-to-top" aria-label="Back to top"><i class="fas fa-chevron-up"></i></button>
+
+  <!-- DATABASE AND ROUTER CODE -->
+  <script>
+    /* ─────────────────────────────────────────────────────────────
+       DYNAMIC ARTICLE DATABASE
+       ───────────────────────────────────────────────────────────── */
+    const BLOG_DB = {
+      "ceramic-guide": {
+        id: "ceramic-guide",
+        title: "The Ultimate Guide to Ceramic Coatings: Protection, Longevity, and Myth Busting",
+        category: "Ceramic Coating",
+        date: "July 15, 2026",
+        readTime: "12 min read",
+        heroImage: "assets/images/ceramic.png",
+        seoMeta: "Explore the nanotechnology behind professional ceramic coatings, how they cure, and why they outperform standard car waxes.",
+        author: {
+          name: "Marcus Tyler",
+          avatar: "assets/images/team-marcus.png",
+          role: "Founder & Master Detailer",
+          bio: "Marcus has over 15 years of paint correction and ceramic application experience. Certified by IDA and Rupes."
+        },
+        headings: [
+          "Understanding Ceramic Coating Nanotechnology",
+          "Durability and Practical Coating Life",
+          "Separating Ceramic Myths from Facts"
+        ],
+        paragraphs: [
+          "Professional ceramic coating represents the pinnacle of modern automotive paint protection. By using silicon dioxide (SiO2) nanotechnology, coatings build a semi-permanent chemical bond with your vehicle's factory clear coat, filling in microscopic pores to form an ultra-smooth, hydrophobic protective layer.",
+          "Unlike traditional carnauba waxes or polymer paint sealants that wash away in a few months, a professional-grade ceramic coating cures into a hard crystalline shell. This glass-like barrier provides long-term resistance to environmental factors, chemical hazards, and UV radiation.",
+          "It is important to select the right level of coating based on your driving habits. Daily drivers exposed to highway debris, acid rain, and extreme seasonal temperatures will experience the greatest benefit from multi-year nanotechnology coatings, preserving both look and paint integrity."
+        ],
+        tips: [
+          "Always wash a coated vehicle in the shade to prevent mineral spot staining.",
+          "Use a pH-balanced car wash shampoo free from added waxes or sealants.",
+          "Never use automatic drive-through wash brushes, which will scratch and dull the coating shell."
+        ],
+        quote: {
+          text: "Ceramic coating is not a shield against all damage—it is a sacrificial nanotech layer that preserves your factory paint in its most pristine state.",
+          source: "Marcus Tyler, GlossForge Detail"
+        },
+        checklist: [
+          "Iron decontaminant spray",
+          "Clay bar kit and lubricant",
+          "Isopropyl alcohol panel prep wipe",
+          "Microfiber applicator pads",
+          "Leveling microfiber towels"
+        ],
+        gallery: [
+          "assets/images/gallery-mirror-finish.png",
+          "assets/images/gallery-hydrophobic.png",
+          "assets/images/facility.png"
+        ],
+        beforeAfter: {
+          before: "assets/images/premium-detail.png",
+          after: "assets/images/ceramic.png"
+        },
+        faqs: [
+          { q: "How long does a ceramic coating application take?", a: "A professional installation typically requires 1 to 2 days to perform full paint correction, application, and initial infrared curing." },
+          { q: "Can I apply ceramic coating over paint chips?", a: "We recommend performing chip touch-up before coating, as the ceramic shell will seal whatever is underneath." }
+        ],
+        related: ["paint-correction", "wax-vs-coating", "maintenance-checklist"]
+      },
+      "paint-correction": {
+        id: "paint-correction",
+        title: "The Art of Paint Correction: How to Safely Remove Swirls and Scratches",
+        category: "Paint Protection",
+        date: "July 12, 2026",
+        readTime: "9 min read",
+        heroImage: "assets/images/gallery-paint-correction-ba.png",
+        seoMeta: "Learn the professional process of compounding, polishing, and refining to eliminate paint swirls, light scratches, and oxidation.",
+        author: {
+          name: "Marcus Tyler",
+          avatar: "assets/images/team-marcus.png",
+          role: "Founder & Master Detailer",
+          bio: "Marcus has over 15 years of paint correction and ceramic application experience. Certified by IDA and Rupes."
+        },
+        headings: [
+          "What is Paint Correction?",
+          "Understanding Compounds and Polishes",
+          "The Multi-Stage Restoration Process"
+        ],
+        paragraphs: [
+          "Paint correction is the mechanical leveling of clear coat to restore a reflection free of swirl marks, light scratches, buffer trails, and oxidation. By polishing away a microscopic amount of the clear coat, we create a perfectly flat plane that reflects light evenly.",
+          "It is a highly skilled art. Different paint types—from soft Japanese clear coats to hard German paint systems—require specific pads, compounds, and machine settings. Over-polishing can thin the clear coat permanently, highlighting the importance of expert thickness measurement.",
+          "Proper preparation is critical. Before any machine polisher touches the paint, the panel must be thoroughly washed, chemically decontaminated of embedded iron particles, clay-barred to remove rough fallout, and wiped clean with isopropyl alcohol."
+        ],
+        tips: [
+          "Use a digital paint thickness gauge to inspect clear coat reserves before compounding.",
+          "Work in small 2x2 foot sections to manage compound dust and inspect your work.",
+          "Keep polishing pads clean using a pad brush to prevent spent compound buildup."
+        ],
+        quote: {
+          text: "Paint correction isn't about hiding scratches; it is the mechanical removal of surface defects to reveal the pure color depth beneath.",
+          source: "Marcus Tyler, Paint Specialist"
+        },
+        checklist: [
+          "Dual-action polisher",
+          "Heavy compounding pad & polishing foam pad",
+          "Cutting compound & finishing polish",
+          "Panel inspection light",
+          "Paint thickness gauge"
+        ],
+        gallery: [
+          "assets/images/gallery-mirror-finish.png",
+          "assets/images/gallery-paint-correction-ba.png",
+          "assets/images/facility.png"
+        ],
+        beforeAfter: {
+          before: "assets/images/before-after.png",
+          after: "assets/images/gallery-paint-correction-ba.png"
+        },
+        faqs: [
+          { q: "Is paint correction safe for all vehicles?", a: "Yes, provided there is enough clear coat depth. We measure paint thickness before compounding to verify safety." },
+          { q: "How long does a paint correction last?", a: "Permanently, unless you introduce new scratches from poor washing techniques. Proper wash methods will preserve the finish." }
+        ],
+        related: ["ceramic-guide", "wax-vs-coating", "new-detailing-tools"]
+      },
+      "interior-detailing": {
+        id: "interior-detailing",
+        title: "Deep Cleaning Car Interiors: Leather Restoration and Fabric Stain Removal",
+        category: "Interior Care",
+        date: "July 08, 2026",
+        readTime: "7 min read",
+        heroImage: "assets/images/gallery-interior-restoration.png",
+        seoMeta: "Restore and shield luxury leather and fine fabrics with professional techniques for steam cleaning, extractors, and protection.",
+        author: {
+          name: "Nina Chen",
+          avatar: "assets/images/team-nina.png",
+          role: "Interior Specialist",
+          bio: "Nina Chen specializes in modern fabric technologies, leather repair, and interior sanitation. She has over 8 years of detailing experience."
+        },
+        headings: [
+          "Deep Extracting Interior Carpets",
+          "Leather Cleansing and Conditioning",
+          "Eliminating Cabin Odors and Sanitizing"
+        ],
+        paragraphs: [
+          "A clean cabin is vital for driver comfort and health. Dirt, dust, and food residue get trapped inside fabric fibers, leading to fiber degradation and unpleasant odors. Deep carpet extraction uses hot water and specialized cleaning formulas to pull contaminants from deep carpet pores.",
+          "Leather seats require special attention to avoid drying and cracking. Professional leather cleaners lift oils and sweat, and conditioner replenishes vital moisture, restoring a factory-fresh matte finish rather than a greasy, slippery gloss.",
+          "Modern detailing uses steam machines to sanitize vents, cup holders, and dashboards. High-temperature steam kills bacteria and loosens grime in hard-to-reach crevices without using aggressive chemicals."
+        ],
+        tips: [
+          "Vacuum thoroughly before applying any wet cleaning solutions to avoid spreading mud.",
+          "Test fabric and leather cleaners on a small hidden spot first to check colorfastness.",
+          "Avoid saturating headliners, as moisture can weaken the adhesive and cause sagging."
+        ],
+        quote: {
+          text: "A clean car interior should look clean, feel clean, and have absolutely no synthetic perfume smells hiding cabin history.",
+          source: "Nina Chen, Interior Lead"
+        },
+        checklist: [
+          "Soft horsehair leather brush",
+          "pH-neutral leather cleaner",
+          "Fabric extraction machine",
+          "Steam machine with attachments",
+          "Premium microfiber cloth towels"
+        ],
+        gallery: [
+          "assets/images/gallery-interior-restoration.png",
+          "assets/images/gallery-interior-ba.png",
+          "assets/images/video-interior.png"
+        ],
+        beforeAfter: {
+          before: "assets/images/gallery-interior-ba.png",
+          after: "assets/images/gallery-interior-restoration.png"
+        },
+        faqs: [
+          { q: "How do you remove stubborn stains like coffee?", a: "We use enzymatic cleaners combined with hot-water extraction to break down organic staining particles." },
+          { q: "Will leather conditioning make my seats slippery?", a: "No, professional non-silicone conditioners absorb completely to leave a supple, dry, matte texture." }
+        ],
+        related: ["maintenance-checklist", "summer-care", "engine-bay"]
+      },
+      "engine-bay": {
+        id: "engine-bay",
+        title: "Engine Bay Detailing: A Step-by-Step Guide to a Show-Quality Engine",
+        category: "Maintenance",
+        date: "July 05, 2026",
+        readTime: "6 min read",
+        heroImage: "assets/images/facility.png",
+        seoMeta: "Discover how to safely degrease, rinse, and dress your engine bay's sensitive mechanical, plastic, and electrical parts.",
+        author: {
+          name: "Jason Vance",
+          avatar: "assets/images/team-jason.png",
+          role: "Restoration Expert",
+          bio: "Jason specializes in vintage car restorations and engine compartment prep. Over 10 years of professional auto mechanical experience."
+        },
+        headings: [
+          "Preparing Sensitive Electricals",
+          "Degreasing Carbon and Dirt Buildup",
+          "Dressing Plastics and Metal Polishing"
+        ],
+        paragraphs: [
+          "A clean engine bay is not just visually appealing; it helps check for fluid leaks and keeps rubber hoses from decaying. Many enthusiasts are afraid of washing their engine bays due to fear of electrical damage, but proper prep makes the process completely safe.",
+          "The first step is protecting electrical components. Use plastic bags and painters tape to cover the alternator, battery contacts, fuse boxes, open filters, and spark plug channels. Never clean a hot engine; allow it to cool down to avoid thermal cracking.",
+          "Use a high-quality degreaser and soft brushes to break down stubborn engine grease. Rinsing should be done using a gentle fan pattern from a distance, rather than high-pressure streams. Finish by applying a water-based plastic protectant to restore faded engine covers."
+        ],
+        tips: [
+          "Never spray high-pressure water directly into electrical connectors or sensors.",
+          "Use detailing brushes to reach between complex vacuum hoses and intake pipes.",
+          "Run the engine for 10-15 minutes after washing to dry hidden pools of water with engine heat."
+        ],
+        quote: {
+          text: "Washing an engine bay is 80% preparation and 20% washing. Protecting electrical lines is the difference between a clean start and a towing call.",
+          source: "Jason Vance, Restoration Expert"
+        },
+        checklist: [
+          "Plastic bags and masking tape",
+          "All-Purpose Cleaner (APC) / Degreaser",
+          "Detailing brushes & scrub pads",
+          "Water-based engine dressing",
+          "Blow dryer or air compressor"
+        ],
+        gallery: [
+          "assets/images/facility.png",
+          "assets/images/ceramic.png",
+          "assets/images/before-after.png"
+        ],
+        beforeAfter: {
+          before: "assets/images/before-after.png",
+          after: "assets/images/facility.png"
+        },
+        faqs: [
+          { q: "Is it safe to wash a hybrid engine bay?", a: "Yes, but use extreme caution around orange high-voltage cables. We recommend hand cleaning instead of pressure washing hybrid bays." },
+          { q: "Will degreaser damage aluminum parts?", a: "Certain strong acid degreasers can stain bare aluminum. Always use safe, water-based cleaners." }
+        ],
+        related: ["maintenance-checklist", "winter-protection", "new-detailing-tools"]
+      },
+      "wax-vs-coating": {
+        id: "wax-vs-coating",
+        title: "Wax vs. Sealant vs. Ceramic Coating: Which Protection is Right for Your Car?",
+        category: "Paint Protection",
+        date: "July 02, 2026",
+        readTime: "8 min read",
+        heroImage: "assets/images/video-ceramic.png",
+        seoMeta: "Durability, gloss factor, chemical resistance, and cost analysis comparing traditional waxes, paint sealants, and coatings.",
+        author: {
+          name: "Marcus Tyler",
+          avatar: "assets/images/team-marcus.png",
+          role: "Founder & Master Detailer",
+          bio: "Marcus has over 15 years of paint correction and ceramic application experience. Certified by IDA and Rupes."
+        },
+        headings: [
+          "Traditional Waxes: The Warm Showroom Glow",
+          "Synthetic Sealants: The Long-Lasting Polymers",
+          "Nanotechnology Coatings: Crystalline Shielding"
+        ],
+        paragraphs: [
+          "Selecting paint protection can be confusing. Natural Carnauba wax is famous for its warm gloss and deep reflections, but it breaks down under heat and car wash shampoos, lasting only 4 to 8 weeks before requiring reapplication.",
+          "Synthetic sealants are chemically engineered polymer chains. They bond more tightly to the clear coat than wax, providing better heat resistance and lasting 4 to 6 months. While sealants are durable, they lack the deep depth of carnauba wax.",
+          "Ceramic coatings are the modern choice. Made of liquid silicon dioxide, they cure to form a permanent bond. They offer extreme chemical, UV, and scratch resistance, lasting 2 to 9 years depending on the formula, making them the ultimate investment."
+        ],
+        tips: [
+          "Use natural wax if your car is a rarely driven garage classic showing deep reflections.",
+          "Choose a sealant for easy seasonal protection on daily drivers.",
+          "Invest in a ceramic coating for maximum time savings and long-term protection."
+        ],
+        quote: {
+          text: "Waxes sit on the paint, sealants cling to the paint, but ceramic coatings bond into the paint.",
+          source: "Marcus Tyler, Paint Protection Lead"
+        },
+        checklist: [
+          "Clay bar kit",
+          "Paint cleanser / polish",
+          "Isopropyl alcohol prep wash",
+          "Applicator pad",
+          "Buffing towels"
+        ],
+        gallery: [
+          "assets/images/video-ceramic.png",
+          "assets/images/gallery-mirror-finish.png",
+          "assets/images/gallery-hydrophobic.png"
+        ],
+        beforeAfter: {
+          before: "assets/images/premium-detail.png",
+          after: "assets/images/video-ceramic.png"
+        },
+        faqs: [
+          { q: "Can I apply wax over a ceramic coating?", a: "No, the coating's hydrophobic properties will reject the wax, causing it to haze and ruin the coating's self-cleaning behavior." },
+          { q: "Which protection looks the glossiest?", a: "Carnauba wax offers a warm depth, while ceramic coatings provide a glassy, mirror-like gloss." }
+        ],
+        related: ["ceramic-guide", "paint-correction", "maintenance-checklist"]
+      },
+      "maintenance-checklist": {
+        id: "maintenance-checklist",
+        title: "The Weekly Wash Checklist: How to Wash Your Car Without Swirling Paint",
+        category: "Maintenance",
+        date: "June 28, 2026",
+        readTime: "5 min read",
+        heroImage: "assets/images/express-wash.png",
+        seoMeta: "Adopt the two-bucket grit guard method and drying strategies used by detailing experts.",
+        author: {
+          name: "Priya Patel",
+          avatar: "assets/images/team-priya.png",
+          role: "Training Coordinator",
+          bio: "Priya leads GlossForge's consumer workshops and staff training programs, sharing 6+ years of car wash safety methods."
+        },
+        headings: [
+          "The Risk of Improper Wash Techniques",
+          "Understanding the Two-Bucket Method",
+          "Safe Drying Techniques"
+        ],
+        paragraphs: [
+          "Almost all swirl marks and wash scratches are introduced by incorrect washing and drying techniques. Automatic car washes with plastic brushes carry dirt from prior dirty trucks, scratching your vehicle's paint like sandpaper.",
+          "The two-bucket wash method is the industry standard for safe washing. One bucket contains clean wash soap, and the second bucket contains clear rinse water with a grit guard. Rinsing your wash mitt in the clean water first checks that dirt stays away from the paint.",
+          "Drying is another common source of scratches. Never use old bath towels. Use a thick microfiber drying towel combined with a drying aid spray to provide lubrication, or use clean air from a blower to dry the car without touching it."
+        ],
+        tips: [
+          "Always wash the car from top to bottom, keeping dirty rockers for last.",
+          "Rinse your wash mitt frequently to release captured grit.",
+          "Never wipe off dry dust or fingerprints without spray detailer lubrication."
+        ],
+        quote: {
+          text: "Washing a car seems simple, but it is the most common way clear coats get damaged. A little care saves hours of paint correction later.",
+          source: "Priya Patel, GlossForge Training"
+        },
+        checklist: [
+          "Two wash buckets with grit guards",
+          "pH-neutral car wash soap",
+          "Microfiber wash mitts",
+          "Microfiber drying towel",
+          "Quick detailer spray drying aid"
+        ],
+        gallery: [
+          "assets/images/express-wash.png",
+          "assets/images/video-ceramic.png",
+          "assets/images/gallery-hydrophobic.png"
+        ],
+        beforeAfter: {
+          before: "assets/images/premium-detail.png",
+          after: "assets/images/express-wash.png"
+        },
+        faqs: [
+          { q: "Is a foam cannon necessary?", a: "It is highly recommended because the thick foam pre-soaks dirt, lifting it away from the paint surface before you touch it." },
+          { q: "How often should I wash my car?", a: "Every 1 to 2 weeks is ideal to prevent environmental elements like bird droppings and sap from etching your paint." }
+        ],
+        related: ["interior-detailing", "summer-care", "winter-protection"]
+      },
+      "winter-protection": {
+        id: "winter-protection",
+        title: "Winter Car Care: Protecting Your Vehicle from Road Salt and Rust",
+        category: "Tips & Tricks",
+        date: "June 22, 2026",
+        readTime: "6 min read",
+        heroImage: "assets/images/gallery-hydrophobic.png",
+        seoMeta: "Defend your clear coat and undercarriage from aggressive winter salts and road de-icers.",
+        author: {
+          name: "Jason Vance",
+          avatar: "assets/images/team-jason.png",
+          role: "Restoration Expert",
+          bio: "Jason specializes in vintage car restorations and engine compartment prep. Over 10 years of professional auto mechanical experience."
+        },
+        headings: [
+          "The Chemistry of Road Salt and Corrosion",
+          "Creating a Protective Barrier",
+          "Winter Undercarriage Maintenance"
+        ],
+        paragraphs: [
+          "Winter road salt is the worst enemy of your vehicle's metal undercarriage. When salt dissolves in water, it speeds up oxidation, leading to rust on frames, suspension lines, and exhaust brackets.",
+          "Preparing your car before winter is crucial. Applying a durable paint sealant or ceramic coating before temperatures drop creates a protective layer that stops salt from eating into your clear coat.",
+          "During winter, regular undercarriage rinsing is essential. Use a high-pressure undercarriage washer spray to wash away salt crusts from suspension crevices. Focus on clean wheel wells where salt slush builds up."
+        ],
+        tips: [
+          "Wash your car's undercarriage immediately after a snowstorm to clear fresh road salt.",
+          "Apply glass treatments to improve windshield water and snow sheeting in freezing weather.",
+          "Check that door seals are conditioned with rubber dressing to prevent them from freezing shut."
+        ],
+        quote: {
+          text: "Rust never sleeps, especially in winter. Salt acts like a chemical catalyst on bare metal suspension components.",
+          source: "Jason Vance, Winter Care Expert"
+        },
+        checklist: [
+          "Undercarriage cleaner attachment",
+          "Salt-neutralizing car soap",
+          "Glass hydrophobic sealer",
+          "Rubber trim protectant",
+          "Wheel sealant spray"
+        ],
+        gallery: [
+          "assets/images/gallery-hydrophobic.png",
+          "assets/images/express-wash.png",
+          "assets/images/facility.png"
+        ],
+        beforeAfter: {
+          before: "assets/images/gallery-paint-correction-ba.png",
+          after: "assets/images/gallery-hydrophobic.png"
+        },
+        faqs: [
+          { q: "Should I wash my car when it is freezing?", a: "Avoid washing if temperatures are below freezing unless you have a heated space, as lock drums and door handles can freeze." },
+          { q: "Is road salt dangerous for wheels?", a: "Yes, salt will corrode clear-coated aluminum wheels and stain chrome components." }
+        ],
+        related: ["maintenance-checklist", "engine-bay", "summer-care"]
+      },
+      "summer-care": {
+        id: "summer-care",
+        title: "Beat the Heat: Protecting Your Car Paint and Dashboard from UV Damage",
+        category: "Tips & Tricks",
+        date: "June 15, 2026",
+        readTime: "5 min read",
+        heroImage: "assets/images/gallery-mirror-finish.png",
+        seoMeta: "Essential summer care advice, tint choices, and UV blockers to prevent fading and cracking.",
+        author: {
+          name: "Nina Chen",
+          avatar: "assets/images/team-nina.png",
+          role: "Interior Specialist",
+          bio: "Nina Chen specializes in modern fabric technologies, leather repair, and interior sanitation. She has over 8 years of detailing experience."
+        },
+        headings: [
+          "The Impact of Solar UV on Car Paint",
+          "Dashboard Fading and Leather Dryout",
+          "Strategic Summer Care Tips"
+        ],
+        paragraphs: [
+          "Summer heat and solar UV radiation cause significant damage to cars. UV rays break down paint molecules over time, causing color fading and clear coat peeling, while hot cabins dry out dashboards and leather.",
+          "To protect your paint, apply a UV-blocking paint protector. Ceramic coatings have integrated UV blockers that absorb solar rays, protecting your vehicle's gloss finish.",
+          "Inside the cabin, use custom sunshades and apply UV guards to dashboards and leather to stop dry cracking. Ceramic window tint blocks solar heat, reducing cabin heat load."
+        ],
+        tips: [
+          "Park under covers or use a high-quality windshield sunshade when parked outdoors.",
+          "Keep leather conditioned to prevent heat drying and cracking.",
+          "Clean bird droppings and bug splatters immediately; summer heat makes them etch paint rapidly."
+        ],
+        quote: {
+          text: "Summer heat baked onto a clear coat turns minor sap and bird droppings into deep paint etches in just a few hours.",
+          source: "Nina Chen, Leather Care Lead"
+        },
+        checklist: [
+          "Windshield folding sunshade",
+          "Matte dashboard UV protectant",
+          "UV-blocking leather conditioner",
+          "Bug & tar remover spray",
+          "Water spot remover spray"
+        ],
+        gallery: [
+          "assets/images/gallery-mirror-finish.png",
+          "assets/images/gallery-interior-restoration.png",
+          "assets/images/video-ceramic.png"
+        ],
+        beforeAfter: {
+          before: "assets/images/premium-detail.png",
+          after: "assets/images/gallery-mirror-finish.png"
+        },
+        faqs: [
+          { q: "Does window tint block UV rays?", a: "Yes, quality ceramic tint blocks 99% of UV rays, protecting both occupants and the dashboard." },
+          { q: "How do I remove baked-on water spots?", a: "Use a mild acid-based water spot remover to dissolve minerals before they etch paint." }
+        ],
+        related: ["interior-detailing", "maintenance-checklist", "winter-protection"]
+      },
+      "new-detailing-tools": {
+        id: "new-detailing-tools",
+        title: "The Tech in Detailing: Top Professional Tools You Can Use At Home",
+        category: "Tips & Tricks",
+        date: "June 10, 2026",
+        readTime: "7 min read",
+        heroImage: "assets/images/gallery-interior-ba.png",
+        seoMeta: "An evaluation of dual-action polishers, foam cannons, and short-throw extractors for detailing hobbyists.",
+        author: {
+          name: "Priya Patel",
+          avatar: "assets/images/team-priya.png",
+          role: "Training Coordinator",
+          bio: "Priya leads GlossForge's consumer workshops and staff training programs, sharing 6+ years of car wash safety methods."
+        },
+        headings: [
+          "Dual-Action Polishers vs. Rotaries",
+          "The Power of Foam Cannons",
+          "Choosing an Interior Extractor"
+        ],
+        paragraphs: [
+          "Detailing technology has evolved, making professional-grade tools accessible to home hobbyists. The dual-action (DA) polisher is a major safety breakthrough, using orbital rotation to eliminate the risk of burning paint.",
+          "Foam cannons have also changed home washing. By connecting to a pressure washer, they spray thick foam that clings to paint, dissolving grit before wash mitt contact.",
+          "For interior work, compact heated extractors let DIYers deep-clean carpets and seats, removing dirt that standard vacuums leave behind."
+        ],
+        tips: [
+          "Start with a dual-action polisher; rotary polishers should only be used after extensive training.",
+          "Use a pressure washer with a wide 40-degree nozzle to clean safely.",
+          "Invest in high-gsm microfiber towels; poor towels are the main cause of paint swirls."
+        ],
+        quote: {
+          text: "Technology makes professional detailing safer and faster, but you still need proper technique to get premium results.",
+          source: "Priya Patel, GlossForge Trainer"
+        },
+        checklist: [
+          "Dual-action orbital polisher",
+          "Pressure washer (1500-2000 PSI)",
+          "Foam cannon attachment",
+          "Carpet extractor machine",
+          "Short-handle detail brush set"
+        ],
+        gallery: [
+          "assets/images/gallery-interior-ba.png",
+          "assets/images/facility.png",
+          "assets/images/gallery-paint-correction-ba.png"
+        ],
+        beforeAfter: {
+          before: "assets/images/before-after.png",
+          after: "assets/images/gallery-interior-ba.png"
+        },
+        faqs: [
+          { q: "Is a pressure washer safe for car paint?", a: "Yes, if you keep the pressure under 2200 PSI and hold the nozzle at least 12 inches away from paint." },
+          { q: "What polisher orbit size should a beginner choose?", a: "An 8mm or 15mm throw DA polisher is ideal for learning safe correction." }
+        ],
+        related: ["paint-correction", "engine-bay", "maintenance-checklist"]
+      }
+    };
+
+    /* ─────────────────────────────────────────────────────────────
+       DYNAMIC ROUTER AND DOM RENDERER
+       ───────────────────────────────────────────────────────────── */
+    function getArticleIdFromURL() {
+      const params = new URLSearchParams(window.location.search);
+      return params.get("id");
+    }
+
+    function renderNotFound() {
+      // Set titles
+      document.title = "Article Not Found | GlossForge Detail";
+      
+      // Replace main-content with error view
+      const mainContent = document.getElementById("main-content");
+      mainContent.innerHTML = `
+        <div class="container">
+          <div class="error-container reveal">
+            <div class="error-icon"><i class="fas fa-exclamation-triangle"></i></div>
+            <h1 class="error-title">Article Not Found</h1>
+            <p class="error-text">We look for the detailing guide you requested, but it does not exist or was moved. Explore our blog index for available guides.</p>
+            <a href="blog.html" class="btn btn-primary"><i class="fas fa-arrow-left"></i> Return to Blog</a>
+          </div>
+        </div>
+      `;
+    }
+
+    function generateSlug(text) {
+      return text.toLowerCase()
+        .replace(/[^a-z0-9]+/g, '-')
+        .replace(/(^-|-$)+/g, '');
+    }
+
+    function loadArticle() {
+      const articleId = getArticleIdFromURL();
+      
+      if (!articleId || !BLOG_DB[articleId]) {
+        renderNotFound();
+        return;
+      }
+      
+      const article = BLOG_DB[articleId];
+      
+      // Update SEO and Titles
+      document.title = `${article.title} | GlossForge Detail`;
+      document.getElementById("page-title").innerText = `${article.title} | GlossForge Detail`;
+      document.getElementById("meta-description").setAttribute("content", article.seoMeta);
+      
+      // 1. Render Hero Banner
+      const heroContainer = document.getElementById("dynamic-hero-content");
+      heroContainer.innerHTML = `
+        <div class="page-hero__eyebrow"><i class="fas fa-shield-halved"></i> ${article.category}</div>
+        <h1 class="page-hero__title" style="font-size: clamp(2rem, 5vw, 3.2rem); margin-top: 1rem;">${article.title}</h1>
+        <p class="page-hero__subtitle" style="margin-top: 1rem; color: var(--th-text-muted);">${article.seoMeta}</p>
+        <div class="page-hero__breadcrumb" style="margin-top: 1.5rem;">
+          <a href="index.html">Home</a><span>›</span><a href="blog.html">Blog</a><span>›</span><span>${article.category}</span>
+        </div>
+      `;
+      
+      // 2. Render Sidebar Table of Contents
+      const tocContainer = document.getElementById("dynamic-toc");
+      tocContainer.innerHTML = "";
+      article.headings.forEach(heading => {
+        const slug = generateSlug(heading);
+        const link = document.createElement("a");
+        link.href = `#${slug}`;
+        link.className = "toc-link";
+        link.innerText = heading;
+        tocContainer.appendChild(link);
+      });
+      
+      // 3. Render Featured Image
+      const featuredImg = document.getElementById("dynamic-featured-img");
+      featuredImg.src = article.heroImage;
+      featuredImg.alt = article.title;
+      
+      // 4. Render Author Box
+      const authorBox = document.getElementById("dynamic-author-box");
+      authorBox.innerHTML = `
+        <img src="${article.author.avatar}" alt="${article.author.name}" class="author-avatar" />
+        <div>
+          <div class="author-name">${article.author.name}</div>
+          <div class="author-role">${article.author.role}</div>
+          <div class="author-bio">${article.author.bio}</div>
+        </div>
+      `;
+      
+      // 5. Render Paragraphs with headings
+      const contentContainer = document.getElementById("dynamic-article-content");
+      contentContainer.innerHTML = "";
+      
+      // Mix paragraphs with dynamic heading ids matching TOC slugs
+      article.paragraphs.forEach((pText, index) => {
+        if (article.headings[index]) {
+          const heading = document.createElement("h2");
+          heading.id = generateSlug(article.headings[index]);
+          heading.innerText = article.headings[index];
+          contentContainer.appendChild(heading);
+        }
+        
+        const p = document.createElement("p");
+        p.innerHTML = pText;
+        contentContainer.appendChild(p);
+      });
+      
+      // 6. Render Quote Box
+      const quoteBox = document.getElementById("dynamic-quote-box");
+      quoteBox.innerHTML = `
+        <div class="article-quote__text">“${article.quote.text}”</div>
+        <div class="article-quote__author">— ${article.quote.source}</div>
+      `;
+      
+      // 7. Render Tips Callout
+      const tipsBox = document.getElementById("dynamic-tips-box");
+      tipsBox.innerHTML = `
+        <h4 class="tips-callout__title"><i class="fas fa-lightbulb"></i> Expert Detailing Tips</h4>
+        <div class="tips-callout__list">
+          ${article.tips.map(tip => `
+            <div class="tips-callout__item">
+              <i class="fas fa-check-circle"></i>
+              <span>${tip}</span>
+            </div>
+          `).join('')}
+        </div>
+      `;
+      
+      // 8. Render Checklist Box
+      const checklistBox = document.getElementById("dynamic-checklist-box");
+      checklistBox.innerHTML = `
+        <h4 class="checklist-title"><i class="fas fa-list-check"></i> Required Tools & Supplies</h4>
+        <div class="checklist-list">
+          ${article.checklist.map((item, idx) => `
+            <label class="checklist-item" for="item-${idx}">
+              <input type="checkbox" id="item-${idx}" />
+              <span>${item}</span>
+            </label>
+          `).join('')}
+        </div>
+      `;
+      
+      // 9. Render Gallery Box
+      const galleryBox = document.getElementById("dynamic-gallery-box");
+      galleryBox.innerHTML = `
+        <h3 class="article-gallery__title">Process Show Gallery</h3>
+        <div class="article-gallery__grid">
+          ${article.gallery.map(imgSrc => `
+            <img src="${imgSrc}" alt="Detailing detail visual" class="article-gallery__img" onclick="alert('Viewing full-sized gallery item.');" />
+          `).join('')}
+        </div>
+      `;
+      
+      // 10. Render Before / After Comparison
+      const baBox = document.getElementById("dynamic-ba-box");
+      baBox.innerHTML = `
+        <h3 class="ba-title">Before / After Showcase</h3>
+        <p class="ba-subtitle">Visual paint comparison showing original condition versus post-detail perfection.</p>
+        <div class="ba-grid">
+          <div class="ba-card">
+            <img src="${article.beforeAfter.before}" alt="Detailing Before" />
+            <div class="ba-card__label">Before</div>
+          </div>
+          <div class="ba-card">
+            <img src="${article.beforeAfter.after}" alt="Detailing After" />
+            <div class="ba-card__label">After Finish</div>
+          </div>
+        </div>
+      `;
+      
+      // 11. Render Nav controls (Previous / Next)
+      const allIds = Object.keys(BLOG_DB);
+      const currentIndex = allIds.indexOf(articleId);
+      
+      const prevIndex = (currentIndex - 1 + allIds.length) % allIds.length;
+      const nextIndex = (currentIndex + 1) % allIds.length;
+      
+      const prevArticle = BLOG_DB[allIds[prevIndex]];
+      const nextArticle = BLOG_DB[allIds[nextIndex]];
+      
+      const navBox = document.getElementById("dynamic-nav-box");
+      navBox.innerHTML = `
+        <div class="article-nav__card prev" onclick="window.location.href='blog-details-page.html?id=${prevArticle.id}'">
+          <div class="article-nav__label"><i class="fas fa-chevron-left"></i> Previous Guide</div>
+          <div class="article-nav__title">${prevArticle.title}</div>
+        </div>
+        <div class="article-nav__card next" onclick="window.location.href='blog-details-page.html?id=${nextArticle.id}'">
+          <div class="article-nav__label">Next Guide <i class="fas fa-chevron-right"></i></div>
+          <div class="article-nav__title">${nextArticle.title}</div>
+        </div>
+      `;
+      
+      // 12. Render Dynamic FAQs Accordion
+      const faqBox = document.getElementById("dynamic-faq-box");
+      faqBox.innerHTML = `
+        <h3 class="comments-title">Article FAQs</h3>
+        <div class="faq-list">
+          ${article.faqs.map((faq, index) => `
+            <div class="faq-item">
+              <div class="faq-question">${faq.q}<span class="faq-icon">+</span></div>
+              <div class="faq-answer">
+                <div class="faq-answer__inner">
+                  ${faq.a}
+                </div>
+              </div>
+            </div>
+          `).join('')}
+        </div>
+      `;
+
+      // Attach manual event listeners for FAQ items
+      const faqList = faqBox.querySelector(".faq-list");
+      if (faqList) {
+        const faqItems = faqList.querySelectorAll(".faq-item");
+        faqItems.forEach(item => {
+          const question = item.querySelector(".faq-question");
+          const answer = item.querySelector(".faq-answer");
+          const inner = item.querySelector(".faq-answer__inner");
+          if (question && answer && inner) {
+            question.addEventListener("click", () => {
+              const isOpen = item.classList.contains("open");
+              faqItems.forEach(other => {
+                if (other !== item) {
+                  other.classList.remove("open");
+                  const otherAnswer = other.querySelector(".faq-answer");
+                  if (otherAnswer) otherAnswer.style.maxHeight = "0";
+                }
+              });
+              if (isOpen) {
+                item.classList.remove("open");
+                answer.style.maxHeight = "0";
+              } else {
+                item.classList.add("open");
+                answer.style.maxHeight = inner.scrollHeight + "px";
+              }
+            });
+          }
+        });
+      }
+
+      // 13. Render Related Articles Section
+      const relatedSection = document.getElementById("dynamic-related-section");
+      relatedSection.innerHTML = `
+        <div class="container">
+          <div class="section-header">
+            <div class="section-eyebrow">Continue Reading</div>
+            <h2 class="section-title">Related <span>Guides</span></h2>
+            <p class="section-subtitle">Further readings to master detailing care and vehicle longevity.</p>
+            <div class="divider"></div>
+          </div>
+          <div class="blog-grid stagger-group">
+            ${article.related.map(relId => {
+              const relArt = BLOG_DB[relId];
+              return `
+                <article class="blog-card" id="rel-${relArt.id}">
+                  <div class="blog-card__img-wrapper">
+                    <img src="${relArt.heroImage}" alt="${relArt.title}" class="blog-card__img" />
+                    <div class="blog-card__badge">${relArt.category}</div>
+                  </div>
+                  <div class="blog-card__content">
+                    <div class="blog-card__meta">
+                      <div class="blog-card__meta-item"><i class="fas fa-calendar-alt"></i> <span>${relArt.date}</span></div>
+                      <div class="blog-card__meta-item"><i class="fas fa-clock"></i> <span>${relArt.readTime}</span></div>
+                    </div>
+                    <h3 class="blog-card__title" style="font-size:1.15rem;">${relArt.title}</h3>
+                    <p class="blog-card__excerpt" style="font-size:0.875rem;">${relArt.seoMeta}</p>
+                    <div class="blog-card__footer">
+                      <div class="blog-card__author">
+                        <img src="${relArt.author.avatar}" alt="${relArt.author.name}" class="blog-card__author-img" style="width:24px; height:24px;" />
+                        <span style="font-size:0.775rem;">${relArt.author.name}</span>
+                      </div>
+                      <a href="blog-details-page.html?id=${relArt.id}" class="btn btn-primary btn-sm">Read Guide <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                  </div>
+                </article>
+              `;
+            }).join('')}
+          </div>
+        </div>
+      `;
+
+      // Adjust layout initially based on viewport width
+      adjustLayoutForViewport();
+    }
+
+    let currentLayoutMode = null; // 'desktop' or 'mobile'
+
+    function adjustLayoutForViewport() {
+      const isMobile = window.innerWidth <= 991;
+      const targetMode = isMobile ? 'mobile' : 'desktop';
+      
+      // Get all components to rearrange
+      const tocBox = document.querySelector('.toc-box');
+      const shareBox = document.querySelector('.share-box');
+      const authorBox = document.getElementById('dynamic-author-box');
+      const articleBody = document.getElementById('article-body-box');
+      const faqBox = document.getElementById('dynamic-faq-box');
+      const commentForm = document.getElementById('dynamic-comment-form');
+      const newsletterSection = document.querySelector('#newsletter-section-wrapper .cta-banner');
+      const relatedSection = document.getElementById('dynamic-related-section');
+      
+      const sidebar = document.getElementById('sidebar-container');
+      const contentCol = document.getElementById('article-content-col');
+      const desktopAuthorPlaceholder = document.getElementById('desktop-author-placeholder');
+      const newsletterParent = document.getElementById('newsletter-container-box');
+      
+      if (isMobile) {
+        if (contentCol) {
+          // 1. Article Body is already first in contentCol HTML
+          // 2. On This Page (TOC)
+          if (tocBox && tocBox.parentElement !== contentCol) contentCol.appendChild(tocBox);
+          // 3. Share Article
+          if (shareBox && shareBox.parentElement !== contentCol) contentCol.appendChild(shareBox);
+          // 4. Author Box
+          if (authorBox && authorBox.parentElement !== contentCol) contentCol.appendChild(authorBox);
+          // 5. Related Guides
+          if (relatedSection && relatedSection.parentElement !== contentCol) contentCol.appendChild(relatedSection);
+          // 6. Newsletter
+          if (newsletterSection && newsletterSection.parentElement !== contentCol) contentCol.appendChild(newsletterSection);
+          // 7. FAQ Box
+          if (faqBox && faqBox.parentElement !== contentCol) contentCol.appendChild(faqBox);
+          // 8. Comment Form
+          if (commentForm && commentForm.parentElement !== contentCol) contentCol.appendChild(commentForm);
+        }
+      } else {
+        // --- DESKTOP LAYOUT ORDER ---
+        if (sidebar) {
+          if (tocBox && tocBox.parentElement !== sidebar) sidebar.appendChild(tocBox);
+          if (shareBox && shareBox.parentElement !== sidebar) sidebar.appendChild(shareBox);
+        }
+        if (desktopAuthorPlaceholder && authorBox && authorBox.parentElement !== desktopAuthorPlaceholder) {
+          desktopAuthorPlaceholder.appendChild(authorBox);
+        }
+        if (contentCol) {
+          if (faqBox && faqBox.parentElement !== contentCol) contentCol.appendChild(faqBox);
+          if (commentForm && commentForm.parentElement !== contentCol) contentCol.appendChild(commentForm);
+        }
+        if (newsletterParent && newsletterSection && newsletterSection.parentElement !== newsletterParent) {
+          newsletterParent.appendChild(newsletterSection);
+        }
+        const mainContent = document.getElementById('main-content');
+        if (mainContent && relatedSection && relatedSection.parentElement !== mainContent) {
+          // Insert relatedSection before the footer/newsletter section wrapper
+          const newsletterWrapper = document.getElementById('newsletter-section-wrapper');
+          if (newsletterWrapper) {
+            mainContent.insertBefore(relatedSection, newsletterWrapper);
+          } else {
+            mainContent.appendChild(relatedSection);
+          }
+        }
+      }
+      
+      currentLayoutMode = targetMode;
+    }
+
+    // Listen for resize, orientationchange, and load events to adapt layout dynamically
+    window.addEventListener("resize", adjustLayoutForViewport);
+    window.addEventListener("orientationchange", adjustLayoutForViewport);
+    window.addEventListener("load", adjustLayoutForViewport);
+
+    // UI comment insertion handler
+    function handleNewComment() {
+      const nameInput = document.getElementById("comment-name");
+      const textInput = document.getElementById("comment-text");
+      const list = document.getElementById("dynamic-comments-list");
+      
+      const newComment = document.createElement("div");
+      newComment.className = "comment-item";
+      
+      // Extract initials
+      const initials = nameInput.value.split(" ").map(n => n[0]).join("").toUpperCase().slice(0, 2);
+      const today = new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
+      
+      newComment.innerHTML = `
+        <div class="comment-item__avatar">${initials || 'U'}</div>
+        <div class="comment-item__content">
+          <div class="comment-item__header">
+            <span class="comment-item__author">${nameInput.value}</span>
+            <span class="comment-item__date">${today} (Just Now)</span>
+          </div>
+          <p class="comment-item__text">${textInput.value}</p>
+        </div>
+      `;
+      
+      list.appendChild(newComment);
+      
+      // Clear inputs
+      nameInput.value = "";
+      document.getElementById("comment-email").value = "";
+      textInput.value = "";
+      
+      alert("Comment submitted successfully!");
+    }
+
+    // Initialize Page
+    document.addEventListener("DOMContentLoaded", () => {
+      loadArticle();
+    });
+  </script>
+
+  <!-- Scripts -->
+  <script src="js/main.js"></script>
+</body>
+</html>

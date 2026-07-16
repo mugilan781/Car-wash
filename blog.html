@@ -1,0 +1,1233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="GlossForge Detail Blog — Expert automotive detailing guides, ceramic coating tips, paint protection articles, and professional car care advice." />
+  <title>Blog | GlossForge Detail</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/animations.css" />
+  <link rel="stylesheet" href="css/theme.css" />
+  <link rel="stylesheet" href="css/rtl.css" />
+  <link rel="stylesheet" href="css/responsive.css" />
+  <!-- Theme JS (apply saved preference immediately before first paint) -->
+  <script src="js/theme.js"></script>
+  <!-- RTL JS (apply saved direction immediately before first paint) -->
+  <script src="js/rtl.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  
+  <style>
+    /* ─── Page Specific Blog Styles ─── */
+    .blog-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+    }
+    
+    @media (max-width: 991px) {
+      .blog-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+    
+    @media (max-width: 768px) {
+      .blog-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+    
+    /* Blog Card styling */
+    .blog-card {
+      background: var(--th-card);
+      border: 1px solid var(--th-border);
+      border-radius: var(--r-md);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+      transition: var(--t-base);
+    }
+    
+    .blog-card:hover {
+      transform: translateY(-6px);
+      border-color: var(--cyan);
+      box-shadow: var(--shadow-cyan);
+    }
+    
+    .blog-card__img-wrapper {
+      position: relative;
+      aspect-ratio: 16/10;
+      overflow: hidden;
+    }
+    
+    .blog-card__img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: var(--t-slow);
+    }
+    
+    .blog-card:hover .blog-card__img {
+      transform: scale(1.06);
+    }
+    
+    .blog-card__badge {
+      position: absolute;
+      top: 1rem;
+      left: 1rem;
+      background: var(--grad-primary);
+      color: var(--white);
+      font-size: 0.725rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      padding: 0.35rem 0.85rem;
+      border-radius: var(--r-full);
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    }
+    
+    .blog-card__content {
+      padding: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+    }
+    
+    .blog-card__meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      font-size: 0.8rem;
+      color: var(--th-text-muted);
+      margin-bottom: 0.75rem;
+      font-family: var(--font-secondary);
+    }
+    
+    .blog-card__meta-item {
+      display: flex;
+      align-items: center;
+      gap: 0.35rem;
+    }
+    
+    .blog-card__meta-item i {
+      color: var(--cyan);
+    }
+    
+    .blog-card__title {
+      font-size: 1.25rem;
+      font-weight: 700;
+      line-height: 1.35;
+      margin-bottom: 0.75rem;
+      color: var(--th-heading);
+      transition: var(--t-fast);
+    }
+    
+    .blog-card:hover .blog-card__title {
+      color: var(--cyan);
+    }
+    
+    .blog-card__excerpt {
+      font-size: 0.925rem;
+      color: var(--th-text-muted);
+      line-height: 1.6;
+      margin-bottom: 1.5rem;
+      flex-grow: 1;
+      font-family: var(--font-secondary);
+    }
+    
+    .blog-card__footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-top: 1rem;
+      border-top: 1px solid var(--th-border);
+      margin-top: auto;
+    }
+    
+    .blog-card__author {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--th-heading);
+    }
+    
+    .blog-card__author-img {
+      width: 30px;
+      height: 30px;
+      border-radius: var(--r-full);
+      object-fit: cover;
+      border: 1.5px solid var(--cyan);
+    }
+    
+
+    
+    /* Featured Article styling */
+    .featured-card {
+      display: grid;
+      grid-template-columns: 1.25fr 1fr;
+      background: var(--th-card);
+      border: 1px solid var(--th-border);
+      border-radius: var(--r-xl);
+      overflow: hidden;
+      margin-bottom: 4rem;
+      transition: var(--t-base);
+    }
+    
+    .featured-card:hover {
+      border-color: var(--cyan);
+      box-shadow: var(--shadow-cyan);
+    }
+    
+    .featured-card__img-wrapper {
+      position: relative;
+      overflow: hidden;
+      min-height: 400px;
+    }
+    
+    .featured-card__img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: var(--t-slow);
+    }
+    
+    .featured-card:hover .featured-card__img {
+      transform: scale(1.03);
+    }
+    
+    .featured-card__badge {
+      position: absolute;
+      top: 1.5rem;
+      left: 1.5rem;
+      background: var(--grad-primary);
+      color: var(--white);
+      font-size: 0.75rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      padding: 0.45rem 1rem;
+      border-radius: var(--r-full);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+    }
+    
+    .featured-card__content {
+      padding: 3rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    
+    .featured-card__meta {
+      display: flex;
+      gap: 1.25rem;
+      font-size: 0.85rem;
+      color: var(--th-text-muted);
+      margin-bottom: 1rem;
+      font-family: var(--font-secondary);
+    }
+    
+    .featured-card__meta-item {
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+    
+    .featured-card__meta-item i {
+      color: var(--cyan);
+    }
+    
+    .featured-card__title {
+      font-size: clamp(1.5rem, 3vw, 2.2rem);
+      font-weight: 800;
+      line-height: 1.2;
+      margin-bottom: 1rem;
+      color: var(--th-heading);
+    }
+    
+    .featured-card__excerpt {
+      font-size: 1.05rem;
+      color: var(--th-text-muted);
+      line-height: 1.6;
+      margin-bottom: 2rem;
+      font-family: var(--font-secondary);
+    }
+    
+    .featured-card__author {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--th-heading);
+    }
+    
+    .featured-card__author-img {
+      width: 38px;
+      height: 38px;
+      border-radius: var(--r-full);
+      object-fit: cover;
+      border: 2px solid var(--cyan);
+    }
+    
+    @media (max-width: 991px) {
+      .featured-card {
+        grid-template-columns: 1fr;
+      }
+      .featured-card__img-wrapper {
+        min-height: 300px;
+      }
+      .featured-card__content {
+        padding: 2rem;
+      }
+    }
+    
+    /* Categories Grid styling */
+    .categories-grid {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      gap: 1.25rem;
+    }
+    
+    @media (max-width: 1200px) {
+      .categories-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+    
+    @media (max-width: 600px) {
+      .categories-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+    
+    .category-card {
+      background: var(--th-card);
+      border: 1px solid var(--th-border);
+      border-radius: var(--r-md);
+      padding: 1.5rem;
+      text-align: center;
+      transition: var(--t-base);
+      cursor: pointer;
+    }
+    
+    .category-card:hover {
+      transform: translateY(-6px);
+      border-color: var(--cyan);
+      box-shadow: var(--shadow-cyan);
+      background: var(--grad-blue-glow);
+    }
+    
+    .category-card__icon {
+      font-size: 2rem;
+      color: var(--cyan);
+      margin-bottom: 0.75rem;
+      transition: var(--t-fast);
+    }
+    
+    .category-card:hover .category-card__icon {
+      transform: scale(1.1);
+      color: var(--blue-light);
+    }
+    
+    .category-card__name {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--th-heading);
+    }
+    
+    /* Pro Tips cards styling */
+    .pro-tips-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+    }
+    
+    @media (max-width: 991px) {
+      .pro-tips-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+    
+    .pro-tip-card {
+      background: var(--th-card);
+      border: 1px solid var(--th-border);
+      border-radius: var(--r-lg);
+      padding: 2.25rem;
+      position: relative;
+      overflow: hidden;
+      transition: var(--t-base);
+    }
+    
+    .pro-tip-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 4px;
+      height: 100%;
+      background: var(--grad-primary);
+    }
+    
+    .pro-tip-card:hover {
+      border-color: var(--cyan);
+      transform: translateY(-6px);
+      box-shadow: var(--shadow-cyan);
+    }
+    
+    .pro-tip-card__icon-wrapper {
+      width: 50px;
+      height: 50px;
+      background: rgba(6,182,212,0.1);
+      border-radius: var(--r-sm);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1.5rem;
+    }
+    
+    .pro-tip-card__icon {
+      font-size: 1.5rem;
+      color: var(--cyan);
+    }
+    
+    .pro-tip-card__title {
+      font-size: 1.2rem;
+      font-weight: 800;
+      color: var(--th-heading);
+      margin-bottom: 1rem;
+    }
+    
+    .pro-tip-card__description {
+      font-size: 0.95rem;
+      color: var(--th-text-muted);
+      line-height: 1.6;
+      font-family: var(--font-secondary);
+    }
+    
+    /* Resources styling */
+    .resources-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+    }
+    
+    @media (max-width: 991px) {
+      .resources-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+    
+    .resource-card {
+      background: var(--th-card);
+      border: 1px solid var(--th-border);
+      border-radius: var(--r-md);
+      padding: 1.5rem;
+      display: flex;
+      align-items: center;
+      gap: 1.25rem;
+      transition: var(--t-base);
+    }
+    
+    .resource-card:hover {
+      border-color: var(--cyan);
+      transform: translateX(4px);
+      box-shadow: var(--shadow-cyan);
+    }
+    
+    .resource-card__icon-box {
+      width: 48px;
+      height: 48px;
+      background: var(--grad-primary);
+      border-radius: var(--r-sm);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.25rem;
+      color: var(--white);
+      flex-shrink: 0;
+    }
+    
+    .resource-card__info {
+      flex-grow: 1;
+    }
+    
+    .resource-card__title {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--th-heading);
+      margin-bottom: 0.25rem;
+    }
+    
+    .resource-card__link {
+      font-size: 0.825rem;
+      color: var(--cyan);
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 0.25rem;
+    }
+    
+    /* ─── Newsletter Subscribe Card Refactoring ─── */
+    .newsletter-box {
+      max-width: 550px;
+      margin: 0 auto;
+      width: 100%;
+    }
+    
+    .newsletter-form {
+      display: flex;
+      gap: 0.75rem;
+      width: 100%;
+    }
+    
+    .newsletter-form .form-control {
+      flex-grow: 1;
+      height: 50px;
+      background: var(--th-input-bg);
+      border: 1.5px solid var(--th-input-border);
+      border-radius: var(--r-md);
+      color: var(--th-heading);
+      padding: 0.75rem 1.25rem;
+      font-size: 0.95rem;
+      font-family: var(--font-secondary);
+      outline: none;
+      transition: var(--t-fast);
+      width: 100%;
+    }
+    
+    /* Ensure high contrast placeholder in Light and Dark Mode */
+    .newsletter-form .form-control::placeholder {
+      color: var(--th-text-muted);
+      opacity: 0.95;
+    }
+    
+    .newsletter-form .form-control:focus {
+      border-color: var(--cyan);
+      background: rgba(6,182,212,0.05);
+      box-shadow: 0 0 0 3px rgba(6,182,212,0.15);
+    }
+    
+    .newsletter-form .btn {
+      height: 50px;
+      padding: 0 1.75rem;
+      font-weight: 700;
+      white-space: nowrap;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      border-radius: var(--r-md);
+    }
+    
+    @media (max-width: 768px) {
+      .newsletter-form {
+        flex-direction: column;
+        gap: 1rem;
+        align-items: center;
+      }
+      .newsletter-form .form-control,
+      .newsletter-form .btn {
+        width: 100% !important;
+        text-align: center;
+      }
+    }
+    
+    /* ─── Card Footer Mobile Stacking ─── */
+    @media (max-width: 480px) {
+      .blog-card__footer {
+        flex-direction: column;
+        align-items: stretch !important;
+        gap: 1rem;
+      }
+      .blog-card__author {
+        justify-content: center;
+      }
+      .blog-card__footer .btn {
+        width: 100% !important;
+        justify-content: center;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar navbar--transparent">
+    <div class="navbar__inner">
+      <a href="index.html" class="navbar__logo">
+        <img src="assets/images/logo.png" alt="GlossForge Logo" class="navbar__logo-img">
+        <span class="navbar__logo-text">Gloss<span>Forge</span></span>
+      </a>
+      <ul class="navbar__menu" role="list">
+        <li class="navbar__item"><a href="index.html" class="navbar__link">Home</a></li>
+        <li class="navbar__item"><a href="home2.html" class="navbar__link">Home 2</a></li>
+        <li class="navbar__item"><a href="about.html" class="navbar__link">About</a></li>
+        <li class="navbar__item"><a href="services.html" class="navbar__link">Services</a></li>
+        <li class="navbar__item"><a href="gallery.html" class="navbar__link">Gallery</a></li>
+        <li class="navbar__item"><a href="blog.html" class="navbar__link active">Blog</a></li>
+        <li class="navbar__item"><a href="contact.html" class="navbar__link">Contact</a></li>
+      </ul>
+      <div class="navbar__actions">
+        <div class="profile-dropdown-wrapper">
+          <button class="btn btn-outline btn-sm profile-trigger" aria-label="User Profile" aria-haspopup="true" aria-expanded="false">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+              <circle cx="12" cy="7" r="4"></circle>
+            </svg>
+          </button>
+          <div class="profile-dropdown-menu">
+            <a href="login.html" class="profile-dropdown-item">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M15 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h8"></path>
+                <polyline points="10 17 15 12 10 7"></polyline>
+                <line x1="15" y1="12" x2="3" y2="12"></line>
+              </svg>
+              Login
+            </a>
+            <a href="signup.html" class="profile-dropdown-item">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                <circle cx="8.5" cy="7" r="4"></circle>
+                <line x1="20" y1="8" x2="20" y2="14"></line>
+                <line x1="23" y1="11" x2="17" y2="11"></line>
+              </svg>
+              Signup
+            </a>
+          </div>
+        </div>
+        
+        <!-- Theme Toggle -->
+        <button class="theme-toggle" aria-label="Toggle Light / Dark Theme" title="Toggle theme">
+          <svg class="icon-sun" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="5"></circle>
+            <line x1="12" y1="1" x2="12" y2="3"></line>
+            <line x1="12" y1="21" x2="12" y2="23"></line>
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+            <line x1="1" y1="12" x2="3" y2="12"></line>
+            <line x1="21" y1="12" x2="23" y2="12"></line>
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+          </svg>
+          <svg class="icon-moon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+          </svg>
+        </button>
+        
+        <!-- RTL / LTR Toggle -->
+        <button class="rtl-toggle" aria-label="Toggle RTL / LTR text direction" title="Toggle text direction">
+          <span class="rtl-toggle__label">RTL</span>
+        </button>
+        <a href="contact.html#booking" class="btn btn-primary btn-sm">Book Now</a>
+        <button class="navbar__toggle"><span></span><span></span><span></span></button>
+      </div>
+    </div>
+  </nav>
+
+  <div class="navbar__mobile" role="dialog" aria-label="Mobile Navigation">
+    <button class="navbar__mobile-close" aria-label="Close menu" style="position:absolute;top:1.5rem;right:1.5rem;font-size:1.5rem;color:var(--white);background:none;border:none;cursor:pointer;">✕</button>
+    <a href="index.html" class="navbar__link">Home</a>
+    <a href="home2.html" class="navbar__link">Home 2</a>
+    <a href="about.html" class="navbar__link">About</a>
+    <a href="services.html" class="navbar__link">Services</a>
+    <a href="gallery.html" class="navbar__link">Gallery</a>
+    <a href="blog.html" class="navbar__link active">Blog</a>
+    <a href="contact.html" class="navbar__link">Contact</a>
+    <div style="display:flex;gap:1rem;margin-top:1.5rem;align-items:center;">
+      <div class="profile-dropdown-wrapper">
+        <button class="btn btn-outline profile-trigger" aria-label="User Profile" aria-haspopup="true" aria-expanded="false" style="width:44px;height:44px;">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+            <circle cx="12" cy="7" r="4"></circle>
+          </svg>
+        </button>
+        <div class="profile-dropdown-menu">
+          <a href="login.html" class="profile-dropdown-item">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M15 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h8"></path>
+              <polyline points="10 17 15 12 10 7"></polyline>
+              <line x1="15" y1="12" x2="3" y2="12"></line>
+            </svg>
+            Login
+          </a>
+          <a href="signup.html" class="profile-dropdown-item">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+              <circle cx="8.5" cy="7" r="4"></circle>
+              <line x1="20" y1="8" x2="20" y2="14"></line>
+              <line x1="23" y1="11" x2="17" y2="11"></line>
+            </svg>
+            Signup
+          </a>
+        </div>
+      </div>
+      <a href="contact.html#booking" class="btn btn-primary">Book Now</a>
+    </div>
+  </div>
+
+  <!-- SECTION 1: HERO BANNER -->
+  <section class="page-hero">
+    <div class="bg-glow bg-glow--blue" style="width:600px;height:600px;left:50%;transform:translateX(-50%);top:-200px;"></div>
+    <div class="container" style="position:relative;z-index:1;">
+      <div class="page-hero__eyebrow"><i class="fas fa-book-open"></i> Insights & Guides</div>
+      <h1 class="page-hero__title">Expert Car <span class="text-gradient">Care Insights</span></h1>
+      <p class="page-hero__subtitle">Latest detailing guides, ceramic coating tips, maintenance advice and industry updates.</p>
+      <div class="page-hero__breadcrumb">
+        <a href="index.html">Home</a><span>›</span><span>Blog</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 2: FEATURED ARTICLE -->
+  <section class="section section--dark" id="featured-article">
+    <div class="container">
+      <div class="section-header reveal">
+        <div class="section-eyebrow">Featured Story</div>
+        <h2 class="section-title">Editor's <span>Choice</span></h2>
+        <p class="section-subtitle">Deep dive into this month's featured professional detailing guide.</p>
+        <div class="divider"></div>
+      </div>
+      
+      <div class="featured-card reveal">
+        <div class="featured-card__img-wrapper">
+          <img src="assets/images/premium-detail.png" alt="Featured Article: Premium detailing" class="featured-card__img" loading="lazy" />
+          <div class="featured-card__badge">Ceramic Coating</div>
+        </div>
+        <div class="featured-card__content">
+          <div class="featured-card__meta">
+            <div class="featured-card__meta-item">
+              <i class="fas fa-calendar-alt"></i>
+              <span>July 15, 2026</span>
+            </div>
+            <div class="featured-card__meta-item">
+              <i class="fas fa-clock"></i>
+              <span>12 min read</span>
+            </div>
+          </div>
+          <h3 class="featured-card__title">The Ultimate Guide to Ceramic Coatings: Protection, Longevity, and Myth Busting</h3>
+          <p class="featured-card__excerpt">Ceramic coating is the single best investment you can make for your vehicle's paint. But what is it really, and does it live up to the hype? In this comprehensive guide, we separate facts from fiction, look at the science of SiO2 nanotechnology, and show you exactly what to expect from a professional coating application.</p>
+          <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:1rem;">
+            <div class="featured-card__author">
+              <img src="assets/images/team-marcus.png" alt="Marcus Tyler" class="featured-card__author-img" />
+              <span>By Marcus Tyler</span>
+            </div>
+            <a href="blog-details-page.html?id=ceramic-guide" class="btn btn-primary btn-sm">Read Article <i class="fas fa-arrow-right"></i></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 3: LATEST ARTICLES -->
+  <section class="section section--card" id="latest-articles">
+    <div class="container">
+      <div class="section-header reveal">
+        <div class="section-eyebrow">Our Publications</div>
+        <h2 class="section-title">Latest <span>Articles</span></h2>
+        <p class="section-subtitle">Read educational resources written by our certified shop technicians.</p>
+        <div class="divider"></div>
+      </div>
+      
+      <div class="blog-grid stagger-group">
+        <!-- Card 1 -->
+        <article class="blog-card reveal" id="ceramic-guide">
+          <div class="blog-card__img-wrapper">
+            <img src="assets/images/ceramic.png" alt="Ceramic coating process" class="blog-card__img" loading="lazy" />
+            <div class="blog-card__badge">Ceramic Coating</div>
+          </div>
+          <div class="blog-card__content">
+            <div class="blog-card__meta">
+              <div class="blog-card__meta-item"><i class="fas fa-calendar-alt"></i> <span>July 15, 2026</span></div>
+              <div class="blog-card__meta-item"><i class="fas fa-clock"></i> <span>12 min read</span></div>
+            </div>
+            <h3 class="blog-card__title">The Ultimate Guide to Ceramic Coatings</h3>
+            <p class="blog-card__excerpt">Explore the nanotechnology behind professional ceramic coatings, how they cure, and why they outperform standard car waxes.</p>
+            <div class="blog-card__footer">
+              <div class="blog-card__author">
+                <img src="assets/images/team-marcus.png" alt="Marcus Tyler" class="blog-card__author-img" />
+                <span>Marcus Tyler</span>
+              </div>
+              <a href="blog-details-page.html?id=ceramic-guide" class="btn btn-primary btn-sm">Read More <i class="fas fa-arrow-right"></i></a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Card 2 -->
+        <article class="blog-card reveal" id="paint-correction">
+          <div class="blog-card__img-wrapper">
+            <img src="assets/images/gallery-paint-correction-ba.png" alt="Paint correction before-after work" class="blog-card__img" loading="lazy" />
+            <div class="blog-card__badge">Paint Protection</div>
+          </div>
+          <div class="blog-card__content">
+            <div class="blog-card__meta">
+              <div class="blog-card__meta-item"><i class="fas fa-calendar-alt"></i> <span>July 12, 2026</span></div>
+              <div class="blog-card__meta-item"><i class="fas fa-clock"></i> <span>9 min read</span></div>
+            </div>
+            <h3 class="blog-card__title">The Art of Paint Correction</h3>
+            <p class="blog-card__excerpt">Learn the professional process of compounding, polishing, and refining to eliminate paint swirls, light scratches, and oxidation.</p>
+            <div class="blog-card__footer">
+              <div class="blog-card__author">
+                <img src="assets/images/team-marcus.png" alt="Marcus Tyler" class="blog-card__author-img" />
+                <span>Marcus Tyler</span>
+              </div>
+              <a href="blog-details-page.html?id=paint-correction" class="btn btn-primary btn-sm">Read More <i class="fas fa-arrow-right"></i></a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Card 3 -->
+        <article class="blog-card reveal" id="interior-detailing">
+          <div class="blog-card__img-wrapper">
+            <img src="assets/images/gallery-interior-restoration.png" alt="Leather interior detailing" class="blog-card__img" loading="lazy" />
+            <div class="blog-card__badge">Interior Care</div>
+          </div>
+          <div class="blog-card__content">
+            <div class="blog-card__meta">
+              <div class="blog-card__meta-item"><i class="fas fa-calendar-alt"></i> <span>July 08, 2026</span></div>
+              <div class="blog-card__meta-item"><i class="fas fa-clock"></i> <span>7 min read</span></div>
+            </div>
+            <h3 class="blog-card__title">Deep Cleaning Car Interiors</h3>
+            <p class="blog-card__excerpt">Restore and shield luxury leather and fine fabrics with professional techniques for steam cleaning, extractors, and protection.</p>
+            <div class="blog-card__footer">
+              <div class="blog-card__author">
+                <img src="assets/images/team-nina.png" alt="Nina Chen" class="blog-card__author-img" />
+                <span>Nina Chen</span>
+              </div>
+              <a href="blog-details-page.html?id=interior-detailing" class="btn btn-primary btn-sm">Read More <i class="fas fa-arrow-right"></i></a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Card 4 -->
+        <article class="blog-card reveal" id="engine-bay">
+          <div class="blog-card__img-wrapper">
+            <img src="assets/images/facility.png" alt="Cleaned vehicle engine bay" class="blog-card__img" loading="lazy" />
+            <div class="blog-card__badge">Maintenance</div>
+          </div>
+          <div class="blog-card__content">
+            <div class="blog-card__meta">
+              <div class="blog-card__meta-item"><i class="fas fa-calendar-alt"></i> <span>July 05, 2026</span></div>
+              <div class="blog-card__meta-item"><i class="fas fa-clock"></i> <span>6 min read</span></div>
+            </div>
+            <h3 class="blog-card__title">Engine Bay Detailing Guide</h3>
+            <p class="blog-card__excerpt">Discover how to safely degrease, rinse, and dress your engine bay's sensitive mechanical, plastic, and electrical parts.</p>
+            <div class="blog-card__footer">
+              <div class="blog-card__author">
+                <img src="assets/images/team-jason.png" alt="Jason Vance" class="blog-card__author-img" />
+                <span>Jason Vance</span>
+              </div>
+              <a href="blog-details-page.html?id=engine-bay" class="btn btn-primary btn-sm">Read More <i class="fas fa-arrow-right"></i></a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Card 5 -->
+        <article class="blog-card reveal" id="wax-vs-coating">
+          <div class="blog-card__img-wrapper">
+            <img src="assets/images/video-ceramic.png" alt="Applying wax to car body" class="blog-card__img" loading="lazy" />
+            <div class="blog-card__badge">Paint Protection</div>
+          </div>
+          <div class="blog-card__content">
+            <div class="blog-card__meta">
+              <div class="blog-card__meta-item"><i class="fas fa-calendar-alt"></i> <span>July 02, 2026</span></div>
+              <div class="blog-card__meta-item"><i class="fas fa-clock"></i> <span>8 min read</span></div>
+            </div>
+            <h3 class="blog-card__title">Wax vs. Coating Comparison</h3>
+            <p class="blog-card__excerpt">Durability, gloss factor, chemical resistance, and cost analysis comparing traditional waxes, paint sealants, and coatings.</p>
+            <div class="blog-card__footer">
+              <div class="blog-card__author">
+                <img src="assets/images/team-marcus.png" alt="Marcus Tyler" class="blog-card__author-img" />
+                <span>Marcus Tyler</span>
+              </div>
+              <a href="blog-details-page.html?id=wax-vs-coating" class="btn btn-primary btn-sm">Read More <i class="fas fa-arrow-right"></i></a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Card 6 -->
+        <article class="blog-card reveal" id="maintenance-checklist">
+          <div class="blog-card__img-wrapper">
+            <img src="assets/images/express-wash.png" alt="Sponge washing car hood" class="blog-card__img" loading="lazy" />
+            <div class="blog-card__badge">Maintenance</div>
+          </div>
+          <div class="blog-card__content">
+            <div class="blog-card__meta">
+              <div class="blog-card__meta-item"><i class="fas fa-calendar-alt"></i> <span>June 28, 2026</span></div>
+              <div class="blog-card__meta-item"><i class="fas fa-clock"></i> <span>5 min read</span></div>
+            </div>
+            <h3 class="blog-card__title">The Weekly Wash Checklist</h3>
+            <p class="blog-card__excerpt">Avoid scratching and swirling your paint. Keep your vehicle clean using the professional-approved two-bucket method.</p>
+            <div class="blog-card__footer">
+              <div class="blog-card__author">
+                <img src="assets/images/team-priya.png" alt="Priya Patel" class="blog-card__author-img" />
+                <span>Priya Patel</span>
+              </div>
+              <a href="blog-details-page.html?id=maintenance-checklist" class="btn btn-primary btn-sm">Read More <i class="fas fa-arrow-right"></i></a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Card 7 -->
+        <article class="blog-card reveal" id="winter-protection">
+          <div class="blog-card__img-wrapper">
+            <img src="assets/images/gallery-hydrophobic.png" alt="Water droplets on vehicle surface" class="blog-card__img" loading="lazy" />
+            <div class="blog-card__badge">Tips & Tricks</div>
+          </div>
+          <div class="blog-card__content">
+            <div class="blog-card__meta">
+              <div class="blog-card__meta-item"><i class="fas fa-calendar-alt"></i> <span>June 22, 2026</span></div>
+              <div class="blog-card__meta-item"><i class="fas fa-clock"></i> <span>6 min read</span></div>
+            </div>
+            <h3 class="blog-card__title">Winter Car Care Protection</h3>
+            <p class="blog-card__excerpt">Shield your undercarriage and clear coat from winter de-icing salt, road sand, and chemical rust hazards.</p>
+            <div class="blog-card__footer">
+              <div class="blog-card__author">
+                <img src="assets/images/team-jason.png" alt="Jason Vance" class="blog-card__author-img" />
+                <span>Jason Vance</span>
+              </div>
+              <a href="blog-details-page.html?id=winter-protection" class="btn btn-primary btn-sm">Read More <i class="fas fa-arrow-right"></i></a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Card 8 -->
+        <article class="blog-card reveal" id="summer-care">
+          <div class="blog-card__img-wrapper">
+            <img src="assets/images/gallery-mirror-finish.png" alt="Polished sports car body" class="blog-card__img" loading="lazy" />
+            <div class="blog-card__badge">Tips & Tricks</div>
+          </div>
+          <div class="blog-card__content">
+            <div class="blog-card__meta">
+              <div class="blog-card__meta-item"><i class="fas fa-calendar-alt"></i> <span>June 15, 2026</span></div>
+              <div class="blog-card__meta-item"><i class="fas fa-clock"></i> <span>5 min read</span></div>
+            </div>
+            <h3 class="blog-card__title">Defending Paint from UV Damage</h3>
+            <p class="blog-card__excerpt">Avoid paint fading, clear coat failure, and leather dashboard cracking by applying sun UV protectants.</p>
+            <div class="blog-card__footer">
+              <div class="blog-card__author">
+                <img src="assets/images/team-nina.png" alt="Nina Chen" class="blog-card__author-img" />
+                <span>Nina Chen</span>
+              </div>
+              <a href="blog-details-page.html?id=summer-care" class="btn btn-primary btn-sm">Read More <i class="fas fa-arrow-right"></i></a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Card 9 -->
+        <article class="blog-card reveal" id="new-detailing-tools">
+          <div class="blog-card__img-wrapper">
+            <img src="assets/images/gallery-interior-ba.png" alt="Detailing tools inside car" class="blog-card__img" loading="lazy" />
+            <div class="blog-card__badge">Tips & Tricks</div>
+          </div>
+          <div class="blog-card__content">
+            <div class="blog-card__meta">
+              <div class="blog-card__meta-item"><i class="fas fa-calendar-alt"></i> <span>June 10, 2026</span></div>
+              <div class="blog-card__meta-item"><i class="fas fa-clock"></i> <span>7 min read</span></div>
+            </div>
+            <h3 class="blog-card__title">Professional Detailing Tools</h3>
+            <p class="blog-card__excerpt">Review the top rotary buffers, foam cannons, dual-action polishers, and high-pressure washers you can run at home.</p>
+            <div class="blog-card__footer">
+              <div class="blog-card__author">
+                <img src="assets/images/team-priya.png" alt="Priya Patel" class="blog-card__author-img" />
+                <span>Priya Patel</span>
+              </div>
+              <a href="blog-details-page.html?id=new-detailing-tools" class="btn btn-primary btn-sm">Read More <i class="fas fa-arrow-right"></i></a>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 4: POPULAR CATEGORIES -->
+  <section class="section section--dark" id="categories">
+    <div class="container">
+      <div class="section-header reveal">
+        <div class="section-eyebrow">Explore Topics</div>
+        <h2 class="section-title">Popular <span>Categories</span></h2>
+        <p class="section-subtitle">Browse detailing articles and publications grouped by primary focus areas.</p>
+        <div class="divider"></div>
+      </div>
+      
+      <div class="categories-grid stagger-group">
+        <div class="category-card reveal">
+          <div class="category-card__icon"><i class="fas fa-shield-halved"></i></div>
+          <div class="category-card__name">Ceramic Coating</div>
+        </div>
+        <div class="category-card reveal">
+          <div class="category-card__icon"><i class="fas fa-car-burst"></i></div>
+          <div class="category-card__name">Paint Protection</div>
+        </div>
+        <div class="category-card reveal">
+          <div class="category-card__icon"><i class="fas fa-chair"></i></div>
+          <div class="category-card__name">Interior Care</div>
+        </div>
+        <div class="category-card reveal">
+          <div class="category-card__icon"><i class="fas fa-soap"></i></div>
+          <div class="category-card__name">Exterior Wash</div>
+        </div>
+        <div class="category-card reveal">
+          <div class="category-card__icon"><i class="fas fa-toolbox"></i></div>
+          <div class="category-card__name">Maintenance</div>
+        </div>
+        <div class="category-card reveal">
+          <div class="category-card__icon"><i class="fas fa-lightbulb"></i></div>
+          <div class="category-card__name">Tips & Tricks</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 5: PROFESSIONAL TIPS -->
+  <section class="section section--card" id="pro-tips">
+    <div class="container">
+      <div class="section-header reveal">
+        <div class="section-eyebrow">Quick Hacks</div>
+        <h2 class="section-title">Professional <span>Tips</span></h2>
+        <p class="section-subtitle">Crucial detailing habits to prevent paint damage and preserve vehicle value.</p>
+        <div class="divider"></div>
+      </div>
+      
+      <div class="pro-tips-grid stagger-group">
+        <!-- Card 1 -->
+        <div class="pro-tip-card reveal">
+          <div class="pro-tip-card__icon-wrapper">
+            <i class="fas fa-cloud-sun pro-tip-card__icon"></i>
+          </div>
+          <h3 class="pro-tip-card__title">Always Wash in the Shade</h3>
+          <p class="pro-tip-card__description">Never wash or apply products in direct, hot sunlight. Solar heat dries soaps and water rapidly, leaving aggressive mineral deposits, etching water spots, and chemical streaks on your clear coat.</p>
+        </div>
+        
+        <!-- Card 2 -->
+        <div class="pro-tip-card reveal">
+          <div class="pro-tip-card__icon-wrapper">
+            <i class="fas fa-bucket pro-tip-card__icon"></i>
+          </div>
+          <h3 class="pro-tip-card__title">Use the Two-Bucket Method</h3>
+          <p class="pro-tip-card__description">Ensure you have a wash bucket and a rinse bucket equipped with grit guard filters. Wash mitts gather paint-swirling micro-contaminants; rinsing them in clean water first prevents scratch recurrence.</p>
+        </div>
+        
+        <!-- Card 3 -->
+        <div class="pro-tip-card reveal">
+          <div class="pro-tip-card__icon-wrapper">
+            <i class="fas fa-triangle-exclamation pro-tip-card__icon"></i>
+          </div>
+          <h3 class="pro-tip-card__title">Avoid Household Dish Soap</h3>
+          <p class="pro-tip-card__description">Household detergents are formulated to strip grease and oil. Washing your car with dish soap strips protective waxes and paint sealants, while drying out rubber door seals and trim pieces.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 6: NEWSLETTER CTA -->
+  <section class="section section--blue" id="blog-newsletter">
+    <div class="container">
+      <div class="cta-banner reveal">
+        <h2 class="cta-banner__title">
+          <i class="fas fa-envelope-open-text" style="color:var(--white);margin-right:0.6rem;vertical-align:middle;"></i>
+          Subscribe to Our Newsletter
+        </h2>
+        <p class="cta-banner__text">Get premium detailing guides, DIY guides, and early access specials in your email box twice a month.</p>
+        <div class="newsletter-box">
+          <form class="newsletter-form" onsubmit="event.preventDefault(); alert('Thank you for subscribing to GlossForge detailing insights!'); this.reset();">
+            <input class="form-control" type="email" placeholder="Enter your email address..." required aria-label="Email Address" />
+            <button type="submit" class="btn btn-primary"><i class="fas fa-paper-plane"></i> Join Us</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 7: FAQ -->
+  <section class="section section--dark" id="blog-faq">
+    <div class="container">
+      <div class="section-header reveal">
+        <div class="section-eyebrow">Got Questions?</div>
+        <h2 class="section-title">Frequently Asked <span>Questions</span></h2>
+        <p class="section-subtitle">Answers to popular questions about detailing maintenance and ceramic coatings.</p>
+        <div class="divider"></div>
+      </div>
+      
+      <div class="faq-list reveal stagger-group">
+        <!-- FAQ 1 -->
+        <div class="faq-item">
+          <div class="faq-question">How often should a car be professionally detailed?<span class="faq-icon">+</span></div>
+          <div class="faq-answer">
+            <div class="faq-answer__inner">
+              For optimal maintenance, we recommend a professional complete detail twice a year (spring and autumn). Regular maintenance washes should be performed every 1 to 2 weeks to safely wash away road grime, brake dust, and environmental hazards.
+            </div>
+          </div>
+        </div>
+        
+        <!-- FAQ 2 -->
+        <div class="faq-item">
+          <div class="faq-question">Does ceramic coating guarantee complete scratch resistance?<span class="faq-icon">+</span></div>
+          <div class="faq-answer">
+            <div class="faq-answer__inner">
+              No. While professional 9H coatings offer chemical protection, UV blockers, and superior hardness compared to standard clear coats, they are not scratch-proof. They will significantly resist light micro-marring, but key scratches or abrasive wash techniques can still scratch them.
+            </div>
+          </div>
+        </div>
+        
+        <!-- FAQ 3 -->
+        <div class="faq-item">
+          <div class="faq-question">What is the difference between polishing and waxing?<span class="faq-icon">+</span></div>
+          <div class="faq-answer">
+            <div class="faq-answer__inner">
+              Polishing is a corrective process using abrasive compounds to thin microscopic levels of clear coat to smooth out scratches and swirl marks. Waxing is a protective step that applies a thin coating layer (carnauba or synthetic) over the polished surface to add gloss and paint shelter.
+            </div>
+          </div>
+        </div>
+        
+        <!-- FAQ 4 -->
+        <div class="faq-item">
+          <div class="faq-question">Can I detail my car if it has PPF (Paint Protection Film)?<span class="faq-icon">+</span></div>
+          <div class="faq-answer">
+            <div class="faq-answer__inner">
+              Yes, but you must be careful. Avoid using heavy rotaries or direct heat near film edges. Ceramic coatings can be applied on top of PPF to provide additional self-cleaning properties and protection against staining and discoloration.
+            </div>
+          </div>
+        </div>
+        
+        <!-- FAQ 5 -->
+        <div class="faq-item">
+          <div class="faq-question">How do I maintain my ceramic coated car after detailing?<span class="faq-icon">+</span></div>
+          <div class="faq-answer">
+            <div class="faq-answer__inner">
+              Hand wash using a pH-neutral shampoo designed specifically for ceramic coatings. Avoid automatic tunnel washes with abrasive brushes, and use a silica-based booster spray every few months to sustain hydrophobic performance.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 8: RELATED RESOURCES -->
+  <section class="section section--card" id="resources">
+    <div class="container">
+      <div class="section-header reveal">
+        <div class="section-eyebrow">More Info</div>
+        <h2 class="section-title">Useful <span>Resources</span></h2>
+        <p class="section-subtitle">Check out our services, past works, and booking pages to continue your experience.</p>
+        <div class="divider"></div>
+      </div>
+      
+      <div class="resources-grid stagger-group">
+        <!-- Resource 1 -->
+        <div class="resource-card reveal">
+          <div class="resource-card__icon-box">
+            <i class="fas fa-hand-holding-hand"></i>
+          </div>
+          <div class="resource-card__info">
+            <h3 class="resource-card__title">Detailing Service Guide</h3>
+            <a href="services.html" class="resource-card__link">View Services <i class="fas fa-chevron-right"></i></a>
+          </div>
+        </div>
+        
+        <!-- Resource 2 -->
+        <div class="resource-card reveal">
+          <div class="resource-card__icon-box">
+            <i class="fas fa-images"></i>
+          </div>
+          <div class="resource-card__info">
+            <h3 class="resource-card__title">Showroom-Finish Gallery</h3>
+            <a href="gallery.html" class="resource-card__link">Browse Gallery <i class="fas fa-chevron-right"></i></a>
+          </div>
+        </div>
+        
+        <!-- Resource 3 -->
+        <div class="resource-card reveal">
+          <div class="resource-card__icon-box">
+            <i class="fas fa-calendar-check"></i>
+          </div>
+          <div class="resource-card__info">
+            <h3 class="resource-card__title">Book Detailing Session</h3>
+            <a href="contact.html#booking" class="resource-card__link">Make Booking <i class="fas fa-chevron-right"></i></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <!-- ══════════════════════════════════════ FOOTER ══════════════════════════════════════ -->
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      <div class="footer__grid">
+        <!-- Column 1: Brand -->
+        <div class="footer__brand">
+          <a href="index.html" class="navbar__logo" style="margin-bottom:1rem;display:inline-flex;">
+            <img src="assets/images/logo.png" alt="GlossForge Logo" class="navbar__logo-img" style="height: 40px;">
+            <span class="navbar__logo-text">Gloss<span>Forge</span></span>
+          </a>
+          <p>Detroit's premier auto detailing studio. We deliver showroom-quality results with cutting-edge technology and unmatched attention to detail.</p>
+          <div class="social-links">
+            <a href="#" class="social-link" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" class="social-link" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="#" class="social-link" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+            <a href="#" class="social-link" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+          </div>
+        </div>
+        <!-- Column 2: Company -->
+        <div class="footer__col-company">
+          <div class="footer__heading">COMPANY</div>
+          <nav class="footer__links" aria-label="Footer Navigation">
+            <a href="index.html" class="footer__link"><i class="fas fa-chevron-right"></i> Home</a>
+            <a href="about.html" class="footer__link"><i class="fas fa-chevron-right"></i> About Us</a>
+            <a href="services.html" class="footer__link"><i class="fas fa-chevron-right"></i> Services</a>
+            <a href="gallery.html" class="footer__link"><i class="fas fa-chevron-right"></i> Gallery</a>
+            <a href="blog.html" class="footer__link"><i class="fas fa-chevron-right"></i> Blog</a>
+            <a href="contact.html" class="footer__link"><i class="fas fa-chevron-right"></i> Contact</a>
+          </nav>
+        </div>
+        <!-- Column 3: Contact -->
+        <div>
+          <div class="footer__heading">CONTACT</div>
+          <div class="footer__contact-list">
+            <div class="footer__contact-item">
+              <i class="fas fa-map-marker-alt" aria-hidden="true"></i>
+              <span>4520 Auto Blvd, Detroit, MI 48201</span>
+            </div>
+            <div class="footer__contact-item">
+              <i class="fas fa-phone" aria-hidden="true"></i>
+              <a href="tel:+15551234567">+1 (555) 123-4567</a>
+            </div>
+            <div class="footer__contact-item">
+              <i class="fas fa-envelope" aria-hidden="true"></i>
+              <a href="mailto:info@GlossForge.com">info@GlossForge.com</a>
+            </div>
+          </div>
+        </div>
+        <!-- Column 4: Newsletter -->
+        <div>
+          <div class="footer__heading">NEWSLETTER</div>
+          <p class="footer__newsletter-desc">Get exclusive offers and detailing tips in your inbox.</p>
+          <div class="footer__newsletter">
+            <input type="email" placeholder="Your email..." aria-label="Email for newsletter" />
+            <button type="button">→</button>
+          </div>
+        </div>
+      </div>
+      <!-- Bottom Footer -->
+      <div class="footer__bottom">
+        <p>© 2026 GlossForge Detail. All rights reserved.</p>
+        <div class="footer__legal">
+          <a href="privacy.html" class="footer__legal-link">Privacy Policy</a>
+          <span class="footer__legal-divider">|</span>
+          <a href="terms.html" class="footer__legal-link">Terms & Conditions</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Back to Top -->
+  <button class="back-to-top" aria-label="Back to top"><i class="fas fa-chevron-up"></i></button>
+
+  <!-- Scripts -->
+  <script src="js/main.js"></script>
+  <script src="js/faq.js"></script>
+</body>
+</html>
