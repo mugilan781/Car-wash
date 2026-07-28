@@ -35,227 +35,29 @@
     
     /* ─── Hero Layout wrapper ─── */
     .hero-grid-wrapper {
-      display: grid;
-      grid-template-columns: 1.2fr 0.8fr;
-      gap: 4rem;
+      display: flex;
+      justify-content: center;
       align-items: center;
       position: relative;
       z-index: 2;
       width: 100%;
     }
     
-    /* ─── Premium Service Showcase Panel ─── */
-    .hero-showcase-container {
-      position: relative;
-      width: 100%;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-    
-    /* Background decorations */
-    .showcase-bg-effects {
-      position: absolute;
-      inset: -50px;
-      z-index: 0;
-      pointer-events: none;
-    }
-    
-    .effect-glow {
-      position: absolute;
-      width: 400px;
-      height: 400px;
-      background: radial-gradient(circle, rgba(37, 99, 235, 0.15) 0%, transparent 70%);
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      filter: blur(30px);
-    }
-    
-    .effect-rings {
-      position: absolute;
-      width: 320px;
-      height: 320px;
-      border: 1px dashed rgba(6, 182, 212, 0.12);
-      border-radius: 50%;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      animation: rotateRings 25s linear infinite;
-    }
-    .effect-rings::before {
-      content: '';
-      position: absolute;
-      width: 240px;
-      height: 240px;
-      border: 1px solid rgba(37, 99, 235, 0.08);
-      border-radius: 50%;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-    }
-    
-    .effect-grid {
-      position: absolute;
-      inset: 20px;
-      background-image: 
-        linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
-      background-size: 20px 20px;
-      background-position: center;
-      mask-image: radial-gradient(circle, black 40%, transparent 90%);
-      -webkit-mask-image: radial-gradient(circle, black 40%, transparent 90%);
-      opacity: 0.8;
-    }
-    
-    @keyframes rotateRings {
-      from { transform: translate(-50%, -50%) rotate(0deg); }
-      to { transform: translate(-50%, -50%) rotate(360deg); }
-    }
-    
-    /* The main panel */
-    .showcase-panel {
-      position: relative;
-      z-index: 1;
-      width: 100%;
-      max-width: 380px;
-      background: var(--th-showcase-bg);
-      backdrop-filter: blur(20px);
-      -webkit-backdrop-filter: blur(20px);
-      border: 1px solid var(--th-showcase-border);
-      border-radius: var(--r-lg);
-      padding: 2rem;
-      box-shadow: var(--th-showcase-shadow);
-      animation: floatShowcase 6s ease-in-out infinite;
-    }
-    
-    @keyframes floatShowcase {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-10px); }
-    }
-    
-    .showcase-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      background: rgba(37, 99, 235, 0.12);
-      border: 1px solid rgba(37, 99, 235, 0.25);
-      color: var(--cyan);
-      font-size: 0.75rem;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
-      padding: 0.4rem 0.9rem;
-      border-radius: var(--r-full);
-      margin-bottom: 1.5rem;
-    }
-    .showcase-badge i {
-      font-size: 0.7rem;
-    }
-    
-    .showcase-list {
+    .hero__content {
+      max-width: 800px;
+      text-align: center;
       display: flex;
       flex-direction: column;
-      gap: 0.85rem;
-      margin-bottom: 1.75rem;
-    }
-    
-    .showcase-item {
-      display: flex;
       align-items: center;
-      gap: 0.9rem;
-      padding: 0.75rem 1rem;
-      background: var(--th-showcase-item-bg);
-      border: 1px solid var(--th-showcase-item-border);
-      border-radius: var(--r-sm);
-      transition: var(--t-fast);
-    }
-    .showcase-item:hover {
-      background: rgba(37, 99, 235, 0.06);
-      border-color: rgba(37, 99, 235, 0.15);
-      transform: translateX(4px);
     }
     
-    .showcase-icon {
-      font-size: 1.15rem;
-      width: 28px;
-      height: 28px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background: var(--th-showcase-icon-bg);
-      border-radius: 6px;
-    }
-    
-    .showcase-label {
-      font-size: 0.9rem;
-      font-weight: 600;
-      color: var(--th-heading);
-    }
-    
-    .showcase-check {
+    .hero__subtitle {
       margin-left: auto;
-      color: var(--cyan);
-      font-size: 0.85rem;
-      opacity: 0.8;
+      margin-right: auto;
     }
     
-    .showcase-trust {
-      text-align: center;
-      padding: 1rem 0;
-      border-top: 1px solid var(--th-showcase-trust-border);
-      border-bottom: 1px solid var(--th-showcase-trust-border);
-      margin-bottom: 1.5rem;
-    }
-    
-    .trust-stars {
-      color: #F59E0B;
-      font-size: 1.1rem;
-      letter-spacing: 0.1em;
-      margin-bottom: 0.25rem;
-    }
-    
-    .trust-sub {
-      font-size: 0.95rem;
-      font-weight: 700;
-      color: var(--th-heading);
-      margin-bottom: 0.1rem;
-    }
-    
-    .trust-desc {
-      font-size: 0.775rem;
-      color: var(--th-text-muted);
-      font-weight: 500;
-    }
-    
-    .showcase-btn {
-      display: flex;
-      align-items: center;
+    .hero__cta {
       justify-content: center;
-      gap: 0.5rem;
-      width: 100%;
-      padding: 0.9rem;
-      border: 1px solid var(--cyan);
-      border-radius: var(--r-sm);
-      color: var(--cyan);
-      font-weight: 700;
-      font-size: 0.9rem;
-      background: transparent;
-      transition: var(--t-fast);
-      cursor: pointer;
-    }
-    .showcase-btn:hover {
-      background: var(--grad-primary);
-      color: var(--white);
-      border-color: transparent;
-      box-shadow: var(--shadow-cyan);
-    }
-    .showcase-btn i {
-      font-size: 0.8rem;
-      transition: transform 0.2s ease;
-    }
-    .showcase-btn:hover i {
-      transform: translateX(4px);
     }
     
     /* ─── Original sections ─── */
@@ -272,24 +74,8 @@
     
     /* ─── Responsive adjustments ─── */
     @media (max-width: 1024px) {
-      .hero-grid-wrapper {
-        grid-template-columns: 1fr;
-        gap: 3.5rem;
-      }
       .hero__content {
         max-width: 100%;
-        text-align: center;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-      }
-      .hero__cta {
-        justify-content: center;
-      }
-      .showcase-panel {
-        max-width: 360px;
-        padding: 1.75rem;
-        margin: 0 auto;
       }
     }
   </style>
@@ -440,55 +226,6 @@
           </a>
           <a href="services.html" class="btn btn-outline btn-lg">
             <i class="fas fa-star"></i> Our Services
-          </a>
-        </div>
-      </div>
-      
-      <div class="hero-showcase-container">
-        <!-- Background decorative elements -->
-        <div class="showcase-bg-effects">
-          <div class="effect-glow"></div>
-          <div class="effect-rings"></div>
-          <div class="effect-grid"></div>
-        </div>
-        
-        <!-- Premium Service Showcase Panel -->
-        <div class="showcase-panel">
-          <div class="showcase-badge"><i class="fas fa-crown"></i> Premium Services</div>
-          
-          <div class="showcase-list">
-            <div class="showcase-item">
-              <span class="showcase-icon"><i class="fas fa-gem"></i></span>
-              <span class="showcase-label">Ceramic Coating</span>
-              <span class="showcase-check"><i class="fas fa-check-circle"></i></span>
-            </div>
-            <div class="showcase-item">
-              <span class="showcase-icon"><i class="fas fa-shield-halved"></i></span>
-              <span class="showcase-label">Paint Protection</span>
-              <span class="showcase-check"><i class="fas fa-check-circle"></i></span>
-            </div>
-            <div class="showcase-item">
-              <span class="showcase-icon"><i class="fas fa-couch"></i></span>
-              <span class="showcase-label">Interior Detailing</span>
-              <span class="showcase-check"><i class="fas fa-check-circle"></i></span>
-            </div>
-            <div class="showcase-item">
-              <span class="showcase-icon"><i class="fas fa-fire"></i></span>
-              <span class="showcase-label">Engine Bay Cleaning</span>
-              <span class="showcase-check"><i class="fas fa-check-circle"></i></span>
-            </div>
-          </div>
-          
-          <!-- Trust section -->
-          <div class="showcase-trust">
-            <div class="trust-stars">★★★★★</div>
-            <div class="trust-sub">4.9 Google Rating</div>
-            <div class="trust-desc">10,000+ Happy Customers</div>
-          </div>
-          
-          <!-- Explore Button -->
-          <a href="services.html" class="showcase-btn">
-            Explore All Services &rarr;
           </a>
         </div>
       </div>
