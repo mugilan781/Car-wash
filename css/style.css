@@ -152,9 +152,9 @@ input, textarea, select { font-family: inherit; }
 /* ─── TYPOGRAPHY ─── */
 h1,h2,h3,h4,h5,h6 { font-family: var(--font-primary); line-height: 1.2; color: var(--th-heading); }
 h1 { font-size: clamp(2.5rem, 6vw, 4.5rem); font-weight: 500; }
-h2 { font-size: clamp(1.8rem, 4vw, 3rem); font-weight: 500; }
-h3 { font-size: clamp(1.3rem, 2.5vw, 1.75rem); font-weight: 500; }
-h4 { font-size: 1.25rem; font-weight: 500; }
+h2 { font-size: clamp(1.8rem, 4vw, 3rem); font-weight: 400; }
+h3 { font-size: clamp(1.3rem, 2.5vw, 1.75rem); font-weight: 400; }
+h4 { font-size: 1.25rem; font-weight: 400; }
 p  { font-size: 1rem; color: var(--th-text-muted); font-family: var(--font-secondary); font-weight: 600; }
 
 /* ─── BUTTONS ─── */
@@ -583,7 +583,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   flex-grow: 1;
 }
 .service-card__icon { font-size: 2rem; margin-bottom: 1rem; }
-.service-card__title { font-size: 1.2rem; font-weight: 500; color: var(--th-heading); margin-bottom: 0.75rem; }
+.service-card__title { font-size: 1.2rem; font-weight: 400; color: var(--th-heading); margin-bottom: 0.75rem; }
 .service-card__text { font-size: 0.9rem; color: var(--th-text-muted); line-height: 1.7; margin-bottom: 1.25rem; }
 .service-card__price {
   font-size: 1.5rem; font-weight: 500;
@@ -639,7 +639,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   background: var(--grad-primary); display: flex; align-items: center; justify-content: center;
   font-weight: 800; font-size: 1.1rem; color: var(--white); flex-shrink: 0;
 }
-.testimonial-card__name { font-weight: 500; color: var(--th-heading); }
+.testimonial-card__name { font-weight: 400; color: var(--th-heading); }
 .testimonial-card__role { font-size: 0.825rem; color: var(--cyan); }
 .testimonial-stars { color: #FBBF24; margin-bottom: 0.25rem; font-size: 0.9rem; }
 .testimonial-slider-wrap { position: relative; overflow: hidden; }
@@ -786,7 +786,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   font-size: 1.3rem; font-weight: 900; color: var(--white);
   margin: 0 auto 1.25rem; box-shadow: var(--shadow-blue);
 }
-.process-step__title { font-size: 1rem; font-weight: 500; margin-bottom: 0.5rem; color: var(--th-heading); }
+.process-step__title { font-size: 1rem; font-weight: 400; margin-bottom: 0.5rem; color: var(--th-heading); }
 .process-step__text { font-size: 0.875rem; color: var(--th-text-muted); }
 
 /* ─── TEAM ─── */
@@ -802,7 +802,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   background: var(--grad-primary);
 }
 .team-card__body { padding: 1.5rem; }
-.team-card__name { font-size: 1.1rem; font-weight: 500; margin-bottom: 0.25rem; color: var(--th-heading); }
+.team-card__name { font-size: 1.1rem; font-weight: 400; margin-bottom: 0.25rem; color: var(--th-heading); }
 .team-card__role { font-size: 0.825rem; color: var(--cyan); text-transform: uppercase; letter-spacing: 0.08em; }
 .team-card__social { display: flex; justify-content: center; gap: 0.5rem; margin-top: 1rem; }
 .team-social-btn {
@@ -827,7 +827,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   background: var(--grad-primary); border: 3px solid var(--th-timeline-dot-border); box-shadow: 0 0 0 3px var(--blue);
 }
 .timeline-year { font-size: 0.8rem; font-weight: 700; color: var(--cyan); letter-spacing: 0.1em; margin-bottom: 0.4rem; }
-.timeline-title { font-size: 1.1rem; font-weight: 500; color: var(--th-heading); margin-bottom: 0.35rem; }
+.timeline-title { font-size: 1.1rem; font-weight: 400; color: var(--th-heading); margin-bottom: 0.35rem; }
 .timeline-text { font-size: 0.9rem; color: var(--th-text-muted); }
 
 /* ─── CTA BANNER ─── */
@@ -859,7 +859,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   font-size: 1.4rem; flex-shrink: 0; transition: var(--t-fast);
 }
 .feature-item:hover .feature-icon { background: var(--blue); color: var(--white); }
-.feature-title { font-size: 1rem; font-weight: 500; color: var(--th-heading); margin-bottom: 0.35rem; }
+.feature-title { font-size: 1rem; font-weight: 400; color: var(--th-heading); margin-bottom: 0.35rem; }
 .feature-text  { font-size: 0.875rem; color: var(--th-text-muted); line-height: 1.6; }
 
 /* ─── CONTACT ─── */
