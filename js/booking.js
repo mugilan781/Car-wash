@@ -81,7 +81,7 @@
           <div style="font-size:4rem;margin-bottom:1rem;color:#10B981;"><i class="fas fa-circle-check"></i></div>
           <h3 style="color:var(--white);margin-bottom:0.75rem;font-size:1.5rem;">Booking Confirmed!</h3>
           <p style="color:var(--gray-400);margin-bottom:1.5rem;">
-            Your appointment has been booked successfully. A confirmation email has been sent to your registered email address.
+            Your service has been booked successfully. A confirmation email has been sent to your registered email address.
           </p>
           <a href="index.html" class="btn btn-primary">← Back to Home</a>
         </div>`;
