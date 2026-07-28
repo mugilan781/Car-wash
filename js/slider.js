@@ -61,7 +61,7 @@
       this.slides.forEach((s, i) => s.classList.toggle('active', i === this.current));
       this.dots.forEach((d, i) => d.classList.toggle('active', i === this.current));
 
-      setTimeout(() => { this.isAnimating = false; }, 1200);
+      setTimeout(() => { this.isAnimating = false; }, 800);
     }
 
     navigate(dir) {

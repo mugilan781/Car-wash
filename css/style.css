@@ -450,7 +450,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 .hero__slide {
   position: absolute; inset: 0;
   background-size: cover; background-position: center; background-repeat: no-repeat;
-  opacity: 0; transition: opacity 1.2s ease;
+  opacity: 0; transition: opacity 0.8s ease;
 }
 .hero__slide.active { opacity: 1; }
 .hero__overlay {
