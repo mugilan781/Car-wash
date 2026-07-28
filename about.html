@@ -25,6 +25,149 @@
     .cert-badge { display:inline-flex; align-items:center; gap:0.75rem; background:var(--th-card); border:1px solid var(--th-border); border-radius:var(--r-md); padding:1rem 1.5rem; transition:var(--t-fast); }
     .cert-badge:hover { border-color:var(--cyan); }
     .cert-logo { width:48px; height:48px; background:var(--grad-primary); border-radius:var(--r-sm); display:flex; align-items:center; justify-content:center; font-size:1.5rem; flex-shrink:0; }
+    
+    /* About action collage */
+    .about-collage {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 1rem;
+      align-items: stretch;
+      width: 100%;
+    }
+    .about-collage__img {
+      width: 100%;
+      object-fit: cover;
+      border-radius: var(--r-xl);
+      border: 1px solid var(--th-border);
+      transition: var(--t-base);
+    }
+    .about-collage__img:hover {
+      transform: translateY(-4px);
+      border-color: var(--cyan);
+      box-shadow: var(--shadow-cyan);
+    }
+    .about-collage__img--tall {
+      height: 350px;
+    }
+    .about-collage__img--short {
+      height: 167px;
+    }
+    
+    /* Quality standards grid */
+    .standards-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+    
+    .standard-card {
+      background: var(--th-card);
+      border: 1px solid var(--th-border);
+      border-radius: var(--r-xl);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transition: var(--t-base);
+    }
+    
+    .standard-card:hover {
+      transform: translateY(-8px);
+      border-color: rgba(6, 182, 212, 0.4);
+      box-shadow: var(--shadow-blue);
+    }
+    
+    .standard-card__img-wrap {
+      position: relative;
+      width: 100%;
+      height: 220px;
+      overflow: hidden;
+    }
+    
+    .standard-card__img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: var(--t-base);
+    }
+    
+    .standard-card:hover .standard-card__img {
+      transform: scale(1.05);
+    }
+    
+    .standard-card__badge {
+      position: absolute;
+      top: 1rem;
+      left: 1rem;
+      background: rgba(15, 23, 42, 0.85);
+      backdrop-filter: blur(8px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      padding: 0.4rem 0.8rem;
+      border-radius: var(--r-md);
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: var(--cyan);
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+    
+    .standard-card__body {
+      padding: 2rem;
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+    }
+    
+    .standard-card__title {
+      font-size: 1.15rem;
+      font-weight: 500;
+      color: var(--th-heading);
+      margin-bottom: 0.75rem;
+    }
+    
+    .standard-card__text {
+      font-size: 0.875rem;
+      color: var(--th-text-muted);
+      line-height: 1.6;
+    }
+    
+    /* Light Theme overrides for standards */
+    [data-theme="light"] .standard-card {
+      background: #FFFFFF;
+      border-color: #E2E8F0;
+      box-shadow: 0 4px 12px rgba(15,23,42,0.03);
+    }
+    
+    [data-theme="light"] .standard-card:hover {
+      border-color: rgba(37, 99, 235, 0.3);
+      box-shadow: 0 12px 28px rgba(37,99,235,0.08);
+    }
+    
+    /* Responsive standards grid & collage */
+    @media (max-width: 992px) {
+      .standards-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+    
+    @media (max-width: 768px) {
+      .about-collage {
+        grid-template-columns: 1fr;
+      }
+      .about-collage__img--tall {
+        height: 250px;
+      }
+      .about-collage__img--short {
+        height: 200px;
+      }
+    }
+    
+    @media (max-width: 650px) {
+      .standards-grid {
+        grid-template-columns: 1fr;
+      }
+    }
   </style>
 </head>
 <body>
@@ -153,21 +296,50 @@
 <!-- SECTION 2: OUR STORY -->
 <section class="section section--dark" id="story">
   <div class="container">
-    <div class="split">
-      <div class="split__img reveal-left">
-        <img src="assets/images/facility.png" alt="GlossForge founding story" loading="lazy" />
-        <div class="split__img-badge"><div class="split__img-badge-num">2009</div><div class="split__img-badge-text">Founded</div></div>
+    <div class="split" style="align-items: center;">
+      <!-- Left side: Masonry image collage -->
+      <div class="about-collage reveal-left">
+        <img src="assets/images/facility.png" alt="State-of-the-art detailing studio" class="about-collage__img about-collage__img--tall" loading="lazy" />
+        <div style="display:flex;flex-direction:column;gap:1rem;">
+          <img src="assets/images/about-paint-correction.png" alt="Precision paint polishing" class="about-collage__img about-collage__img--short" loading="lazy" />
+          <img src="assets/images/about-mirror-finish.png" alt="High gloss detailing finish" class="about-collage__img about-collage__img--short" loading="lazy" />
+        </div>
       </div>
+      
+      <!-- Right side: Trust-focused story content -->
       <div class="reveal-right">
         <div class="section-eyebrow" style="justify-content:flex-start;">Our Origin</div>
         <h2 class="section-title" style="text-align:left;">Born From a <span>Passion</span> for Perfection</h2>
-        <p style="margin-bottom:1.25rem;">GlossForge Detail was founded in 2009 by Marcus Tyler, a car enthusiast who was frustrated by the lack of quality detailing options in Detroit. Starting with a single pressure washer and a set of hand polishers, Marcus worked out of a small garage, building a reputation one car at a time.</p>
-        <p style="margin-bottom:1.25rem;">Word spread quickly. By 2013, GlossForge moved to its first dedicated facility. By 2018, we expanded to our current 8,000 sq ft state-of-the-art studio with 8 full-service bays and a team of 25 certified technicians.</p>
-        <p style="margin-bottom:2rem;">Today, we're Detroit's most trusted name in premium auto detailing — but our obsession with quality has never changed. Every car that leaves our studio is a reflection of our commitment to excellence.</p>
-        <div style="display:flex;gap:2rem;flex-wrap:wrap;">
-          <div style="text-align:center;"><div style="font-size:2rem;font-weight:900;background:var(--grad-primary);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">15+</div><div style="font-size:0.875rem;color:var(--th-text-muted);">Years in Business</div></div>
-          <div style="text-align:center;"><div style="font-size:2rem;font-weight:900;background:var(--grad-primary);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">25+</div><div style="font-size:0.875rem;color:var(--th-text-muted);">Expert Technicians</div></div>
-          <div style="text-align:center;"><div style="font-size:2rem;font-weight:900;background:var(--grad-primary);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">12K+</div><div style="font-size:0.875rem;color:var(--th-text-muted);">Cars Detailed</div></div>
+        <p style="margin-bottom:1.5rem;font-size:0.95rem;color:var(--th-text-muted);line-height:1.7;">GlossForge was founded in Detroit with one obsession: to deliver detailing perfection. Over 15 years, we have grown from a local garage to a premier state-of-the-art facility by holding every vehicle to strict, ISO-aligned quality standards and certified procedures.</p>
+        
+        <div class="about-trust-list" style="display:flex;flex-direction:column;gap:1.25rem;margin-bottom:2rem;">
+          <div style="display:flex;gap:1rem;align-items:flex-start;">
+            <div style="color:var(--cyan);font-size:1.25rem;margin-top:0.15rem;"><i class="fas fa-certificate"></i></div>
+            <div>
+              <h4 style="color:var(--th-heading);font-weight:600;margin-bottom:0.25rem;font-size:0.95rem;">IDA-Certified Specialists</h4>
+              <p style="font-size:0.85rem;color:var(--th-text-muted);line-height:1.5;">Every detailing technician on our team holds certifications from the International Detailing Association, assuring expert handling.</p>
+            </div>
+          </div>
+          <div style="display:flex;gap:1rem;align-items:flex-start;">
+            <div style="color:var(--cyan);font-size:1.25rem;margin-top:0.15rem;"><i class="fas fa-flask"></i></div>
+            <div>
+              <h4 style="color:var(--th-heading);font-weight:600;margin-bottom:0.25rem;font-size:0.95rem;">Ultra-Premium Chemical Standards</h4>
+              <p style="font-size:0.85rem;color:var(--th-text-muted);line-height:1.5;">We exclusively apply certified ceramic coatings, pH-neutral soaps, and safe non-abrasive clay systems to protect clear coats.</p>
+            </div>
+          </div>
+          <div style="display:flex;gap:1rem;align-items:flex-start;">
+            <div style="color:var(--cyan);font-size:1.25rem;margin-top:0.15rem;"><i class="fas fa-clipboard-check"></i></div>
+            <div>
+              <h4 style="color:var(--th-heading);font-weight:600;margin-bottom:0.25rem;font-size:0.95rem;">Strict Quality Checklist Review</h4>
+              <p style="font-size:0.85rem;color:var(--th-text-muted);line-height:1.5;">No car is handed back without passing a comprehensive quality review under high-intensity color-matching lights.</p>
+            </div>
+          </div>
+        </div>
+        
+        <div style="display:flex;gap:2rem;flex-wrap:wrap;border-top:1px solid var(--th-border);padding-top:1.5rem;">
+          <div><div style="font-size:1.75rem;font-weight:600;color:var(--cyan);">15+</div><div style="font-size:0.8rem;color:var(--th-text-muted);font-weight:600;">Years of Excellence</div></div>
+          <div><div style="font-size:1.75rem;font-weight:600;color:var(--cyan);">25+</div><div style="font-size:0.8rem;color:var(--th-text-muted);font-weight:600;">Certified Techs</div></div>
+          <div><div style="font-size:1.75rem;font-weight:600;color:var(--cyan);">12,500+</div><div style="font-size:0.8rem;color:var(--th-text-muted);font-weight:600;">Cars Restored</div></div>
         </div>
       </div>
     </div>
@@ -207,6 +379,56 @@
   </div>
 </section>
 
+<!-- SECTION: QUALITY STANDARDS -->
+<section class="section section--dark" id="standards">
+  <div class="container">
+    <div class="section-header reveal">
+      <div class="section-eyebrow">Our Standards</div>
+      <h2 class="section-title">Detailing <span>Without Compromise</span></h2>
+      <p class="section-subtitle">How we maintain the highest quality standards in the industry, vehicle after vehicle.</p>
+      <div class="divider"></div>
+    </div>
+    
+    <div class="standards-grid stagger-group">
+      <!-- Standard 1 -->
+      <article class="standard-card reveal">
+        <div class="standard-card__img-wrap">
+          <img src="assets/images/about-paint-correction.png" alt="Paint correction standards" class="standard-card__img" loading="lazy" />
+          <div class="standard-card__badge"><i class="fas fa-microscope"></i> Precision</div>
+        </div>
+        <div class="standard-card__body">
+          <h3 class="standard-card__title">Paint Depth Measurement</h3>
+          <p class="standard-card__text">We utilize electronic paint depth gauges before polishing to map clear coat thickness. This ensures we level imperfections safely without risking clear coat burn-through.</p>
+        </div>
+      </article>
+      
+      <!-- Standard 2 -->
+      <article class="standard-card reveal">
+        <div class="standard-card__img-wrap">
+          <img src="assets/images/about-ceramic-cleanroom.png" alt="Ceramic coating standards" class="standard-card__img" loading="lazy" />
+          <div class="standard-card__badge"><i class="fas fa-wind"></i> Cleanroom</div>
+        </div>
+        <div class="standard-card__body">
+          <h3 class="standard-card__title">Controlled Coating Rooms</h3>
+          <p class="standard-card__text">Our ceramic coatings are applied in specialized dust-free, climate-controlled cleanrooms. Controlled temperature and humidity ensure optimal bonding and curing times.</p>
+        </div>
+      </article>
+      
+      <!-- Standard 3 -->
+      <article class="standard-card reveal">
+        <div class="standard-card__img-wrap">
+          <img src="assets/images/about-interior-preservation.png" alt="Interior detailing standards" class="standard-card__img" loading="lazy" />
+          <div class="standard-card__badge"><i class="fas fa-shield"></i> Preservation</div>
+        </div>
+        <div class="standard-card__body">
+          <h3 class="standard-card__title">pH-Balanced Preservation</h3>
+          <p class="standard-card__text">We select pH-balanced, silicone-free conditioners and upholstery cleaners that restore the natural suppleness of leather and fabrics without leaving artificial greasy residues.</p>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
 <!-- SECTION 4: TEAM MEMBERS -->
 <section class="section section--dark" id="team">
   <div class="container">
@@ -235,14 +457,26 @@
     </div>
     <div style="max-width:700px;margin:0 auto;" class="reveal">
       <div class="timeline">
-        <div class="timeline-item"><div class="timeline-year">2009</div><div class="timeline-title">The Beginning</div><div class="timeline-text">Marcus Tyler starts GlossForge from a single-bay garage in Detroit with nothing but a pressure washer and a passion for cars.</div></div>
-        <div class="timeline-item"><div class="timeline-year">2011</div><div class="timeline-title">First 500 Clients</div><div class="timeline-text">Word-of-mouth growth reaches 500 happy clients. Hired first 3 technicians and expanded to weekends.</div></div>
-        <div class="timeline-item"><div class="timeline-year">2013</div><div class="timeline-title">First Dedicated Studio</div><div class="timeline-text">Moved to a 2,000 sq ft studio with 4 service bays. Launched ceramic coating packages.</div></div>
-        <div class="timeline-item"><div class="timeline-year">2015</div><div class="timeline-title">IDA Certification</div><div class="timeline-text">Entire team became IDA certified. Won Detroit's "Best Auto Detailing" award for the first time.</div></div>
-        <div class="timeline-item"><div class="timeline-year">2018</div><div class="timeline-title">Major Expansion</div><div class="timeline-text">Moved to current 8,000 sq ft flagship studio. Added mobile detailing fleet (6 vans).</div></div>
-        <div class="timeline-item"><div class="timeline-year">2021</div><div class="timeline-title">10,000 Cars Milestone</div><div class="timeline-text">Celebrated detailing our 10,000th vehicle — a 1967 Shelby GT500. Launched online booking system.</div></div>
-        <div class="timeline-item"><div class="timeline-year">2024</div><div class="timeline-title">National Recognition</div><div class="timeline-text">Featured in Auto Detailing World magazine. Won Best Detailing Studio — Midwest for 3rd consecutive year.</div></div>
-        <div class="timeline-item"><div class="timeline-year">2026</div><div class="timeline-title">12,500+ Cars & Growing</div><div class="timeline-text">Planning first franchise location. 25 technicians, 9 bays, and a commitment to excellence that never fades.</div></div>
+        <div class="timeline-item">
+          <div class="timeline-year">2009</div>
+          <div class="timeline-title">Founded in Detroit</div>
+          <div class="timeline-text">Marcus Tyler launches GlossForge from a single-bay garage, specializing in paint correction.</div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-year">2015</div>
+          <div class="timeline-title">IDA Certified Firm</div>
+          <div class="timeline-text">The entire team achieved IDA certification and won Detroit's "Best Auto Detailing" award.</div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-year">2018</div>
+          <div class="timeline-title">Flagship Studio Opening</div>
+          <div class="timeline-text">Expanded to our current 8,000 sq ft high-tech studio and launched our mobile fleet.</div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-year">2026</div>
+          <div class="timeline-title">12,500+ Cars Detailed</div>
+          <div class="timeline-text">Emerged as Detroit's premier choice with a verified 4.9★ rating on over 1,200 client reviews.</div>
+        </div>
       </div>
     </div>
   </div>
