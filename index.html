@@ -78,6 +78,207 @@
         max-width: 100%;
       }
     }
+
+    /* ─── Modern Stats Redesign ─── */
+    .modern-stats-wrapper {
+      display: grid;
+      grid-template-columns: 1.1fr 1.4fr;
+      gap: 2.5rem;
+      align-items: stretch;
+      width: 100%;
+      position: relative;
+    }
+    
+    .stats-hero-card {
+      position: relative;
+      background: linear-gradient(135deg, rgba(26, 26, 30, 0.95) 0%, rgba(18, 18, 20, 0.98) 100%);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: var(--r-xl);
+      padding: 3rem 2.5rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      overflow: hidden;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+      transition: var(--t-base);
+    }
+    .stats-hero-card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(37,99,235,0.4);
+      box-shadow: var(--shadow-blue);
+    }
+    
+
+    .stats-hero-badge {
+      align-self: flex-start;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.35rem 0.9rem;
+      background: rgba(37, 99, 235, 0.12);
+      border: 1px solid rgba(37, 99, 235, 0.25);
+      color: var(--cyan);
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      border-radius: var(--r-full);
+      margin-bottom: 2rem;
+    }
+    
+    .stats-hero-icon {
+      font-size: 2.5rem;
+      color: var(--cyan);
+      margin-bottom: 1.5rem;
+    }
+    
+    .stats-hero-number {
+      font-size: clamp(2.5rem, 5vw, 4rem);
+      font-weight: 500;
+      line-height: 1.1;
+      margin-bottom: 0.5rem;
+      background: var(--grad-primary);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      display: inline-block;
+    }
+    
+    .stats-hero-label {
+      font-size: 1.25rem;
+      font-weight: 500;
+      color: var(--th-heading);
+      margin-bottom: 1rem;
+    }
+    
+    .stats-hero-desc {
+      font-size: 0.925rem;
+      color: var(--th-text-muted);
+      line-height: 1.6;
+      margin-bottom: 2rem;
+      max-width: 90%;
+    }
+    
+    .stats-hero-link {
+      font-size: 0.9rem;
+      font-weight: 700;
+      color: var(--cyan);
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      transition: var(--t-fast);
+    }
+    .stats-hero-link:hover {
+      color: var(--white);
+      transform: translateX(4px);
+    }
+    
+    .stats-grid-container {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+    }
+    
+    .stats-grid-card {
+      position: relative;
+      background: var(--th-card);
+      border: 1px solid var(--th-border);
+      border-radius: var(--r-lg);
+      padding: 2.25rem 1.75rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: flex-start;
+      overflow: hidden;
+      transition: var(--t-base);
+    }
+    
+    .stats-grid-card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(37,99,235,0.4);
+      box-shadow: var(--shadow-blue);
+    }
+    
+
+    .stats-card-icon {
+      font-size: 1.75rem;
+      margin-bottom: 1.25rem;
+    }
+    
+    .stats-card-number {
+      font-size: clamp(2rem, 3.5vw, 2.5rem);
+      font-weight: 500;
+      color: var(--white);
+      line-height: 1.1;
+      margin-bottom: 0.35rem;
+    }
+    
+    .stats-card-label {
+      font-size: 0.85rem;
+      color: var(--th-text-muted);
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    
+    .text-blue { color: #3B82F6; }
+    .text-cyan { color: #22D3EE; }
+    .text-purple { color: #A78BFA; }
+    .text-emerald { color: #34D399; }
+    
+    /* Light Theme overrides for stats */
+    [data-theme="light"] .stats-hero-card {
+      background: linear-gradient(135deg, #F8FAFC 0%, #F1F5F9 100%);
+      border-color: #E2E8F0;
+      box-shadow: 0 10px 30px rgba(15,23,42,0.05);
+    }
+    [data-theme="light"] .stats-hero-card:hover {
+      box-shadow: 0 15px 35px rgba(37,99,235,0.08);
+      border-color: rgba(37,99,235,0.3);
+    }
+    [data-theme="light"] .stats-hero-label {
+      color: #0F172A;
+    }
+    [data-theme="light"] .stats-hero-desc {
+      color: #475569;
+    }
+    
+    [data-theme="light"] .stats-grid-card {
+      background: #FFFFFF;
+      border-color: #E2E8F0;
+      box-shadow: 0 4px 12px rgba(15,23,42,0.03);
+    }
+    [data-theme="light"] .stats-grid-card:hover {
+      box-shadow: 0 12px 28px rgba(37,99,235,0.08);
+      border-color: rgba(37,99,235,0.3);
+    }
+    [data-theme="light"] .stats-card-number {
+      color: #0F172A;
+    }
+    [data-theme="light"] .stats-card-label {
+      color: #475569;
+    }
+    
+    /* Responsive overrides */
+    @media (max-width: 900px) {
+      .modern-stats-wrapper {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+      }
+      .stats-hero-card {
+        padding: 2.5rem 2rem;
+      }
+    }
+    @media (max-width: 480px) {
+      .stats-grid-container {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+      }
+      .stats-grid-card {
+        padding: 2rem 1.5rem;
+      }
+    }
   </style>
 </head>
 <body>
@@ -260,32 +461,44 @@
     <div class="section-header reveal">
       <div class="section-eyebrow">Our Numbers</div>
       <h2 class="section-title">Results That Speak <span>For Themselves</span></h2>
+      <p class="section-subtitle">A track record of premium care, detailing milestones, and customer satisfaction built over years of excellence.</p>
     </div>
-    <div class="stats-grid stagger-group">
-      <div class="stat-card">
-        <div class="stat-icon"><i class="fas fa-car"></i></div>
-        <div class="stat-number" data-counter data-target="12500" data-suffix="+">0</div>
-        <div class="stat-label">Cars Detailed</div>
+    <div class="modern-stats-wrapper stagger-group">
+      <!-- Left side: Hero milestone card -->
+      <div class="stats-hero-card reveal">
+
+        <div class="stats-hero-content">
+          <div class="stats-hero-badge"><i class="fas fa-crown"></i> Our Milestone</div>
+          <div class="stats-hero-icon"><i class="fas fa-car"></i></div>
+          <div class="stats-hero-number" data-counter data-target="12500" data-suffix="+">0</div>
+          <div class="stats-hero-label">Cars Detailed with Precision</div>
+          <p class="stats-hero-desc">Every vehicle we service receives the highest standard of luxury care and detailing excellence, from daily drivers to exotic supercars.</p>
+          <a href="services.html" class="stats-hero-link">Explore Services &rarr;</a>
+        </div>
       </div>
-      <div class="stat-card">
-        <div class="stat-icon"><i class="fas fa-smile"></i></div>
-        <div class="stat-number" data-counter data-target="9800" data-suffix="+">0</div>
-        <div class="stat-label">Happy Clients</div>
-      </div>
-      <div class="stat-card">
-        <div class="stat-icon"><i class="fas fa-trophy"></i></div>
-        <div class="stat-number" data-counter data-target="15" data-suffix="+">0</div>
-        <div class="stat-label">Years Experience</div>
-      </div>
-      <div class="stat-card">
-        <div class="stat-icon"><i class="fas fa-user-gear"></i></div>
-        <div class="stat-number" data-counter data-target="25" data-suffix="+">0</div>
-        <div class="stat-label">Expert Technicians</div>
-      </div>
-      <div class="stat-card">
-        <div class="stat-icon"><i class="fas fa-gem"></i></div>
-        <div class="stat-number" data-counter data-target="100">0</div>
-        <div class="stat-label">% Satisfaction Rate</div>
+      
+      <!-- Right side: Grid cards -->
+      <div class="stats-grid-container reveal">
+        <div class="stats-grid-card">
+          <div class="stats-card-icon text-blue"><i class="fas fa-smile"></i></div>
+          <div class="stats-card-number" data-counter data-target="9800" data-suffix="+">0</div>
+          <div class="stats-card-label">Happy Clients</div>
+        </div>
+        <div class="stats-grid-card">
+          <div class="stats-card-icon text-cyan"><i class="fas fa-trophy"></i></div>
+          <div class="stats-card-number" data-counter data-target="15" data-suffix="+">0</div>
+          <div class="stats-card-label">Years Experience</div>
+        </div>
+        <div class="stats-grid-card">
+          <div class="stats-card-icon text-purple"><i class="fas fa-user-gear"></i></div>
+          <div class="stats-card-number" data-counter data-target="25" data-suffix="+">0</div>
+          <div class="stats-card-label">Expert Technicians</div>
+        </div>
+        <div class="stats-grid-card">
+          <div class="stats-card-icon text-emerald"><i class="fas fa-gem"></i></div>
+          <div class="stats-card-number" data-counter data-target="100">0</div>
+          <div class="stats-card-label">% Satisfaction Rate</div>
+        </div>
       </div>
     </div>
   </div>
