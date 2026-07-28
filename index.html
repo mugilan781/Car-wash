@@ -282,6 +282,250 @@
         padding: 2rem 1.5rem;
       }
     }
+
+    /* ─── Premium Process Flow Redesign ─── */
+    .process-flow-container {
+      display: flex;
+      align-items: stretch;
+      justify-content: space-between;
+      gap: 1rem;
+      width: 100%;
+      margin-top: 3rem;
+    }
+    
+    .process-flow-card {
+      flex: 1;
+      background: linear-gradient(180deg, rgba(30, 30, 35, 0.6) 0%, rgba(18, 18, 20, 0.9) 100%);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: var(--r-xl);
+      padding: 2.25rem 1.75rem;
+      transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+      display: flex;
+      flex-direction: column;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    }
+    
+    .process-flow-card:hover {
+      transform: translateY(-8px);
+      border-color: var(--cyan);
+      box-shadow: var(--shadow-cyan);
+      background: linear-gradient(180deg, rgba(6, 182, 212, 0.08) 0%, rgba(18, 18, 20, 0.98) 100%);
+    }
+    
+    .process-flow-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
+      margin-bottom: 2rem;
+    }
+    
+    .process-flow-step {
+      font-size: 0.8rem;
+      font-weight: 800;
+      color: var(--cyan);
+      background: rgba(6, 182, 212, 0.1);
+      border: 1px solid rgba(6, 182, 212, 0.2);
+      padding: 0.25rem 0.75rem;
+      border-radius: var(--r-full);
+      letter-spacing: 0.05em;
+    }
+    
+    .process-flow-icon {
+      font-size: 1.75rem;
+      color: var(--th-heading);
+      transition: all 0.3s ease;
+    }
+    
+    .process-flow-card:hover .process-flow-icon {
+      color: var(--cyan);
+      transform: scale(1.15);
+    }
+    
+    .process-flow-title {
+      font-size: 1.2rem;
+      font-weight: 500;
+      color: var(--th-heading);
+      margin-bottom: 0.5rem;
+      text-align: left;
+      min-height: 3.4rem;
+      display: flex;
+      align-items: flex-start;
+    }
+    
+    .process-flow-body {
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+    }
+    
+    .process-flow-text {
+      font-size: 0.875rem;
+      color: var(--th-text-muted);
+      line-height: 1.6;
+      text-align: left;
+      margin-top: 0.25rem;
+      flex-grow: 1;
+      min-height: 4.5rem;
+    }
+    
+    .process-flow-arrow {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: rgba(6, 182, 212, 0.4);
+      animation: pulseArrow 2s infinite;
+      flex-shrink: 0;
+      align-self: center;
+    }
+    
+    @keyframes pulseArrow {
+      0%, 100% { transform: translateX(0); opacity: 0.4; }
+      50% { transform: translateX(4px); opacity: 0.8; }
+    }
+    
+    /* Why Choose Us Pillars Styles ─── */
+    .why-pillars-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.5rem;
+      width: 100%;
+      margin-top: 2rem;
+    }
+    
+    .pillar-card {
+      background: var(--th-card);
+      border: 1px solid var(--th-border);
+      border-radius: var(--r-xl);
+      padding: 2.5rem 2rem;
+      transition: var(--t-base);
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .pillar-card:hover {
+      transform: translateY(-6px);
+      border-color: rgba(37,99,235,0.4);
+      box-shadow: var(--shadow-blue);
+    }
+    
+    .pillar-card__icon {
+      font-size: 2.25rem;
+      color: var(--blue);
+      margin-bottom: 1.5rem;
+      transition: var(--t-base);
+    }
+    .pillar-card:hover .pillar-card__icon {
+      color: var(--cyan);
+      transform: scale(1.1);
+    }
+    
+    .pillar-card__title {
+      font-size: 1.25rem;
+      font-weight: 500;
+      color: var(--th-heading);
+      margin-bottom: 1rem;
+    }
+    
+    .pillar-card__text {
+      font-size: 0.9rem;
+      color: var(--th-text-muted);
+      line-height: 1.6;
+      margin-bottom: 1.5rem;
+      flex-grow: 1;
+    }
+    
+    .pillar-card__list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+      border-top: 1px solid var(--th-border);
+      padding-top: 1.25rem;
+    }
+    
+    .pillar-card__list li {
+      font-size: 0.85rem;
+      color: var(--th-heading);
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      font-weight: 600;
+    }
+    
+    .pillar-card__list li i {
+      color: var(--cyan);
+      font-size: 0.85rem;
+    }
+    
+    /* Light Theme overrides for new sections */
+    [data-theme="light"] .process-flow-card {
+      background: #FFFFFF;
+      border-color: #E2E8F0;
+      box-shadow: 0 4px 12px rgba(15,23,42,0.03);
+    }
+    [data-theme="light"] .process-flow-card:hover {
+      background: #FFFFFF;
+      border-color: var(--cyan);
+      box-shadow: 0 12px 28px rgba(6,182,212,0.12);
+    }
+    [data-theme="light"] .process-flow-arrow {
+      color: rgba(37, 99, 235, 0.4);
+    }
+    [data-theme="light"] .pillar-card {
+      background: #FFFFFF;
+      border-color: #E2E8F0;
+      box-shadow: 0 4px 12px rgba(15,23,42,0.03);
+    }
+    [data-theme="light"] .pillar-card:hover {
+      box-shadow: 0 12px 28px rgba(37,99,235,0.08);
+      border-color: rgba(37,99,235,0.3);
+    }
+    [data-theme="light"] .pillar-card__list {
+      border-color: #F1F5F9;
+    }
+    
+    /* Responsive overrides */
+    @media (max-width: 1024px) {
+      .process-flow-container {
+        flex-direction: column;
+        gap: 1.5rem;
+      }
+      .process-flow-arrow {
+        transform: rotate(90deg);
+        margin: 0.5rem 0;
+        animation: pulseArrowVertical 2s infinite;
+      }
+      .process-flow-card {
+        width: 100%;
+        min-height: auto;
+      }
+      .process-flow-title,
+      .process-flow-text {
+        min-height: auto;
+      }
+      .why-pillars-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+    @media (max-width: 600px) {
+      .why-pillars-grid {
+        grid-template-columns: 1fr;
+      }
+      .process-flow-card,
+      .pillar-card {
+        padding: 2rem 1.5rem;
+      }
+    }
+    
+    @keyframes pulseArrowVertical {
+      0%, 100% { transform: translateY(0) rotate(90deg); opacity: 0.4; }
+      50% { transform: translateY(4px) rotate(90deg); opacity: 0.8; }
+    }
   </style>
 </head>
 <body>
@@ -572,6 +816,89 @@
   </div>
 </section>
 
+<!-- ══════════════════════════════════════ SECTION: OUR WORK PROCESS ══════════════════════════════════════ -->
+<section class="section section--dark" id="work-process">
+  <div class="container">
+    <div class="section-header reveal">
+      <div class="section-eyebrow">Work Flow</div>
+      <h2 class="section-title">Our Detailing <span>Process</span></h2>
+      <p class="section-subtitle">How we transform your vehicle from ordinary to showroom standard, step by step.</p>
+      <div class="divider"></div>
+    </div>
+    
+    <div class="process-flow-container stagger-group">
+      <!-- Step 1 -->
+      <div class="process-flow-card reveal">
+        <div class="process-flow-header">
+          <span class="process-flow-step">01</span>
+          <div class="process-flow-icon"><i class="fas fa-calendar-check"></i></div>
+        </div>
+        <div class="process-flow-body">
+          <h3 class="process-flow-title">Book Service</h3>
+          <p class="process-flow-text">Schedule online in under 2 minutes. Pick your preferred luxury package and timing.</p>
+        </div>
+      </div>
+      
+      <!-- Connector 1 -->
+      <div class="process-flow-arrow reveal">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M5 12H19M19 12L13 6M19 12L13 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </div>
+      
+      <!-- Step 2 -->
+      <div class="process-flow-card reveal">
+        <div class="process-flow-header">
+          <span class="process-flow-step">02</span>
+          <div class="process-flow-icon"><i class="fas fa-magnifying-glass"></i></div>
+        </div>
+        <div class="process-flow-body">
+          <h3 class="process-flow-title">Inspection & Consultation</h3>
+          <p class="process-flow-text">We analyze paint depth and surface condition to tailor the detailing process.</p>
+        </div>
+      </div>
+      
+      <!-- Connector 2 -->
+      <div class="process-flow-arrow reveal">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M5 12H19M19 12L13 6M19 12L13 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </div>
+      
+      <!-- Step 3 -->
+      <div class="process-flow-card reveal">
+        <div class="process-flow-header">
+          <span class="process-flow-step">03</span>
+          <div class="process-flow-icon"><i class="fas fa-spray-can-sparkles"></i></div>
+        </div>
+        <div class="process-flow-body">
+          <h3 class="process-flow-title">Precision Detailing</h3>
+          <p class="process-flow-text">Our IDA-certified specialists apply multi-stage corrections and advanced ceramic coatings.</p>
+        </div>
+      </div>
+      
+      <!-- Connector 3 -->
+      <div class="process-flow-arrow reveal">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M5 12H19M19 12L13 6M19 12L13 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </div>
+      
+      <!-- Step 4 -->
+      <div class="process-flow-card reveal">
+        <div class="process-flow-header">
+          <span class="process-flow-step">04</span>
+          <div class="process-flow-icon"><i class="fas fa-car-burst"></i></div>
+        </div>
+        <div class="process-flow-body">
+          <h3 class="process-flow-title">Quality Handover</h3>
+          <p class="process-flow-text">Every car undergoes a strict checklist review under special lighting before client hand-back.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- ══════════════════════════════════════ SECTION 4: WHY CHOOSE US ══════════════════════════════════════ -->
 <section class="section section--blue" id="why-us">
   <div class="bg-glow bg-glow--cyan" style="width:500px;height:500px;left:-150px;bottom:-150px;"></div>
@@ -579,65 +906,57 @@
     <div class="section-header reveal">
       <div class="section-eyebrow">Why GlossForge</div>
       <h2 class="section-title">The <span>GlossForge</span> Difference</h2>
-      <p class="section-subtitle">We combine cutting-edge products with expert technique for results that last.</p>
+      <p class="section-subtitle">We combine cutting-edge technology, certified craftsmanship, and customer convenience to redefine luxury auto detailing.</p>
       <div class="divider"></div>
     </div>
-    <div class="features-grid stagger-group">
-      <div class="feature-item">
-        <div class="feature-icon"><i class="fas fa-microscope"></i></div>
-        <div>
-          <div class="feature-title">Nano Ceramic Technology</div>
-          <p class="feature-text">Industry-leading ceramic coatings that create an invisible shield against environmental damage.</p>
-        </div>
+    
+    <div class="why-pillars-grid stagger-group">
+      <!-- Pillar 1: Quality -->
+      <div class="pillar-card reveal">
+        <div class="pillar-card__icon"><i class="fas fa-crown"></i></div>
+        <h3 class="pillar-card__title">Uncompromised Quality</h3>
+        <p class="pillar-card__text">We use state-of-the-art nano ceramic technology, premium-grade polishes, and eco-friendly solutions to provide an unmatched gloss and long-lasting paint protection shield.</p>
+        <ul class="pillar-card__list">
+          <li><i class="fas fa-check"></i> Nano Ceramic Shield</li>
+          <li><i class="fas fa-check"></i> Eco-Friendly Solutions</li>
+          <li><i class="fas fa-check"></i> Premium Grade Products</li>
+        </ul>
       </div>
-      <div class="feature-item">
-        <div class="feature-icon"><i class="fas fa-user-tie"></i></div>
-        <div>
-          <div class="feature-title">IDA Certified Experts</div>
-          <p class="feature-text">All our detailers are certified by the International Detailing Association with 5+ years experience.</p>
-        </div>
+      
+      <!-- Pillar 2: Care -->
+      <div class="pillar-card reveal">
+        <div class="pillar-card__icon"><i class="fas fa-heart"></i></div>
+        <h3 class="pillar-card__title">Attentive Care</h3>
+        <p class="pillar-card__text">Your vehicle is treated with absolute care and respect. We execute paint decontamination, paint correction, and interior cleaning with microscopic attention to detail.</p>
+        <ul class="pillar-card__list">
+          <li><i class="fas fa-check"></i> Paint Protection Focus</li>
+          <li><i class="fas fa-check"></i> Microscopic Detailing</li>
+          <li><i class="fas fa-check"></i> Satisfaction Guarantee</li>
+        </ul>
       </div>
-      <div class="feature-item">
-        <div class="feature-icon"><i class="fas fa-leaf"></i></div>
-        <div>
-          <div class="feature-title">Eco-Friendly Products</div>
-          <p class="feature-text">We use waterless and biodegradable solutions that protect both your car and the environment.</p>
-        </div>
+      
+      <!-- Pillar 3: Expertise -->
+      <div class="pillar-card reveal">
+        <div class="pillar-card__icon"><i class="fas fa-user-shield"></i></div>
+        <h3 class="pillar-card__title">Industry Expertise</h3>
+        <p class="pillar-card__text">All our detailing specialists are certified by the International Detailing Association (IDA) with over 5+ years of hands-on experience on exotics and luxury vehicles.</p>
+        <ul class="pillar-card__list">
+          <li><i class="fas fa-check"></i> IDA Certified Experts</li>
+          <li><i class="fas fa-check"></i> Exotic Vehicle Experts</li>
+          <li><i class="fas fa-check"></i> Multi-stage Paint Correction</li>
+        </ul>
       </div>
-      <div class="feature-item">
-        <div class="feature-icon"><i class="fas fa-clock"></i></div>
-        <div>
-          <div class="feature-title">On-Time Delivery</div>
-          <p class="feature-text">We respect your schedule. Every job is completed on time with zero compromises on quality.</p>
-        </div>
-      </div>
-      <div class="feature-item">
-        <div class="feature-icon"><i class="fas fa-shield-alt"></i></div>
-        <div>
-          <div class="feature-title">Satisfaction Guarantee</div>
-          <p class="feature-text">Not happy? We'll redo any service at no charge. Your satisfaction is our only metric.</p>
-        </div>
-      </div>
-      <div class="feature-item">
-        <div class="feature-icon"><i class="fas fa-mobile-alt"></i></div>
-        <div>
-          <div class="feature-title">Mobile Detailing</div>
-          <p class="feature-text">We come to you! Our mobile team handles everything at your home or office.</p>
-        </div>
-      </div>
-      <div class="feature-item">
-        <div class="feature-icon"><i class="fas fa-camera"></i></div>
-        <div>
-          <div class="feature-title">Before & After Photos</div>
-          <p class="feature-text">We document every transformation so you can see the dramatic difference we make.</p>
-        </div>
-      </div>
-      <div class="feature-item">
-        <div class="feature-icon"><i class="fas fa-credit-card"></i></div>
-        <div>
-          <div class="feature-title">Easy Payment Options</div>
-          <p class="feature-text">Pay online, in-store, or via EMI plans. Multiple cards, wallets, and UPI accepted.</p>
-        </div>
+      
+      <!-- Pillar 4: Customer Benefits -->
+      <div class="pillar-card reveal">
+        <div class="pillar-card__icon"><i class="fas fa-smile-beam"></i></div>
+        <h3 class="pillar-card__title">Customer Benefits</h3>
+        <p class="pillar-card__text">We respect your schedule and convenience. Enjoy mobile detailing options directly at your home/office, on-time delivery guarantees, and easy payment methods.</p>
+        <ul class="pillar-card__list">
+          <li><i class="fas fa-check"></i> Mobile Detailing Options</li>
+          <li><i class="fas fa-check"></i> On-Time Handback</li>
+          <li><i class="fas fa-check"></i> Easy Payment Gateways</li>
+        </ul>
       </div>
     </div>
   </div>
