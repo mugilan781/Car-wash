@@ -20,23 +20,248 @@
   <script src="js/rtl.js"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
   <style>
-    .gallery-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(300px,1fr)); gap:1rem; }
-    .gallery-item { aspect-ratio:4/3; }
-    /* Masonry effect with varying spans */
-    .gallery-item.tall { grid-row:span 2; aspect-ratio:auto; min-height:400px; }
-    .gallery-item.wide { grid-column:span 2; aspect-ratio:16/9; }
-    @media(max-width:768px){ .gallery-item.tall,.gallery-item.wide { grid-column:1; grid-row:1; } }
+    /* Masonry Column Layout to resolve uneven vertical gaps and empty spaces */
+    .gallery-grid {
+      display: block !important;
+      column-count: 3;
+      column-gap: 1.5rem;
+      width: 100%;
+    }
+    .gallery-item {
+      display: inline-block !important;
+      width: 100% !important;
+      margin-bottom: 1.5rem !important;
+      aspect-ratio: auto !important;
+      break-inside: avoid !important;
+      position: relative;
+      border-radius: var(--r-lg);
+      overflow: hidden;
+    }
+    .gallery-item.tall {
+      min-height: auto !important;
+    }
+    .gallery-item.hidden {
+      display: none !important;
+    }
+    .gallery-item img {
+      width: 100% !important;
+      height: auto !important;
+      object-fit: cover !important;
+      display: block !important;
+    }
+    @media (max-width: 900px) {
+      .gallery-grid {
+        column-count: 2 !important;
+        column-gap: 1.25rem !important;
+      }
+      .gallery-item {
+        margin-bottom: 1.25rem !important;
+      }
+    }
+    @media (max-width: 600px) {
+      .gallery-grid {
+        column-count: 1 !important;
+        column-gap: 0 !important;
+      }
+    }
+
     .video-card { background:var(--th-card); border:1px solid var(--th-border); border-radius:var(--r-lg); overflow:hidden; cursor:pointer; transition:var(--t-base); position:relative; }
     .video-card:hover { border-color:var(--blue); transform:translateY(-4px); box-shadow:var(--shadow-blue); }
     .video-thumb { width:100%; height:220px; background:var(--grad-primary); display:flex; align-items:center; justify-content:center; font-size:4rem; position:relative; }
-    .video-play-btn { position:absolute; width:60px; height:60px; border-radius:50%; background:rgba(255,255,255,0.15); backdrop-filter:blur(8px); border:2px solid rgba(255,255,255,0.4); display:flex; align-items:center; justify-content:center; font-size:1.5rem; transition:var(--t-fast); cursor:pointer; }
+    .video-play-btn { position:absolute; width:60px; height:60px; border-radius:50%; background:rgba(255,255,255,0.15); backdrop-filter:blur(8px); border:2px solid rgba(255,255,255,0.4); display:flex; align-items:center; justify-content:center; font-size:1.5rem; transition:var(--t-fast); cursor:pointer; z-index: 2; }
     .video-play-btn:hover { background:var(--blue); border-color:var(--blue); transform:scale(1.1); }
     .video-card__body { padding:1.25rem; }
-    .video-card__title { font-weight:700; color:var(--th-heading); margin-bottom:0.25rem; }
-    .video-card__sub { font-size:0.825rem; color:var(--cyan); }
+    .video-card__title {
+      font-weight: 700;
+      color: var(--th-heading) !important;
+      margin-bottom: 0.25rem;
+    }
+    [data-theme="light"] .video-card__title {
+      color: #0F172A !important;
+    }
+    
+    /* Contrast issue in light theme for video subtext */
+    .video-card__sub {
+      font-size:0.825rem;
+      color:var(--cyan) !important;
+      font-weight:600 !important;
+    }
+    [data-theme="light"] .video-card__sub {
+      color:var(--blue) !important;
+    }
+
+    /* Prominent video duration badge */
+    .video-duration-badge {
+      position: absolute;
+      bottom: 0.75rem;
+      right: 0.75rem;
+      background: rgba(15, 23, 42, 0.85) !important;
+      color: #FFFFFF !important;
+      font-size: 0.72rem !important;
+      font-weight: 700 !important;
+      padding: 0.3rem 0.6rem !important;
+      border-radius: var(--r-sm) !important;
+      border: 1px solid rgba(255, 255, 255, 0.15) !important;
+      letter-spacing: 0.05em !important;
+      z-index: 3 !important;
+      display: flex;
+      align-items: center;
+      gap: 0.25rem;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3) !important;
+    }
+
     .stats-strip { display:grid; grid-template-columns:repeat(4,1fr); gap:1.5rem; }
     @media(max-width:600px){ .stats-strip { grid-template-columns:1fr 1fr; } }
-    .stat-strip-item { text-align:center; padding:1.75rem; background:var(--th-card); border:1px solid var(--th-border); border-radius:var(--r-lg); }
+    
+    /* Numbers Don't Lie Section Styling Updates */
+    .stat-strip-item {
+      text-align:center;
+      padding:2.25rem 2rem !important;
+      background:var(--th-card);
+      border:1px solid var(--th-border);
+      border-radius:var(--r-lg);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+      transition: var(--t-base);
+    }
+    .stat-strip-item:hover {
+      transform: translateY(-6px);
+      border-color: var(--blue);
+      box-shadow: var(--shadow-blue);
+    }
+    .stat-icon {
+      width: 70px !important;
+      height: 70px !important;
+      font-size: 2rem !important; /* larger, visually balanced icon */
+      background: rgba(37, 99, 235, 0.08) !important;
+      color: var(--blue) !important;
+      border: 1.5px solid rgba(37, 99, 235, 0.2) !important;
+      border-radius: 50% !important;
+      display: flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      margin-bottom: 1.25rem !important;
+      transition: all 0.3s ease !important;
+      box-shadow: 0 4px 15px rgba(37, 99, 235, 0.1) !important;
+    }
+    [data-theme="dark"] .stat-icon {
+      background: rgba(6, 182, 212, 0.12) !important;
+      color: var(--cyan) !important;
+      border-color: rgba(6, 182, 212, 0.25) !important;
+      box-shadow: 0 4px 15px rgba(6, 182, 212, 0.15) !important;
+    }
+    .stat-strip-item:hover .stat-icon {
+      transform: scale(1.1) rotate(5deg) !important;
+      background: var(--blue) !important;
+      color: var(--white) !important;
+      border-color: transparent !important;
+      box-shadow: var(--shadow-blue) !important;
+    }
+    [data-theme="dark"] .stat-strip-item:hover .stat-icon {
+      background: var(--cyan) !important;
+      color: var(--black) !important;
+      box-shadow: var(--shadow-cyan) !important;
+    }
+
+    /* ─── Before/After Image Slider Improvements ─── */
+    .before-after-wrap {
+      border: 3px solid rgba(255, 255, 255, 0.08);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+      position: relative;
+    }
+    .before-after-handle {
+      width: 4px !important;
+      background: linear-gradient(to bottom, var(--cyan), var(--blue)) !important;
+      box-shadow: 0 0 10px rgba(6, 182, 212, 0.5) !important;
+    }
+    /* Custom premium drag indicator handle */
+    .before-after-handle::before {
+      content: '◀ ▶' !important;
+      font-size: 0.75rem !important;
+      color: var(--cyan) !important;
+      background: rgba(15, 23, 42, 0.9) !important;
+      border: 2.5px solid var(--cyan) !important;
+      width: 46px !important;
+      height: 46px !important;
+      border-radius: 50% !important;
+      position: absolute !important;
+      left: 50% !important;
+      top: 50% !important;
+      transform: translate(-50%, -50%) !important;
+      display: flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      box-shadow: 0 0 15px rgba(6, 182, 212, 0.4) !important;
+      backdrop-filter: blur(8px) !important;
+      cursor: col-resize !important;
+      z-index: 10 !important;
+      transition: all 0.3s ease !important;
+      animation: handlePulse 2.5s infinite !important;
+    }
+    /* Hide the second pseudo element */
+    .before-after-handle::after {
+      display: none !important;
+    }
+    .before-after-wrap:hover .before-after-handle::before {
+      background: var(--cyan) !important;
+      color: var(--black) !important;
+      border-color: var(--white) !important;
+      transform: translate(-50%, -50%) scale(1.1) !important;
+      box-shadow: 0 0 25px rgba(6, 182, 212, 0.6) !important;
+    }
+    @keyframes handlePulse {
+      0% { box-shadow: 0 0 0 0 rgba(6, 182, 212, 0.6); }
+      70% { box-shadow: 0 0 0 10px rgba(6, 182, 212, 0); }
+      100% { box-shadow: 0 0 0 0 rgba(6, 182, 212, 0); }
+    }
+    /* Floating drag instruction badge overlay */
+    .before-after-instruction {
+      position: absolute;
+      bottom: 1.5rem;
+      left: 50%;
+      transform: translateX(-50%);
+      background: rgba(15, 23, 42, 0.85);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      padding: 0.55rem 1.25rem;
+      border-radius: var(--r-full);
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: var(--white);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+      pointer-events: none; /* Allows pointer pass-through for dragging */
+      z-index: 5;
+      animation: bounceInstruction 2.5s infinite ease-in-out;
+      white-space: nowrap;
+    }
+    @keyframes bounceInstruction {
+      0%, 100% { transform: translate(-50%, 0); }
+      50% { transform: translate(-50%, -6px); }
+    }
+
+    /* Active Nav Link prominence & theme contrast overrides */
+    .navbar__link.active {
+      color: var(--cyan) !important;
+      font-weight: 700 !important;
+    }
+    .navbar__link.active::after {
+      width: 80% !important;
+      background: var(--cyan) !important;
+      height: 3px !important;
+    }
+    [data-theme="light"] .navbar__link.active {
+      color: var(--blue) !important;
+    }
+    [data-theme="light"] .navbar__link.active::after {
+      background: var(--blue) !important;
+    }
   </style>
 </head>
 <body>
@@ -50,7 +275,7 @@
       <li class="navbar__item"><a href="home2.html" class="navbar__link">Home 2</a></li>
       <li class="navbar__item"><a href="about.html" class="navbar__link">About</a></li>
       <li class="navbar__item"><a href="services.html" class="navbar__link">Services</a></li>
-      <li class="navbar__item"><a href="gallery.html" class="navbar__link">Gallery</a></li>
+      <li class="navbar__item"><a href="gallery.html" class="navbar__link active">Gallery</a></li>
       <li class="navbar__item"><a href="blog.html" class="navbar__link">Blog</a></li>
       <li class="navbar__item"><a href="contact.html" class="navbar__link">Contact</a></li>
     </ul>
@@ -114,7 +339,7 @@
   <a href="home2.html" class="navbar__link">Home 2</a>
   <a href="about.html" class="navbar__link">About</a>
   <a href="services.html" class="navbar__link">Services</a>
-  <a href="gallery.html" class="navbar__link">Gallery</a>
+  <a href="gallery.html" class="navbar__link active">Gallery</a>
   <a href="blog.html" class="navbar__link">Blog</a>
   <a href="contact.html" class="navbar__link">Contact</a>
   <div style="display:flex;gap:1rem;margin-top:1.5rem;align-items:center;">
@@ -227,6 +452,10 @@
         <img src="assets/images/gallery-interior-ba.png" alt="Interior restoration before and after" loading="lazy" />
         <div class="gallery-item__overlay"><div class="gallery-item__title"><i class="fas fa-couch" style="margin-right:0.4rem;"></i> Interior — Transformation</div></div>
       </div>
+      <div class="gallery-item" data-category="ceramic" data-lightbox="assets/images/gallery-final-touch.png" data-title="Exotic Paint Protection — Nano Coating Reflection">
+        <img src="assets/images/gallery-final-touch.png" alt="Detailing nano ceramic coating reflection" loading="lazy" />
+        <div class="gallery-item__overlay"><div class="gallery-item__title"><i class="fas fa-wand-magic-sparkles" style="margin-right:0.4rem;"></i> Ultimate Ceramic Gloss</div></div>
+      </div>
     </div>
   </div>
 </section>
@@ -246,11 +475,13 @@
         <div class="before-after-after">
           <img src="assets/images/before-after.png" alt="After professional detailing" />
         </div>
-        <div class="before-after-handle">
-          <div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:44px;height:44px;border-radius:50%;background:var(--white);display:flex;align-items:center;justify-content:center;font-size:1rem;box-shadow:0 4px 20px rgba(0,0,0,0.5);cursor:col-resize;color:var(--black);font-weight:900;">⇔</div>
-        </div>
+        <div class="before-after-handle"></div>
         <span class="ba-label ba-label-before">BEFORE</span>
         <span class="ba-label ba-label-after">AFTER</span>
+        <div class="before-after-instruction">
+          <i class="fas fa-arrows-left-right" style="color:var(--cyan);"></i>
+          <span>Drag slider to compare</span>
+        </div>
       </div>
       <p style="text-align:center;color:var(--th-text-muted2);font-size:0.875rem;margin-top:1rem;">← Drag the slider to compare →</p>
     </div>
@@ -268,16 +499,34 @@
     </div>
     <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.5rem;" class="stagger-group">
       <div class="video-card" data-video-url="#">
-        <div class="video-thumb" style="background-image: linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.45)), url('assets/images/video-ceramic.png'); background-size: cover; background-position: center;"><button class="video-play-btn"><i class="fas fa-play"></i></button></div>
-        <div class="video-card__body"><div class="video-card__title">Full Ceramic Coating Process</div><div class="video-card__sub">12:34 min · Paint Protection</div></div>
+        <div class="video-thumb" style="background-image: linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.45)), url('assets/images/video-ceramic.png'); background-size: cover; background-position: center;">
+          <button class="video-play-btn"><i class="fas fa-play"></i></button>
+          <span class="video-duration-badge"><i class="far fa-clock"></i> 12:34 min</span>
+        </div>
+        <div class="video-card__body">
+          <div class="video-card__title">Full Ceramic Coating Process</div>
+          <div class="video-card__sub">Paint Protection</div>
+        </div>
       </div>
       <div class="video-card" data-video-url="#">
-        <div class="video-thumb" style="background-image: linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.45)), url('assets/images/video-interior.png'); background-size: cover; background-position: center;"><button class="video-play-btn"><i class="fas fa-play"></i></button></div>
-        <div class="video-card__body"><div class="video-card__title">Interior Deep Clean Timelapse</div><div class="video-card__sub">8:15 min · Interior Detail</div></div>
+        <div class="video-thumb" style="background-image: linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.45)), url('assets/images/video-interior.png'); background-size: cover; background-position: center;">
+          <button class="video-play-btn"><i class="fas fa-play"></i></button>
+          <span class="video-duration-badge"><i class="far fa-clock"></i> 8:15 min</span>
+        </div>
+        <div class="video-card__body">
+          <div class="video-card__title">Interior Deep Clean Timelapse</div>
+          <div class="video-card__sub">Interior Detail</div>
+        </div>
       </div>
       <div class="video-card" data-video-url="#">
-        <div class="video-thumb" style="background-image: linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.45)), url('assets/images/video-paint.png'); background-size: cover; background-position: center;"><button class="video-play-btn"><i class="fas fa-play"></i></button></div>
-        <div class="video-card__body"><div class="video-card__title">Paint Correction — Swirl Removal</div><div class="video-card__sub">15:42 min · Paint Correction</div></div>
+        <div class="video-thumb" style="background-image: linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.45)), url('assets/images/video-paint.png'); background-size: cover; background-position: center;">
+          <button class="video-play-btn"><i class="fas fa-play"></i></button>
+          <span class="video-duration-badge"><i class="far fa-clock"></i> 15:42 min</span>
+        </div>
+        <div class="video-card__body">
+          <div class="video-card__title">Paint Correction — Swirl Removal</div>
+          <div class="video-card__sub">Paint Correction</div>
+        </div>
       </div>
     </div>
   </div>
