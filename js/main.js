@@ -65,7 +65,7 @@
   function resetHeaderState() {
     if (toggle) toggle.classList.remove('open', 'active', 'show', 'is-open', 'menu-open', 'drawer-open', 'nav-open');
     if (mobileMenu) mobileMenu.classList.remove('open', 'active', 'show', 'is-open', 'menu-open', 'drawer-open', 'nav-open');
-    
+
     document.querySelectorAll('.navbar__toggle, .navbar__mobile, .navbar').forEach(el => {
       el.classList.remove('open', 'active', 'show', 'is-open', 'menu-open', 'drawer-open', 'nav-open');
     });
@@ -95,17 +95,17 @@
     const trigger = e.target.closest('.profile-trigger');
     const allMenus = document.querySelectorAll('.profile-dropdown-menu');
     const allTriggers = document.querySelectorAll('.profile-trigger');
-    
+
     if (trigger) {
       e.preventDefault();
       e.stopPropagation();
       const menu = trigger.nextElementSibling;
       const isOpen = menu.classList.contains('show');
-      
+
       // Close all other menus first
       allMenus.forEach(m => m.classList.remove('show'));
       allTriggers.forEach(t => t.setAttribute('aria-expanded', 'false'));
-      
+
       if (!isOpen) {
         menu.classList.add('show');
         trigger.setAttribute('aria-expanded', 'true');
@@ -134,7 +134,7 @@
   const btt = document.querySelector('.back-to-top');
   if (btt) {
     window.addEventListener('scroll', () => {
-      btt.classList.toggle('visible', window.scrollY > 500);
+      btt.classList.toggle('visible', window.scrollY > 1500);
     }, { passive: true });
 
     btt.addEventListener('click', () => {
