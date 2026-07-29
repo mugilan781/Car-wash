@@ -110,6 +110,230 @@
     .cross {
       color: var(--th-text-muted2);
     }
+
+    /* ─── Active Nav Link Prominence & Light Theme Contrast Fix ─── */
+    .navbar__link.active {
+      color: var(--cyan) !important;
+      font-weight: 700 !important;
+    }
+    .navbar__link.active::after {
+      width: 80% !important;
+      background: var(--cyan) !important;
+      height: 3px !important;
+    }
+    [data-theme="light"] .navbar__link.active {
+      color: var(--blue) !important;
+    }
+    [data-theme="light"] .navbar__link.active::after {
+      background: var(--blue) !important;
+    }
+
+    /* ─── Most Popular Pricing Card Embellishments ─── */
+    .service-card--featured {
+      border: 2.5px solid var(--blue) !important;
+      box-shadow: 0 15px 35px rgba(37, 99, 235, 0.22) !important;
+      transform: translateY(-5px) scale(1.025);
+      z-index: 2;
+    }
+    .service-card--featured:hover {
+      box-shadow: 0 20px 45px rgba(37, 99, 235, 0.32) !important;
+      transform: translateY(-8px) scale(1.035) !important;
+    }
+    [data-theme="dark"] .service-card--featured {
+      border-color: var(--cyan) !important;
+      box-shadow: 0 15px 35px rgba(6, 182, 212, 0.22) !important;
+    }
+    [data-theme="dark"] .service-card--featured:hover {
+      box-shadow: 0 20px 45px rgba(6, 182, 212, 0.32) !important;
+    }
+
+    /* ─── Package Comparison Table Scanability ─── */
+    .package-compare tbody tr:nth-child(even) {
+      background: rgba(255, 255, 255, 0.035) !important;
+    }
+    .package-compare tbody tr:nth-child(odd) {
+      background: rgba(0, 0, 0, 0.15) !important;
+    }
+    .package-compare td {
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
+      padding: 1.1rem 1rem !important;
+    }
+    [data-theme="light"] .package-compare tbody tr:nth-child(even) {
+      background: #F1F5F9 !important; /* highly visible alternating light shading */
+    }
+    [data-theme="light"] .package-compare tbody tr:nth-child(odd) {
+      background: #FFFFFF !important;
+    }
+    [data-theme="light"] .package-compare td {
+      border-bottom: 1.5px solid #CBD5E1 !important;
+      color: #334155 !important;
+    }
+    [data-theme="light"] .package-compare td:first-child {
+      color: #0F172A !important;
+      font-weight: 700 !important;
+    }
+    .package-compare th {
+      border-bottom: 2px solid var(--th-border) !important;
+    }
+
+    /* ─── Service Card Badges Contrast & Design (Opaque Floating Badges) ─── */
+    .service-card__badge {
+      font-size: 0.72rem !important;
+      padding: 0.45rem 0.9rem !important;
+      border-radius: var(--r-sm) !important;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.35) !important;
+      font-weight: 800 !important;
+      letter-spacing: 0.06em !important;
+      text-transform: uppercase !important;
+      z-index: 5 !important;
+    }
+    .service-card__badge.badge-silver {
+      background: #334155 !important;
+      color: #F1F5F9 !important;
+      border: 1.5px solid #475569 !important;
+    }
+    .service-card__badge.badge-blue {
+      background: #1D4ED8 !important;
+      color: #FFFFFF !important;
+      border: 1.5px solid #3B82F6 !important;
+    }
+    .service-card__badge.badge-cyan {
+      background: #0891B2 !important;
+      color: #FFFFFF !important;
+      border: 1.5px solid #22D3EE !important;
+    }
+    [data-theme="light"] .service-card__badge.badge-silver {
+      background: #F1F5F9 !important;
+      color: #1E293B !important;
+      border: 1.5px solid #CBD5E1 !important;
+    }
+    [data-theme="light"] .service-card__badge.badge-blue {
+      background: #2563EB !important;
+      color: #FFFFFF !important;
+      border: 1.5px solid #60A5FA !important;
+    }
+    [data-theme="light"] .service-card__badge.badge-cyan {
+      background: #06B6D4 !important;
+      color: #0F172A !important;
+      border: 1.5px solid #22D3EE !important;
+    }
+
+    /* ─── Add-On Services Grid & Padding ─── */
+    .addon-grid {
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)) !important;
+      gap: 1.25rem !important;
+    }
+    .addon-item {
+      padding: 1.75rem 1.25rem !important;
+      display: flex !important;
+      flex-direction: column !important;
+      align-items: center !important;
+      justify-content: space-between !important;
+      min-height: 250px !important;
+    }
+    .addon-item__icon {
+      font-size: 2.5rem !important;
+      color: var(--cyan) !important;
+      margin-bottom: 0.75rem !important;
+      transition: transform 0.2s ease, color 0.2s ease !important;
+    }
+    [data-theme="light"] .addon-item__icon {
+      color: var(--blue) !important;
+    }
+    .addon-item:hover .addon-item__icon {
+      transform: scale(1.15);
+      color: var(--white) !important;
+    }
+    [data-theme="light"] .addon-item:hover .addon-item__icon {
+      color: var(--blue) !important;
+    }
+    .addon-item__desc {
+      font-size: 0.78rem !important;
+      color: var(--th-text-muted) !important;
+      line-height: 1.5 !important;
+      margin: 0.6rem 0 !important;
+      text-align: center !important;
+    }
+    .addon-item__price {
+      margin-top: 0.5rem !important;
+      font-size: 1.1rem !important;
+      font-weight: 800 !important;
+      color: var(--cyan) !important;
+    }
+    [data-theme="light"] .addon-item__price {
+      color: var(--blue) !important;
+    }
+
+    /* ─── FAQ Prominence & Hover Action ─── */
+    .faq-item {
+      transition: all 0.3s ease !important;
+    }
+    .faq-item:hover {
+      border-color: var(--blue) !important;
+      box-shadow: 0 4px 15px rgba(37, 99, 235, 0.08) !important;
+    }
+    [data-theme="dark"] .faq-item:hover {
+      border-color: var(--cyan) !important;
+      box-shadow: 0 4px 15px rgba(6, 182, 212, 0.08) !important;
+    }
+    .faq-question {
+      transition: background-color 0.2s ease !important;
+    }
+    .faq-question:hover {
+      background: rgba(37, 99, 235, 0.03) !important;
+    }
+    .faq-icon {
+      width: 34px !important;
+      height: 34px !important;
+      font-size: 1.1rem !important;
+      font-weight: 700 !important;
+      background: rgba(37, 99, 235, 0.22) !important;
+      color: var(--blue) !important;
+      box-shadow: 0 2px 6px rgba(37, 99, 235, 0.1) !important;
+      border: 1px solid rgba(37, 99, 235, 0.15) !important;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+    }
+    [data-theme="dark"] .faq-icon {
+      background: rgba(6, 182, 212, 0.15) !important;
+      color: var(--cyan) !important;
+      border-color: rgba(6, 182, 212, 0.25) !important;
+    }
+    .faq-question:hover .faq-icon {
+      background: var(--blue) !important;
+      color: var(--white) !important;
+      border-color: transparent !important;
+      box-shadow: var(--shadow-blue) !important;
+      transform: scale(1.15) !important;
+    }
+    [data-theme="dark"] .faq-question:hover .faq-icon {
+      background: var(--cyan) !important;
+      color: var(--black) !important;
+      box-shadow: var(--shadow-cyan) !important;
+    }
+    .faq-item.open .faq-icon {
+      transform: rotate(45deg) !important;
+      background: var(--blue) !important;
+      color: var(--white) !important;
+    }
+    [data-theme="dark"] .faq-item.open .faq-icon {
+      background: var(--cyan) !important;
+      color: var(--black) !important;
+    }
+    .faq-item.open .faq-question:hover .faq-icon {
+      transform: scale(1.15) rotate(45deg) !important;
+    }
+
+    /* Fix stagger animation visibility for addon items 9 and 10 */
+    .stagger-group.visible > *:nth-child(9) {
+      opacity: 1 !important;
+      transform: none !important;
+      transition-delay: 0.85s !important;
+    }
+    .stagger-group.visible > *:nth-child(10) {
+      opacity: 1 !important;
+      transform: none !important;
+      transition-delay: 0.95s !important;
+    }
   </style>
 </head>
 
@@ -267,11 +491,11 @@
             </ul>
             <div style="display:flex;align-items:center;justify-content:space-between;">
               <div class="service-card__price">$29 <span>/ session</span></div><a href="booking.html"
-                class="btn btn-outline btn-sm">Book</a>
+                class="btn btn-outline btn-sm">Book Service</a>
             </div>
           </div>
         </article>
-        <article class="service-card" style="border-color:rgba(37,99,235,0.4);">
+        <article class="service-card service-card--featured">
           <div class="service-card__img-wrap">
             <img src="assets/images/premium-detail.png" alt="Premium Detail" class="service-card__img" loading="lazy"
               style="height:220px;" />
@@ -313,7 +537,7 @@
             </ul>
             <div style="display:flex;align-items:center;justify-content:space-between;">
               <div class="service-card__price">$149 <span>/ session</span></div><a href="booking.html"
-                class="btn btn-cyan btn-sm">Book</a>
+                class="btn btn-cyan btn-sm">Book Service</a>
             </div>
           </div>
         </article>
@@ -367,7 +591,7 @@
               class="fas fa-arrow-right"></i></a>
         </div>
         <div>
-          <img src="assets/images/ceramic.png" alt="Ceramic coating being applied"
+          <img src="assets/images/services-ceramic-coating.png" alt="Ceramic coating being applied"
             style="border-radius:var(--r-lg);width:100%;" loading="lazy" />
         </div>
       </div>
@@ -384,7 +608,7 @@
       </div>
       <div class="service-detail-card reveal" style="grid-template-columns:1fr 1fr;">
         <div>
-          <img src="assets/images/hero3.png" alt="Interior deep cleaning" style="border-radius:var(--r-lg);width:100%;"
+          <img src="assets/images/services-interior-clean.png" alt="Interior deep cleaning" style="border-radius:var(--r-lg);width:100%;"
             loading="lazy" />
         </div>
         <div>
@@ -430,44 +654,84 @@
       </div>
       <div class="addon-grid stagger-group">
         <div class="addon-item">
-          <div class="addon-item__icon"><i class="fas fa-border-all"></i></div>
-          <div class="addon-item__name">Window Tinting</div>
+          <div>
+            <div class="addon-item__icon"><i class="fas fa-border-all"></i></div>
+            <div class="addon-item__name">Window Tinting</div>
+            <p class="addon-item__desc">Premium UV rejection film blocking up to 99% of solar heat entry.</p>
+          </div>
           <div class="addon-item__price">$149+</div>
         </div>
         <div class="addon-item">
-          <div class="addon-item__icon"><i class="fas fa-screwdriver-wrench"></i></div>
-          <div class="addon-item__name">Engine Bay Clean</div>
+          <div>
+            <div class="addon-item__icon"><i class="fas fa-screwdriver-wrench"></i></div>
+            <div class="addon-item__name">Engine Bay Clean</div>
+            <p class="addon-item__desc">Safe hand-degreasing, steam cleaning, and satin protectant dressing.</p>
+          </div>
           <div class="addon-item__price">$79</div>
         </div>
         <div class="addon-item">
-          <div class="addon-item__icon"><i class="fas fa-lightbulb"></i></div>
-          <div class="addon-item__name">Headlight Restore</div>
+          <div>
+            <div class="addon-item__icon"><i class="fas fa-lightbulb"></i></div>
+            <div class="addon-item__name">Headlight Restore</div>
+            <p class="addon-item__desc">Multi-stage wet sanding and UV clear coat seal to restore faded lenses.</p>
+          </div>
           <div class="addon-item__price">$59</div>
         </div>
         <div class="addon-item">
-          <div class="addon-item__icon"><i class="fas fa-wrench"></i></div>
-          <div class="addon-item__name">Trim Restoration</div>
+          <div>
+            <div class="addon-item__icon"><i class="fas fa-wrench"></i></div>
+            <div class="addon-item__name">Trim Restoration</div>
+            <p class="addon-item__desc">Specialized chemical dye dressing to restore greyed exterior trim back to black.</p>
+          </div>
           <div class="addon-item__price">$49</div>
         </div>
         <div class="addon-item">
-          <div class="addon-item__icon"><i class="fas fa-wind"></i></div>
-          <div class="addon-item__name">Odor Removal</div>
+          <div>
+            <div class="addon-item__icon"><i class="fas fa-wind"></i></div>
+            <div class="addon-item__name">Odor Removal</div>
+            <p class="addon-item__desc">Ozone gas cabin sterilization to permanently neutralize smoke and organic odors.</p>
+          </div>
           <div class="addon-item__price">$69</div>
         </div>
         <div class="addon-item">
-          <div class="addon-item__icon"><i class="fas fa-circle-notch"></i></div>
-          <div class="addon-item__name">Rim Polishing</div>
+          <div>
+            <div class="addon-item__icon"><i class="fas fa-circle-notch"></i></div>
+            <div class="addon-item__name">Rim Polishing</div>
+            <p class="addon-item__desc">Deep metal polish buffing to remove embedded brake dust pitting and corrosion.</p>
+          </div>
           <div class="addon-item__price">$89</div>
         </div>
         <div class="addon-item">
-          <div class="addon-item__icon"><i class="fas fa-flag-checkered"></i></div>
-          <div class="addon-item__name">Brake Caliper Paint</div>
+          <div>
+            <div class="addon-item__icon"><i class="fas fa-flag-checkered"></i></div>
+            <div class="addon-item__name">Brake Caliper Paint</div>
+            <p class="addon-item__desc">Durable, high-temperature customized enamel painting with GlossForge branding.</p>
+          </div>
           <div class="addon-item__price">$119</div>
         </div>
         <div class="addon-item">
-          <div class="addon-item__icon"><i class="fas fa-shield-halved"></i></div>
-          <div class="addon-item__name">PPF Spot Coverage</div>
+          <div>
+            <div class="addon-item__icon"><i class="fas fa-shield-halved"></i></div>
+            <div class="addon-item__name">PPF Spot Coverage</div>
+            <p class="addon-item__desc">Tough self-healing clear film applied to door cups, mirrors, or bumper luggage tags.</p>
+          </div>
           <div class="addon-item__price">$199+</div>
+        </div>
+        <div class="addon-item">
+          <div>
+            <div class="addon-item__icon"><i class="fas fa-couch"></i></div>
+            <div class="addon-item__name">Leather Shield</div>
+            <p class="addon-item__desc">Hydrophobic nanotech coating that protects leather seats from dye transfer and fluid spills.</p>
+          </div>
+          <div class="addon-item__price">$99</div>
+        </div>
+        <div class="addon-item">
+          <div>
+            <div class="addon-item__icon"><i class="fas fa-droplet"></i></div>
+            <div class="addon-item__name">Glass Hydrophobic</div>
+            <p class="addon-item__desc">Fluorine ceramic coating for all windshields ensuring water beads off instantly.</p>
+          </div>
+          <div class="addon-item__price">$49</div>
         </div>
       </div>
     </div>
