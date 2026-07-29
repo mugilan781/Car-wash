@@ -22,9 +22,6 @@
   <style>
     .mv-grid { display:grid; grid-template-columns:1fr 1fr; gap:1.5rem; }
     @media(max-width:600px){ .mv-grid { grid-template-columns:1fr; } }
-    .cert-badge { display:inline-flex; align-items:center; gap:0.75rem; background:var(--th-card); border:1px solid var(--th-border); border-radius:var(--r-md); padding:1rem 1.5rem; transition:var(--t-fast); }
-    .cert-badge:hover { border-color:var(--cyan); }
-    .cert-logo { width:48px; height:48px; background:var(--grad-primary); border-radius:var(--r-sm); display:flex; align-items:center; justify-content:center; font-size:1.5rem; flex-shrink:0; }
     
     /* About action collage */
     .about-collage {
@@ -167,6 +164,273 @@
       .standards-grid {
         grid-template-columns: 1fr;
       }
+    }
+    
+    /* Accessibility text contrast overrides */
+    body {
+      --th-text-muted: #D1D5DB !important;
+      --th-text-muted2: #9CA3AF !important;
+    }
+    
+    [data-theme="light"] body {
+      --th-text-muted: #374151 !important;
+      --th-text-muted2: #4B5563 !important;
+    }
+    
+    .page-hero__subtitle {
+      color: #E2E8F0 !important;
+      font-weight: 500;
+    }
+    
+    [data-theme="light"] .page-hero__subtitle {
+      color: #374151 !important;
+    }
+    
+    /* Modern Interactive Timeline Milestones */
+    .timeline {
+      position: relative;
+      padding-left: 3rem;
+      margin: 2rem 0;
+    }
+    
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 0.5rem;
+      top: 0;
+      bottom: 0;
+      width: 3px;
+      background: linear-gradient(to bottom, var(--cyan) 0%, var(--blue) 50%, var(--cyan) 100%);
+      border-radius: var(--r-full);
+    }
+    
+    .timeline-item {
+      position: relative;
+      margin-bottom: 2.5rem;
+      padding: 1.75rem 2rem;
+      background: rgba(30, 41, 59, 0.4);
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      border-radius: var(--r-xl);
+      transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+      cursor: default;
+    }
+    
+    .timeline-item::before {
+      content: '' !important;
+      position: absolute !important;
+      left: -3.05rem !important;
+      top: 2.25rem !important;
+      width: 18px !important;
+      height: 18px !important;
+      border-radius: 50% !important;
+      background: var(--th-card) !important;
+      border: 4px solid var(--cyan) !important;
+      box-shadow: 0 0 0 4px rgba(6, 182, 212, 0.2) !important;
+      transition: all 0.3s ease !important;
+      z-index: 2 !important;
+    }
+    
+    .timeline-year {
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--cyan);
+      letter-spacing: 0.1em;
+      margin-bottom: 0.5rem;
+      display: inline-block;
+      transition: all 0.3s ease;
+    }
+    
+    .timeline-title {
+      font-size: 1.25rem;
+      font-weight: 500;
+      color: var(--th-heading);
+      margin-bottom: 0.5rem;
+      transition: all 0.3s ease;
+    }
+    
+    .timeline-text {
+      font-size: 0.95rem;
+      color: var(--th-text-muted);
+      line-height: 1.6;
+      transition: all 0.3s ease;
+    }
+    
+    /* Interactive Hover States (Dark Theme) */
+    .timeline-item:hover {
+      transform: translateX(12px);
+      background: linear-gradient(135deg, rgba(6, 182, 212, 0.1) 0%, rgba(30, 41, 59, 0.7) 100%);
+      border-color: rgba(6, 182, 212, 0.3);
+      box-shadow: 0 10px 30px rgba(6, 182, 212, 0.15);
+    }
+    
+    .timeline-item:hover::before {
+      background: #FFFFFF !important;
+      border-color: #FFFFFF !important;
+      box-shadow: 0 0 15px var(--cyan), 0 0 0 6px rgba(6, 182, 212, 0.4) !important;
+      transform: scale(1.2);
+    }
+    
+    .timeline-item:hover .timeline-year {
+      color: #FFFFFF !important;
+      text-shadow: 0 0 10px var(--cyan);
+    }
+    
+    .timeline-item:hover .timeline-title {
+      color: var(--cyan) !important;
+    }
+    
+    .timeline-item:hover .timeline-text {
+      color: #FFFFFF !important;
+    }
+    
+    /* Light theme overrides for timeline */
+    [data-theme="light"] .timeline-item {
+      background: rgba(255, 255, 255, 0.8);
+      border-color: #E2E8F0;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.04);
+    }
+    
+    [data-theme="light"] .timeline-item::before {
+      background: #FFFFFF !important;
+      border-color: var(--blue) !important;
+      box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.2) !important;
+    }
+    
+    [data-theme="light"] .timeline-item .timeline-title {
+      color: #1E293B;
+    }
+    
+    [data-theme="light"] .timeline-item .timeline-text {
+      color: #475569;
+    }
+    
+    [data-theme="light"] .timeline-item:hover {
+      background: linear-gradient(135deg, rgba(37, 99, 235, 0.05) 0%, rgba(255, 255, 255, 1) 100%);
+      border-color: rgba(37, 99, 235, 0.3);
+      box-shadow: 0 10px 30px rgba(37, 99, 235, 0.12);
+    }
+    
+    [data-theme="light"] .timeline-item:hover::before {
+      background: #FFFFFF !important;
+      border-color: var(--blue) !important;
+      box-shadow: 0 0 15px var(--blue), 0 0 0 6px rgba(37, 99, 235, 0.3) !important;
+    }
+    
+    [data-theme="light"] .timeline-item:hover .timeline-year {
+      color: var(--blue) !important;
+      text-shadow: none;
+    }
+    
+    [data-theme="light"] .timeline-item:hover .timeline-title {
+      color: var(--blue) !important;
+    }
+    
+    [data-theme="light"] .timeline-item:hover .timeline-text {
+      color: #1E293B !important;
+    }
+    
+    /* Larger clickable team social links */
+    .team-social-btn {
+      width: 42px !important;
+      height: 42px !important;
+      font-size: 1.05rem !important;
+      text-decoration: none;
+    }
+    
+    /* Premium visual treatment for Certifications & Awards */
+    .cert-badge {
+      display: flex;
+      align-items: center;
+      gap: 1.25rem;
+      background: var(--th-card);
+      border: 1px solid var(--th-border);
+      border-radius: var(--r-xl);
+      padding: 1.5rem 1.75rem;
+      transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+      position: relative;
+    }
+    
+    .cert-badge:hover {
+      border-color: var(--cyan);
+      transform: translateY(-5px);
+      box-shadow: 0 8px 25px rgba(6, 182, 212, 0.1);
+    }
+    
+    .cert-logo {
+      width: 54px;
+      height: 54px;
+      background: var(--grad-primary);
+      border-radius: var(--r-md);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.65rem;
+      flex-shrink: 0;
+      transition: all 0.3s ease;
+      color: var(--white);
+    }
+    
+    /* Highlighted / Featured Certifications (IDA, Gtechniq, 3M) */
+    .cert-badge--featured {
+      background: linear-gradient(135deg, rgba(6, 182, 212, 0.15) 0%, rgba(15, 23, 42, 0.9) 100%) !important;
+      border: 2px solid var(--cyan) !important;
+      box-shadow: 0 0 25px rgba(6, 182, 212, 0.15) !important;
+      transform: scale(1.02);
+    }
+    
+    .cert-badge--featured:hover {
+      transform: scale(1.04) translateY(-5px);
+      box-shadow: 0 12px 35px rgba(6, 182, 212, 0.3) !important;
+    }
+    
+    /* Featured Badge Label */
+    .cert-badge--featured::after {
+      content: 'FEATURED';
+      position: absolute;
+      top: -10px;
+      right: 15px;
+      background: linear-gradient(135deg, var(--cyan), var(--blue));
+      color: var(--white);
+      font-size: 0.65rem;
+      font-weight: 800;
+      padding: 2px 8px;
+      border-radius: 20px;
+      letter-spacing: 0.08em;
+      box-shadow: 0 3px 10px rgba(6, 182, 212, 0.4);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+    
+    .cert-badge--featured .cert-logo {
+      background: linear-gradient(135deg, #00F2FE 0%, #4FACFE 100%) !important;
+      box-shadow: 0 0 15px rgba(6, 182, 212, 0.4);
+    }
+    
+    /* Light theme overrides for credentials */
+    [data-theme="light"] .cert-badge {
+      background: #FFFFFF;
+      border-color: #E2E8F0;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
+    }
+    
+    [data-theme="light"] .cert-badge:hover {
+      border-color: var(--blue);
+      box-shadow: 0 10px 25px rgba(37, 99, 235, 0.08);
+    }
+    
+    [data-theme="light"] .cert-badge--featured {
+      background: linear-gradient(135deg, rgba(37, 99, 235, 0.05) 0%, #FFFFFF 100%) !important;
+      border: 2px solid var(--blue) !important;
+      box-shadow: 0 10px 30px rgba(37, 99, 235, 0.12) !important;
+    }
+    
+    [data-theme="light"] .cert-badge--featured::after {
+      background: linear-gradient(135deg, var(--blue), var(--cyan));
+      box-shadow: 0 3px 10px rgba(37, 99, 235, 0.25);
+    }
+    
+    [data-theme="light"] .cert-badge--featured .cert-logo {
+      background: linear-gradient(135deg, #1E3A8A 0%, #3B82F6 100%) !important;
     }
   </style>
 </head>
@@ -429,6 +693,38 @@
   </div>
 </section>
 
+<!-- SECTION: OUR COMMITMENT -->
+<section class="section section--card" id="commitment" style="position:relative;overflow:hidden;">
+  <div class="bg-glow bg-glow--blue" style="width:400px;height:400px;left:-100px;top:-100px;"></div>
+  <div class="container">
+    <div class="split" style="align-items: center; gap: 3rem;">
+      <div class="reveal-left">
+        <div class="section-eyebrow" style="justify-content:flex-start;">Our Promise</div>
+        <h2 class="section-title" style="text-align:left;">Our Commitment to <span>Professional Service</span></h2>
+        <p style="margin-bottom:1.5rem;font-size:0.95rem;color:var(--th-text-muted);line-height:1.7;">At GlossForge, we believe detailing is more than just a clean car—it is a dedication to preserving and enhancing automotive art. We commit to the highest levels of customer transparency, technician safety, and surface care standards on every single booking.</p>
+        
+        <div class="commitment-bullets" style="display:flex;flex-direction:column;gap:1rem;margin-bottom:1.5rem;">
+          <div style="display:flex;gap:0.75rem;align-items:center;">
+            <span style="color:#10B981;font-size:1.1rem;"><i class="fas fa-check-circle"></i></span>
+            <span style="color:var(--th-heading);font-weight:600;font-size:0.925rem;">100% Fixed and Transparent Pricing — No surprise charges</span>
+          </div>
+          <div style="display:flex;gap:0.75rem;align-items:center;">
+            <span style="color:#10B981;font-size:1.1rem;"><i class="fas fa-check-circle"></i></span>
+            <span style="color:var(--th-heading);font-weight:600;font-size:0.925rem;">Eco-Conscious Detailing — Utilizing biodegradables & water reclamation</span>
+          </div>
+          <div style="display:flex;gap:0.75rem;align-items:center;">
+            <span style="color:#10B981;font-size:1.1rem;"><i class="fas fa-check-circle"></i></span>
+            <span style="color:var(--th-heading);font-weight:600;font-size:0.925rem;">Comprehensive Liability Insurance — Total peace of mind for your assets</span>
+          </div>
+        </div>
+      </div>
+      <div class="reveal-right" style="position:relative;">
+        <img src="assets/images/about-team-work.png" alt="GlossForge detailing commitment team" style="width:100%;border-radius:var(--r-xl);border:1px solid var(--th-border);box-shadow:var(--shadow-blue);" />
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- SECTION 4: TEAM MEMBERS -->
 <section class="section section--dark" id="team">
   <div class="container">
@@ -439,10 +735,10 @@
       <div class="divider"></div>
     </div>
     <div class="team-grid stagger-group">
-      <div class="team-card"><img src="assets/images/team-marcus.png" alt="Marcus Tyler" class="team-card__img" loading="lazy" /><div class="team-card__body"><div class="team-card__name">Marcus Tyler</div><div class="team-card__role">Founder & Head Detailer</div><p style="font-size:0.8rem;color:var(--th-text-muted);margin-top:0.5rem;">IDA Certified · 12 Years</p><div class="team-card__social"><div class="team-social-btn"><i class="fab fa-instagram"></i></div><div class="team-social-btn"><i class="fab fa-linkedin-in"></i></div></div></div></div>
-      <div class="team-card"><img src="assets/images/team-priya.png" alt="Priya Sharma" class="team-card__img" loading="lazy" /><div class="team-card__body"><div class="team-card__name">Priya Sharma</div><div class="team-card__role">Paint Correction Specialist</div><p style="font-size:0.8rem;color:var(--th-text-muted);margin-top:0.5rem;">Award-winning · 8 Years</p><div class="team-card__social"><div class="team-social-btn"><i class="fab fa-instagram"></i></div><div class="team-social-btn"><i class="fab fa-youtube"></i></div></div></div></div>
-      <div class="team-card"><img src="assets/images/team-jason.png" alt="Jason Park" class="team-card__img" loading="lazy" /><div class="team-card__body"><div class="team-card__name">Jason Park</div><div class="team-card__role">Interior Restoration Expert</div><p style="font-size:0.8rem;color:var(--th-text-muted);margin-top:0.5rem;">Leather Specialist · 8 Years</p><div class="team-card__social"><div class="team-social-btn"><i class="fab fa-instagram"></i></div><div class="team-social-btn"><i class="fab fa-twitter"></i></div></div></div></div>
-      <div class="team-card"><img src="assets/images/team-nina.png" alt="Nina Kowalski" class="team-card__img" loading="lazy" /><div class="team-card__body"><div class="team-card__name">Nina Kowalski</div><div class="team-card__role">PPF & Ceramic Expert</div><p style="font-size:0.8rem;color:var(--th-text-muted);margin-top:0.5rem;">3M Certified · 6 Years</p><div class="team-card__social"><div class="team-social-btn"><i class="fab fa-instagram"></i></div><div class="team-social-btn"><i class="fab fa-linkedin-in"></i></div></div></div></div>
+      <div class="team-card"><img src="assets/images/team-marcus.png" alt="Marcus Tyler" class="team-card__img" loading="lazy" /><div class="team-card__body"><div class="team-card__name">Marcus Tyler</div><div class="team-card__role">Founder & Head Detailer</div><p style="font-size:0.8rem;color:var(--th-text-muted);margin-top:0.5rem;">IDA Certified · 12 Years</p><div class="team-card__social"><a href="https://instagram.com" target="_blank" class="team-social-btn" aria-label="Marcus Tyler Instagram Profile"><i class="fab fa-instagram"></i></a><a href="https://linkedin.com" target="_blank" class="team-social-btn" aria-label="Marcus Tyler LinkedIn Profile"><i class="fab fa-linkedin-in"></i></a></div></div></div>
+      <div class="team-card"><img src="assets/images/team-priya.png" alt="Priya Sharma" class="team-card__img" loading="lazy" /><div class="team-card__body"><div class="team-card__name">Priya Sharma</div><div class="team-card__role">Paint Correction Specialist</div><p style="font-size:0.8rem;color:var(--th-text-muted);margin-top:0.5rem;">Award-winning · 8 Years</p><div class="team-card__social"><a href="https://instagram.com" target="_blank" class="team-social-btn" aria-label="Priya Sharma Instagram Profile"><i class="fab fa-instagram"></i></a><a href="https://youtube.com" target="_blank" class="team-social-btn" aria-label="Priya Sharma YouTube Profile"><i class="fab fa-youtube"></i></a></div></div></div>
+      <div class="team-card"><img src="assets/images/team-jason.png" alt="Jason Park" class="team-card__img" loading="lazy" /><div class="team-card__body"><div class="team-card__name">Jason Park</div><div class="team-card__role">Interior Restoration Expert</div><p style="font-size:0.8rem;color:var(--th-text-muted);margin-top:0.5rem;">Leather Specialist · 8 Years</p><div class="team-card__social"><a href="https://instagram.com" target="_blank" class="team-social-btn" aria-label="Jason Park Instagram Profile"><i class="fab fa-instagram"></i></a><a href="https://twitter.com" target="_blank" class="team-social-btn" aria-label="Jason Park Twitter Profile"><i class="fab fa-twitter"></i></a></div></div></div>
+      <div class="team-card"><img src="assets/images/team-nina.png" alt="Nina Kowalski" class="team-card__img" loading="lazy" /><div class="team-card__body"><div class="team-card__name">Nina Kowalski</div><div class="team-card__role">PPF & Ceramic Expert</div><p style="font-size:0.8rem;color:var(--th-text-muted);margin-top:0.5rem;">3M Certified · 6 Years</p><div class="team-card__social"><a href="https://instagram.com" target="_blank" class="team-social-btn" aria-label="Nina Kowalski Instagram Profile"><i class="fab fa-instagram"></i></a><a href="https://linkedin.com" target="_blank" class="team-social-btn" aria-label="Nina Kowalski LinkedIn Profile"><i class="fab fa-linkedin-in"></i></a></div></div></div>
     </div>
   </div>
 </section>
@@ -503,7 +799,7 @@
 </section>
 
 <!-- SECTION 7: CERTIFICATIONS & AWARDS -->
-<section class="section section--dark" id="certifications">
+<section class="section section--dark" id="certifications" style="padding-bottom: 2rem;">
   <div class="container">
     <div class="section-header reveal">
       <div class="section-eyebrow">Credentials</div>
@@ -512,18 +808,20 @@
       <div class="divider"></div>
     </div>
     <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.25rem;" class="stagger-group">
-      <div class="cert-badge"><div class="cert-logo"><i class="fas fa-medal"></i></div><div><div style="font-weight:700;color:var(--th-heading);font-size:0.95rem;">IDA Certified Firm</div><div style="font-size:0.8rem;color:var(--th-text-muted);">International Detailing Association · 2015</div></div></div>
-      <div class="cert-badge"><div class="cert-logo"><i class="fas fa-microscope"></i></div><div><div style="font-weight:700;color:var(--th-heading);font-size:0.95rem;">Gtechniq Authorized</div><div style="font-size:0.8rem;color:var(--th-text-muted);">Certified Ceramic Coating Installer · 2017</div></div></div>
-      <div class="cert-badge"><div class="cert-logo"><i class="fas fa-shield-halved"></i></div><div><div style="font-weight:700;color:var(--th-heading);font-size:0.95rem;">3M PPF Certified</div><div style="font-size:0.8rem;color:var(--th-text-muted);">Paint Protection Film Installation · 2018</div></div></div>
+      <div class="cert-badge cert-badge--featured"><div class="cert-logo"><i class="fas fa-medal"></i></div><div><div style="font-weight:700;color:var(--th-heading);font-size:0.95rem;">IDA Certified Firm</div><div style="font-size:0.8rem;color:var(--th-text-muted);">International Detailing Association · 2015</div></div></div>
+      <div class="cert-badge cert-badge--featured"><div class="cert-logo"><i class="fas fa-microscope"></i></div><div><div style="font-weight:700;color:var(--th-heading);font-size:0.95rem;">Gtechniq Authorized</div><div style="font-size:0.8rem;color:var(--th-text-muted);">Certified Ceramic Coating Installer · 2017</div></div></div>
+      <div class="cert-badge cert-badge--featured"><div class="cert-logo"><i class="fas fa-shield-halved"></i></div><div><div style="font-weight:700;color:var(--th-heading);font-size:0.95rem;">3M PPF Certified</div><div style="font-size:0.8rem;color:var(--th-text-muted);">Paint Protection Film Installation · 2018</div></div></div>
       <div class="cert-badge"><div class="cert-logo"><i class="fas fa-trophy"></i></div><div><div style="font-weight:700;color:var(--th-heading);font-size:0.95rem;">Best Studio — Midwest</div><div style="font-size:0.8rem;color:var(--th-text-muted);">Auto Detailing World · 2022, 2023, 2024</div></div></div>
       <div class="cert-badge"><div class="cert-logo"><i class="fas fa-star"></i></div><div><div style="font-weight:700;color:var(--th-heading);font-size:0.95rem;">Google 4.9★ Rating</div><div style="font-size:0.8rem;color:var(--th-text-muted);">1,200+ verified reviews · 2026</div></div></div>
       <div class="cert-badge"><div class="cert-logo"><i class="fas fa-leaf"></i></div><div><div style="font-weight:700;color:var(--th-heading);font-size:0.95rem;">Eco-Friendly Certified</div><div style="font-size:0.8rem;color:var(--th-text-muted);">Green Business Certification · 2020</div></div></div>
+      <div class="cert-badge"><div class="cert-logo"><i class="fas fa-users-line"></i></div><div><div style="font-weight:700;color:var(--th-heading);font-size:0.95rem;">SEMA Member</div><div style="font-size:0.8rem;color:var(--th-text-muted);">Specialty Equipment Market Association · 2021</div></div></div>
+      <div class="cert-badge"><div class="cert-logo"><i class="fas fa-screwdriver-wrench"></i></div><div><div style="font-weight:700;color:var(--th-heading);font-size:0.95rem;">RUPES Authorized</div><div style="font-size:0.8rem;color:var(--th-text-muted);">Authorized Paint Correction Center · 2019</div></div></div>
     </div>
   </div>
 </section>
 
 <!-- SECTION 8: CTA BANNER -->
-<section class="section section--card">
+<section class="section section--card" style="padding: 2.5rem 0;">
   <div class="container">
     <div class="cta-banner reveal">
       <h2 class="cta-banner__title"><i class="fas fa-car" style="margin-right:0.5rem;"></i> Experience the GlossForge Difference</h2>
