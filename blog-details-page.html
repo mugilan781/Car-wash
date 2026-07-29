@@ -906,10 +906,10 @@
     .newsletter-form .form-control {
       flex-grow: 1;
       height: 50px;
-      background: var(--th-input-bg);
+      background: #fff !important;
       border: 1.5px solid var(--th-input-border);
       border-radius: var(--r-md);
-      color: var(--th-heading);
+      color: #1e1e2f !important;
       padding: 0.75rem 1.25rem;
       font-size: 0.95rem;
       font-family: var(--font-secondary);
@@ -919,7 +919,7 @@
     }
     
     .newsletter-form .form-control::placeholder {
-      color: var(--th-text-muted);
+      color: #6b7280 !important;
       opacity: 0.95;
     }
     
@@ -1196,10 +1196,11 @@
           <h2 class="cta-banner__title"><i class="fas fa-envelope-open-text" style="color:var(--white);margin-right:0.6rem;vertical-align:middle;"></i>Subscribe to Detailing Updates</h2>
           <p class="cta-banner__text">Stay informed with professional paint care guides, new product insights, and exclusive subscriber wash discounts.</p>
           <div class="newsletter-box">
-            <form class="newsletter-form" onsubmit="event.preventDefault(); alert('Successfully registered for our care mailing list!'); this.reset();">
+            <form class="newsletter-form" onsubmit="event.preventDefault(); this.style.display='none'; this.parentElement.querySelector('.newsletter-success').style.display='flex';">
               <input class="form-control" type="email" placeholder="Your email address..." required aria-label="Email Address" />
               <button type="submit" class="btn btn-primary"><i class="fas fa-paper-plane"></i> Subscribe</button>
             </form>
+            <div class="newsletter-success" style="display:none;align-items:center;gap:0.75rem;background:rgba(255,255,255,0.12);padding:1rem 1.5rem;border-radius:var(--r-md);color:#fff;font-weight:600;justify-content:center;backdrop-filter:blur(4px);border:1px solid rgba(255,255,255,0.2);"><i class="fas fa-check-circle"></i> Successfully registered for our care mailing list!</div>
           </div>
         </div>
       </div>
