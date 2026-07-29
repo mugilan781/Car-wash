@@ -36,6 +36,41 @@
     .social-big-card .icon { font-size:2rem; margin-bottom:0.75rem; }
     .social-big-card .name { font-weight:700; color:var(--th-heading); margin-bottom:0.25rem; }
     .social-big-card .handle { font-size:0.825rem; color:var(--th-text-muted); }
+
+    /* Enhance contact card interaction and vertical alignment */
+    .contact-info-card {
+      align-items: center !important;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+    }
+    .contact-info-value {
+      font-size: 0.95rem !important;
+    }
+    .contact-info-card:hover {
+      transform: translateY(-5px) !important;
+      border-color: var(--cyan) !important;
+      box-shadow: var(--shadow-cyan) !important;
+    }
+    [data-theme="light"] .contact-info-card:hover {
+      border-color: var(--blue) !important;
+      box-shadow: 0 10px 25px rgba(37, 99, 235, 0.15) !important;
+    }
+
+    /* Active Nav Link prominence & theme contrast overrides */
+    .navbar__link.active {
+      color: var(--cyan) !important;
+      font-weight: 700 !important;
+    }
+    .navbar__link.active::after {
+      width: 80% !important;
+      background: var(--cyan) !important;
+      height: 3px !important;
+    }
+    [data-theme="light"] .navbar__link.active {
+      color: var(--blue) !important;
+    }
+    [data-theme="light"] .navbar__link.active::after {
+      background: var(--blue) !important;
+    }
   </style>
 </head>
 <body>
@@ -51,7 +86,7 @@
       <li class="navbar__item"><a href="services.html" class="navbar__link">Services</a></li>
       <li class="navbar__item"><a href="gallery.html" class="navbar__link">Gallery</a></li>
       <li class="navbar__item"><a href="blog.html" class="navbar__link">Blog</a></li>
-      <li class="navbar__item"><a href="contact.html" class="navbar__link">Contact</a></li>
+      <li class="navbar__item"><a href="contact.html" class="navbar__link active">Contact</a></li>
     </ul>
     <div class="navbar__actions">
       <div class="profile-dropdown-wrapper">
@@ -115,7 +150,7 @@
   <a href="services.html" class="navbar__link">Services</a>
   <a href="gallery.html" class="navbar__link">Gallery</a>
   <a href="blog.html" class="navbar__link">Blog</a>
-  <a href="contact.html" class="navbar__link">Contact</a>
+  <a href="contact.html" class="navbar__link active">Contact</a>
   <div style="display:flex;gap:1rem;margin-top:1.5rem;align-items:center;">
     <div class="profile-dropdown-wrapper">
       <button class="btn btn-outline profile-trigger" aria-label="User Profile" aria-haspopup="true" aria-expanded="false" style="width:44px;height:44px;">
@@ -167,7 +202,7 @@
       <h2 class="section-title">Get In <span>Touch</span></h2>
       <div class="divider"></div>
     </div>
-    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1.25rem;" class="stagger-group">
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(270px,1fr));gap:1.25rem;" class="stagger-group">
       <div class="contact-info-card">
         <div class="contact-info-icon"><i class="fas fa-phone"></i></div>
         <div>
@@ -351,35 +386,10 @@
   </div>
 </section>
 
-<!-- SECTION 6: BOOKING FORM -->
-<section class="section section--dark" id="booking">
-  <div class="container">
-    <div class="section-header reveal">
-      <div class="section-eyebrow">Service</div>
-      <h2 class="section-title">Book Your <span>Service</span></h2>
-      <p class="section-subtitle">Schedule online in under 2 minutes. We'll confirm via email and SMS.</p>
-      <div class="divider"></div>
-    </div>
-    <div class="booking-form reveal" style="max-width:800px;margin:0 auto;">
-      <form id="booking-form-contact" novalidate>
-        <div class="booking-form__grid">
-          <div class="form-group"><label class="form-label" for="b-fname">First Name *</label><input class="form-control" type="text" id="b-fname" name="first_name" placeholder="John" required /><span class="form-error">Required.</span></div>
-          <div class="form-group"><label class="form-label" for="b-lname">Last Name *</label><input class="form-control" type="text" id="b-lname" name="last_name" placeholder="Doe" required /><span class="form-error">Required.</span></div>
-          <div class="form-group"><label class="form-label" for="b-email">Email *</label><input class="form-control" type="email" id="b-email" name="email" placeholder="john@example.com" required /><span class="form-error">Valid email required.</span></div>
-          <div class="form-group"><label class="form-label" for="b-phone">Phone *</label><input class="form-control" type="tel" id="b-phone" name="phone" placeholder="+1 555 000 0000" required /><span class="form-error">Valid phone required.</span></div>
-          <div class="form-group"><label class="form-label" for="b-service">Service *</label><select class="form-control" id="b-service" name="service" required><option value="">Select service...</option><option>Express Wash — $29</option><option>Premium Detail — $89</option><option>Full Detail — $149</option><option>Ceramic Coating — $299+</option><option>Interior Clean — $99</option></select><span class="form-error">Please select a service.</span></div>
-          <div class="form-group"><label class="form-label" for="b-date">Date *</label><input class="form-control" type="date" id="b-date" name="date" required /><span class="form-error">Select a future date.</span></div>
-          <div class="form-group full"><label class="form-label" for="b-vehicle">Vehicle (Year / Make / Model)</label><input class="form-control" type="text" id="b-vehicle" name="vehicle" placeholder="e.g. 2022 BMW M3 Competition" /></div>
-          <div class="form-group full"><label class="form-label" for="b-notes">Notes</label><textarea class="form-control" id="b-notes" name="notes" rows="3" placeholder="Any special requests or areas to focus on?"></textarea></div>
-        </div>
-        <button type="submit" class="btn btn-primary w-full" style="margin-top:0.75rem;justify-content:center;"><i class="fas fa-calendar-check"></i> Confirm Service</button>
-      </form>
-    </div>
-  </div>
-</section>
+
 
 <!-- SECTION 7: FAQ -->
-<section class="section section--card" id="faq">
+<section class="section section--dark" id="faq">
   <div class="container">
     <div class="section-header reveal">
       <div class="section-eyebrow">Quick Answers</div>
@@ -403,7 +413,7 @@
 </section>
 
 <!-- SECTION 8: SOCIAL LINKS -->
-<section class="section section--dark" id="social">
+<section class="section section--card" id="social">
   <div class="container">
     <div class="section-header reveal">
       <div class="section-eyebrow">Stay Connected</div>
