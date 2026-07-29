@@ -738,8 +738,103 @@
         grid-template-columns: 1fr;
         gap: 1rem;
       }
+      
       .coverage-box {
         padding: 1.75rem;
+      }
+    }
+    
+    /* ─── Before/After Image Slider Improvements ─── */
+    .before-after-wrap {
+      border: 3px solid rgba(255, 255, 255, 0.08);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+      position: relative;
+    }
+    
+    .before-after-handle {
+      width: 4px !important;
+      background: linear-gradient(to bottom, var(--cyan), var(--blue)) !important;
+      box-shadow: 0 0 10px rgba(6, 182, 212, 0.5) !important;
+    }
+    
+    /* Custom premium drag indicator handle */
+    .before-after-handle::before {
+      content: '◀ ▶' !important;
+      font-size: 0.75rem !important;
+      color: var(--cyan) !important;
+      background: rgba(15, 23, 42, 0.9) !important;
+      border: 2.5px solid var(--cyan) !important;
+      width: 46px !important;
+      height: 46px !important;
+      border-radius: 50% !important;
+      position: absolute !important;
+      left: 50% !important;
+      top: 50% !important;
+      transform: translate(-50%, -50%) !important;
+      display: flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      box-shadow: 0 0 15px rgba(6, 182, 212, 0.4) !important;
+      backdrop-filter: blur(8px) !important;
+      cursor: col-resize !important;
+      z-index: 10 !important;
+      transition: all 0.3s ease !important;
+      animation: handlePulse 2.5s infinite !important;
+    }
+    
+    /* Hide the second pseudo element */
+    .before-after-handle::after {
+      display: none !important;
+    }
+    
+    .before-after-wrap:hover .before-after-handle::before {
+      background: var(--cyan) !important;
+      color: var(--black) !important;
+      border-color: var(--white) !important;
+      transform: translate(-50%, -50%) scale(1.1) !important;
+      box-shadow: 0 0 25px rgba(6, 182, 212, 0.6) !important;
+    }
+    
+    @keyframes handlePulse {
+      0% { box-shadow: 0 0 0 0 rgba(6, 182, 212, 0.6); }
+      70% { box-shadow: 0 0 0 10px rgba(6, 182, 212, 0); }
+      100% { box-shadow: 0 0 0 0 rgba(6, 182, 212, 0); }
+    }
+    
+    /* Floating drag instruction badge overlay */
+    .before-after-instruction {
+      position: absolute;
+      bottom: 1.5rem;
+      left: 50%;
+      transform: translateX(-50%);
+      background: rgba(15, 23, 42, 0.85);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      padding: 0.55rem 1.25rem;
+      border-radius: var(--r-full);
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: var(--white);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+      pointer-events: none; /* Allows pointer pass-through for dragging */
+      z-index: 5;
+      animation: bounceInstruction 2.5s infinite ease-in-out;
+      white-space: nowrap;
+    }
+    
+    @keyframes bounceInstruction {
+      0%, 100% { transform: translate(-50%, 0); }
+      50% { transform: translate(-50%, -6px); }
+    }
+    
+    @media (max-width: 480px) {
+      .before-after-instruction {
+        padding: 0.45rem 1rem;
+        font-size: 0.75rem;
+        bottom: 1rem;
       }
     }
   </style>
@@ -1203,8 +1298,14 @@
           <div class="before-after-handle"></div>
           <span class="ba-label ba-label-before">Before</span>
           <span class="ba-label ba-label-after">After</span>
+          
+          <!-- Floating interactive instruction guide -->
+          <div class="before-after-instruction">
+            <i class="fas fa-arrows-left-right" style="color: var(--cyan);"></i>
+            <span>Drag slider to compare</span>
+          </div>
         </div>
-        <p style="text-align:center;margin-top:1rem;font-size:0.875rem;color:var(--th-text-muted2);">← Drag to compare →</p>
+        <p style="text-align:center;margin-top:1rem;font-size:0.875rem;color:var(--th-text-muted2);display:none;">← Drag to compare →</p>
       </div>
     </div>
   </div>
