@@ -727,6 +727,12 @@ body * {
 /* ─── BACK TO TOP ─── */
 [data-theme="light"] .back-to-top { background: var(--grad-primary); color: #FFFFFF; }
 
+/* ─── PAYMENT RECEIPT ─── */
+[data-theme="light"] .payment-receipt__header h4 { color: #FFFFFF !important; }
+[data-theme="light"] .payment-receipt__body .order-summary__row span:first-child { color: #6B7280; }
+[data-theme="light"] .payment-receipt__body .order-summary__row span:last-child,
+[data-theme="light"] .payment-receipt__body .order-summary__row strong { color: #0F172A; }
+
 /* ─── NAVBAR TOGGLE HOVER ─── */
 [data-theme="light"] .navbar__toggle:hover { background: rgba(15,23,42,0.06); }
 

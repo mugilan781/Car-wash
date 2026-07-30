@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Complete your payment for GlossForge Detail booking. Secure payment with credit card, PayPal, Apple Pay, and Google Pay." />
+  <title>Payment | GlossForge Detail</title>
+  <link rel="icon" type="image/x-icon" href="assets/images/favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/images/favicon-16x16.png">
+  <link rel="apple-touch-icon" href="assets/images/apple-touch-icon.png">
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/animations.css" />
+  <link rel="stylesheet" href="css/theme.css" />
+  <link rel="stylesheet" href="css/rtl.css" />
+  <link rel="stylesheet" href="css/responsive.css" />
+  <script src="js/theme.js"></script>
+  <script src="js/rtl.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+</head>
+<body>
+
+<nav class="navbar navbar--transparent">
+  <div class="navbar__inner">
+    <a href="index.html" class="navbar__logo"><img src="assets/images/logo.png" alt="GlossForge Logo" class="navbar__logo-img"><span class="navbar__logo-text">Gloss<span>Forge</span></span></a>
+    <ul class="navbar__menu" role="list">
+      <li class="navbar__item"><a href="index.html" class="navbar__link">Home</a></li>
+      <li class="navbar__item"><a href="services.html" class="navbar__link">Services</a></li>
+      <li class="navbar__item"><a href="booking.html" class="navbar__link">Booking</a></li>
+      <li class="navbar__item"><a href="gallery.html" class="navbar__link">Gallery</a></li>
+      <li class="navbar__item"><a href="contact.html" class="navbar__link">Contact</a></li>
+    </ul>
+    <div class="navbar__actions">
+      <button class="theme-toggle" aria-label="Toggle Light / Dark Theme" title="Toggle theme">
+        <svg class="icon-sun" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="12" r="5"></circle>
+          <line x1="12" y1="1" x2="12" y2="3"></line>
+          <line x1="12" y1="21" x2="12" y2="23"></line>
+          <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+          <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+          <line x1="1" y1="12" x2="3" y2="12"></line>
+          <line x1="21" y1="12" x2="23" y2="12"></line>
+          <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+          <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+        </svg>
+        <svg class="icon-moon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+        </svg>
+      </button>
+      <button class="rtl-toggle" aria-label="Toggle RTL / LTR text direction" title="Toggle text direction">
+        <span class="rtl-toggle__label">RTL</span>
+      </button>
+      <a href="booking.html" class="btn btn-primary btn-sm">Book Service</a>
+      <button class="navbar__toggle"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</nav>
+
+<div class="navbar__mobile" role="dialog" aria-label="Mobile Navigation">
+  <button class="navbar__mobile-close" aria-label="Close menu" style="position:absolute;top:1.5rem;right:1.5rem;font-size:1.5rem;color:var(--white);background:none;border:none;cursor:pointer;">✕</button>
+  <a href="index.html" class="navbar__link">Home</a>
+  <a href="services.html" class="navbar__link">Services</a>
+  <a href="booking.html" class="navbar__link">Booking</a>
+  <a href="gallery.html" class="navbar__link">Gallery</a>
+  <a href="contact.html" class="navbar__link">Contact</a>
+  <div style="display:flex;gap:1rem;margin-top:1.5rem;align-items:center;">
+    <a href="booking.html" class="btn btn-primary">Book Service</a>
+  </div>
+</div>
+
+<section class="page-hero">
+  <div class="bg-glow bg-glow--cyan" style="width:600px;height:600px;left:50%;transform:translateX(-50%);top:-200px;"></div>
+  <div class="container" style="position:relative;z-index:1;">
+    <div class="page-hero__eyebrow"><i class="fas fa-lock"></i> SECURE CHECKOUT</div>
+    <h1 class="page-hero__title"><span class="text-gradient">Payment</span></h1>
+    <p class="page-hero__subtitle">Complete your payment to secure your booking.</p>
+    <div class="page-hero__breadcrumb"><a href="index.html">Home</a><span>›</span><a href="booking.html">Booking</a><span>›</span><span>Payment</span></div>
+  </div>
+</section>
+
+<section class="section section--dark" id="payment-section">
+  <div class="container">
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:2rem;align-items:start;" class="payment-layout">
+      <!-- LEFT: Payment Methods -->
+      <div class="reveal">
+        <div class="section-eyebrow" style="justify-content:flex-start;margin-bottom:0.75rem;">Secure Payment</div>
+        <h2 class="section-title" style="font-size:1.5rem;margin-bottom:0.5rem;">Choose <span>Payment Method</span></h2>
+        <p class="section-subtitle" style="text-align:left;margin:0 0 1.5rem 0;font-size:0.9rem;">All transactions are encrypted and secure.</p>
+
+        <div class="payment-methods" id="payment-methods">
+          <label class="payment-method">
+            <input type="radio" name="payment" value="card" checked />
+            <div class="payment-method__inner">
+              <div class="payment-method__icon"><i class="fas fa-credit-card"></i></div>
+              <div class="payment-method__info">
+                <span class="payment-method__name">Credit / Debit Card</span>
+                <span class="payment-method__desc">Visa, Mastercard, Amex</span>
+              </div>
+              <div class="payment-method__check"><i class="fas fa-check-circle"></i></div>
+            </div>
+          </label>
+          <label class="payment-method">
+            <input type="radio" name="payment" value="paypal" />
+            <div class="payment-method__inner">
+              <div class="payment-method__icon"><i class="fab fa-paypal"></i></div>
+              <div class="payment-method__info">
+                <span class="payment-method__name">PayPal</span>
+                <span class="payment-method__desc">Pay with your PayPal account</span>
+              </div>
+              <div class="payment-method__check"><i class="fas fa-check-circle"></i></div>
+            </div>
+          </label>
+          <label class="payment-method">
+            <input type="radio" name="payment" value="applepay" />
+            <div class="payment-method__inner">
+              <div class="payment-method__icon"><i class="fab fa-apple-pay"></i></div>
+              <div class="payment-method__info">
+                <span class="payment-method__name">Apple Pay</span>
+                <span class="payment-method__desc">Fast checkout with Touch ID</span>
+              </div>
+              <div class="payment-method__check"><i class="fas fa-check-circle"></i></div>
+            </div>
+          </label>
+          <label class="payment-method">
+            <input type="radio" name="payment" value="googlepay" />
+            <div class="payment-method__inner">
+              <div class="payment-method__icon"><i class="fab fa-google-pay"></i></div>
+              <div class="payment-method__info">
+                <span class="payment-method__name">Google Pay</span>
+                <span class="payment-method__desc">Fast checkout with Google</span>
+              </div>
+              <div class="payment-method__check"><i class="fas fa-check-circle"></i></div>
+            </div>
+          </label>
+        </div>
+
+        <!-- Card details form (shown when card selected) -->
+        <div class="card-form" id="card-form">
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;">
+            <div class="form-group full" style="grid-column:1/-1;">
+              <label class="form-label">Card Number</label>
+              <input class="form-control" type="text" id="card-number" placeholder="1234 5678 9012 3456" maxlength="19" />
+            </div>
+            <div class="form-group">
+              <label class="form-label">Expiry Date</label>
+              <input class="form-control" type="text" id="card-expiry" placeholder="MM/YY" maxlength="5" />
+            </div>
+            <div class="form-group">
+              <label class="form-label">CVV</label>
+              <input class="form-control" type="text" id="card-cvv" placeholder="123" maxlength="4" />
+            </div>
+            <div class="form-group full" style="grid-column:1/-1;">
+              <label class="form-label">Cardholder Name</label>
+              <input class="form-control" type="text" id="card-name" placeholder="John Doe" />
+            </div>
+          </div>
+        </div>
+
+        <button class="btn btn-primary btn-lg w-full" id="pay-btn" style="justify-content:center;margin-top:1rem;">
+          <i class="fas fa-lock"></i> Pay <span id="pay-amount">$0</span>
+        </button>
+        <p style="text-align:center;font-size:0.8rem;color:var(--th-text-muted2);margin-top:0.75rem;">
+          <i class="fas fa-shield-halved"></i> Your payment information is secure and encrypted
+        </p>
+      </div>
+
+      <!-- RIGHT: Order Summary -->
+      <div class="reveal delay-1">
+        <div class="order-summary" id="order-summary">
+          <div class="order-summary__header">
+            <h3><i class="fas fa-receipt"></i> Booking Summary</h3>
+          </div>
+          <div class="order-summary__body">
+            <div class="order-summary__row">
+              <span>Reference</span>
+              <strong id="os-id">—</strong>
+            </div>
+            <div class="order-summary__divider"></div>
+            <div class="order-summary__row">
+              <span>Service</span>
+              <span id="os-service">—</span>
+            </div>
+            <div class="order-summary__row">
+              <span>Date</span>
+              <span id="os-date">—</span>
+            </div>
+            <div class="order-summary__row">
+              <span>Vehicle</span>
+              <span id="os-vehicle">—</span>
+            </div>
+            <div class="order-summary__row">
+              <span>Customer</span>
+              <span id="os-name">—</span>
+            </div>
+            <div class="order-summary__divider"></div>
+            <div class="order-summary__row order-summary__total">
+              <span>Total</span>
+              <strong id="os-total">—</strong>
+            </div>
+          </div>
+          <div class="order-summary__footer">
+            <i class="fas fa-shield"></i> Secure SSL Encrypted
+          </div>
+        </div>
+
+        <div class="payment-guarantee" style="margin-top:1rem;padding:1rem 1.25rem;background:var(--th-card);border:1px solid var(--th-border);border-radius:var(--r-md);display:flex;gap:0.75rem;align-items:flex-start;">
+          <div style="font-size:1.5rem;color:var(--cyan);flex-shrink:0;"><i class="fas fa-hand-holding-heart"></i></div>
+          <div>
+            <strong style="color:var(--th-heading);font-size:0.9rem;">Satisfaction Guaranteed</strong>
+            <p style="font-size:0.8rem;margin:0;color:var(--th-text-muted2);">Not satisfied? We'll make it right or refund your payment.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PAYMENT SUCCESS (hidden initially) -->
+<section class="section section--dark" id="payment-success" style="display:none;">
+  <div class="container">
+    <div style="max-width:700px;margin:0 auto;text-align:center;">
+      <div class="payment-success__icon"><i class="fas fa-circle-check"></i></div>
+      <h2 class="section-title" style="margin-bottom:0.5rem;">Payment <span>Successful!</span></h2>
+      <p style="color:var(--th-text-muted);margin-bottom:2rem;">Your booking has been paid and confirmed. A receipt has been sent to your email.</p>
+
+      <div class="payment-receipt" id="payment-receipt" style="text-align:left;margin-bottom:2rem;">
+        <div class="payment-receipt__header">
+          <h4><i class="fas fa-receipt"></i> Payment Receipt</h4>
+        </div>
+        <div class="payment-receipt__body">
+          <div class="order-summary__row"><span>Booking Reference</span><strong id="receipt-id">—</strong></div>
+          <div class="order-summary__divider"></div>
+          <div class="order-summary__row"><span>Service</span><span id="receipt-service">—</span></div>
+          <div class="order-summary__row"><span>Date</span><span id="receipt-date">—</span></div>
+          <div class="order-summary__row"><span>Payment Method</span><span id="receipt-method">—</span></div>
+          <div class="order-summary__divider"></div>
+          <div class="order-summary__row order-summary__total"><span>Amount Paid</span><strong id="receipt-total">—</strong></div>
+        </div>
+      </div>
+
+      <!-- RATING / REVIEW SECTION -->
+      <div class="review-section" id="review-section">
+        <div class="section-eyebrow" style="justify-content:center;">Share Your Feedback</div>
+        <h3 class="section-title" style="font-size:1.3rem;margin-bottom:1rem;">Rate Your <span>Experience</span></h3>
+        <p style="color:var(--th-text-muted);font-size:0.9rem;margin-bottom:1.5rem;">Help us improve by rating your booking experience.</p>
+
+        <div class="star-rating" id="star-rating">
+          <i class="fas fa-star" data-star="1"></i>
+          <i class="fas fa-star" data-star="2"></i>
+          <i class="fas fa-star" data-star="3"></i>
+          <i class="fas fa-star" data-star="4"></i>
+          <i class="fas fa-star" data-star="5"></i>
+        </div>
+        <div class="star-rating__label" id="star-label">Select a rating</div>
+
+        <div class="form-group" style="margin-top:1.25rem;">
+          <textarea class="form-control" id="review-text" rows="3" placeholder="Tell us about your experience... (optional)" style="max-width:500px;margin:0 auto;"></textarea>
+        </div>
+
+        <button class="btn btn-primary" id="submit-review" style="justify-content:center;">
+          <i class="fas fa-paper-plane"></i> Submit Review
+        </button>
+
+        <div class="review-thanks" id="review-thanks" style="display:none;margin-top:2rem;padding:2rem;background:var(--th-card);border:1px solid var(--th-border);border-radius:var(--r-lg);">
+          <div style="font-size:3rem;color:#10B981;margin-bottom:1rem;"><i class="fas fa-heart"></i></div>
+          <h4 style="color:var(--th-heading);margin-bottom:0.5rem;">Thank You for Your Feedback!</h4>
+          <p style="color:var(--th-text-muted);font-size:0.9rem;">Your review helps us deliver better service.</p>
+        </div>
+
+        <div style="margin-top:2rem;display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;">
+          <a href="index.html" class="btn btn-primary"><i class="fas fa-home"></i> Back to Home</a>
+          <a href="booking.html" class="btn btn-dark"><i class="fas fa-calendar-plus"></i> Book Another Service</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="footer" role="contentinfo">
+  <div class="container">
+    <div class="footer__grid">
+      <div class="footer__brand">
+        <a href="index.html" class="navbar__logo" style="margin-bottom:1rem;display:inline-flex;">
+          <img src="assets/images/logo.png" alt="GlossForge Logo" class="navbar__logo-img" style="height: 40px;">
+          <span class="navbar__logo-text">Gloss<span>Forge</span></span>
+        </a>
+        <p>Detroit's premier auto detailing studio. We deliver showroom-quality results with cutting-edge technology and unmatched attention to detail.</p>
+        <div class="social-links">
+          <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+          <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+          <a href="https://x.com" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+          <a href="https://youtube.com" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+        </div>
+      </div>
+      <div class="footer__col-company">
+        <div class="footer__heading">COMPANY</div>
+        <nav class="footer__links" aria-label="Footer Navigation">
+          <a href="index.html" class="footer__link"><i class="fas fa-chevron-right"></i> Home</a>
+          <a href="about.html" class="footer__link"><i class="fas fa-chevron-right"></i> About Us</a>
+          <a href="services.html" class="footer__link"><i class="fas fa-chevron-right"></i> Services</a>
+          <a href="gallery.html" class="footer__link"><i class="fas fa-chevron-right"></i> Gallery</a>
+          <a href="contact.html" class="footer__link"><i class="fas fa-chevron-right"></i> Contact</a>
+        </nav>
+      </div>
+      <div>
+        <div class="footer__heading">CONTACT</div>
+        <div class="footer__contact-list">
+          <div class="footer__contact-item">
+            <i class="fas fa-map-marker-alt" aria-hidden="true"></i>
+            <span>4520 Auto Blvd, Detroit, MI 48201</span>
+          </div>
+          <div class="footer__contact-item">
+            <i class="fas fa-phone" aria-hidden="true"></i>
+            <a href="tel:+15551234567">+1 (555) 123-4567</a>
+          </div>
+          <div class="footer__contact-item">
+            <i class="fas fa-envelope" aria-hidden="true"></i>
+            <a href="mailto:info@GlossForge.com">info@GlossForge.com</a>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div class="footer__heading">NEWSLETTER</div>
+        <p class="footer__newsletter-desc">Get exclusive offers and detailing tips in your inbox.</p>
+        <div class="footer__newsletter">
+          <input type="email" placeholder="Your email..." aria-label="Email for newsletter" />
+          <button type="button">→</button>
+        </div>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <p>© 2026 GlossForge Detail. All rights reserved.</p>
+      <div class="footer__legal">
+        <a href="privacy.html" class="footer__legal-link">Privacy Policy</a>
+        <span class="footer__legal-divider">|</span>
+        <a href="terms.html" class="footer__legal-link">Terms & Conditions</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<button class="back-to-top"><i class="fas fa-chevron-up"></i></button>
+<script src="js/main.js"></script>
+<script src="js/payment.js"></script>
+</body>
+</html>

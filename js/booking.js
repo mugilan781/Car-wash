@@ -1,9 +1,15 @@
-/* ============================================================
-   BOOKING.JS — Booking Form Validation
-   ============================================================ */
-
 (function () {
   'use strict';
+
+  function generateBookingId() {
+    const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
+    let id = 'GF-';
+    for (let i = 0; i < 8; i++) {
+      if (i === 4) id += '-';
+      id += chars.charAt(Math.floor(Math.random() * chars.length));
+    }
+    return id;
+  }
 
   function validateField(input) {
     const value = input.value.trim();
@@ -34,6 +40,28 @@
     if (errEl) errEl.textContent = msg;
   }
 
+  function showLoader(show) {
+    let overlay = document.querySelector('.booking-loader-overlay');
+    if (show) {
+      if (!overlay) {
+        overlay = document.createElement('div');
+        overlay.className = 'booking-loader-overlay';
+        overlay.innerHTML = `
+          <div class="booking-loader">
+            <div class="booking-loader__ring"></div>
+            <div class="booking-loader__ring-inner"></div>
+            <div class="booking-loader__icon"><i class="fas fa-car"></i></div>
+            <div class="booking-loader__text">Processing Your Booking</div>
+            <div class="booking-loader__dots"><span></span><span></span><span></span></div>
+          </div>`;
+        document.body.appendChild(overlay);
+      }
+      overlay.classList.add('active');
+    } else {
+      if (overlay) overlay.classList.remove('active');
+    }
+  }
+
   function initBookingForm(formSelector) {
     const form = document.querySelector(formSelector);
     if (!form) return;
@@ -42,7 +70,6 @@
     const submitBtn = form.querySelector('[type="submit"]');
     const originalBtnText = submitBtn?.innerHTML;
 
-    // Real-time validation
     inputs.forEach(input => {
       input.addEventListener('blur',  () => validateField(input));
       input.addEventListener('input', () => {
@@ -50,7 +77,6 @@
       });
     });
 
-    // Submit
     form.addEventListener('submit', async (e) => {
       e.preventDefault();
 
@@ -66,26 +92,54 @@
         return;
       }
 
-      // Loading state
-      if (submitBtn) {
-        submitBtn.disabled = true;
-        submitBtn.innerHTML = '<span class="spinner"></span> Booking...';
-      }
+      // Collect form data
+      const formData = {
+        firstName: document.getElementById('b-fname')?.value.trim() || '',
+        lastName: document.getElementById('b-lname')?.value.trim() || '',
+        email: document.getElementById('b-email')?.value.trim() || '',
+        phone: document.getElementById('b-phone')?.value.trim() || '',
+        service: document.getElementById('b-service')?.value || '',
+        date: document.getElementById('b-date')?.value || '',
+        vehicle: document.getElementById('b-vehicle')?.value.trim() || '',
+        notes: document.getElementById('b-notes')?.value.trim() || '',
+        bookingId: generateBookingId(),
+        timestamp: new Date().toISOString()
+      };
+
+      // Show full-page loader
+      showLoader(true);
 
       // Simulate API call
-      await new Promise(r => setTimeout(r, 2000));
+      await new Promise(r => setTimeout(r, 2500));
 
-      // Success
+      // Hide loader
+      showLoader(false);
+
+      // Save to localStorage
+      localStorage.setItem('glossforge_booking', JSON.stringify(formData));
+
+      // Show confirmation with booking ID + payment button
       form.innerHTML = `
-        <div style="text-align:center;padding:3rem 1rem;">
-          <div style="font-size:4rem;margin-bottom:1rem;color:#10B981;"><i class="fas fa-circle-check"></i></div>
-          <h3 style="color:var(--white);margin-bottom:0.75rem;font-size:1.5rem;">Booking Confirmed!</h3>
-          <p style="color:var(--gray-400);margin-bottom:1.5rem;">
-            Your service has been booked successfully. A confirmation email has been sent to your registered email address.
-          </p>
-          <a href="index.html" class="btn btn-primary">← Back to Home</a>
+        <div class="booking-success">
+          <div class="booking-success__icon"><i class="fas fa-circle-check"></i></div>
+          <h3 class="booking-success__title">Booking Confirmed!</h3>
+          <div class="booking-success__id">
+            <span class="booking-success__id-label">Reference Number</span>
+            <span class="booking-success__id-value">${formData.bookingId}</span>
+          </div>
+          <div class="booking-success__details">
+            <div class="booking-success__detail"><span>Service</span><span>${formData.service}</span></div>
+            <div class="booking-success__detail"><span>Date</span><span>${new Date(formData.date).toLocaleDateString('en-US', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' })}</span></div>
+            <div class="booking-success__detail"><span>Vehicle</span><span>${formData.vehicle || 'Not specified'}</span></div>
+            <div class="booking-success__detail"><span>Name</span><span>${formData.firstName} ${formData.lastName}</span></div>
+          </div>
+          <p class="booking-success__msg">A confirmation email has been sent to <strong>${formData.email}</strong>. Please proceed to payment to secure your booking.</p>
+          <div class="booking-success__actions">
+            <a href="payment.html" class="btn btn-primary btn-lg"><i class="fas fa-credit-card"></i> Proceed to Payment</a>
+            <a href="index.html" class="btn btn-dark"><i class="fas fa-arrow-left"></i> Back to Home</a>
+          </div>
         </div>`;
-      showToast('Booking confirmed successfully!', 'success');
+      showToast(`Booking ${formData.bookingId} confirmed!`, 'success');
     });
   }
 
@@ -113,7 +167,6 @@
       if (submitBtn) { submitBtn.disabled = true; submitBtn.innerHTML = '<span class="spinner"></span> Sending...'; }
       await new Promise(r => setTimeout(r, 1800));
 
-      // Success
       form.innerHTML = `
         <div style="text-align:center;padding:3rem 1rem;">
           <div style="font-size:4rem;margin-bottom:1rem;color:#10B981;"><i class="fas fa-circle-check"></i></div>
@@ -134,13 +187,11 @@
 
     const inputs    = form.querySelectorAll('input');
     const submitBtn = form.querySelector('[type="submit"]');
-    const originalText = submitBtn?.textContent;
 
     inputs.forEach(input => {
       input.addEventListener('blur',  () => validateField(input));
       input.addEventListener('input', () => {
         if (input.classList.contains('is-invalid')) validateField(input);
-        // Password match for signup
         if (!isLogin) {
           const pw1 = form.querySelector('[name="password"]');
           const pw2 = form.querySelector('[name="confirm_password"]');
@@ -175,7 +226,6 @@
       }
     });
 
-    // Password toggle
     form.querySelectorAll('.password-toggle').forEach(btn => {
       btn.addEventListener('click', () => {
         const input = btn.previousElementSibling;
@@ -195,10 +245,8 @@
     initAuthForm('#signup-form', false);
   });
 
-  // Expose for toast
   function showToast(msg, type) {
     if (window.showToast) window.showToast(msg, type);
   }
 
 })();
-

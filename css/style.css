@@ -1159,6 +1159,198 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 .divider-text::before { left: 0; }
 .divider-text::after  { right: 0; }
 
+/* ─── BOOKING SUCCESS ─── */
+.booking-success { text-align: center; padding: 2rem 1rem; }
+.booking-success__icon { font-size: 4rem; margin-bottom: 1rem; color: #10B981; animation: scaleIn 0.5s ease; }
+.booking-success__title { color: var(--th-heading); margin-bottom: 0.75rem; font-size: 1.5rem; }
+.booking-success__id {
+  display: inline-flex; flex-direction: column; align-items: center;
+  margin: 1.25rem auto; padding: 1rem 2rem;
+  background: rgba(6,182,212,0.08); border: 1.5px dashed var(--cyan);
+  border-radius: var(--r-lg);
+}
+.booking-success__id-label { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.12em; color: var(--th-text-muted2); font-weight: 600; }
+.booking-success__id-value { font-size: 1.5rem; font-weight: 800; color: var(--cyan); letter-spacing: 0.08em; font-family: monospace; margin-top: 0.25rem; }
+.booking-success__details {
+  max-width: 400px; margin: 0 auto 1.5rem;
+  background: var(--th-card); border: 1px solid var(--th-border);
+  border-radius: var(--r-md); overflow: hidden;
+}
+.booking-success__detail {
+  display: flex; justify-content: space-between; padding: 0.75rem 1.25rem;
+  font-size: 0.875rem; color: var(--th-text);
+  border-bottom: 1px solid var(--th-border);
+}
+.booking-success__detail:last-child { border-bottom: none; }
+.booking-success__detail span:first-child { color: var(--th-text-muted2); font-weight: 500; }
+.booking-success__detail span:last-child { color: var(--th-heading); font-weight: 600; text-align: right; }
+.booking-success__msg { color: var(--th-text-muted); font-size: 0.9rem; margin-bottom: 1.5rem; line-height: 1.6; }
+.booking-success__actions { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+
+/* ─── FULL-PAGE LOADER ─── */
+.booking-loader-overlay {
+  position: fixed; inset: 0; z-index: 99999;
+  background: rgba(0,0,0,0.85);
+  backdrop-filter: blur(8px);
+  display: flex; align-items: center; justify-content: center;
+  opacity: 0; visibility: hidden;
+  transition: opacity 0.35s ease, visibility 0.35s ease;
+}
+.booking-loader-overlay.active { opacity: 1; visibility: visible; }
+.booking-loader {
+  position: relative; display: flex; flex-direction: column;
+  align-items: center; gap: 1.5rem;
+}
+.booking-loader__ring {
+  width: 100px; height: 100px; border-radius: 50%;
+  border: 3px solid rgba(6,182,212,0.15);
+  border-top-color: var(--cyan);
+  animation: spin 1s linear infinite;
+  position: absolute;
+}
+.booking-loader__ring-inner {
+  width: 70px; height: 70px; border-radius: 50%;
+  border: 3px solid rgba(37,99,235,0.12);
+  border-bottom-color: var(--blue);
+  animation: spin 0.8s linear infinite reverse;
+  position: absolute;
+  top: 15px; left: 15px;
+}
+.booking-loader__icon {
+  width: 50px; height: 50px; border-radius: 50%;
+  background: var(--grad-primary);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.3rem; color: var(--white);
+  position: relative; z-index: 1;
+  animation: neonPulse 2s ease-in-out infinite;
+}
+.booking-loader__text {
+  color: var(--white); font-size: 1.1rem; font-weight: 600;
+  letter-spacing: 0.04em;
+}
+.booking-loader__dots { display: flex; gap: 6px; }
+.booking-loader__dots span {
+  width: 8px; height: 8px; border-radius: 50%;
+  background: var(--cyan); display: inline-block;
+  animation: loaderDot 1.4s ease-in-out infinite both;
+}
+.booking-loader__dots span:nth-child(1) { animation-delay: 0s; }
+.booking-loader__dots span:nth-child(2) { animation-delay: 0.16s; }
+.booking-loader__dots span:nth-child(3) { animation-delay: 0.32s; }
+@keyframes loaderDot {
+  0%, 80%, 100% { transform: scale(0.6); opacity: 0.3; }
+  40% { transform: scale(1); opacity: 1; }
+}
+
+/* ─── PAYMENT PAGE ─── */
+.payment-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  align-items: start;
+}
+.payment-methods { display: flex; flex-direction: column; gap: 0.75rem; margin-bottom: 1.5rem; }
+.payment-method { cursor: pointer; }
+.payment-method input { position: absolute; opacity: 0; pointer-events: none; }
+.payment-method__inner {
+  display: flex; align-items: center; gap: 1rem;
+  padding: 1rem 1.25rem;
+  background: var(--th-card); border: 1.5px solid var(--th-border);
+  border-radius: var(--r-md); transition: var(--t-fast);
+}
+.payment-method input:checked + .payment-method__inner {
+  border-color: var(--blue);
+  background: rgba(37,99,235,0.06);
+  box-shadow: 0 0 0 3px rgba(37,99,235,0.1);
+}
+.payment-method__icon {
+  width: 44px; height: 44px; border-radius: var(--r-sm);
+  background: rgba(37,99,235,0.1); color: var(--blue);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.4rem; flex-shrink: 0;
+}
+.payment-method input:checked + .payment-method__inner .payment-method__icon {
+  background: var(--blue); color: var(--white);
+}
+.payment-method__info { flex: 1; display: flex; flex-direction: column; }
+.payment-method__name { font-size: 0.95rem; font-weight: 600; color: var(--th-heading); }
+.payment-method__desc { font-size: 0.8rem; color: var(--th-text-muted2); margin-top: 0.1rem; }
+.payment-method__check { font-size: 1.2rem; color: transparent; transition: var(--t-fast); }
+.payment-method input:checked + .payment-method__inner .payment-method__check { color: var(--blue); }
+
+/* Card form */
+.card-form { margin-bottom: 1rem; }
+
+/* Order summary */
+.order-summary {
+  background: var(--th-card); border: 1px solid var(--th-border);
+  border-radius: var(--r-xl); overflow: hidden;
+  position: sticky; top: calc(var(--navbar-h) + 2rem);
+}
+.order-summary__header {
+  padding: 1.25rem 1.5rem;
+  border-bottom: 1px solid var(--th-border);
+  background: var(--th-section-dark);
+}
+.order-summary__header h3 { font-size: 1.1rem; color: var(--th-heading); display: flex; align-items: center; gap: 0.6rem; }
+.order-summary__body { padding: 1.25rem 1.5rem; }
+.order-summary__row {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 0.65rem 0; font-size: 0.9rem;
+}
+.order-summary__row span:first-child { color: var(--th-text-muted2); }
+.order-summary__row span:last-child, .order-summary__row strong { color: var(--th-heading); font-weight: 600; }
+.order-summary__total { border-top: 1px solid var(--th-border); margin-top: 0.5rem; padding-top: 1rem; }
+.order-summary__total span:first-child { font-size: 1rem; font-weight: 700; color: var(--th-heading); }
+.order-summary__total strong { font-size: 1.25rem; color: var(--cyan); }
+.order-summary__divider { height: 1px; background: var(--th-border); margin: 0.25rem 0; }
+.order-summary__footer {
+  padding: 1rem 1.5rem; text-align: center;
+  font-size: 0.8rem; color: var(--th-text-muted2);
+  border-top: 1px solid var(--th-border);
+  display: flex; align-items: center; justify-content: center; gap: 0.5rem;
+}
+
+/* Payment success */
+.payment-success__icon { font-size: 5rem; color: #10B981; margin-bottom: 1.5rem; animation: scaleIn 0.5s ease; }
+
+/* Payment receipt */
+.payment-receipt {
+  max-width: 480px; margin: 0 auto;
+  background: var(--th-card); border: 1px solid var(--th-border);
+  border-radius: var(--r-xl); overflow: hidden;
+}
+.payment-receipt__header {
+  padding: 1.25rem 1.5rem;
+  border-bottom: 1px solid var(--th-border);
+  background: var(--grad-primary);
+}
+.payment-receipt__header h4 { color: #FFFFFF; font-size: 1rem; display: flex; align-items: center; gap: 0.6rem; }
+.payment-receipt__body { padding: 1.25rem 1.5rem; }
+.payment-receipt__body .order-summary__row span:first-child { color: var(--th-text-muted); }
+.payment-receipt__body .order-summary__row span:last-child,
+.payment-receipt__body .order-summary__row strong { color: var(--th-heading); }
+
+/* Star rating */
+.star-rating { display: flex; gap: 0.5rem; justify-content: center; margin-bottom: 0.75rem; }
+.star-rating i {
+  font-size: 2.2rem; cursor: pointer;
+  color: var(--th-border);
+  transition: color 0.2s ease, transform 0.2s ease;
+}
+.star-rating i.hover, .star-rating i.active { color: #FBBF24; }
+.star-rating i:hover { transform: scale(1.2); }
+.star-rating i.active { transform: scale(1.1); }
+.star-rating i.hover { transform: scale(1.15); }
+.star-rating__label {
+  text-align: center; font-size: 0.9rem; color: var(--th-text-muted2);
+  margin-bottom: 0.5rem; font-weight: 600;
+}
+
+/* Review section */
+.review-section { max-width: 550px; margin: 0 auto; }
+.review-thanks { animation: scaleIn 0.5s ease; }
+
 /* ─── 404 PAGE ─── */
 .error-page {
   min-height: 100vh; display: flex; align-items: center; justify-content: center;
@@ -1301,6 +1493,8 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   .split { grid-template-columns: 1fr; }
   .split--reverse { direction: ltr; }
   .pricing-card.featured { transform: scale(1); }
+  .payment-layout { grid-template-columns: 1fr; }
+  .order-summary { position: static; }
 }
 
 @media (max-width: 768px) {
